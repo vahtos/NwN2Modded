@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<UIScene name="SCREEN_CHARCHOICE" idleexpiretime="60.0" fadeout="0.3" fadein="0.3" width=SCREEN_WIDTH height=SCREEN_HEIGHT priority="SCENE_FE_FULLSCREEN" fullscreen=true 
+		 OnAdd=UIScene_OnAdd_InitCharChoice()
+/>
+	
+	<UIPane name="BUTTON_CONTAINER" x=ALIGN_CENTER y=443 width=224 height=227 usescalar=true >
+		<UIButton name="CREATE_CHAR" strref="163" x=0 y=0 style="STYLE_MENU_BUTTON_L"
+			OnLeftClick=UIButton_Input_StartCharacterGeneration("SCREEN_CHARGEN_RACE") >
+		</UIButton>
+
+		<UIButton name="SELECT_PREGEN_CHAR" strref="181266" x=0 y=46 style="STYLE_MENU_BUTTON_L"
+			OnLeftClick=UIButton_Input_ScreenOpen("SCREEN_CHARACTERLIST") >
+		</UIButton>
+		
+		<UIButton name="CANCEL_BUTTON" strref="67" x=0 y=92 style="STYLE_MENU_BUTTON_L"
+			OnLeftClick=UIButton_Input_PregameCancel("SCREEN_MAINMENU","SCREEN_MULTIPLAYERMENU","false","true") >
+		</UIButton>
+	</UIPane>
+
+	<!-- Background Image -->
+	<UIIcon img="main_background_nx2.tga" x=0 y=0 width=1024 height=768 scalewithscene=true />

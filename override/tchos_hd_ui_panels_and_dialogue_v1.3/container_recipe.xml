@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8">
+
+<UIScene name="SCREEN_CONTAINER_RECIPE" OnAdd=UIScene_Misc_RequestContainerUpdates("true") x=425 y=20 width=509 height=782 fadeout="0.3" fadein="0.3"
+	draggable=true backoutkey=true OnUpdate=UIScene_OnUpdate_UpdateClosureFlag() 
+	OnRemove=UIScene_Misc_RequestContainerUpdates("false") priority="SCENE_INGAME" OnBackout=UIScene_OnBackout_CloseContainer() />
+
+	<UIIcon name="CONTAINER_ICON" img="container_book.tga" x=0 y=0 width=78 height=71 />
+
+<!-- Container Listbox
+		To add tooltips back in, add the following callback to the prototype pane.  I took it off because it did
+		not show any *NEW* information.
+
+		This XML controls the style of the Storm of Zehir recipe container-books
+
+			OnToolTip=UIObject_Tooltip_DisplayObject(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT)
+	-->
+	<UIButton name="CloseButton" x=471 y=7 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIButton_Input_CloseContainer()>
+	</UIButton>
+	
+	<UIListbox name="CONTAINER_LISTBOX" x=20 y=68 width=470 height=700 yPadding=1 xPadding=0
+		showpartialchild=false scrollbaronright=true unequalcontrols=false scrollsegmentsize=1
+		update=true OnUpdate=UIListbox_OnUpdate_UpdateContainer() hidescrollbarwhennotneeded="true"
+		OnMouseDropReceived=UIButton_OnDropReceived_SetContainerSlot() >
+
+		<UIPane name="ITEM_PROTOTYPE" width=400 height=40 tupple=true prototype=true draggable=false
+			OnMouseDropFailed=UIButton_OnDropFailed_DropContainerItem()
+			OnRadialRequest=UIObject_OnRadial_DisplayInventoryRadial()
+			OnLeftDoubleClick=UIButton_Input_InventoryButtonActivate()
+			OnRightClick=UIObject_OnRadial_DisplayInventoryRadial() >
+
+			<UIButton name="ITEM_ICON_PROTOTYPE" x=0 y=0 style="STYLE_LOOT_ICON" prototype=true draggable=true
+				OnMouseDropReceived=UIButton_OnDropReceived_SetContainerSlot()
+				OnUpdate=UIButton_OnUpdate_UpdateLootSlot()
+				OnLeftClick=UIButton_Input_InventoryButtonActivate() 
+				OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+				OnRadialRequest=UIObject_OnRadial_DisplayInventoryRadial() >
+				<UIText align=right valign=bottom fontfamily="Special_Font" style="1"/>
+			</UIButton>
+
+			<UIButton name="ITEM_TEXT_PROTOTYPE" x=40 y=0 width=406 style="STYLE_LOOT_TEXT" prototype=true draggable=false
+				OnMouseDropReceived=UIButton_OnDropReceived_SetContainerSlot()  OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+				OnRadialRequest=UIObject_OnRadial_DisplayInventoryRadial() OnLeftDoubleClick=UIButton_Input_InventoryButtonActivate() >
+					<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListbox>
+
+<!--	<UIPane name="BUTTON_CONTATINER" x=ALIGN_CENTER y="322" width="194" height="28" >
+		<UIButton name="LOOT_ALL" strref="182901" x=0 y=ALIGN_CENTER 
+			OnLeftClick=UIButton_Input_LootAll()
+			style="STYLE_LARGE_BUTTON" >
+		</UIButton>
+	</UIPane> -->
+
+	<!-- Container Name -->	
+	<UIText name="ContainerName" x=70 y=4 width=485 height=31 align=left valign=middle fontfamily="Title_Font" style="1"
+		update=true OnUpdate=UIObject_OnUpdate_GetContainerName()/>
+
+	<!-- BACKGROUND -->
+	<UIIcon name="SPELL_KNOWN_BG" img="mem_bg.tga" x=9 y=8 width=491 height=765 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame_wood_tl.tga" topright="frame_wood_tr.tga" bottomleft="frame_wood_bl.tga"
+		bottomright="frame_wood_BR.tga" top="frame_wood_t.tga" bottom="frame_wood_b.tga"
+		left="frame_wood_l.tga" right="frame_wood_r.tga" border=32 />	
+	
+
+

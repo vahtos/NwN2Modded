@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                          -->
+<!-- Copyright 2006 Obsidian Entertainment, Inc. -->
+
+	<!-- The checkbox for saving the password must have the name that it currently has
+	  -- for the engine to be able to reference it. -->
+
+	<UIScene name="SCREEN_PLAYERLOGIN" fadeout="0.3" fadein="0.3" fullscreen=true idleexpiretime="1.0"
+		OnAdd=UIScene_OnAdd_InitPlayerLogin("PlayerName",local:0,"Password",local:1) 
+		OnRemove=UIScene_OnRemove_ClosePlayerLogin()
+		priority="SCENE_FE_FULLSCREEN" />
+
+    <UIPane name="CONTENTS_PANE" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT usescalar=true >
+
+		<!-- "BioWare Community Name" field -->
+		<UIText name="PlayerNameTX" strref="183931" x=320 y="176" width="394" height="26" valign="middle" fontfamily="Body_Font" style=3/>
+		<UIText name="PlayerName" x=320 y="203" width="394" height="26" valign="middle" editable=true maxlength=40 multiline=false
+			update=true OnUpdate=UIObject_Misc_SetLocalVarString(local:0) 
+			OnReturn=UIButton_Input_PlayerLogin(local:0,local:1)
+			selectable=true allowspace="true" nextcontrol="Password" prevcontrol="Password" />
+		<UIFrame x=310	y=202 width=405 height=28 topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+			bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+			left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+			border=5 />
+
+		<!-- "Enter Password" Field -->
+		<UIText name="PasswordTX" strref=81 x=320 y="240" width="394" height="26" valign="middle" fontfamily="Body_Font" style=3 />
+		<UIText name="Password" x=320 y="267" width="394" height="26" valign="middle" editable=true maxlength=32 multiline=false
+			update=true OnUpdate=UIObject_Misc_SetLocalVarString(local:1)  
+			OnReturn=UIButton_Input_PlayerLogin(local:0,local:1)
+			selectable=true nextcontrol="PlayerName" prevcontrol="PlayerName" password="true" />
+		<UIFrame x=310	y=266 width=405 height=28 topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+			bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+			left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+			border=5 />
+
+		<!-- Remember Password Text and Checkbox -->
+		<UIButton name="SavePasswordCB" x=323 y=301 style="SQUARE_CHECKBOX_BUTTON" />
+		<UIText name="SavePasswordTX" strref="66171" fontfamily="Body_Font" style=3 x=350 y=301 width="400" height=18 
+			valign="middle" align="left"/>
+
+		<!-- Helpful LISTBOX -->
+		<UIListBox name="INFOPANE_LISTBOX" x=310 y="336" width=400 height=192 yPadding=5 xPadding=5 showpartialchild=true
+			unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded="true" >
+			<UIText name="HelpField" strref="183933" width=PARENT_WIDTH height=DYNAMIC fontfamily="Default" />
+			<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+		</UIListBox>	
+        <UIFrame x=310	y="333" width=405 height=197 topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga" idleexpiretime="1.0"
+			bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+			left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+			border=5 />
+	
+        <!-- Logo Farm -->
+        <UIIcon img="logos_mp.tga" x="311" y="541" width="403" height="39" />
+		<UIFrame x="310" y="534" width="405" height="50" topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+			bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+			left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+			border=5 />
+
+		<!-- ESRB Notice -->
+        <UIIcon img="ESRB_MultiplayNotice.tga" x="ALIGN_CENTER" y="588" width="270" height="33" />
+		
+		<!-- "Create New Account" -->
+		<UIButton name="NewAccount" strref="66503" x=280 y="625" style="STYLE_LARGE_LONG_BUTTON"
+			OnLeftClick=UIButton_Input_ScreenOpen("SCREEN_NEWACCOUNT") />
+
+		<!-- "Sign In" -->
+		<UIButton name="Login" strref="181411" x=493 y="625" style="STYLE_SMALL_BUTTON"
+			OnLeftClick=UIButton_Input_PlayerLogin(local:0,local:1) />
+
+		<!-- "Cancel" -->
+		<UIButton name="Cancel" strref="67" x=625 y="625" style="STYLE_SMALL_BUTTON"
+			OnLeftClick=UIButton_Input_PregameCancel("SCREEN_MAINMENU","SCREEN_MAINMENU","true") />
+	
+		<!-- Main Window -->
+		<UIFrame x=262	y=130 width=504 height=534 topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+			bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+			left="frame1_l.tga" right="frame1_r.tga" border=32 />	
+		
+		<!-- Title: "BioWare Community Login" -->
+        <UIText name="TITLE" strref="183930" x="280" y="137" width="475" height="25" align="left" valign="middle" fontfamily="Title_Font" style="2" />
+        <UIIcon img="title_medium02.tga" x=270 y=137 width=488 height=35 />
+		<UIFrame x=268	y=139 width=492 height=518 fillstyle="tile" fill="cloth_bg.tga" />
+	</UIPane>
+
+	<UIIcon img="main_sub_bg.tga" x=0 width=1024 y=0 height=768 scalewithscene=true />
+	

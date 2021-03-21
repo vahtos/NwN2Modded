@@ -1,0 +1,98 @@
+[b]Tchos' HD UI panels and dialogue compilation and expansion[/b]
+Version 1.3
+Category: UI mods
+
+This mod overhauls many aspects of the user interface of NWN2 to provide larger fonts and larger panels for HD widescreen resolutions of 1920x1080, as well as support image portraits in the vertical rectangular size of 256x400 pixels.
+
+See the Revision History section near the end of this document to see what's new.
+
+[b]Index:[/b]
+[list]
+[*]1. Summary
+[*]2. Requirements
+[*]3. Installation
+[*]4. Using the mod
+[*]5. Known Issues
+[*]6. Revision history
+[*]7. Credits
+[*]8. Contact info
+[/list]
+[b]1. Summary[/b]
+I play at a high resolution, so I want big panels that take advantage of the large screen size, and also large fonts so it'll be readable. This mod enlarges the font and panel sizes of nearly everything in-game, making them both easier to read, and require less scrolling to see everything, and also adds support for NWN1-style portraits, in a 1:2 ratio of 256x400 pixels.  Included in the package is a file that explains every change in detail, but broadly, this affects the panels for conversations, vendors/containers, quest log, examination/descriptions, spell lists, inventory, character sheet, party portrait bar, target icon, and various menus.  Many instances of ALL-CAPS TEXT have also been changed to mixed-case, for easier readability.
+
+Ragnorak's Expanded Lists for Hi-Rez, Shin-Anubis/Thanatos2001's Character Sheet NWN1 Portrait support, and Fire&Ice/WhatIsSol's Big Fonts UI are excellent UI mods, though they were designed for somewhat lower resolutions than 1920x1080, and have slightly different goals which don't work together perfectly.  My goal was to expand everything, redesign some UI aspects, and get everything nicely integrated.
+
+My work on this mod started as a mod for the conversation panel (what the game files call the "quick chat" panel).  I prefer the dialogue to be presented in this manner, rather than the "cinematic" style that's the default in the toolset. I prefer being able to control the pace of the conversation, and not have it fed to me in line-by-line chunks.
+
+But I wanted the box to be [b]much bigger,[/b] since I consider the dialogue to be an important part of the game.  You can't do anything else while you're in a conversation, so why not make it the main focus of the screen while you're in it?  Putting it in a little box in the corner is no good, especially at this resolution, where the font is rather squintworthy.
+
+I made the conversation portrait twice as large as it was, to put more focus on the subject of the conversation (though still only half the height I set for the character's dialogue), and with the portrait aspect ratio change I was able to just put it in a kind of "column" on the left, with both the NPC name and the dialogue in a second column to the right of it.  One note about the altered aspect ratio, though...I couldn't find any parameters to adjust the camera placement for the default "rendered" portraits made out of snapshots of the character model, so it basically looks like a slightly off-centre closeup.  The custom portraits at the intended aspect ratio look perfect, though.
+
+[url=http://4.bp.blogspot.com/-ZZAVSMCR_v8/T1vrC5bX-wI/AAAAAAAAC_4/8WePpRoTVW4/s1600/dialogue%2Bkana%2B3d%2Bframe.jpg][img]http://4.bp.blogspot.com/-ZZAVSMCR_v8/T1vrC5bX-wI/AAAAAAAAC_4/8WePpRoTVW4/s320/dialogue%2Bkana%2B3d%2Bframe.jpg[/img][/url]
+
+I think it's a pretty good size for both the NPC's dialogue and the list of your responses.  Now you can have up to 10 response options visible at once without the scrollbars appearing, if they're all of a typical length.  How much empty space you see is, of course, dependent on the amount of dialogue written for any given part of the conversation.
+
+Next, I expanded the portrait selection window to show much larger portraits, to make it easier to choose one.  I tried to make it more than four columns, but I couldn't get the portraits to appear correctly in the additional columns, so I just left it at four.
+
+Finally, I expanded the column of portraits for your party members to use the full height of the screen at 1920x1080.  Even in the vanilla game, there are times when you can have 5 full companions and enough animal companions/familiars/summoned creatures to make you have to scroll through the portrait column to check your companions' health or status effects.  Now there's less unnecessary scrolling at 1920x1080.
+
+Long story short, I went through the rest of the interface panels and increased the panel sizes of most of them.  Included is a file describing each XML file, what it does, and what's new about it, and you can pick and choose which UI elements to change based on that information.  (Documenting these files was quite a chore in itself, but should help the end user.)  There are a few files in there that are unchanged from the F&I Big Fonts mod, which I included for the sake of completeness and compatibility.  Also see screenshots for some examples of the mod in action.
+
+[b]2. Requirements[/b]
+This mod might require both expansions, because the ability to change to image portraits wasn't in the original release.  However, since the character panel is replaced, and since the original release includes patches and upgrades to the SoZ code base, I think it may work fine with a fully-patched vanilla game.  I've only tested it with Neverwinter Nights Platinum, which includes both expansions.
+
+[b]3. Installation[/b]
+The mod is provided in a compressed folder. You can move this folder into your override folder, or if you prefer to keep your override folder empty, it should also work if you move the folder into your UI\custom\ folder.
+
+Both override and UI folders are usually found in Documents\Neverwinter Nights 2\override and Documents\Neverwinter Nights 2\ui respectively. See [url=http://nwn2.wikia.com/wiki/Installation_directories]this wiki page[/url] for more information on installation directories.
+
+If you're upgrading from a previous version of this mod, I recommend completely removing the old one before replacing it with this new one.  If you've made any personal modifications to things like font sizes, save those files elsewhere, and reapply your changes to the new files.
+
+[b]4. Using the mod[/b]
+Play the game and see if there are any panels you don't like in this style.  Read the included file manifest to determine which files to delete to restore that part of the UI to normal.
+
+[b]5. Known Issues[/b]
+Minor: The Storm of Zehir party chat icons that indicate a different party member has something special to say (the little speech bubble icons) are vertically stretched now that I've changed the aspect ratio.  I'm having trouble finding that graphic to fix it.
+Fixed: The list box for the merchant stores could previously cut off the last item in the list.
+
+[b]6. Revision history[/b]
+   2012-03-17:	Initial release 1.0
+
+   2012-04-04:	Version 1.1
+   [list]
+   [*] Changed background of quest journal to get rid of the crowding on the left margin
+   [*] Modified the stylesheet.xml file to make the behaviour panel items have a mixed-case font and a wider space to display the information, to prevent things getting cut off, and to make it compatible with Tony_K's AI mod.
+   [*] Increased the size of the SoZ party chat panel, moved the portrait down from the header into the text area and adjusted the NPC speaking area to compensate, increased the size of the speaker's name in the header, and adjusted all of the portraits to the NWN1 aspect ratio.
+   [*] Changed the scrollbar on the portrait picker to have a normal-sized handle instead of the tiny one.
+   [*] Returned the non-SoZ dialogue panel to the original colour scheme for compatibility with particular conversations that specify non-default light colours for certain text.  The parchment style dialogue is still included, but renamed.  If you want to use it anyway, you can delete the new quickchat.xml and rename the old one to take its place.[/list]
+   2012-04-05:	Version 1.2
+   [list]
+   [*] Fixed an error in text placement on the SoZ party chat that was introduced in v1.1 by me accidentally saving over some code I was working on when I had 2 files open.
+   [*] Since I was working on it anyway, I made some further improvements in the design of both versions of the dialogue box.  Notably in the amount of text shown, the spacing between reply options, and the amount of space in the middle dividers.[/list]
+   2012-04-05:	Version 1.3
+   [list]
+   [*] Added new large version of the SoZ party creation screen.
+   [*] Added new large version of the tutorial popup box.  (I use this box for DM narration text in my own module.)
+   [*] Fixed gaps between object and frame in the target_object and target_enemy files.
+   [*] Edited store.xml "showpartial" attribute to fix a bug that could prevent the last item in the list from appearing.  (Thanks to kevL for identifying this!)
+   [*] Edited the portrait picker screen to get the frames properly lined up around the portraits.
+   [*] Portrait picker screen now shows full "Select a portrait for your character" line.
+   [*] A minor edit to noticewindow.xml to change the all-caps yellow notices that pop up at the top of the screen to mixed case.[/list]
+
+
+[b]7. Credits[/b]
+This mod is compiled and expanded from, and based on the work and examples of Ragnorak, Shin-Anubis, Thanatos2001, Fire&Ice, and WhatIsSol.
+[list]
+[*]Ragnorak: Expanded Lists for Hi-Rez -- used as basis and example for some parts, with my expansions and reworks.
+[*]Shin-Anubis and Thanatos2001: Character Sheet NWN1 Portrait support -- Much of the portrait work comes from this, with my expansions.  Also the packaging of the original NWN1 portraits.
+[*]Fire&Ice and WhatIsSol: Fire&Ice's Big Fonts UI -- The whole basis, and a great amount of work for the bigger fonts began here.
+[/list]
+[b]8. Contact & further info[/b]
+I can be contacted on the [url=http://nexusmods.com]Nexus Network[/url] as Tchos, or the Bioware Social Network also as Tchos, or through [url=http://tchosgames.blogspot.com]my gaming blog[/url].
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2 -->
+<!-- Copyright © Obsidian Entertainment, Inc. -->
+
+<UIScene name="SCREEN_ACTIONQUEUE" x="397" y="12" width="174" height="60" capturemouseclicks="true" draggable="true" scriptloadable="true"
+priority="SCENE_INGAME" />
+
+	<UIGrid name="ACTIONQUEUE_GRID" rows=1 columns=3 x=66 y=15 xPadding=2 yPadding=0
+		update=true OnUpdate=UIGrid_OnUpdate_ActionQueue(1) >
+		<UIButton name="PrototypeButton" width=32 height=32 prototype=true 
+			OnToolTip=UIObject_Tooltip_DisplayActionQueueData(-1)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_clear_actions)>
+			<UIText name="ACTION_TEXT" align=center valign=middle fontfamily="Special_Font" style="3" />
+			<UIFrame state=base		fill="b_empty.tga" />
+			<UIFrame state=up		fill="b_empty.tga" />
+			<UIFrame state=down		fill="b_overlay.tga" />
+			<UIFrame state=focused	fill="b_empty.tga" />
+			<UIFrame state=hilited	fill="b_overlay.tga" />
+			<UIFrame state=hifocus	fill="b_overlay.tga" />
+			<UIFrame state=disabled fill="b_empty.tga" />
+		</UIButton>
+	</UIGrid>
+
+	<!-- Make this the same size as the CURRENT_ACTION button -->
+	<UIProgressBar name="AQ_ROUNDTIMER" x=23 y=11 width=40 height=40
+		vertical=true lerpdecrease=false lerpincrease=false
+		capturemouseclicks=false capturemouseevents=false hidden=true
+		OnToolTip=UIObject_Tooltip_DisplayActionQueueData(0)
+		update=true OnUpdate=UIProgressBar_OnUpdate_DisplayRoundCompletion()
+		img="aq_progress_overlay.tga" />
+
+<!--		
+		img="fx_white.tga"
+		fullcolor="2F000000"
+		emptycolor="2F000000"
+		alpha="0.1843"
+-->
+
+	<UIButton name="CURRENT_ACTION" x=23 y=11 width=40 height=40 
+		update=true OnUpdate=UIObject_OnUpdate_ActionQueuePosition(0) 
+		OnToolTip=UIObject_Tooltip_DisplayActionQueueData(0)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_clear_actions)>
+		<UIText name="CURRENT_TEXT" align=center valign=middle fontfamily="Special_Font" style="3" />
+		<UIFrame state=base		fill="b_empty.tga" />
+		<UIFrame state=up		fill="b_empty.tga" />
+		<UIFrame state=down		fill="b_overlay.tga" />
+		<UIFrame state=focused	fill="b_empty.tga" />
+		<UIFrame state=hilited	fill="b_overlay.tga" />
+		<UIFrame state=hifocus	fill="b_overlay.tga" />
+		<UIFrame state=disabled fill="b_empty.tga" />
+	</UIButton>
+
+
+	<!-- Make this the same size as the DESIRED_MODE button -->
+	<UIProgressBar name="DM_ROUNDTIMER" x=0 y=27 width=24 height=24
+		vertical=true lerpdecrease=false lerpincrease=false
+		capturemouseclicks=false capturemouseevents=false hidden=true
+		OnToolTip=UIObject_Tooltip_DisplayDesiredModeTooltip()
+		update=true OnUpdate=UIProgressBar_OnUpdate_DisplayRoundCompletion()
+		img="aq_progress_overlay.tga" />
+
+	<UIButton name="DESIRED_MODE" x=0 y=27 width=24 height=24 
+		update=true OnUpdate=UIObject_OnUpdate_ShowDesiredCombatMode("DM_ROUNDTIMER") 
+		OnToolTip=UIObject_Tooltip_DisplayDesiredModeTooltip()
+		OnLeftClick=UIButton_Input_ClearDesiredCombatMode()>
+		<UIText name="CURRENT_TEXT" align=center valign=middle fontfamily="Special_Font" style="3" />
+		<UIFrame state=base		fill="b_empty.tga" />
+		<UIFrame state=up		fill="b_empty.tga" />
+		<UIFrame state=down		fill="b_overlay.tga" />
+		<UIFrame state=focused	fill="b_empty.tga" />
+		<UIFrame state=hilited	fill="b_overlay.tga" />
+		<UIFrame state=hifocus	fill="b_overlay.tga" />
+		<UIFrame state=disabled fill="b_empty.tga" />
+	</UIButton>
+
+
+
+	<UIIcon name="AQ_BG" img="action_queue.tga" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT />

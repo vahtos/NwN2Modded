@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	This xml file is used to display the buttons that open and close the Martial Adept Menus and Recovery Method.
+-->
+
+<UIScene name="SCREEN_MARTIAL_MENU_SS" x=1 y=20 width=61 height=240 draggable=true fadeout="0.0" fadein="0.0" priority="SCENE_INGAME_TARGET" backoutkey=false
+OnRemove=UIButton_Input_ScreenClose("SCREEN_MARTIAL_MENU_SS") scriptloadable="true" />
+	
+	<!-- Toggle Menu Buttons -->
+	<UIListbox name="AVAILABLE_MENU_LIST" x=1 y=80 width=61 height=140 yPadding=1
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64 >
+	
+		<UIPane name="MARTIAL_ADEPT_MENU_TOGGLE" x=0 y=0 width=50 height=300 >
+			<UIButton name="MENU_SS_OPEN_IMAGE" x=0 y=0 draggable=false width=40 height=40 MouseDownSFX="gui_quick_add" MouseUpSFX="gui_quick_add"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_launch_bot9s,_SS)
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280021,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="ic_swordsage.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="QUICKSTRIKE_OPEN_IMAGE" x=0 y=45 draggable=false width=40 height=40 MouseDownSFX="gui_quick_add" MouseUpSFX="gui_quick_add"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_quickstrike,_SS)
+				OnLeftClick0=UIObject_Misc_ExecuteServerScript(gui_addqs_texture,_SS)
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280689,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="quickstrike.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="RECOVERY_IMAGE" x=0 y=90 draggable=false width=40 height=40 MouseDownSFX="gui_quick_add" MouseUpSFX="gui_quick_add"
+				OnLeftClick0=UIObject_Misc_ExecuteServerScript(gui_ss_recovery)
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280690,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="recovery.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+	
+	<!-- Background Image -->
+	<UIIcon name="SPELL_KNOWN_BOTTOM" img="desertwindsword.tga" x=0 y=0 width=61 height=229 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT />	
+

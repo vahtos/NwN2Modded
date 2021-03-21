@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2 -->
+<!-- Copyright � 2006 Obsidian Entertainment, Inc. -->
+
+<!-- 
+	The names of the controls are specific and the engine will expect them to have 
+	those names in order to interact, init, and query them. 
+
+	Radio Button Group IDs:
+		1.  Tab Control for the options screen
+		2.  Audio: Speaker Configuration
+		3.  Gameplay: Combat Feedback Messages
+		4.  Camera: Top Down and Chase toggle
+		5.  Video: Shadow Quality
+		6.  Video: Filter Level
+		7.  Drive Camera Config Options
+		8.  Video: Texture Level
+		9.	Tab Control for shadow options
+		10. Tab control for keybinding pages
+		11. Inventory Screen toggle
+		12. Character Mode Highlighting
+		13. Strategy Mode Highlighting
+		14. Left Click and Hold Option
+		15. Camera Focus Option
+
+	Local Vars USED
+		Local:1 - Whether EAX checkbox should be checked or not
+		Local:2 - Whether Hardware checkbox should be checked or not. 
+-->
+
+<UIScene name="SCREEN_OPTIONS" x=ALIGN_CENTER y=ALIGN_CENTER width=1000 height=600 fadeout="0.3" fadein="0.3" backoutkey=true priority="SCENE_GLOBAL" modal=true
+	 OnAdd=UIScene_OnAdd_SetupGameOptions() OnRemove=UIScene_OnRemove_ResetGameOptions() />
+
+	<UIPane name="TAB_CONTAINER" x=0 y=30 width=PARENT_WIDTH height=40 >
+		<UIButton name="SHOW_EXPLORATION_MODE" x=2 y=0 strref="234187" width=126 height=34 style="MP_BROWSER_TAB_202" buttontype=radio groupid=1 groupmemberid=1
+			OnSelected=UIButton_Input_ShowObject("EXPLORATION_MODE_PANE") OnUnselected=UIButton_Input_HideObject("EXPLORATION_MODE_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>
+		<UIButton name="SHOW_STRATEGY_MODE" x=130 y=0 strref="208658" width=126 height=34 style="MP_BROWSER_TAB_202" buttontype=radio groupid=1 groupmemberid=2
+			OnSelected=UIButton_Input_ShowObject("STRATEGY_MODE_PANE") OnUnselected=UIButton_Input_HideObject("STRATEGY_MODE_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>
+		<UIButton name="SHOW_CHARACTER_MODE" x=258 y=0 strref="208657" width=128 height=34 style="MP_BROWSER_TAB_202" buttontype=radio groupid=1 groupmemberid=3
+			OnSelected=UIButton_Input_ShowObject("CHARACTER_MODE_PANE") OnUnselected=UIButton_Input_HideObject("CHARACTER_MODE_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>
+		<UIButton name="SHOW_GRAPHICS" x=388 y=0 strref="208659" width=102 height=34 style="MP_BROWSER_TAB_102" buttontype=radio groupid=1 groupmemberid=4
+			OnSelected=UIButton_Input_ShowObject("GRAPHICS_PANE") OnUnselected=UIButton_Input_HideObject("GRAPHICS_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>	
+		<UIButton name="SHOW_ADVANCED_GRAPHICS" x=492 y=0 strref="208660" width=140 height=34 style="MP_BROWSER_TAB_202" buttontype=radio groupid=1 groupmemberid=5
+			OnSelected=UIButton_Input_ShowObject("ADVANCED_GRAPHICS_PANE") OnUnselected=UIButton_Input_HideObject("ADVANCED_GRAPHICS_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>	
+		<UIButton name="SHOW_GAMEPLAY_AUDIO_OPTIONS" x=634 y=0 strref="183544" width=140 height=34 style="MP_BROWSER_TAB_202" buttontype=radio groupid=1 groupmemberid=6
+			OnSelected=UIButton_Input_ShowObject("GAMEPLAY_AUDIO_PANE") OnUnselected=UIButton_Input_HideObject("GAMEPLAY_AUDIO_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>	
+		<UIButton name="SHOW_INTERFACE_OPTIONS" x=776 y=0 strref="7514" width=102 height=34 style="MP_BROWSER_TAB_102" buttontype=radio groupid=1 groupmemberid=7
+			OnSelected=UIButton_Input_ShowObject("INTERFACE_PANE") OnUnselected=UIButton_Input_HideObject("INTERFACE_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>	
+		<UIButton name="SHOW_KEYBINDINGS" x=880 y=0 strref="10413" width=120 height=34 style="MP_BROWSER_TAB_202" buttontype=radio groupid=1 groupmemberid=8
+			OnSelected=UIButton_Input_ShowObject("KEYBINDING_PANE") OnUnselected=UIButton_Input_HideObject("KEYBINDING_PANE") >
+			<UIText align=center valign=middle fontfamily="Title_Font" style="1" multiline=true maxlines=2 />
+		</UIButton>	
+	</UIPane>
+
+	<UIPane name="BUTTON_CONTAINER" x=ALIGN_CENTER y=ALIGN_BOTTOM width=780 height=35 >
+		<UIButton name="APPLY_OPTIONS" strref="183545" x=0 y=2 width=200 style="STYLE_LARGE_BUTTON" OnLeftClick=UIButton_Input_ApplyGameOptions() />	
+		<UIButton name="ACCEPT_OPTIONS" strref="6405" x=525 y=2 style="STYLE_SMALL_BUTTON" OnLeftClick=UIButton_Input_AcceptGameOptions() />
+		<UIButton name="CANCEL_OPTIONS" strref="67" x=ALIGN_RIGHT y=2 style="STYLE_SMALL_BUTTON" OnLeftClick=UIButton_Input_CancelGameOptions() />
+	</UIPane>
+
+
+
+    <!-- Exploration Mode Pane -->
+	<UIPane name="EXPLORATION_MODE_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=false >
+
+		<!-- Control Options -->
+		<UIText name="CONTROL_OPTIONS_TEXT_1" strref="208661" x=10 y=0 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="CONTROL_CONFIG" x=10 y=20 width=340 height=135 >
+			<UIButton name="CHECK_TURN_CAMERA_SCREEN_EDGE_EM" x=8 y=18 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210638,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_TURN_CAMERA_SCREEN_EDGE_TEXT_EM" strref="208665" x=35 y=8 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIButton name="CHECK_SCROLL_CAMERA_SCREEN_EDGE_EM" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210784,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_SCROLL_CAMERA_SCREEN_EDGE_TEXT_EM" strref="208683" x=35 y=48 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />	
+			<UIButton name="CHECK_POSSESS_EM" x=8 y=98 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210637,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_POSSESS_TEXT" strref="208664" x=35 y=88 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- View Options -->
+		<UIText name="VIEW_OPTIONS_TEXT_1" strref="208668" x=10 y=165 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="VIEW_CONFIG" x=10 y=185 width=340 height=169 >
+			<UIButton name="CHECK_CEILING_ON_EM" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210664,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_CEILING_ON_SM_TEXT" strref="208684" x=35 y=8 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_OBJECT_FADE_EM" x=8 y=33 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210667,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")/>
+			<UIText name="CHECK_OBJECT_FADE_TEXT" strref="183565" x=35 y=33 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_MOVEMENT_MARKER_EM" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210666,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_MOVEMENT_MARKER_TEXT" strref="208670" x=35 y=58 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+
+			<UIButton name="CHECK_CENTER_CAMERA_EM" x=8 y=93 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210665,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_CENTER_CAMERA_SM_TEXT" strref="208685" x=35 y=83 width=260 height=40 align=left valign=middle fontfamily="Default" style="2" 
+				multiline=true maxlines=2 />
+
+			<UIButton name="CHECK_SELECTED_CHAR_EM" x=8 y=131 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210678,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_SELECTED_CHAR_SM_TEXT" strref="208686" x=35 y=121 width=260 height=40 align=left valign=middle fontfamily="Default" style="2" 
+				multiline=true maxlines=2 />
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Mouse Highlighting Options -->
+		<UIText name="MOUSE_HIGHLIGHTING_OPTIONS_TEXT" strref="208672" x=360 y=0 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="HIGHLIGHT_CONFIG" x=360 y=20 width=310 height=135 >
+			<UIText name="MOUSE_HIGHLIGHTING_OPTIONS_TEXT" strref="208673" x=0 y=0 width=PARENT_WIDTH height=40 align=center valign=middle fontfamily="Default" style="2" 
+				mutliline=2 maxlines=2/>
+			<UIButton name="HL_OFF_RB"		x=8 y=40 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=16 groupmemberid=1 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210651,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_OFF_TEXT_1"	strref="208674" x=35 y=40 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="HL_OBJECT_RB"	x=8 y=65 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=16 groupmemberid=2 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210659,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_OBJECT_TEXT_1"	strref="208675" x=35 y=65 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIText name="HL_OBJECT_TEXT_2"	strref="208676" x=35 y=85 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="HL_EVERYTHING_RB"	x=8 y=110 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=16 groupmemberid=3 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210660,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_EVERYTHING_TEXT_1"	strref="208677" x=35 y=110 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Left Click and Hold Option -->
+		<UIText name="LEFT_CLICK_OPTIONS_TEXT" strref="208687" x=360 y=165 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="HIGHLIGHT_CONFIG" x=360 y=185 width=310 height=91 >		
+			<UIButton name="LC_MOVE_RB"		x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=17 groupmemberid=1 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210680,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="LC_MOVE_TEXT_1"	strref="208688" x=35 y=8 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="LC_SCROLL_RB"	x=8 y=35 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=17 groupmemberid=2 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210681,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="LC_SCROLL_TEXT_1"	strref="208689" x=35 y=35 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="LC_MARQUEE_RB"		x=8 y=63 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=17 groupmemberid=3 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210682,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="LC_MARQUEE_TEXT_1"	strref="208690" x=35 y=63 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIText name="LC_MARQUEE_TEXT_2"	strref="208691" x=35 y=83 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Camera Focus Option -->
+		<UIText name="CAMERA_FOCUS_OPTIONS_TEXT" strref="208692" x=360 y=281 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="CAMERA_FOCUS_CONFIG" x=360 y=301 width=310 height=111 >		
+			<UIButton name="CAMERA_FOCUS_RB_1"	x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=18 groupmemberid=1 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210668,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CAMERA_FOCUS_TEXT_1"	strref="208693" x=35 y=8 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+
+			<UIButton name="CAMERA_FOCUS_RB_2"	x=8 y=35 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=18 groupmemberid=2 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210669,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CAMERA_FOCUS_TEXT_2"	strref="208694" x=35 y=35 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+
+			<UIButton name="CAMERA_FOCUS_RB_3"	x=8 y=63 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=18 groupmemberid=3 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210670,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CAMERA_FOCUS_TEXT_3"	strref="208695" x=35 y=63 width=240 height=40 align=left valign=middle fontfamily="Default" style="2" multiline=true />
+			<!-- <UIText name="CAMERA_FOCUS_TEXT_4"	text="Can be moved Freely (Free Camera)" x=35 y=83 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false /> -->
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+
+		<!-- Mouse View Turning Options -->
+		<UIText name="VIEW_TURNING_OPTIONS_TEXT" strref="208678" x=680 y=0 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="TURNING_CONFIG" x=680 y=20 width=310 height=253 >
+
+			<!-- Screen Edge Move / Scroll (freecam) AND Screen Edge Turning  -->
+			<UIText name="CAMERA_SCROLL_SPEED_TEXT" strref="208696" x=0 y=10 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_SCROLL_SPEED_CONFIG" x=ALIGN_CENTER y=30 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210661,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_CAMERA_SCROLL_SPEED_EM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+
+			<!-- Screen Edge Turn 
+			<UIText name="CAMERA_TURN_SPEED_TEXT" strref="208679" x=0 y=70 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_TURN_SPEED_CONFIG" x=ALIGN_CENTER y=90 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210662,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_EDGE_TURN_SPEED_SM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+			-->
+
+			<!-- Keyboard Camera Move / Scroll -->
+			<UIText name="CAMERA_SCROLL_SPEED_KEYBOARD_TEXT" strref="208697" x=0 y=70 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_SCROLL_SPEED_KEYBOARD_CONFIG" x=ALIGN_CENTER y=90 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210663,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_CAMERA_SCROLL_SPEED_KEYBOARD_EM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+
+			<!-- Mouse Wheel Speed -->
+			<UIText name="MOUSE_WHEEL_SPEED_TEXT" strref="208682" x=0 y=130 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="MOUSEWHEEL_SPEED_CONFIG" x=ALIGN_CENTER y=150 width=216 height=35 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210645,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+				<UIScrollBar name="SB_MOUSE_WHEEL_SPEED_EM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>	
+
+			<!-- Mouse Camera Turn AND Mouse Camera Move / Scroll (freecam) -->
+			<UIText name="MOUSE_TURN_SPEED_TEXT" strref="208679" x=0 y=190 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="MOUSE_TURN_SPEED_CONFIG" x=ALIGN_CENTER y=210 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210785,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_MOUSE_TURN_SPEED_EM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+	</UIPane>
+
+	<!-- Character Mode Pane -->
+	<UIPane name="CHARACTER_MODE_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+
+		<!-- Control Options -->
+		<UIText name="CONTROL_OPTIONS_TEXT" strref="208661"	x=10 y=0 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="CONTROL_CONFIG" x=10 y=20 width=340 height=256 >
+			<UIButton name="CHECK_DRIVE_FORWARD" x=8 y=18 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210635,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_DRIVE_FORWARD_TEXT" strref="208662" x=35 y=8 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIButton name="CHECK_MOUSECLICK_MOVE" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210636,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_MOUSECLICK_MOVE_TEXT" strref="208663" x=35 y=48 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIButton name="CHECK_POSSESS_CM" x=8 y=98 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210637,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_POSSESS_TEXT" strref="208664" x=35 y=88 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />	
+			<UIButton name="CHECK_TURN_CAMERA_SCREEN_EDGE_CM" x=8 y=138 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210638,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_TURN_CAMERA_SCREEN_EDGE_TEXT" strref="208665" x=35 y=128 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIButton name="CHECK_INVERT_MOUSE_UP_DOWN" x=8 y=178 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210640,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_INVERT_MOUSE_UP_DOWN_TEXT" strref="208666" x=35 y=168 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIButton name="CHECK_INVERT_MOUSE_RIGHT_LEFT" x=8 y=218 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210641,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_INVERT_MOUSE_RIGHT_LEFT_TEXT" strref="208667" x=35 y=208 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- View Options -->
+		<UIText name="VIEW_OPTIONS_TEXT_1" strref="208668" x=10 y=291 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="VIEW_CONFIG" x=10 y=311 width=340 height=131 >
+			<UIButton name="CHECK_CEILING_ON_CM" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210646,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_CEILING_ON_TEXT" strref="208669" x=35 y=8 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_OBJECT_FADE_CM" x=8 y=33 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210647,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")/>
+			<UIText name="CHECK_OBJECT_FADE_TEXT" strref="183565" x=35 y=33 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_MOVEMENT_MARKER_CM" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210648,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_MOVEMENT_MARKER_TEXT" strref="208670" x=35 y=58 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_CAMERA_BEHIND_CM" x=8 y=93 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210649,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_CAMERA_BEHIND_CM_TEXT" strref="208671" x=35 y=83 width=260 height=40 align=left valign=middle fontfamily="Default" style="2" 
+				multiline=true maxlines=2 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Mouse Highlighting Options -->
+		<UIText name="MOUSE_HIGHLIGHTING_OPTIONS_TEXT" strref="208672" x=360 y=0 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="HIGHLIGHT_CONFIG" x=360 y=20 width=310 height=135 >
+			<UIText name="MOUSE_HIGHLIGHTING_OPTIONS_TEXT" strref="208673" x=0 y=0 width=PARENT_WIDTH height=40 align=center valign=middle fontfamily="Default" style="2" 
+				mutliline=2 maxlines=2/>
+			<UIButton name="HL_OFF_RB"		x=8 y=40 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=12 groupmemberid=1
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210651,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_OFF_TEXT_1"	strref="208674" x=35 y=40 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="HL_OBJECT_RB"	x=8 y=65 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=12 groupmemberid=2
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210652,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_OBJECT_TEXT_1"	strref="208675" x=35 y=65 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIText name="HL_OBJECT_TEXT_2"	strref="208676" x=35 y=85 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="HL_EVERYTHING_RB"	x=8 y=110 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=12 groupmemberid=3
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210653,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_EVERYTHING_TEXT_1"	strref="208677" x=35 y=110 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Mouse View Turning Options -->
+		<UIText name="VIEW_TURNING_OPTIONS_TEXT" strref="208678" x=680 y=0 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="TURNING_CONFIG" x=680 y=20 width=310 height=253 >
+			<UIText name="MOUSE_TURN_SPEED_TEXT" strref="208679" x=0 y=10 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="MOUSE_TURN_SPEED_CONFIG" x=ALIGN_CENTER y=30 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210642,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_MOUSE_TURN_SPEED" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+			<UIText name="EDGE_OF_SCREEN_TURN_TEXT" strref="208680" x=0 y=70 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="EDGE_OF_SCREEN_CONFIG" x=ALIGN_CENTER y=90 width=216 height=35
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210643,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_EDGE_TURN_SPEED_CM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+			<UIText name="CAMERA_LAG_TEXT" strref="208681" x=0 y=130 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_LAG_CONFIG" x=ALIGN_CENTER y=150 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210644,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_CAMERA_LAG" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+			<UIText name="MOUSE_WHEEL_SPEED_TEXT" strref="208682" x=0 y=190 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="MOUSEWHEEL_SPEED_CONFIG" x=ALIGN_CENTER y=210 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210645,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+				<UIScrollBar name="SB_MOUSE_WHEEL_SPEED_CM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>	
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+	</UIPane>
+
+	<!-- Strategy Mode Pane -->
+	<UIPane name="STRATEGY_MODE_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+
+		<!-- Control Options -->
+		<UIText name="CONTROL_OPTIONS_TEXT_1" strref="208661" x=10 y=0 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="CONTROL_CONFIG" x=10 y=20 width=340 height=95 >
+			<!--<UIButton name="CHECK_TURN_CAMERA_SCREEN_EDGE_SM" x=8 y=18 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210638,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_TURN_CAMERA_SCREEN_EDGE_TEXT" strref="208665" x=35 y=8 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 /> -->
+			<UIButton name="CHECK_SCROLL_CAMERA_SCREEN_EDGE_SM" x=8 y=18 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210784,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_SCROLL_CAMERA_SCREEN_EDGE_TEXT_SM" strref="208683" x=35 y=8 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />	
+			<UIButton name="CHECK_POSSESS_SM" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210637,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_POSSESS_TEXT" strref="208664" x=35 y=48 width=260 height=40 align=left valign=middle fontfamily="Default" style="2"
+				multiline=true maxlines=2 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- View Options -->
+		<UIText name="VIEW_OPTIONS_TEXT_1" strref="208668" x=10 y=165 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="VIEW_CONFIG" x=10 y=185 width=340 height=169 >
+			<UIButton name="CHECK_CEILING_ON_SM" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210664,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_CEILING_ON_SM_TEXT" strref="208684" x=35 y=8 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_OBJECT_FADE_SM" x=8 y=33 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210667,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")/>
+			<UIText name="CHECK_OBJECT_FADE_TEXT" strref="183565" x=35 y=33 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="CHECK_MOVEMENT_MARKER_SM" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210666,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_MOVEMENT_MARKER_TEXT" strref="208670" x=35 y=58 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+
+			<UIButton name="CHECK_CENTER_CAMERA_SM" x=8 y=93 style="SQUARE_CHECKBOX_BUTTON"
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210665,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_CENTER_CAMERA_SM_TEXT" strref="208685" x=35 y=83 width=260 height=40 align=left valign=middle fontfamily="Default" style="2" 
+				multiline=true maxlines=2 />
+
+			<UIButton name="CHECK_SELECTED_CHAR_SM" x=8 y=131 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210678,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_SELECTED_CHAR_SM_TEXT" strref="208686" x=35 y=121 width=260 height=40 align=left valign=middle fontfamily="Default" style="2" 
+				multiline=true maxlines=2 />
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Mouse Highlighting Options -->
+		<UIText name="MOUSE_HIGHLIGHTING_OPTIONS_TEXT" strref="208672" x=360 y=0 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="HIGHLIGHT_CONFIG" x=360 y=20 width=310 height=135 >
+			<UIText name="MOUSE_HIGHLIGHTING_OPTIONS_TEXT" strref="208673" x=0 y=0 width=PARENT_WIDTH height=40 align=center valign=middle fontfamily="Default" style="2" 
+				mutliline=2 maxlines=2/>
+			<UIButton name="HL_OFF_RB"		x=8 y=40 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=13 groupmemberid=1 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210651,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_OFF_TEXT_1"	strref="208674" x=35 y=40 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="HL_OBJECT_RB"	x=8 y=65 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=13 groupmemberid=2 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210659,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_OBJECT_TEXT_1"	strref="208675" x=35 y=65 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIText name="HL_OBJECT_TEXT_2"	strref="208676" x=35 y=85 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="HL_EVERYTHING_RB"	x=8 y=110 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=13 groupmemberid=3 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210660,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="HL_EVERYTHING_TEXT_1"	strref="208677" x=35 y=110 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Left Click and Hold Option -->
+		<UIText name="LEFT_CLICK_OPTIONS_TEXT" strref="208687" x=360 y=165 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="HIGHLIGHT_CONFIG" x=360 y=185 width=310 height=64 >		
+			<!--<UIButton name="LC_MOVE_RB"		x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=14 groupmemberid=1 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210680,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="LC_MOVE_TEXT_1"	strref="208688" x=35 y=8 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false /> -->
+			<UIButton name="LC_SCROLL_RB"	x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=14 groupmemberid=2 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210681,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="LC_SCROLL_TEXT_1"	strref="208689" x=35 y=8 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIButton name="LC_MARQUEE_RB"		x=8 y=35 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=14 groupmemberid=3 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210682,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="LC_MARQUEE_TEXT_1"	strref="208690" x=35 y=35 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIText name="LC_MARQUEE_TEXT_2"	strref="208691" x=35 y=55 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Camera Focus Option -->
+		<UIText name="CAMERA_FOCUS_OPTIONS_TEXT" strref="208692" x=360 y=281 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="CAMERA_FOCUS_CONFIG" x=360 y=301 width=310 height=64 >		
+			<!--<UIButton name="CAMERA_FOCUS_RB_1"	x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=15 groupmemberid=1 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210668,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CAMERA_FOCUS_TEXT_1"	strref="208693" x=35 y=8 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false /> -->
+
+			<UIButton name="CAMERA_FOCUS_RB_2"	x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=15 groupmemberid=2 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210669,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CAMERA_FOCUS_TEXT_2"	strref="208694" x=35 y=8 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+
+			<UIButton name="CAMERA_FOCUS_RB_3"	x=8 y=35 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=15 groupmemberid=3 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210670,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CAMERA_FOCUS_TEXT_3"	strref="208695" x=35 y=35 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false />
+			<!-- <UIText name="CAMERA_FOCUS_TEXT_4"	text="Can be moved Freely (Free Camera)" x=35 y=83 width=240 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=false /> -->
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+
+		<!-- Mouse View Turning Options -->
+		<UIText name="VIEW_TURNING_OPTIONS_TEXT" strref="208678" x=680 y=0 width=310 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="TURNING_CONFIG" x=680 y=20 width=310 height=253 >
+
+			<!-- Screen Edge Move / Scroll (freecam) AND Screen Edge Turning  -->
+			<UIText name="CAMERA_SCROLL_SPEED_TEXT" strref="208696" x=0 y=10 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_SCROLL_SPEED_CONFIG" x=ALIGN_CENTER y=30 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210661,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_CAMERA_SCROLL_SPEED_SM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+
+			<!-- Screen Edge Turn 
+			<UIText name="CAMERA_TURN_SPEED_TEXT" strref="208679" x=0 y=70 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_TURN_SPEED_CONFIG" x=ALIGN_CENTER y=90 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210662,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_EDGE_TURN_SPEED_SM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+			-->
+
+			<!-- Keyboard Camera Move / Scroll -->
+			<UIText name="CAMERA_SCROLL_SPEED_KEYBOARD_TEXT" strref="208697" x=0 y=70 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="CAMERA_SCROLL_SPEED_KEYBOARD_CONFIG" x=ALIGN_CENTER y=90 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210663,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_CAMERA_SCROLL_SPEED_KEYBOARD_SM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+
+			<!-- Mouse Wheel Speed -->
+			<UIText name="MOUSE_WHEEL_SPEED_TEXT" strref="208682" x=0 y=130 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="MOUSEWHEEL_SPEED_CONFIG" x=ALIGN_CENTER y=150 width=216 height=35 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210645,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+				<UIScrollBar name="SB_MOUSE_WHEEL_SPEED_SM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>	
+
+			<!-- Mouse Camera Turn AND Mouse Camera Move / Scroll (freecam) -->
+			<UIText name="MOUSE_TURN_SPEED_TEXT" strref="208679" x=0 y=190 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIPane name="MOUSE_TURN_SPEED_CONFIG" x=ALIGN_CENTER y=210 width=216 height=35 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210785,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+				<UIScrollBar name="SB_MOUSE_TURN_SPEED_SM" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=ALIGN_CENTER minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+				<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+					bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+					left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+			</UIPane>
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Original Top Down Camera Button -->
+		<!--
+		<UIText name="BUTTON_ORIGINAL_TOP_DOWN_TEXT" strref="210975" x=610 y=281 width=280 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="BUTTON_ORIGINAL_TOP_DOWN_CONFIG" x=610 y=301 width=280 height=111 >
+			<UIText name="BUTTON_ORIGINAL_TOP_DOWN_TEXT" strref="210976" x=ALIGN_CENTER y=0 width=275 height=70 align=left valign=middle fontfamily="Default" style="bold" />		
+			<UIButton name="BUTTON_ORIGINAL_TOP_DOWN" strref="210977" x="ALIGN_CENTER" y="75" width=194 height=28 MouseDownSFX="gui_m_down" MouseUpSFX="gui_button"
+				OnLeftClick=UIButton_Input_ApplyTopDownCamera() >
+				<UIText align=center valign=middle fontfamily="Title_Font" style="1" />
+				<UIFrame state=up		fill="b_lg_normal.tga" />
+				<UIFrame state=down		fill="b_lg_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_lg_normal.tga" />
+				<UIFrame state=hilited	fill="b_lg_hover.tga" />
+				<UIFrame state=hifocus	fill="b_lg_hover.tga" />
+				<UIFrame state=disabled	fill="b_lg_normal.tga" />
+			</UIButton>
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+		-->
+
+
+	</UIPane>
+
+	<!-- Graphics Pane -->
+	<UIPane name="GRAPHICS_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+
+		<!-- Screen Resolution -->
+		<UIText name="SCREEN_RESOLUTION_TEXT" strref="183546" x=10 y=0 width=320 height=20 align=center valign=middle fontfamily="Default" style="bold"/>
+		<UIPane name="SCREEN_RESOLTION_CONFIG" x=10 y=20 width=320 height=135 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182873,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIListBox name="SCREEN_RESOLUTION_LIST" x=2 y=2 width=316 height=129 showpartialchild=false xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" prototype=true />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Shadow Options -->
+		<UIText name="SHADOW_OPTIONS_TEXT" strref="183548" x=340 y=0 width=300 height=20 indent=5 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="SHADOW_CONFIG" x=340 y=20 width=300 height=190 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183527,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+			<UIButton name="RB_OFF_SHADOW"		x=8 y=8 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=5 groupmemberid=1 />
+			<UIText name="OFF_SHADOW_TEXT_1"	strref="62495" x=35 y=12 width=240 height=18 align=left valign=top fontfamily="Default" style="2" multiline=false />
+			<UIText name="OFF_SHADOW_TEXT_2"	strref="183549" x=35 y=27 width=240 height=18 align=left valign=top fontfamily="Default" style="1" multiline=false />
+			<UIButton name="RB_LOW_SHADOW"		x=8 y=45 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=5 groupmemberid=2 />
+			<UIText name="LOW_SHADOW_TEXT_1"	strref="7770" x=35 y=48 width=240 height=18 align=left valign=top fontfamily="Default" style="2" multiline=false />
+			<UIText name="LOW_SHADOW_TEXT_2"	strref="183550" x=35 y=63 width=240 height=18 align=left valign=top fontfamily="Default" style="1" multiline=false />
+			<UIText name="LOW_SHADOW_TEXT_3"	strref="183551" x=35 y=78 width=240 height=18 align=left valign=top fontfamily="Default" style="1" multiline=false />
+			<UIButton name="RB_MEDIUM_SHADOW"	x=8 y=95 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=5 groupmemberid=3 />
+			<UIText name="MED_SHADOW_TEXT_1"	strref="6669" x=35 y=98 width=240 height=18 align=left valign=top fontfamily="Default" style="2" multiline=false />
+			<UIText name="MED_SHADOW_TEXT_2"	strref="183552" x=35 y=113 width=240 height=18 align=left valign=top fontfamily="Default" style="1" multiline=false />
+			<UIText name="MED_SHADOW_TEXT_3"	strref="183551" x=35 y=128 width=240 height=18 align=left valign=top fontfamily="Default" style="1" multiline=false />
+			<UIButton name="RB_HIGH_SHADOW"		x=8 y=145 width=20 height=20 style="ROUND_RADIO_BUTTON" groupid=5 groupmemberid=4 />
+			<UIText name="HIGH_SHADOW_TEXT_1"	strref="5836" x=35 y=148 width=240 height=18 align=left valign=top fontfamily="Default" style="2" multiline=false />
+			<UIText name="HIGH_SHADOW_TEXT_2"	strref="183553" x=35 y=163 width=240 height=18 align=left valign=top fontfamily="Default" style="1" multiline=false />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Quality Options -->
+		<UIText name="QUALITY_OPTIONS_TEXT_1" strref="208698" x=650 y=0 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="QUALITY_CONFIG" x=650 y=20 width=340 height=268 >
+			<UIText name="QUALITY_OPTIONS_TEXT_2" strref="208699" x=0 y=0 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_BLOOM" x=8 y=25 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(184205,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_BLOOM_TEXT" strref="184204" x=35 y=25 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" disabled=true />
+			<UIButton name="CHECK_NORMAL_TERRAIN" x=8 y=47 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183531,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_NORMAL_TERRAIN_TEXT" strref="183556" x=35 y=47 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_RENDER_GRASS" x=8 y=69 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(185576,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_RENDER_GRASS_TEXT" strref="185575" x=35 y=69 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_POINT_LIGHT_SHADOWS" x=8 y=91 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183533,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2" />
+			<UIText name="CHECK_PLS_TEXT" strref="183558" x=35 y=91 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_SOFTERSHADOWS" x=8 y=113 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183534,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_SOFTERSHADOWS_TEXT" strref="183559" x=35 y=113 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_ENABLE_LIGHT_FROM_PARTY" x=8 y=135 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(184577,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")/>
+			<UIText name="CHECK_TEXT" strref="208700" x=35 y=135 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" disabled=true />
+			<UIButton name="CHECK_WATER_REFLECTIONS" x=8 y=157 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183532,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_WATER_REFLECTIONS_TEXT" strref="183557" x=35 y=157 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_WATER_REFRACTION" x=8 y=179 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(184665,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_WATER_REFRACTION_TEXT" strref="184668" x=35 y=179 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_ENABLE_VSYNC" x=8 y=201 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(185437,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2" />
+			<UIText name="CHECK_ENABLE_VSYNC_TEXT" strref="185436" x=35 y=201 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_ALWAYS_DRAW_TRANSITIONS" x=8 y=223 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(184122,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_ALWAYS_DRAW_TRANSITIONS_TEXT" strref="208701" x=35 y=223 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=true maxlines=2 />		
+			<UIButton name="CHECK_RENDER_FAR_SHADOWS" x=8 y=245 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210677,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_RENDER_FAR_SHADOWS_TEXT" strref="208702" x=35 y=245 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" multiline=true maxlines=2 />		
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- View Options -->
+		<UIText name="VIEW_OPTIONS_TEXT" strref="208668" x=650 y=318 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold"/>
+		<UIPane name="VIEW_OPTIONS_CONFIG" x=650 y=338 width=340 height=57 >
+			<UIButton name="CHECK_WINDOWED" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183530,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_WINDOWED_TEXT" strref="183555" x=35 y=8 width=300 height=20 align=left valign=middle fontfamily="Default" style="2"/>
+			<UIButton name="CHECK_WEAPON_TRAIL" x=8 y=30 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183536,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_WEAPON_TRAIL_TEXT" strref="183569" x=35 y=30 width=300 height=20 align=left valign=middle fontfamily="Default" style="bold" />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Gamma Correction -->
+		<UIText name="GAMMA_TEXT" strref="183562" x=340 y=220 width=300 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="GAMMA_CONFIG" x=340 y=240 width=300 height=57 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182877,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+			<UIIcon name="GAMMA_IMAGE" img="options_gamma_bar.tga" x=ALIGN_CENTER y=6 width=240 height=21 />
+			<UIScrollBar name="SB_GAMMA" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=33 width=276 minvalue=10 
+				OnSliderPositionChange=UIScrollBar_SliderMoved_SetGamma()
+				maxvalue=300 minsize=0 maxsize=100 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!--Antialiasing Mode -->
+		<UIText name="ANTIALIAS_TEXT" strref="183547" x=10 y=165 width=320 height=20 align=center valign=middle fontfamily="Default" style="bold"/>
+		<UIPane name="ANTIALIAS_CONFIG" x=10 y=185 width=320 height=85 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182874,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIListBox name="MULTISAMPLE_LIST" x=2 y=2 width=316 height=79 showpartialchild=false xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" prototype=true ></UIButton>
+				<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Texture Quality -->
+		<UIText name="TEXTURE_TEXT" strref="208703" x=10 y=280 width=320 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="TEXTURE_CONFIG" x=10 y=300 width=320 height=88 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182886,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+			<UIPane name="INNER_CONTAINER" x=2 y=ALIGN_CENTER width=316 height=69 >		
+				<UIButton name="RB_HIGH_TEXTURE" strref="5836" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" buttontype=radio groupid=8 groupmemberid=3 >
+					<UIText align=center valign=middle fontfamily="Body_Font" style="1" />
+				</UIButton>				
+				<UIButton name="RB_MED_TEXTURE" strref="6669" x=0 y=23 width=PARENT_WIDTH style="OPTIONS_BUTTON" buttontype=radio groupid=8 groupmemberid=2 >
+					<UIText align=center valign=middle fontfamily="Body_Font" style="1" />
+				</UIButton>				
+				<UIButton name="RB_LOW_TEXTURE" strref="7770" x=0 y=46 width=PARENT_WIDTH style="OPTIONS_BUTTON" buttontype=radio groupid=8 groupmemberid=1 >
+					<UIText align=center valign=middle fontfamily="Body_Font" style="1" />
+				</UIButton>
+			</UIPane>			
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Auto Detect -->
+		<UIPane name="AUTODETECT_CONFIG" x=10 y=450 width=320 height=28 >
+			<UIButton name="AUTODETECT_OPTIONS" strref="183570" x=ALIGN_CENTER y=0 style="STYLE_LARGE_BUTTON"
+				OnLeftClick=UIButton_Input_OptionsAutoDetect() 
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182876,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+		</UIPane>
+
+
+		<!-- Far Clip Plane Override -->
+		<UIText name="FARCLIP_TEXT" strref="208704" x=650 y=405 width=340 height=20 align=center valign=middle fontfamily="Default" style="bold"/>
+		<UIPane name="FARCLIP_CONFIG" x=650 y=425 width=340 height=54 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182875,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIPane name="TEXT_CONTAINER" x=ALIGN_CENTER y=8 width=330 height=20 >
+				<UIText name="FARCLIP_MIN" strref="208705" x=ALIGN_LEFT y=0 width=50 height=20 align=left valign=middle fontfamily="Default" style="bold" />
+				<UIText name="FARCLIP_MAX" strref="208706" x=ALIGN_RIGHT y=0 width=50 height=20 align=right valign=middle fontfamily="Default" style="bold" />
+			</UIPane>
+			<UIScrollBar name="SB_FARCLIP" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=30 width=330 minvalue=25 maxvalue=100 minsize=0 maxsize=75
+				OnSliderPositionChange=UIScrollBar_SliderMoved_SetFarClip()></UIScrollBar>	
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+	</UIPane>
+
+	<!-- Advanced Graphics Pane -->
+	<UIPane name="ADVANCED_GRAPHICS_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+
+		<!-- Character Shadow Quality -->
+		<UIText name="CHAR_MAP_SIZE_TEXT" strref="208707" x=10 y=0 width=320 height=20 align=center valign=middle fontfamily="Default" style="2"/>
+		<UIPane name="CHAR_MAP_SIZE_CONFIG" x=10 y=20 width=320 height=110 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182879,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIListBox name="CHAR_SHADOW_MAP_SIZE_LIST" x=2 y=2 width=316 height=106 showpartialchild=true xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" prototype=true />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Environment Shadow Quality (Near) -->
+		<UIText name="NEAR_SHADOW_TEXT" strref="208708" x=340 y=0 width=320 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="NEAR_SHADOW_CONFIG" x=340 y=20 width=320 height=110 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182881,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIListBox name="HIRES_ENV_SIZE_LIST" x=2 y=2 width=316 height=106 showpartialchild=true xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" prototype=true />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Environment Shadow Quality (Far) -->
+		<UIText name="FAR_SHADOW_TEXT" strref="208709" x=670 y=0 width=320 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="FAR_SHADOW_CONFIG" x=670 y=20 width=320 height=110 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(182880,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIListBox name="LORES_ENV_SIZE_LIST" x=2 y=2 width=316 height=106 showpartialchild=true xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" prototype=true />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+	
+		<!-- Texture Filtering -->
+		<UIText name="TEXTURE_FILTERING_TEXT" strref="208710" x=340 y=150 width=320 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="TEXTURE_FILTERING_CONFIG" x=340 y=170 width=320 height=110 
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210676,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIListBox name="TEXTURE_FILTERING_LIST" x=2 y=2 width=316 height=106 showpartialchild=true xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=32 unequalcontrols=true selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH style="OPTIONS_BUTTON" prototype=true />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />	
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+	</UIPane>
+
+	<!-- Gameplay and Audio Pane -->
+	<UIPane name="GAMEPLAY_AUDIO_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+		<!-- Level of Difficulty -->
+		<UIText name="DIFF_LEVEL_TEXT" strref="183578" x=10 y=0 width=220 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="DIFF_LEVEL_CONFIG" x=10 y=20 width=220 height=58 >
+			<UIScrollBar name="SB_DIFF_LEVEL" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=9 minvalue=1 maxvalue=4 minsize=0 maxsize=3 />
+			<UIText name="CUR_DIFF_LEVEL_TXT" x=ALIGN_CENTER y=35 width=200 height=20 align=center valign=middle fontfamily="Default" style="2" 
+				update=true OnUpdate=UIText_OnUpdate_DisplaySliderText("SB_DIFF_LEVEL","true",66786,66788,66790,66792) />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Level of Difficulty Description -->
+		<UIText name="DIFF_LEVEL_TEXT" strref="183579" x=10 y=88 width=220 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="DIFF_LEVEL_CONFIG" x=10 y=108 width=220 height=292 >
+			<UIListBox name="CUR_DIFF_DESC_LB" x=2 y=2 width=216 height=288 showpartialchild=true xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=false scrollsegmentsize=30 unequalcontrols=true >
+				<UIText name="CUR_DIFF_DESC_TXT" align=left valign=middle fontfamily="Default" style="1" multiline=true height=DYNAMIC
+					update=true OnUpdate=UIText_OnUpdate_DisplaySliderText("SB_DIFF_LEVEL","true",67578,67579,67580,67581) />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Level of Violence -->
+		<UIText name="VIOLENCE_LEVEL_TEXT" strref="183581" x=10 y=410 width=220 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="TOOLTIP_CONFIG" x=10 y=430 width=220 height=58 >
+			<UIScrollBar name="SB_VIOLENCE_LEVEL" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=9 minvalue=1 maxvalue=3 minsize=0 maxsize=2 />
+			<UIText name="SB_VIOLENCE_LEVEL_TXT" x=ALIGN_CENTER y=35 width=200 height=20 align=center valign=middle fontfamily="Default" style="bold" 
+				update=true OnUpdate=UIText_OnUpdate_DisplaySliderText("SB_VIOLENCE_LEVEL","true",62495,66092,66194) />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Sound Provider Config -->
+		<UIText name="SOUND_PROVIDER_TEXT" strref="183601" x=490 y=0 width=400 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="SOUND_PROVIDER_CONFIG" x=490 y=20 width=400 height=180 >		
+			<UIListBox name="SOUND_PROVIDER_LIST" x=2 y=2 width=396 height=176 showpartialchild=false xPadding=0 yPadding=0
+				hidescrollbarwhennotneeded=false scrollsegmentsize=10 unequalcontrols=true selectonleftclick=true >
+				<UIButton name="PROTO_BUTTON" x=0 y=0 width=PARENT_WIDTH height=35 style="OPTIONS_BUTTON_2" prototype=true OnLeftClick=UIButton_Input_HandleProviderSelect() />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />	
+			</UIListBox>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Volume Settings -->
+		<UIText name="VOLUME_CONFIG_TEXT" strref="208711" x=490 y=210 width=400 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="VOLUME_CONFIG" x=490 y=230 width=400 height=100 >		
+			<UIText name="MUSIC_VOLUME_TEXT" strref="183593" x=2 y=8 width=180 height=20 align=right valign=middle fontfamily="Default" style="2" />
+			<UIScrollBar name="SB_MUSIC_VOLUME" style="STYLE_OPTION_SLIDER" x=194 y=8 minvalue=0 maxvalue=100 minsize=0 maxsize=100 scrollsegmentsize=10 
+				OnSliderPositionChange=UIScrollBar_SliderMoved_SetVolume("MUSIC") />
+			<UIText name="VOICE_VOLUME_TEXT" strref="183594" x=2 y=30 width=180 height=20 align=right valign=middle fontfamily="Default" style="2" />
+			<UIScrollBar name="SB_VOICE_VOLUME" style="STYLE_OPTION_SLIDER" x=194 y=30 minvalue=0 maxvalue=100 minsize=0 maxsize=100 scrollsegmentsize=10 
+				OnSliderPositionChange=UIScrollBar_SliderMoved_SetVolume("VOICE") />
+			<UIText name="SFX_VOLUME_TEXT" strref="183595" x=2 y=52 width=180 height=20 align=right valign=middle fontfamily="Default" style="2" />
+			<UIScrollBar name="SB_SFX_VOLUME" style="STYLE_OPTION_SLIDER" x=194 y=52 minvalue=0 maxvalue=100 minsize=0 maxsize=100 scrollsegmentsize=10 
+				OnSliderPositionChange=UIScrollBar_SliderMoved_SetVolume("SFX") />
+			<UIText name="2D3D_BIAS_TEXT" strref="183596" x=2 y=74 width=180 height=20 align=right valign=middle fontfamily="Default" style="bold" />
+			<UIScrollBar name="SB_2D3D_BIAS" style="STYLE_OPTION_SLIDER" x=194 y=74 minvalue=0 maxvalue=100 minsize=0 maxsize=100 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- EAX Settings -->
+		<UIText name="EAX_SETTINGS_TEXT" strref="183598" x=490 y=340 width=400 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="EAX_LEVEL_CONFIG" x=490 y=360 width=400 height=104 >
+			<UIButton name="CHECK_ENABLE_EAX" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" 
+				OnLeftClick=UIButton_Input_HandleEAXCheck() update=true OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:1,"true") />
+			<UIText name="CHECK_ENABLE_EAX_TEXT" strref="183599" x=35 y=8 width=200 height=20 align=left valign=middle fontfamily="Default" style="bold" />
+			<UIButton name="CHECK_ENABLE_HARDWARE_SOUND" x=8 y=33 style="SQUARE_CHECKBOX_BUTTON" 
+				OnLeftClick=UIButton_Input_HandleHardwareCheck() update=true OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:2,"true") />
+			<UIText name="CHECK_ENABLE_HARDWARE_TEXT" strref="183600" x=35 y=29 width=200 height=20 align=left valign=middle fontfamily="Default" style="bold" />
+			<UIText name="EAX_LEVEL_TEXT" strref="183597" x=0 y=52 width=PARENT_WIDTH height=20 align=center valign=middle fontfamily="Default" style="bold" />
+			<UIScrollBar name="SB_EAX_LEVEL" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=74 minvalue=0 maxvalue=100 minsize=0 maxsize=100 />	
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+	</UIPane>
+
+	<!-- Interface Pane -->
+	<UIPane name="INTERFACE_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+		<!-- Hotbar Options -->
+		<UIText name="HOTBAR_OPTIONS_TEXT" strref="208712" x=10 y=0 width=300 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="HOTBAR_CONFIG" x=10 y=20 width=300 height=110 >		
+			<UIButton name="CHECK_HB_1" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210671,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_HB1_TEXT" strref="208713" x=35 y=8 width=260 height=20 align=left valign=middle fontfamily="Default" style="2"/>
+			<UIButton name="CHECK_HB_2" x=8 y=33 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210672,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_HB2_TEXT" strref="208714" x=35 y=33 width=260 height=20 align=left valign=middle fontfamily="Default" style="2"/>			
+			<UIButton name="CHECK_HB_V1" x=8 y=58 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210673,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_HB_V1_TEXT" strref="208715" x=35 y=58 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" />			
+			<UIButton name="CHECK_HB_V2" x=8 y=83 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210674,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_HB_V2_TEXT" strref="208716" x=35 y=83 width=260 height=20 align=left valign=middle fontfamily="Default" style="2" />		
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Modebar Options -->
+		<UIText name="MODEBAR_OPTIONS_TEXT" strref="185567" x=10 y=140 width=300 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="MODEBAR_CONFIG" x=10 y=160 width=300 height=36 > 
+			<UIButton name="CHECK_SHOW_MODEBAR" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" />
+			<UIText name="CHECK_SHOW_MODEBAR_TEXT" strref="185569" x=35 y=8 width=260 height=20 align=left valign=middle fontfamily="Default" style="2"/>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Minimap Options -->
+		<UIText name="MINIMAP_OPTIONS_TEXT" strref="185572" x=10 y=206 width=300 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="MINIMAP_CONFIG" x=10 y=226 width=300 height=36 >
+			<UIButton name="CHECK_SHOW_MINIMAP" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" />
+			<UIText name="CHECK_SHOW_MINIMAP_TEXT" strref="185573" x=35 y=8 width=260 height=20 align=left valign=middle fontfamily="Default" style="2"/>
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Tooltip Delay -->
+		<UIText name="TOOLTIP_DELAY_TEXT" strref="183580" x=320 y=0 width=220 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="TOOLTIP_CONFIG" x=320 y=20 width=220 height=58 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183537,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+			<UIScrollBar name="SB_TOOLTIP_DELAY" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=9 minvalue=0 maxvalue=20 minsize=0 maxsize=20 />
+			<UIText name="TOOLTIP_DELAY_CURVALLUE" x=ALIGN_CENTER y=35 width=200 height=20 align=center valign=middle fontfamily="Default" style="2" 
+				update=true OnUpdate=UIText_OnUpdate_DisplayScrollbarValue("SB_TOOLTIP_DELAY","float","0.1") />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Context Menu Delay -->
+		<UIText name="CONTEXTMENU_TEXT" strref="183634" x=320 y=88 width=220 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="CONTEXTMENU_CONFIG" x=320 y=108 width=220 height=58 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183625,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+			<UIScrollBar name="SB_CONTEXTMENU_DELAY" style="STYLE_OPTION_SLIDER" x=ALIGN_CENTER y=9 minvalue=1 maxvalue=10 minsize=0 maxsize=10 />
+			<UIText name="CONTEXTMENU_DELAY_CURVALLUE" x=ALIGN_CENTER y=35 width=200 height=20 align=center valign=middle fontfamily="Default" style="2" 
+				update=true OnUpdate=UIText_OnUpdate_DisplayScrollbarValue("SB_CONTEXTMENU_DELAY","float","0.1") />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Action Options -->
+		<UIText name="ACTION_OPTIONS_TEXT" strref="208717" x=550 y=0 width=440 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="ACTION_OPTIONS_CONFIG" x=550 y=20 width=440 height=142 >
+			<UIButton name="CHECK_ENABLE_BUYSELL" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210675,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_ENABLE_BUYSELL_TEXT" strref="208718" x=35 y=8 width=300 height=20 align=left valign=middle fontfamily="Default" style="bold" multiline=true maxlines=2 />		
+			<UIButton name="CHECK_QS_TOGGLE" x=8 y=30 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183629,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_QS_TEXT" strref="208719" x=35 y=30 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />					
+			<UIButton name="CHECK_AUTO_CURRENT_TARGET" x=8 y=52 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(184120,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_AUTO_CURRENT_TARGET_TEXT" strref="208720" x=35 y=52 width=300 height=40 align=left valign=middle fontfamily="Default" style="2" multiline=true maxlines=2 />		
+			<UIButton name="CHECK_AUTO_RUN_ACTION" x=8 y=94 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(184121,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_AUTO_RUN_ACTION_TEXT" strref="208721" x=35 y=94 width=300 height=40 align=left valign=middle fontfamily="Default" style="2" multiline=true maxlines=2 />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- Misc Options -->
+		<UIText name="MISC_OPTIONS_TEXT" strref="208722" x=550 y=172 width=440 height=20 align=center valign=middle fontfamily="Default" style="2" />
+		<UIPane name="MISC_OPTIONS_CONFIG" x=550 y=192 width=440 height=56 >
+			<UIButton name="CHECK_TARGET_MARKER" x=8 y=8 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183942,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_TARGET_MARKER_TEXT" strref="183567" x=35 y=8 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIButton name="CHECK_PORTRAIT_HEALTH" x=8 y=30 style="SQUARE_CHECKBOX_BUTTON" OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(232554,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+			<UIText name="CHECK_PORTRAIT_HEALTH_TEXT" strref="232553" x=35 y=30 width=300 height=20 align=left valign=middle fontfamily="Default" style="2" />
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+	</UIPane>
+
+	<!-- Keybinding Pane -->
+	<UIPane name="KEYBINDING_PANE" x=0 y=67 width=PARENT_WIDTH height=495 hidden=true >
+
+		<UIText name="KEYBINDING_TEXT" strref="10413" x=10 y=0 width=818 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		<UIPane name="TAB_CONTAINER" x=10 y=20 width=522 height=27 >
+			<UIButton name="SHOW_MOVE" x=0 y=0 strref="6399" style="MP_BROWSER_TAB_102" buttontype=radio groupid=10 groupmemberid=1
+				OnSelected=UIButton_Input_BuildKeybindList("0") />
+			<UIButton name="SHOW_GAME" x=105 y=0 strref="10409" style="MP_BROWSER_TAB_102" buttontype=radio groupid=10 groupmemberid=2
+				OnSelected=UIButton_Input_BuildKeybindList("1")/>
+			<UIButton name="SHOW_MISC" x=210 y=0 strref="10410" style="MP_BROWSER_TAB_102" buttontype=radio groupid=10 groupmemberid=3
+				OnSelected=UIButton_Input_BuildKeybindList("2")/>
+			<UIButton name="SHOW_DM" x=315 y=0 strref="10411" style="MP_BROWSER_TAB_102" buttontype=radio groupid=10 groupmemberid=4
+				OnSelected=UIButton_Input_BuildKeybindList("3")/>
+			<UIButton name="SHOW_CAM" x=420 y=0 strref="110649" style="MP_BROWSER_TAB_102" buttontype=radio groupid=10 groupmemberid=5
+				OnSelected=UIButton_Input_BuildKeybindList("4")/>
+		</UIPane>
+
+		<UIPane name="KEY_CONTAINER" x=10 y=50 width=818 height=350 >
+
+			
+			<UIPane name="HEADER_CONTAINER" x=2 y=1 width=822 height=20 >
+				<UIText name="KEY_LEFT_TEXT"	strref="208723"			x=0 y=0 width=350 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+				<UIText name="KEY_RIGHT_3_TEXT"	strref="234187"	x=350 y=0 width=150 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+                <UIText name="KEY_RIGHT_TEXT"	strref="208657"	x=500 y=0 width=150 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+				<UIText name="KEY_RIGHT_2_TEXT"	strref="208658"	x=650 y=0 width=150 height=20 align=center valign=middle fontfamily="Default" style="bold" />
+		
+				<UIIcon name="V_DIVIDER" img="fx_white.tga" color="F5F3DA" x=350 y=0 width=1 height=PARENT_HEIGHT />
+				<UIIcon name="V_DIVIDER" img="fx_white.tga" color="F5F3DA" x=500 y=0 width=1 height=PARENT_HEIGHT />
+                <UIIcon name="V_DIVIDER" img="fx_white.tga" color="F5F3DA" x=650 y=0 width=1 height=PARENT_HEIGHT />                
+				<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=19 width=PARENT_WIDTH height=1 />
+
+			</UIPane>
+			
+			<UIListBox name="KEYBIND_LIST" x=2 y=22 width=818 height=326 showpartialchild=false xPadding=0 yPadding=0
+				hidescrollbarwhennotneeded=false scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true
+				update="true" OnUpdate=UIListBox_OnUpdate_CreateKeybindList() >
+
+				<UIPane name="KEY_PROTO" x=0 y=0 width=818 height=20 tupple=true prototype=true  >
+					<UIButton name="KEY_LEFT" x=0 y=0 width=350 height=20 prototype=true >
+						<UIText align=left valign=middle fontfamily="Body_Font" style="1" indent=5 />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="selection_fill2.tga" />
+						<UIFrame state=focused	fill="selection_fill2.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="selection_fill2.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+                    <UIButton name="KEY_RIGHT_EM" x=350 y=0 width=150 height=20 prototype=true OnLeftDoubleClick=UIPane_Input_SetupKeyCapture(3) >
+						<UIText align=center valign=middle fontfamily="Body_Font" style="1" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="selection_fill2.tga" />
+						<UIFrame state=focused	fill="selection_fill2.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="selection_fill2.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>	  					
+					<UIButton name="KEY_RIGHT_CM" x=500 y=0 width=150 height=20 prototype=true OnLeftDoubleClick=UIPane_Input_SetupKeyCapture(1) >
+						<UIText align=center valign=middle fontfamily="Body_Font" style="1" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="selection_fill2.tga" />
+						<UIFrame state=focused	fill="selection_fill2.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="selection_fill2.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>				
+					<UIButton name="KEY_RIGHT_SM" x=650 y=0 width=150 height=20 prototype=true OnLeftDoubleClick=UIPane_Input_SetupKeyCapture(2) >
+						<UIText align=center valign=middle fontfamily="Body_Font" style="1" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="selection_fill2.tga" />
+						<UIFrame state=focused	fill="selection_fill2.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="selection_fill2.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>                  
+				</UIPane>
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />	
+			</UIListBox>
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga" border=5 />
+		</UIPane>
+
+		<!-- The name of the following control is specific and hard coded in the engine to pass on help instructions to the user, you can remove it, but do not change the name -->
+		<UIText name="KEYBIND_INSTRUCT" x=10 y=400 width=522 height=20 align=center valign=middle fontfamily="Body_Font" style="1" color="gold" multiline=false />
+		<UIPane name="RESTORE_CONTAINER" x=10 y=420 width=522 height=30 >
+			<UIButton name="RESTORE_DEFAULTS" strref="10412" x=ALIGN_CENTER y=0 style="STYLE_LARGE_BUTTON" OnLeftClick=UIButton_Input_ResetKeyDefaults() />		
+		</UIPane>
+
+	</UIPane>
+
+
+	<!-- Background Image -->
+	<UIText strref="178835" x="10" y="6" width="700" height="33" fontfamily="Title_Font" style="2" />
+	<UIIcon name="OPTIONS_SCREEN_TITLE" img="title_large01.tga" x=1 y=1 width=998 height=34 />
+	<UIIcon name="HORIZONTAL_BAR" img="frame1_B.tga" x=0 y=42 width=1000 height=32 />
+	<UIIcon name="HORIZONTAL_BAR_2" img="frame1_B.tga" x=0 y=539 width=1000 height=32 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+		bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" alpha="0.85"
+		left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="solid_black_fill.tga" border=5 />

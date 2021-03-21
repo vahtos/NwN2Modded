@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8">
+
+<!-- Was 732 -->
+
+<UIScene name="SCREEN_PARTY_BAR" x=ALIGN_RIGHT y=ALIGN_TOP width=212 height=960 scriptloadable="true"
+capturemouseclicks=false capturemouseevents=false priority="SCENE_INGAME"/>
+	
+	<UIListBox name="PARTY_LIST" x=0 y=0 width=212 height=PARENT_HEIGHT xPadding=0 yPadding=0 
+		showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=60 hidescrollbarwhennotneeded=true capturemouseclicks=false
+		update=true OnUpdate=UIListBox_OnUpdate_UpdatePartyBar() 	>
+
+		<UIPane name="CHAR_BOX" x=ALIGN_LEFT y=ALIGN_TOP width=197 height=122 prototype=true capturemouseclicks=false capturemouseevents=false >
+
+			<!-- status effect grid -->
+			<UIGrid name="STATUSEFFECT_GRID" columns=4 rows=3 x=0 y=5 xPadding=1 yPadding=1 capturemouseclicks=false capturemouseevents=false >
+				<UIButton name="EFFECT_BUTTON_1" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,9) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_2" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,6) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_3" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,3) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_4" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,0) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_5" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,10) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_6" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,7) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_7" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,4) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_8" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,1) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_9" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,11) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_10" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,8) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_11" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,5) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+				<UIButton name="EFFECT_BUTTON_12" style="STYLE_BUFF_BUTTON" capturemouseclicks=false capturemouseevents=false 
+					update=true OnUpdate=UIButton_OnUpdate_CheckStatusIcons("PARTY_BAR_SLOT",-1,2) 
+					OnToolTip=UIObject_Tooltip_DisplayStatusIcon(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				</UIButton>
+			</UIGrid>
+
+			<UIText name="current_hp" x="125" y="15" width="58" height="30" align="left" valign="top" fontfamily="Special_Font" style="2" 
+			update=true OnUpdate=UIText_OnUpdate_DisplayHealth("CURRENT_HEALTH") />
+
+			<UIText name="max_hp" x="125" y="45" width="58" height="30" align="right" valign="bottom" fontfamily="Special_Font" style="2" 
+			update=true OnUpdate=UIText_OnUpdate_DisplayHealth("MAX_HEALTH") />
+
+			<!-- portrait -->
+			<UIButton name="PM_PORTRAIT" x=119 y=0 width=78 height=122 handleactiontarget=true 
+				OnLeftClick=UIButton_Input_PossessCompanion("PARTY_BAR_SLOT",-1)
+				OnRightClick=UIButton_Input_TargetCompanion("PARTY_BAR_SLOT",-1)
+				OnLeftDoubleClick=UIButton_Input_CameraCompanion("PARTY_BAR_SLOT",-1)
+				OnMouseDropReceived=UIButton_OnDropReceived_PartyItemTransfer()
+				OnRadialRequest=UIObject_OnRadial_DisplayActionTargetRadial()
+				OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT)
+				update=true OnUpdate=UIButton_OnUpdate_UpdatePlayerState(-1,"p_m_frame_selection","p_nc_frame") >
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_empty.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_empty.tga" />
+				<UIFrame state=hifocus	fill="b_empty.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			
+			<!-- frame states -->
+			<UIIcon name="PORTRAIT_FRAME_DEAD"		x=119 y=0 width=78 height=122 img="p_m_dead2.tga"			hidden=true ignoreevents=true 
+				update=true OnUpdate=UIObject_OnUpdate_CheckCharacterHealth("DEAD") draggable=false />
+			<UIIcon name="PORTRAIT_FRAME_DYING"		x=119 y=0 width=78 height=122 img="p_m_dying.tga"			hidden=true ignoreevents=true 
+				update=true OnUpdate=UIObject_OnUpdate_CheckCharacterHealth("DYING") draggable=false />
+			<UIIcon name="PORTRAIT_FRAME_LEVELUP"	x=119 y=0 width=78 height=122 img="p_m_level_up.tga"			hidden=true ignoreevents=true
+				update=true OnUpdate=UIObject_OnUpdate_CheckForLevelUp() draggable=false />
+			<UIIcon name="PORTRAIT_FRAME_PARTYLEADER" x=119 y=0 width=78 height=122 img="p_mp_party_leader.tga"	hidden=true ignoreevents=true
+				update=true OnUpdate=UIObject_OnUpdate_CheckForPartyLeader() draggable=false />
+
+			<!-- hp bar -->
+			<UIIcon name="HP_BAR_FRAME"				x=100 y=0 width=19 height=122 img="p_m_health_frame.tga"
+				OnToolTip=UIObject_Tooltip_DisplayPartyBarData("HP_RATIO",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) />
+			<UIProgressBar name="HP_BAR"			x=102 y=10 width=15 height=101 vertical=true img="p_m_health_fill.tga" 
+				update=true OnUpdate=UIProgressBar_OnUpdate_DisplayPartyHPPercentage(-1) >
+			</UIProgressBar>			
+			<UIIcon name="HP_BAR_BG"				x=100 y=10 width=15 height=101 img="p_m_health_bg.tga" />
+			<!-- Character Custom Portrait icon -->
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=121 y=13 width=64 height=100 hidden=true />
+
+			<!-- character render             -->    	
+			<UIPortrait name="PORTRAIT_BG" x=121 y=13 width=64 height=100 hidden=true prototype=true texture="p_m_bg_dark.tga"
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait(-1)
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+        				<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+        				color_r="1" color_g=".6" color_b="0" 
+        				speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+     
+        				<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+        				color_r=".31" color_g=".42" color_b=".58" 
+        				speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+     
+        				<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+        				color_r=".6" color_g=".55" color_b=".5" 
+        				speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+            <UIIcon name="default_icon" x=119 y=0 width=78 height=86 hidden=true img="p_m_unknown.tga" />
+
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>

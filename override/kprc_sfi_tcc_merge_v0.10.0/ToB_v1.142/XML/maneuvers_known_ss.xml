@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="NWN2UI">
+<!-- 
+	This xml file is used to display all of the KNOWN maneuvers that
+	the selected character currently has available. 
+-->
+
+<UIScene name="SCREEN_MANEUVERS_KNOWN_SS" x=50 y=20 width=378 height=460 draggable=true fadeout="0.3" fadein="0.3"
+priority="SCENE_INGAME" backoutkey=false scriptloadable="true" OnAdd=UIObject_Misc_ExecuteServerScript(gui_tob_add_level,SS) OnAdd0=UIObject_Misc_ExecuteServerScript(gui_wendersnaven,_SS)/>
+
+<!-- Scene Title -->
+	<UIText text="Maneuvers Known" x=90 y=8 width=260 height=28 align=left valign=middle fontfamily="Title_Font" style="2" />
+	<UIIcon name="MANEUVER_KNOWN_DETAIL" img="container_book.tga" x=0 y=0 width=78 height=71 ignoreevents=true />
+
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=330 y=8 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_launch_bot9s,_SS)>
+	</UIButton>
+
+	<UIButton name="PrimerButton" x=163 y=50 height=40 width=40
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_open_primer) 
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString("Primer",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)>
+		<UIFrame state=base		fill="it_bot9s.tga" />
+		<UIFrame state=up		fill="b_empty.tga" />
+		<UIFrame state=down		fill="b_overlay.tga" />
+		<UIFrame state=focused	fill="b_empty.tga" />
+		<UIFrame state=hilited	fill="b_overlay.tga" />
+		<UIFrame state=hifocus	fill="b_overlay.tga" />
+		<UIFrame state=disabled fill="b_empty.tga" />
+	</UIButton>
+
+	<UIText name="CLASS_TEXT" x=28 y=68 width=140 height=24 align=left valign=middle fontfamily="Title_Font" style="1" text="Swordsage" />
+
+	<UIGrid name="MANEUVER_LEVEL_GRID" rows=1 columns=10 x=26 y=102 xPadding=8 yPadding=1 >
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_0" height=24 width=24 buttontype=radio groupid=2 groupmemberid=1 
+									OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,0_SS)>
+				<UIFrame state=up		fill="b_s0_normal.tga" />
+				<UIFrame state=down		fill="b_s0_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s0_hover.tga" />
+				<UIFrame state=hilited	fill="b_s0_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s0_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s0_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_1" height=24 width=24 buttontype=radio groupid=2 groupmemberid=2 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,1_SS)>
+				<UIFrame state=up		fill="b_s1_normal.tga" />
+				<UIFrame state=down		fill="b_s1_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s1_hover.tga" />
+				<UIFrame state=hilited	fill="b_s1_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s1_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s1_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_2" height=24 width=24 buttontype=radio groupid=2 groupmemberid=3 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,2_SS)>
+				<UIFrame state=up		fill="b_s2_normal.tga" />
+				<UIFrame state=down		fill="b_s2_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s2_hover.tga" />
+				<UIFrame state=hilited	fill="b_s2_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s2_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s2_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_3" height=24 width=24 buttontype=radio groupid=2 groupmemberid=4 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,3_SS)>
+				<UIFrame state=up		fill="b_s3_normal.tga" />
+				<UIFrame state=down		fill="b_s3_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s3_hover.tga" />
+				<UIFrame state=hilited	fill="b_s3_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s3_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s3_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_4" height=24 width=24 buttontype=radio groupid=2 groupmemberid=5 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,4_SS)>
+				<UIFrame state=up		fill="b_s4_normal.tga" />
+				<UIFrame state=down		fill="b_s4_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s4_hover.tga" />
+				<UIFrame state=hilited	fill="b_s4_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s4_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s4_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_5" height=24 width=24 buttontype=radio groupid=2 groupmemberid=6 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,5_SS)>
+				<UIFrame state=up		fill="b_s5_normal.tga" />
+				<UIFrame state=down		fill="b_s5_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s5_hover.tga" />
+				<UIFrame state=hilited	fill="b_s5_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s5_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s5_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_6" height=24 width=24 buttontype=radio groupid=2 groupmemberid=7 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,6_SS)>
+				<UIFrame state=up		fill="b_s6_normal.tga" />
+				<UIFrame state=down		fill="b_s6_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s6_hover.tga" />
+				<UIFrame state=hilited	fill="b_s6_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s6_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s6_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_7" height=24 width=24 buttontype=radio groupid=2 groupmemberid=8 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,7_SS)>
+				<UIFrame state=up		fill="b_s7_normal.tga" />
+				<UIFrame state=down		fill="b_s7_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s7_hover.tga" />
+				<UIFrame state=hilited	fill="b_s7_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s7_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s7_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_8" height=24 width=24 buttontype=radio groupid=2 groupmemberid=9 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,8_SS)>
+				<UIFrame state=up		fill="b_s8_normal.tga" />
+				<UIFrame state=down		fill="b_s8_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s8_hover.tga" />
+				<UIFrame state=hilited	fill="b_s8_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s8_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s8_disabled.tga" />
+			</UIButton>
+		</UIPane>
+		<UIPane height=24 width=24>
+			<UIButton name="MANEUVER_9" height=24 width=24 buttontype=radio groupid=2 groupmemberid=10 
+								OnSelected=UIObject_Misc_ExecuteServerScript(gui_setmaneuverlevel,9_SS)>
+				<UIFrame state=up		fill="b_s9_normal.tga" />
+				<UIFrame state=down		fill="b_s9_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_s9_hover.tga" />
+				<UIFrame state=hilited	fill="b_s9_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s9_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s9_disabled.tga" />
+			</UIButton>
+		</UIPane>
+	</UIGrid>
+
+	<!-- Stances -->
+	<UIListbox name="STANCE_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="STANCE_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK0_SS,listboxrow:STANCE_LIST)>
+			<UIButton name="STANCE_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true MouseDownSFX="gui_click"
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="STANCE_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="STANCE_TEXTFIELD" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListbox>
+
+	<!-- Level One -->
+	<UIListbox name="LEVEL1_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL1_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK1_SS,listboxrow:LEVEL1_LIST)>
+			<UIButton name="LEVEL1_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL1_LIST,1_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL1_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L1" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Two -->
+
+	<UIListbox name="LEVEL2_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL2_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK2_SS,listboxrow:LEVEL2_LIST)>
+			<UIButton name="LEVEL2_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL2_LIST,2_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL2_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L2" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Three -->
+
+	<UIListbox name="LEVEL3_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL3_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK3_SS,listboxrow:LEVEL3_LIST)>
+			<UIButton name="LEVEL3_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL3_LIST,3_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL3_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L3" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Four -->
+
+	<UIListbox name="LEVEL4_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL4_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK4_SS,listboxrow:LEVEL4_LIST)>
+			<UIButton name="LEVEL4_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL4_LIST,4_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL4_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L4" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Five -->
+
+	<UIListbox name="LEVEL5_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL5_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK5_SS,listboxrow:LEVEL5_LIST)>
+			<UIButton name="LEVEL5_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL5_LIST,5_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL5_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L5" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Six -->
+
+	<UIListbox name="LEVEL6_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL6_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK6_SS,listboxrow:LEVEL6_LIST)>
+			<UIButton name="LEVEL6_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL6_LIST,6_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL6_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L6" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Seven -->
+
+	<UIListbox name="LEVEL7_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL7_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK7_SS,listboxrow:LEVEL7_LIST)>
+			<UIButton name="LEVEL7_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL7_LIST,7_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL7_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L7" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Eight -->
+
+	<UIListbox name="LEVEL8_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL8_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK8_SS,listboxrow:LEVEL8_LIST)>
+			<UIButton name="LEVEL8_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL8_LIST,8_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL8_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L8" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Level Nine -->
+
+	<UIListbox name="LEVEL9_LIST" x=33 y=162 width=335 height=292 yPadding=1 selectonleftclick=true
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64> 
+
+		<UIPane name="LEVEL9_LISTBOX_ITEM" x=20 y=15 width=300 height=40 tupple=true prototype=true MouseDownSFX="gui_click"
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MK9_SS,listboxrow:LEVEL9_LIST)>
+			<UIButton name="LEVEL9_ITEM_ICON" x=0 y=0 draggable=false width=40 height=40 prototype=true
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_level_row,listboxrow:LEVEL9_LIST,9_SS)
+				hotbartype="HOTBAR_NONE" >
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIButton name="LEVEL9_ITEM_TEXT" x=42 y=1 width=256 height=40 prototype=true hotbartype="HOTBAR_NONE" >
+				<UIText name="TEXTFIELD_L9" indent=5 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+				<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+			</UIButton>
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Background Image -->
+	<UIIcon name="SPELL_KNOWN_TOP" img="martial_top.tga" x=10 y=8 width=359 height=155 />
+	<UIIcon name="SPELL_KNOWN_BOTTOM" img="swordsage_paper.tga" x=9 y=163 width=360 height=288 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />	
+

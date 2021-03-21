@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8">
+
+<UIScene name="SCREEN_INVENTORY" x=520 y=ALIGN_CENTER width=715 height=686 draggable="true" backoutkey="true"  scriptloadable="true"
+	fadeout="0.3" fadein="0.3" priority="SCENE_INGAME"
+	OnAdd0=UIScene_Misc_RequestInventoryUpdates("true") 
+	OnAdd1=UIObject_Misc_RequestCharacterUpdates(0,"true","STATS")
+	OnAdd2=UIObject_Misc_ExecuteServerScript("gui_check_trade")
+	OnRemove0=UIScene_Misc_RequestInventoryUpdates("false")
+	OnRemove1=UIScene_Misc_ClearNewItemList()
+	OnRemove2=UIObject_Misc_RequestCharacterUpdates(0,"false") />
+
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=340 y=7 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIButton_Input_ScreenClose()>
+	</UIButton>
+
+	<UIIcon name="CHAR_ICON" img="inventory_icon.tga" x=0 y=0 width=78 height=71 />
+	<UIText name="TITLE" x=80 y=8 width=250 height=27 align=left valign=middle fontfamily="Title_Font" style="2"
+	update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","FULLNAME") />
+
+	<!-- Sort Inventory -->
+	<UIButton name="SORT_INVENTORY" x="334" y="421" width=24 height=24 MouseDownSFX="gui_m_down" MouseUpSFX="gui_button"
+		OnLeftClick=UIButton_Input_SortInventory() 
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(210756,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+		<UIFrame state="up"			fill="inv_sort_normal.tga" />
+		<UIFrame state="down"		fill="inv_sort_pressed.tga" />
+		<UIFrame state="focused"	fill="inv_sort_hover.tga" />
+		<UIFrame state="hilited"	fill="inv_sort_hover.tga" />
+		<UIFrame state="hifocus"	fill="inv_sort_pressed.tga" />
+		<UIFrame state="disabled"	fill="inv_sort_normal.tga" />
+	</UIButton>
+
+
+	<!-- Rotate and Update Buttons -->
+	<UIButton name="ROTATE_LEFT" x="14" y="360" width=24 height=24 repeatcallback="true" update="true"
+	OnLeftClick=UIButton_Input_Rotate3DCameraInventory("PAPER_DOLL","PLAYER_CREATURE","LEFT") >
+		<UIFrame state="up"			fill="b_rotl_normal.tga" />
+		<UIFrame state="down"		fill="b_rotl_hover_pressed.tga" />
+		<UIFrame state="focused"	fill="b_rotl_hover.tga" />
+		<UIFrame state="hilited"	fill="b_rotl_hover.tga" />
+		<UIFrame state="hifocus"	fill="b_rotl_hover_pressed.tga" />
+		<UIFrame state="disabled"	fill="b_rotl_disabled.tga" />
+	</UIButton>
+
+	<UIButton name="ROTATE_RIGHT" x="173" y="360" width=24 height=24 repeatcallback="true" update="true"
+		OnLeftClick=UIButton_Input_Rotate3DCameraInventory("PAPER_DOLL","PLAYER_CREATURE","RIGHT") >
+		<UIFrame state="up"			fill="b_rotr_normal.tga" />
+		<UIFrame state="down"		fill="b_rotr_hover_pressed.tga" />
+		<UIFrame state="focused"	fill="b_rotr_hover.tga" />
+		<UIFrame state="hilited"	fill="b_rotr_hover.tga" />
+		<UIFrame state="hifocus"	fill="b_rotr_hover_pressed.tga" />
+		<UIFrame state="disabled"	fill="b_rotr_disabled.tga" />
+	</UIButton>
+
+	<UI3DScene name="PAPER_DOLL" x=22 y=47 width=180 height=340 texture="inv_3d_bg.tga" 
+		cameralook_x="0.0" cameralook_y="0.0" cameralook_z="1.25" 
+		camerapos_x="0.25" camerapos_y="2.70" camerapos_z="1.70" 
+        ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"           
+        ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"         
+        light_intens="0" lightdir_x="1.0" lightdir_y="1.0" lightdir_z="2.15" diffusecolor_r="1.10" diffusecolor_g="1.0" diffusecolor_b="1.0"	
+		OnMouseDropReceived=UI3DScene_OnDropReceived_EquipItem()
+		OnRender=UI3DScene_OnRender_DisplaySceneCreature() handleactiontarget="false" >
+        <!-- FILL LIGHT -->
+        <UIPointLight active="true" pos_x="0" pos_y="1" pos_z="3" radius="4" intensity=".4" 
+			color_r="1" color_g=".6" color_b="0" 
+			speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+        <!-- LEFT SIDE -->
+        <UIPointLight active="true" pos_x="1" pos_y="1" pos_z="2.4" radius="3" intensity="2.0" 
+			color_r=".31" color_g=".42" color_b=".58" 
+			speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+        <!-- RIGHT SIDE -->
+        <UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="2.5" radius="3" intensity="2.5" 
+			color_r=".6" color_g=".55" color_b=".5" 
+			speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+	</UI3DScene>
+
+	<!-- Character Hit Points -->
+	<UIIcon name="HP_ICON" img="icon_health.tga" x=243 y=48 width=29 height=29
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(2296,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+	<UIText name="HP_RATIO"		x=274 y=48 width=85 height=29 valign=middle align=left multiline=false fontfamily="Body_Font" style=1 
+		update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","HP_RATIO") />
+
+	<!-- Character Armor Class -->
+	<UIIcon name="AC_ICON" img="icon_ac.tga" x=243 y=78 width=29 height=29
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(7099,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+	<UIText name="ARMOR_CLASS"	x=274 y=78 width=85 height=29 valign=middle align=left multiline=false fontfamily="Body_Font" style=1 
+		update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","ARMOR_CLASS") />
+
+	<!-- Character Gold -->
+	<UIIcon name="GOLD_ICON" img="icon_gold.tga" x=243 y=108 width=29 height=29
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(65759,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+	<UIText name="PLAYER_GOLD"	x=274 y=108 width=85 height=29 valign=middle align=left multiline=false fontfamily="Body_Font" style=1 
+		update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","PLAYER_GOLD") />
+
+	<!-- Character Encumberance -->
+	<UIIcon name="ENC_ICON" img="icon_weight.tga" x=243 y=138 width=36 height=29
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(183695,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") />
+	<UIText name="ENCUMBERANCE"	x=274 y=138 width=85 height=29 valign=middle align=left multiline=false fontfamily="Body_Font" style=1
+		update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","ENCUMBERANCE") />
+
+	<!-- Character Attributes -->
+		<UIText strref="181233"	x=265 y=165 width=95 height=20 align=left valign=middle fontfamily="Body_Font" style="1"/>
+		<UIPane name="ABILITIES_CONTAINER" x=260 y=178 width=105 height=105 >				
+			<UIText name="STR_TEXT"	x=0 y=10 width=40 height=15 strref=183041 fontfamily="Floating_Text_Small" style=1 align=left valign=middle indent=5 hangingindent=5 />
+			<UIText name="STR_RANK" x=40 y=10 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","STRENGTH") />
+			<UIText name="STR_MOD" x=70 y=10 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","STR_TOTAL_BONUS") />
+			<UIIcon name="STR_TEXT_BG" x=0 y=10 width=40 height=15 img="fx_white.tga" color="1e1e1e" alpha="0.80" />
+			<UIIcon name="STR_RANK_BG" x=40 y=10 width=30 height=15 img="fx_white.tga" color="353535" alpha="0.80" />
+			<UIIcon name="STR_MOD_BG" x=70 y=10 width=30 height=15 img="fx_white.tga" color="1e1e1e" alpha="0.80" />
+
+			<UIText name="DEX_TEXT"	x=0 y=26 width=40 height=15 strref=183042 fontfamily="Floating_Text_Small" style=1 align=left valign=middle indent=5 hangingindent=5 />
+			<UIText name="DEX_RANK" x=40 y=26 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","DEXTERITY") />
+			<UIText name="DEX_MOD" x=70 y=26 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","DEX_TOTAL_BONUS") />
+			<UIIcon name="DEX_TEXT_BG" x=0 y=26 width=40 height=15 img="fx_white.tga" color="040404" />
+			<UIIcon name="DEX_RANK_BG" x=40 y=26 width=30 height=15 img="fx_white.tga" color="1e1e1e" />
+			<UIIcon name="DEX_MOD_BG" x=70 y=26 width=30 height=15 img="fx_white.tga" color="040404" />
+
+			<UIText name="CON_TEXT"	x=0 y=42 width=40 height=15 strref=183043 fontfamily="Floating_Text_Small" style=1 align=left valign=middle indent=5 hangingindent=5 />
+			<UIText name="CON_RANK" x=40 y=42 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","CONSTITUTION") />
+			<UIText name="CON_MOD" x=70 y=42 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","CON_TOTAL_BONUS") />
+			<UIIcon name="CON_TEXT_BG" x=0 y=42 width=40 height=15 img="fx_white.tga" color="1e1e1e" />
+			<UIIcon name="CON_RANK_BG" x=40 y=42 width=30 height=15 img="fx_white.tga" color="353535" />
+			<UIIcon name="CON_MOD_BG" x=70 y=42 width=30 height=15 img="fx_white.tga" color="1e1e1e" />
+
+			<UIText name="INT_TEXT"	x=0 y=58 width=40 height=15 strref=183044 fontfamily="Floating_Text_Small" style=1 align=left valign=middle indent=5 hangingindent=5 />
+			<UIText name="INT_RANK" x=40 y=58 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","INTELLIGENCE") />
+			<UIText name="INT_MOD" x=70 y=58 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","INT_TOTAL_BONUS") />
+			<UIIcon name="INT_TEXT_BG" x=0 y=58 width=40 height=15 img="fx_white.tga" color="040404" />
+			<UIIcon name="INT_RANK_BG" x=40 y=58 width=30 height=15 img="fx_white.tga" color="1e1e1e" />
+			<UIIcon name="INT_MOD_BG" x=70 y=58 width=30 height=15 img="fx_white.tga" color="040404" />
+
+			<UIText name="WIS_TEXT"	x=0 y=74 width=40 height=15 strref=183045 fontfamily="Floating_Text_Small" style=1 align=left valign=middle indent=5 hangingindent=5 />
+			<UIText name="WIS_RANK" x=40 y=74 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","WISDOM") />
+			<UIText name="WIS_MOD" x=70 y=74 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","WIS_TOTAL_BONUS")/>
+			<UIIcon name="WIS_TEXT_BG" x=0 y=74 width=40 height=15 img="fx_white.tga" color="1e1e1e" />
+			<UIIcon name="WIS_RANK_BG" x=40 y=74 width=30 height=15 img="fx_white.tga" color="353535" />
+			<UIIcon name="WIS_MOD_BG" x=70 y=74 width=30 height=15 img="fx_white.tga" color="1e1e1e" />
+
+			<UIText name="CHA_TEXT"	x=0 y=90 width=40 height=15 strref=183046 fontfamily="Floating_Text_Small" style=1 align=left valign=middle indent=5 hangingindent=5 />
+			<UIText name="CHA_RANK" x=40 y=90 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","CHARISMA") />
+			<UIText name="CHA_MOD" x=70 y=90 width=30 height=15 fontfamily="Floating_Text_Small" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","CHA_TOTAL_BONUS") />
+			<UIIcon name="CHA_TEXT_BG" x=0 y=90 width=40 height=15 img="fx_white.tga" color="040404" />
+			<UIIcon name="CHA_RANK_BG" x=40 y=90 width=30 height=15 img="fx_white.tga" color="1e1e1e" />
+			<UIIcon name="CHA_MOD_BG" x=70 y=90 width=30 height=15 img="fx_white.tga" color="040404" />
+		</UIPane>
+
+	<!-- Character Saving Throws -->
+	<UIText strref="184612" x=265 y=288 width=95 height=20 align=left valign=middle fontfamily="Body_Font" style="1" multiline=false />	
+		<UIPane name="SAVES_CONTAINER" x=253 y=300 width=110 height=72 >				
+			<UIText name="FORT_TEXT" x=0 y=10 width=80 height=20 strref=317 fontfamily="Body_Font" style=1 align=left valign=middle indent=5 hangingindent=5 multiline=false />
+			<UIText name="FORT_SAVE" x=85 y=10 width=25 height=20 fontfamily="Body_Font" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","FORT_SAVINGTHROW") />
+			<UIIcon name="FORT_TEXT_BG" x=5 y=10 width=80 height=20 img="fx_white.tga" color="1e1e1e" alpha="0.80" />
+			<UIIcon name="FORT_SAVE_BG" x=80 y=10 width=30 height=20 img="fx_white.tga" color="353535" alpha="0.80" />
+
+			<UIText name="REF_TEXT" x=0 y=31 width=80 height=20 strref=318 fontfamily="Body_Font" style=1 align=left valign=middle indent=5 hangingindent=5 multiline=false />
+			<UIText name="REF_SAVE" x=85 y=31 width=25 height=20 fontfamily="Body_Font" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","REFLEX_SAVINGTHROW") />
+			<UIIcon name="REF_TEXT_BG" x=5 y=31 width=80 height=20 img="fx_white.tga" color="040404" />
+			<UIIcon name="REF_SAVE_BG" x=80 y=31 width=30 height=20 img="fx_white.tga" color="1e1e1e" />
+
+			<UIText name="WILL_TEXT" x=0 y=52 width=80 height=20 strref=319 fontfamily="Body_Font" style=1 align=left valign=middle indent=5 hangingindent=5 multiline=false />
+			<UIText name="WILL_SAVE" x=85 y=52 width=25 height=20 fontfamily="Body_Font" style=1 align=center valign=middle
+				update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","WILL_SAVINGTHROW") />
+			<UIIcon name="WILL_TEXT_BG" x=5 y=52 width=80 height=20 img="fx_white.tga" color="1e1e1e" />
+			<UIIcon name="WILL_SAVE_BG"	x=80 y=52 width=30 height=20 img="fx_white.tga" color="353535" />
+		</UIPane>
+
+	<!-- BaseAttack Bonus Info -->
+		<UIText name="BASEATTACK_TEXT" x=40 y=457 width=270 height=40 fontfamily="Title_Font" style=1 align=left valign=top indent=0 hangingindent=5
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","BASE_ATTACK") />
+
+    <!-- Character Statistics Listbox -->
+		<UIListBox name="CAMP_DESC_LISTBOX" x=15 y=474 width=350 height=202 yPadding=4 xPadding=0 showpartialchild=true
+			unequalcontrols=true scrollsegmentsize=50 hidescrollbarwhennotneeded=false >
+      
+      <UICollapsable name="MAINHAND_COL" x=0 y=0 height=182 width=PARENT_WIDTH yPadding=0 xPadding=5 indent=0 isexpanded=true >
+				<UIButton name="HEADER_BUTTON" strref="113742" x=0 y=0 width=320 height=22  header=true >
+					<UIText x=30 y=0 align=left valign=middle fontfamily="Title_Font" style="1" indent=20 multiline=false />
+					<UIFrame state=up			fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=down		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=hilited		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=focused		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=hifocus		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=disabled		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=header		fill="b_feat_normal.tga" />
+					<UIFrame state=hiheader		fill="b_feat_normal.tga" />
+					<UIFrame state=downheader	fill="b_feat_normal.tga" />
+				</UIButton>
+
+				<UIText name="MAINHAND_TEXT" width=PARENT_WIDTH height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=10 hangingindent=30
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","MAINHAND") />
+
+				<UIText name="MAINHAND_ATTACK_TEXT" width=PARENT_WIDTH height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=20 hangingindent=20
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","MAINHAND_ATTACK_BONUS_STRING") />
+
+				<UIText name="MAINHAND_DAMAGE_TEXT" width=PARENT_WIDTH height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=20 hangingindent=20
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","MAINHAND_DAMAGE_STRING") />
+
+			</UICollapsable>						
+
+			<UICollapsable name="MAINHAND_COL" x=0 y=0 height=182 width=PARENT_WIDTH yPadding=0 xPadding=5 indent=0 isexpanded=true >
+				<UIButton name="HEADER_BUTTON" strref="113754" x=0 y=0 width=320 height=22  header=true >
+					<UIText x=30 y=0 align=left valign=middle fontfamily="Title_Font" style="1" indent=20 multiline=false />
+					<UIFrame state=up			fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=down		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=hilited		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=focused		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=hifocus		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=disabled		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=header		fill="b_feat_normal.tga" />
+					<UIFrame state=hiheader		fill="b_feat_normal.tga" />
+					<UIFrame state=downheader	fill="b_feat_normal.tga" />
+				</UIButton>
+
+				<UIText name="OFFHAND_TEXT" x=4 y=0 width=PARENT_WIDTH height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=10 hangingindent=30
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","OFFHAND") />
+
+				<UIText name="OFFHAND_ATTACK_TEXT" x=44 y=0 width=PARENT_WIDTH height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=20 hangingindent=20
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","OFFHAND_ATTACK_BONUS_STRING") />
+
+				<UIText name="OFFHAND_DAMAGE_TEXT" x=44 y=0 width=PARENT_WIDTH height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=20 hangingindent=20
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","OFFHAND_DAMAGE_STRING") />
+
+			</UICollapsable>
+
+			<UICollapsable name="MAINHAND_COL" x=0 y=0 height=182 width=PARENT_WIDTH yPadding=0 xPadding=5 indent=0 isexpanded=true >
+				<UIButton name="HEADER_BUTTON" text="Armor Penalties / Resistance" x=0 y=0 width=320 height=22  header=true >
+					<UIText x=30 y=0 align=left valign=middle fontfamily="Title_Font" style="1" indent=20 multiline=false />
+					<UIFrame state=up			fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=down		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=hilited		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=focused		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=hifocus		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=disabled		fill="b_feat_hover_pressed.tga" />
+					<UIFrame state=header		fill="b_feat_normal.tga" />
+					<UIFrame state=hiheader		fill="b_feat_normal.tga" />
+					<UIFrame state=downheader	fill="b_feat_normal.tga" />
+				</UIButton>
+
+				<UIText name="AC_PENALTY_TEXT" x=4 y=0 width=PARENT_WIDTH  height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=10 hangingindent=10
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","ARMOR_CHECK_PENALTY") />
+
+				<UIText name="ARCANESPELLFAIL_TEXT" x=4 y=0 width=PARENT_WIDTH  height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=10 hangingindent=10
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","ARCANE_SPELL_FAILURE") />
+
+				<UIText name="SPELLRESIST_TEXT" x=4 y=0 width=PARENT_WIDTH  height=DYNAMIC fontfamily="Body_Font" style=1 align=left valign=top indent=10 hangingindent=10
+					update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("PARTY","SPELL_RESIST") />
+
+			</UICollapsable>						
+						
+			<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+		</UIListBox>
+
+
+	<!-- ***ARMOR EQUIPMENT SLOTS*** -->
+	<UIButton name="SLOT_HEAD" x=210 y=46 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_HEAD")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_HEAD")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_HEAD") 
+		DefaultToolTip=110826 >
+	</UIButton>
+	<UIButton name="SLOT_BACK" x=210 y=88 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_BACK")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_BACK")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_BACK") 
+		DefaultToolTip=110830 >
+	</UIButton>
+	<UIButton name="SLOT_CHEST" x=210 y=131 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_CHEST")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_CHEST")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_CHEST") 
+		DefaultToolTip=110829 >
+	</UIButton>
+	<UIButton name="SLOT_WRIST" x=210 y=174 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_WRIST")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_WRIST")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_WRIST") 
+		DefaultToolTip=110831 >
+	</UIButton>
+	<UIButton name="SLOT_WAIST" x=210 y=217 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_WAIST")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_WAIST")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_WAIST") 
+		DefaultToolTip=110833 >
+	</UIButton>
+	<UIButton name="SLOT_FEET" x=210 y=260 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_FEET")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_FEET")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_FEET") 
+		DefaultToolTip=110835 >
+	</UIButton>
+
+	<!-- ***JEWELRY EQUIPMENT SLOTS*** -->
+	<UIButton name="SLOT_NECK" x=238 y=379 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_NECK")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_NECK")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_NECK") 
+		DefaultToolTip=110827 >
+	</UIButton>
+	<UIButton name="SLOT_RING_1" x=283 y=379 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_RING_1")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_RING_1")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_RING_1") 
+		DefaultToolTip=110834 >
+	</UIButton>
+	<UIButton name="SLOT_RING_2" x=327 y=379 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_RING_2")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_RING_2")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_RING_2") 
+		DefaultToolTip=110834 >
+	</UIButton>
+
+	<!-- ***WEAPON EQUIPMENT SLOTS*** -->
+	<UIButton name="SLOT_RIGHT_HAND" x=18 y=403 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_RIGHT_HAND")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_RIGHT_HAND")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_RIGHT_HAND") 
+		DefaultToolTip=110836 >
+	</UIButton>
+	<UIButton name="SLOT_LEFT_HAND" x=62 y=403 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_LEFT_HAND")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_LEFT_HAND")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_LEFT_HAND") 
+		DefaultToolTip=110837 >
+	</UIButton>
+	<UIButton name="SLOT_ARROW_AMMO" x=106 y=403 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_ARROW_AMMO")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_ARROW_AMMO")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_ARROW_AMMO") 
+		DefaultToolTip=110840 >
+		<UIText align=right valign=bottom fontfamily="Special_Font" style="1"/>
+	</UIButton>
+	<UIButton name="SLOT_BULLET_AMMO" x=150 y=403 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_BULLET_AMMO")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_BULLET_AMMO")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_BULLET_AMMO") 
+		DefaultToolTip=110841 >
+		<UIText align=right valign=bottom fontfamily="Special_Font" style="1"/>
+	</UIButton>
+	<UIButton name="SLOT_BOLT_AMMO" x=194 y=403 style="STYLE_EQUIP_BUTTON" hotbartype="HOTBAR_ITEM"
+		OnLeftDoubleClick=UIButton_Input_UnequipSlot("SLOT_BOLT_AMMO")
+		OnMouseDropReceived=UIButton_OnDropReceived_SetEquipmentSlot("SLOT_BOLT_AMMO")
+		OnRightClick=UIObject_OnRadial_DisplayInventoryRadial()
+		OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+		update=true OnUpdate=UIButton_OnUpdate_UpdateEquipmentSlot("SLOT_BOLT_AMMO") 
+		DefaultToolTip=110842 >
+		<UIText align=right valign=bottom fontfamily="Special_Font" style="1"/>
+	</UIButton>
+
+	<!-- ***TRADING BUTTON*** -->
+	<UIButton name="TRADING_INV" x="256" y="418" width="50" height="27" 
+		OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_show_trade_inv") >
+		<UIFrame state=up		fill="trade_button.tga" />
+		<UIFrame state=down		fill="trade_button_down.tga" />
+		<UIFrame state=focused	fill="trade_button.tga" />
+		<UIFrame state=hilited	fill="trade_button_HL.tga" />
+		<UIFrame state=hifocus	fill="trade_button_down.tga" />
+		<UIFrame state=disabled	fill="trade_button.tga" />
+	</UIButton>
+
+	<!-- ***INVENTORY TABS*** -->
+	<UIPane name="TAB_CONTAINER" x=244 y=421 width=1 height=1 >
+		<UIButton name="ShowPage1" x=0 y=0 width=73 height=25 buttontype="radio" groupid=1 groupmemberid=1
+			OnSelected=UIButton_Input_SetRepositoryIndex("0") MouseDownSFX="gui_bagopen"
+			OnMouseDropReceived=UIButton_OnDropReceived_AddToRepository(0,"IG") >
+			<UIFrame state="up"			fill="b_bag_normal.tga" />
+			<UIFrame state="down"		fill="b_bag_pressed.tga" />
+			<UIFrame state="focused"	fill="b_bag_hover.tga" />
+			<UIFrame state="hilited"	fill="b_bag_hover.tga" />
+			<UIFrame state="hifocus"	fill="b_bag_pressed.tga" />
+			<UIFrame state="disabled"	fill="b_bag_normal.tga" />
+		</UIButton>
+		<!-- <UIButton name="ShowPage2" x=73 y=0 width=73 height=25 buttontype="radio" groupid=1 groupmemberid=2
+			OnSelected=UIButton_Input_SetRepositoryIndex("32") MouseDownSFX="gui_bagopen"
+			OnMouseDropReceived=UIButton_OnDropReceived_AddToRepository(32,"IG") >
+			<UIFrame state="up"			fill="b_bag_normal.tga" />
+			<UIFrame state="down"		fill="b_bag_pressed.tga" />
+			<UIFrame state="focused"	fill="b_bag_hover.tga" />
+			<UIFrame state="hilited"	fill="b_bag_hover.tga" />
+			<UIFrame state="hifocus"	fill="b_bag_pressed.tga" />
+			<UIFrame state="disabled"	fill="b_bag_normal.tga" />
+		</UIButton> -->
+		<!-- <UIButton name="ShowPage3" x=146 y=0 width=73 height=25 buttontype="radio" groupid=1 groupmemberid=3
+			OnSelected=UIButton_Input_SetRepositoryIndex("64") MouseDownSFX="gui_bagopen"
+			OnMouseDropReceived=UIButton_OnDropReceived_AddToRepository(64,"IG") >
+			<UIFrame state="up"			fill="b_bag_normal.tga" />
+			<UIFrame state="down"		fill="b_bag_pressed.tga" />
+			<UIFrame state="focused"	fill="b_bag_hover.tga" />
+			<UIFrame state="hilited"	fill="b_bag_hover.tga" />
+			<UIFrame state="hifocus"	fill="b_bag_pressed.tga" />
+			<UIFrame state="disabled"	fill="b_bag_normal.tga" />
+		</UIButton> -->
+		<!-- <UIButton name="ShowPage4" x=219 y=0 width=73 height=25 buttontype="radio" groupid=1 groupmemberid=4
+			OnSelected=UIButton_Input_SetRepositoryIndex("96") MouseDownSFX="gui_bagopen"
+			OnMouseDropReceived=UIButton_OnDropReceived_AddToRepository(96,"IG") >
+			<UIFrame state="up"			fill="b_bag_normal.tga" />
+			<UIFrame state="down"		fill="b_bag_pressed.tga" />
+			<UIFrame state="focused"	fill="b_bag_hover.tga" />
+			<UIFrame state="hilited"	fill="b_bag_hover.tga" />
+			<UIFrame state="hifocus"	fill="b_bag_pressed.tga" />
+			<UIFrame state="disabled"	fill="b_bag_normal.tga" />
+		</UIButton> -->
+	</UIPane>
+
+	<!-- ***INVENTORY GRID*** -->
+	<UIGrid name="IG" rows=16 columns=8 x=369 y=5 xPadding=2 yPadding=2
+	update=true OnUpdate=UIGrid_OnUpdate_UpdateInventoryGrid()>
+		<UIButton name="InvPrototypeButton" height=40 width=40 draggable=true prototype=true update=true handleactiontarget=true
+			hotbartype="HOTBAR_ITEM"
+			MouseDragSFX="gui_drag" MouseDropSFX="gui_drop"
+			OnLeftDoubleClick=UIButton_Input_InventoryButtonActivate() 
+			OnLeftClick=UIButton_Input_InventoryButtonMaybeExamine() 
+			OnMouseDropReceived=UIButton_OnDropReceived_SetInventorySlot()
+			OnMouseDropFailed=UIButton_OnDropFailed_DropInventoryItem()
+			OnUpdate=UIButton_OnUpdate_UpdateInventorySlot() 
+			OnMouseEnter=UIButton_Input_ClearNewItemStatus()
+			OnToolTip=UIObject_Tooltip_DisplayObject(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) 
+			OnRightClick=UIObject_OnRadial_DisplayInventoryRadial() >
+			<UIText align=right valign=bottom fontfamily="Special_Font" style="1"/>
+			<UIFrame state=base	fill="inv_slot.tga" />
+			<UIFrame state=up		fill="b_empty.tga" />
+			<UIFrame state=down	fill="b_overlay.tga" />
+			<UIFrame state=focused	fill="b_empty.tga" />
+			<UIFrame state=hilited	fill="b_overlay.tga" />
+			<UIFrame state=hifocus	fill="b_overlay.tga" />
+			<UIFrame state=disabled fill="b_empty.tga" />
+		</UIButton>
+	</UIGrid>
+
+	<UIFrame width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />	
+	<UIIcon name="DETAIL_TOP" img="inv_top_bg_bb.tga" x=10 y=7 width=360 height=470 ignoreevents="true" />
+	<UIFrame x=10 y=440 width=360 height=237 fillstyle="tile" fill="bg_60_alpha.tga"/>
+	<UIFrame x=10 y=440 width=360 height=237 fillstyle="tile" fill="dark_rock_tile.tga"/>
+      <UIFrame x=370 y=5 width=338 height=674 fillstyle="tile" fill="bg_60_alpha.tga"/>
+	<UIFrame x=370 y=5 width=338 height=674 fillstyle="tile" fill="dark_rock_tile.tga"/>

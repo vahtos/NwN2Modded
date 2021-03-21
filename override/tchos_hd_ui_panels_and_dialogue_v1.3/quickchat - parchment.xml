@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                          -->
+<!-- Copyright © 2006 Obsidian Entertainment, Inc. -->
+
+<!-- Neverwinter Nights 1 Style Dialogs            -->
+<!-- Modified by [DTE] LuC!f3.R, make NWN1 dialog-box bigger & better.  06.12.08 21:06 -->
+
+<!-- Modified to (paper scroll look), by Rob Albin (aka Ragnorak). May 20, 2007  -->
+
+<!-- Modified further to larger fonts, different texture and font colours, different placement of elements, larger panel size, and NWN1-style aspect ratio portraits by Tchos. March, 2012  -->
+
+               <!-- 369 -->
+	<UIScene width="450" height="700" idleexpiretime="1.0" priority="SCENE_NWN1_DIALOG" draggable="true" />
+        <!-- change height="400" to height="700", try to expand the window LuC!f3.R-->
+                    <!--       x="61" y="45" width=214 height=60 align=right valign="middle" -->
+	<UIText name="speakername" x="98" y="50" width=340 height=60 align=left valign="top" fontfamily="NWN2_Dialog" style="2" color="1D1111" />
+        <!-- add color="7afffd"; change style="1" to style="2", width=240 to width=114, height=42 to height=60; add align=right  LuC!f3.R-->
+    <UIButton name="skipdialogbutton" x=0 y=0 height=PARENT_HEIGHT width=PARENT_WIDTH
+        OnLeftClick=UIButton_Input_SkipDialog()>
+    </UIButton>
+
+    <!-- Top Listbox -->     <!--          130       358        132          10          2 -->
+    <UIListBox name="npclistbox" x="96" y="75" width=340 height=200 yPadding=0 xPadding=0 showpartialchild=true
+		unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded=true >
+		<!-- change height=133 to height=165, xPadding=0 to xPadding=2 LuC!f3.R -->
+
+<!-- ORIG MOD
+		<UIText name="npctext" width=PARENT_WIDTH height=DYNAMIC align=left valign=top fontfamily="NWN1_Dialog" />
+-->		
+		<UIText name="npctext" width=PARENT_WIDTH height=DYNAMIC align=left valign=top fontfamily="NWN2_Dialog" color=1D1111" />
+		
+<!-- FROM CUTSCENE.XML
+			<UIText name=repliestext indent=20 fontfamily="NWN2_Dialog" width=PARENT_WIDTH strref="181309" height=DYNAMIC 
+				color=64C0FF highlightcolor=FFFFFF sizetofit=true highlightonmouseover=true align=left hangingindent=50 />
+-->
+
+
+
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListBox>	
+    
+    <!-- Character Portrait Frame -->                           <!--  15     44         42          42 -->
+<!--     <UIIcon name="CHAR_PORT_FRAME" img="dialog_portrait_frame.tga" x="15" y="54" width="78" height="122" />  -->
+
+<UIIcon name="CHAR_PORT_FRAME" img="p_m_frame_noselect.tga" x="17" y="39" width="78" height="122" /> 
+
+    <!-- Character Portrait -->
+
+	<!-- Character Custom Portrait icon -->
+	<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=20 y=50 width=64 height=100 hidden=true />
+
+    <UIPortrait name="portrait"	texture="p_m_gradient_bg_blue.tga" x="20" y="50" width="64" height="100"
+        OnRender=UIPortrait_OnRender_RenderConversationPortrait()
+        diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+        light_intens=1.3 >
+        <UIPointLight active="true" pos_x=".2" pos_y=".2" pos_z=".2" radius="4" intensity=".6" 
+			color_r=".3" color_g=".2" color_b=".7" 
+			speccolor_r=".3" speccolor_g=".2" speccolor_b=".3" />
+        <UIPointLight active="true" pos_x="-.2" pos_y="2" pos_z="0" radius="5" intensity="1" 
+			color_r=".8" color_g=".8" color_b=".8"
+			speccolor_r="0.5" speccolor_g="0.5" speccolor_b="0.0" />
+        <UIPointLight active="true" pos_x=".5" pos_y="-2" pos_z="0" radius="10" intensity="2"
+			color_r=".6" color_g=".6" color_b=".5"
+			speccolor_r=".4" speccolor_g=".4" speccolor_b=".4" />
+    </UIPortrait>
+
+	<!-- Replies Listbox -->    <!--  6   285       338        295  -->
+	<UIListBox name=replieslistbox x=16 y=295 width=420 height=400 yPadding=8 xPadding=10 showpartialchild=true
+	scrollbaronright=true unequalcontrols=true scrollsegmentsize=17 hidescrollbarwhennotneeded=true >
+	<!-- change height=176 to height=320; x=6 y=210 to x=6 y=270; xPadding=5 to xPadding=10 -->
+		<UIButton color=000000 name=replieslistboxprototype width=PARENT_WIDTH height=DYNAMIC prototype=true OnLeftClick=UIButton_Input_HandleReplySelection()
+			disabledcolor=FFFFFF disabledtextcolor=FF7F7F7F  >
+
+
+<!--  ORIG MOD
+			<UIText name=repliestext indent=0 fontfamily="NWN1_Dialog" style="bold" width=PARENT_WIDTH strref="181309" height=DYNAMIC color=fcd000 highlightcolor=FFFFFF sizetofit=true highlightonmouseover=true align=left />
+-->
+			<UIText name=repliestext indent=0 fontfamily="NWN2_Dialog" width=PARENT_WIDTH strref="181309" height=DYNAMIC color=360e07 highlightcolor=960f0f sizetofit=true highlightonmouseover=true align=left style="1" />
+						<!--  1D1111/0D0B0B         yellow CAD34E   -->
+<!-- FROM CUTSCENE.XML
+			<UIText name=repliestext indent=20 fontfamily="NWN2_Dialog" width=PARENT_WIDTH strref="181309" height=DYNAMIC 
+				color=64C0FF highlightcolor=FFFFCC sizetofit=true highlightonmouseover=true align=left hangingindent=50 />
+-->
+
+			<UIFrame state=up		fill="dbackground.tga" alpha=0.0 />
+			<UIFrame state=down		fill="dbackground.tga" alpha=0.0 />
+			<UIFrame state=focused	fill="dbackground.tga" alpha=0.0 />
+			<UIFrame state=hilited	fill="dbackground.tga" alpha=0.0 />
+			<UIFrame state=hifocus	fill="dbackground.tga" alpha=0.0 />
+			<UIFrame state=disabled fill="dbackground.tga" alpha=0.0 />
+		</UIButton>
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListBox>
+                                                                  <!--      351   -->
+    <UIIcon name="DETAIL_TOP" img="title_nwn_dialog.tga" x="9" y="7" width="432" height="30" />
+
+    <UIFrame name="MSGBOX_BACKGROUND" x="0" y="0" width="PARENT_WIDTH" height="PARENT_HEIGHT" topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+    bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+    left="frame1_l.tga" right="frame1_r.tga" border="32" />
+                                         <!--   9   240       351        32  -->
+	<UIIcon name="DIVIDER" img="frame1_b.tga" x=9 y=250 width=432 height=32 />
+	                                              <!-- 9     9         350          583  -->
+    <UIIcon name="PANE_BACKGROUND" img="idesc_paper_bg.tga" x="9" y="9" width="432" height="682"/>
+    <!-- change height="354" to height="555"; x=9 y=180 to x=9 y=240 LuC!f3.R-->
+<!-- qj_paper.tga tp_frame_bg.tga alpha="0.90"  idesc_paper_bg.tga  spellbook_paper.tga mem_bg.tga -->
+

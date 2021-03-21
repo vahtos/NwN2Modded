@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8">
+
+<UIScene name="SCREEN_STORE" x=0 y=ALIGN_CENTER width=454 height=801 draggable=true fadeout="0.3" fadein="0.3" idleexpiretime="1.0" backoutkey=true
+	OnAdd=UIScene_OnAdd_SetRadioControl(1,1) priority="SCENE_INGAME"
+	OnRemove=UIButton_Input_CloseStore() />
+
+	<!-- Store Detail -->
+	<UIIcon name="STORE_DETAIL" img="store_icon.tga" x=0 y=0 width=78 height=69 ignoreevents=true />
+	<!-- Scene Title -->
+	<UIText strref="62020" x=80 y=8 width=265 height=27 align=left valign=middle fontfamily="Title_Font" style="2" />
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=402 y=8 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIButton_Input_CloseStore()>
+	</UIButton>
+
+	<UIGrid name="STORE_GRID" rows=1 columns=5 x=93 y=33 xPadding=0 yPadding=0 >
+		<UIButton name="STORE_ARMOR" width=52 height=51 buttontype=radio groupid=1 groupmemberid=1 
+			OnSelected=UIButton_Input_SetStoreTab("STORE_TAB_ARMORS")
+			update=true OnUpdate=UIButton_OnUpdate_ManageStoreTab(1)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112775,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIFrame state=up		fill="b_armor_normal.tga" />
+			<UIFrame state=down		fill="b_armor_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_armor_hover.tga" />
+			<UIFrame state=hilited	fill="b_armor_hover.tga" />
+			<UIFrame state=hifocus	fill="b_armor_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_armor_normal.tga" />
+		</UIButton>
+		<UIButton name="STORE_WEAPON" width=52 height=51 buttontype=radio groupid=1 groupmemberid=2 
+			OnSelected=UIButton_Input_SetStoreTab("STORE_TAB_WEAPONS")
+			update=true OnUpdate=UIButton_OnUpdate_ManageStoreTab(2)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112774,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIFrame state=up		fill="b_weapon_normal.tga" />
+			<UIFrame state=down		fill="b_weapon_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_weapon_hover.tga" />
+			<UIFrame state=hilited	fill="b_weapon_hover.tga" />
+			<UIFrame state=hifocus	fill="b_weapon_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_weapon_normal.tga" />
+		</UIButton>
+		<UIButton name="STORE_USEABLE" width=52 height=51 buttontype=radio groupid=1 groupmemberid=3 
+			OnSelected=UIButton_Input_SetStoreTab("STORE_TAB_USEABLES")
+			update=true OnUpdate=UIButton_OnUpdate_ManageStoreTab(3) 
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112776,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIFrame state=up		fill="b_useable_normal.tga" />
+			<UIFrame state=down		fill="b_useable_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_useable_hover.tga" />
+			<UIFrame state=hilited	fill="b_useable_hover.tga" />
+			<UIFrame state=hifocus	fill="b_useable_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_useable_normal.tga" />
+		</UIButton>
+		<UIButton name="STORE_TRINKET" width=52 height=51 buttontype=radio groupid=1 groupmemberid=4 
+			OnSelected=UIButton_Input_SetStoreTab("STORE_TAB_TRINKETS")
+			update=true OnUpdate=UIButton_OnUpdate_ManageStoreTab(4)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112777,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIFrame state=up		fill="b_trink_normal.tga" />
+			<UIFrame state=down		fill="b_trink_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_trink_hover.tga" />
+			<UIFrame state=hilited	fill="b_trink_hover.tga" />
+			<UIFrame state=hifocus	fill="b_trink_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_trink_normal.tga" />
+		</UIButton>
+		<UIButton name="STORE_MISC" width=52 height=51 buttontype=radio groupid=1 groupmemberid=5
+			OnSelected=UIButton_Input_SetStoreTab("STORE_TAB_MISC")
+			update=true OnUpdate=UIButton_OnUpdate_ManageStoreTab(5)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112778,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIFrame state=up		fill="b_misc_normal.tga" />
+			<UIFrame state=down		fill="b_misc_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_misc_hover.tga" />
+			<UIFrame state=hilited	fill="b_misc_hover.tga" />
+			<UIFrame state=hifocus	fill="b_misc_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_misc_normal.tga" />
+		</UIButton>
+	</UIGrid>
+
+	<UIListbox name="STORE_LIST" x=18 y=84 width=422 height=640 yPadding=0 xPadding=0
+		showpartialchild=false scrollbaronright=true unequalcontrols=false scrollsegmentsize=80 selectonleftclick=true
+		update=true OnUpdate=UIListBox_OnUpdate_StoreList("ITEM_IMAGE","ITEM_TEXT","ITEM_PRICE")
+		OnMouseDropReceived=UIListBox_OnDropReceived_SellToStore() >
+		<UIPane name="STORE_PROTO" x=0 y=0 width=402 height=40 tupple=true prototype=true
+			OnLeftClick=UIButton_Input_SetStoreSelectedItem(Local:1) 
+			OnLeftDoubleClick=UIButton_Input_StoreSellItemWithConfirmation(Local:1)
+			OnRadialRequest=UIObject_OnRadial_DisplayInventoryRadial() OnRightClick=UIObject_OnRadial_DisplayInventoryRadial() >
+
+			<UIButton name="ITEM_IMAGE" x=0 y=0 style="STYLE_LOOT_ICON" prototype=true 
+				OnMouseDropReceived=UIButton_OnDropReceived_SellToStore() >
+			</UIButton>
+
+			<UIButton name="ITEM_TEXT" x=40 y=0 width=278 height=40 prototype=true OnMouseDropReceived=UIButton_OnDropReceived_SellToStore() >
+				<UIText name="ITEM_TEXT_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true />
+				<UIFrame state=up		fill="b_i_normal.tga" />
+				<UIFrame state=down		fill="b_i_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_i_hover_pressed.tga" />
+				<UIFrame state=hilited	fill="b_i_hover.tga" />
+				<UIFrame state=hifocus	fill="b_i_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_i_normal.tga" />
+			</UIButton>
+			<UIButton name="ITEM_PRICE" x=318 y=0 width=89 height=40 prototype=true OnMouseDropReceived=UIButton_OnDropReceived_SellToStore() >
+				<UIText name="ITEM_PRICE_TEXTFIELD" x=0 y=0 align=center valign=middle fontfamily="Special_Font" style=1 prototype=true />
+				<UIFrame state=up		fill="b_p_normal.tga" />
+				<UIFrame state=down		fill="b_p_hover_pressed.tga" />
+				<UIFrame state=focused	fill="b_p_hover_pressed.tga" />
+				<UIFrame state=hilited	fill="b_p_hover.tga" />
+				<UIFrame state=hifocus	fill="b_p_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_p_normal.tga" />
+			</UIButton>
+		</UIPane>
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListbox>
+
+	<!-- Buy Button -->
+	<UIButton name="STORE_BUY_BUTTON" strref=6380 x=ALIGN_CENTER y=747 style="STYLE_SMALL_BUTTON"
+		OnLeftClick=UIButton_Input_StoreSellItemWithConfirmation(Local:1) >
+	</UIButton>
+
+	<!-- Background Image -->
+	<UIIcon name="BACKGROUND_TOP" img="store_top_bg.tga" x=10 y=8 width=435 height=90 />
+	<UIIcon name="BACKGROUND_BOTTOM" img="store_bottom_bg.tga" x=10 y=715 width=435 height=77 />
+	<UIIcon name="BACKGROUND" img="store_bg.tga" x=10 y=78 width=435 height=651 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />	

@@ -1,0 +1,2143 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<!-- Quickstrike Menu -->
+
+<UIScene name="SCREEN_QUICK_STRIKE" x=5 y=210 width=355 height=280 fadeout="0.2" fadein="0.2" backoutkey=false
+	priority="SCENE_INGAME" draggable=true dragregion_x=0 dragregion_y=0 dragregion_width=264 dragregion_height=24 scriptloadable="true" />
+
+	<UIPane name="QSTITLE_PANE" x=0 y=0 width=264 height=24 capturemouseclicks=false>	
+		<UIText x=10 y=2 text="Quickstrike" width=230 height=20 align=left valign=middle fontfamily="Title_Font" style="1" multiline=false />
+		<UIFrame x=0 y=0 width=264 height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+		bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+		left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+		border=5 />
+	</UIPane>
+	<UIButton name="FANCY_CLOSE_BUTTON" x=264 y=0 width=24 height=24 MouseUpSFX="gui_check" 
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_quickstrike,___)>
+		<UIFrame state=base		fill="b_close_normal.tga" />
+		<UIFrame state=up		fill="b_empty.tga" />
+		<UIFrame state=down		fill="b_overlay.tga" />
+		<UIFrame state=focused	fill="b_empty.tga" />
+		<UIFrame state=hilited	fill="b_empty.tga" />
+		<UIFrame state=hifocus	fill="b_overlay.tga" />
+		<UIFrame state=disabled	fill="b_empty.tga" />
+	</UIButton>	
+
+	<!-- Martial Feat Listboxes -->
+
+	<UIListbox name="MARTIAL_FEAT_ONE" x=0 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_1" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F1___,___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F1___)
+		OnLeftClick=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_run_charge",target:object,target:x,target:y,target:z)>
+			<UIButton name="F1" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_TWO" x=33 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_2" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F2___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F2___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,2____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F2" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_THREE" x=66 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_3" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F3___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F3___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,3____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F3" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_FOUR" x=99 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_4" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F4___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F4___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,4____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F4" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_FIVE" x=132 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_5" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F5___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F5___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,5____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F5" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_SIX" x=165 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_6" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F6___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F6___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,6____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F6" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_SEVEN" x=198 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_7" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F7___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F7___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,7____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F7" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_EIGHT" x=231 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_8" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F8___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F8___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,8____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F8" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+	
+	<UIListbox name="MARTIAL_FEAT_NINE" x=264 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_9" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F9___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F9___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,9____)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F9" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_TEN" x=297 y=24 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_10" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F10___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F10___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,10___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F10" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_ELEVEN" x=0 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_11" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F11___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F11___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,11___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F11" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_TWELVE" x=33 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_12" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F12___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F12___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,12___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F12" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_THRITEEN" x=66 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_13" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F13___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F13___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,13___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F13" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_FOURTEEN" x=99 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_14" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F14___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F14___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,14___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F14" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_FIFTEEN" x=132 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_15" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F15___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F15___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,15___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F15" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_SIXTEEN" x=165 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_16" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F16___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F16___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,16___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F16" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_SEVENTEEN" x=198 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_17" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F17___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F17___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,17___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F17" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_EIGHTEEN" x=231 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_18" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F18___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F18___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,18___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F18" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+	
+	<UIListbox name="MARTIAL_FEAT_NINETEEN" x=264 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_19" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F19___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F19___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,19___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F19" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="MARTIAL_FEAT_TWENTY" x=297 y=57 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="MARTIAL_FEAT_20" x=0 y=0 width=32 height=32 tupple=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,F20___)
+		OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+		OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,F20___)
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,20___)
+		OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_sf",target:object,target:x,target:y,target:z)>
+			<UIButton name="F20" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<!-- Masks-- Drammel's Note: Must be placed before the maneuver boxes or these will not be selectable.-->
+
+	<UIListbox name="STRIKE_ONE_MASK" x=25 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_1_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_ONE)>
+			<UIButton name="STR1_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TWO_MASK" x=58 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_2_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_TWO)>
+			<UIButton name="STR2_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_THREE_MASK" x=91 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_3_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_THREE)>
+			<UIButton name="STR3_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FOUR_MASK" x=124 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_4_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_FOUR)>
+			<UIButton name="STR4_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FIVE_MASK" x=157 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_5_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_FIVE)>
+			<UIButton name="STR5_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SIX_MASK" x=190 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_6_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_SIX)>
+			<UIButton name="STR6" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SEVEN_MASK" x=223 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_7_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_SEVEN)>
+			<UIButton name="STR7_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_EIGHT_MASK" x=256 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_8_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_EIGHT)>
+			<UIButton name="STR8_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_NINE_MASK" x=289 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_9_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_NINE)>
+			<UIButton name="STR9_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TEN_MASK" x=322 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_10_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_TEN)>
+			<UIButton name="STR10_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_ELEVEN_MASK" x=25 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_11_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_ELEVEN)>
+			<UIButton name="STR11_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TWELVE_MASK" x=58 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_12_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_TWELVE)>
+			<UIButton name="STR12_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_THRITEEN_MASK" x=91 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_13_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_THRITEEN)>
+			<UIButton name="STR13_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FOURTEEN_MASK" x=124 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_14_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_FOURTEEN)>
+			<UIButton name="STR14_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FIFTEEN_MASK" x=157 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_15_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_FIFTEEN)>
+			<UIButton name="STR15_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SIXTEEN_MASK" x=190 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_16_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_SIXTEEN)>
+			<UIButton name="STR16_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SEVENTEEN_MASK" x=223 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_17_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_SEVENTEEN)>
+			<UIButton name="STR17_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_EIGHTEEN_MASK" x=256 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_18_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_EIGHTEEN)>
+			<UIButton name="STR18_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_NINETEEN_MASK" x=289 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_19_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_NINETEEN)>
+			<UIButton name="STR19_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TWENTY_MASK" x=322 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="STRIKE_20_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,STRIKE_TWENTY)>
+			<UIButton name="STR20_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_ONE_MASK" x=25 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_1_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_ONE)>
+			<UIButton name="B1" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_TWO_MASK" x=58 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_2_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_TWO)>
+			<UIButton name="B2_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_THREE_MASK" x=91 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_3_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_THREE)>
+			<UIButton name="B3_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_FOUR_MASK" x=124 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_4_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_FOUR)>
+			<UIButton name="B4_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_FIVE_MASK" x=157 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_5_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_FIVE)>
+			<UIButton name="B5_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_SIX_MASK" x=190 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_6_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_SIX)>
+			<UIButton name="B6_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_SEVEN_MASK" x=223 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_7_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_SEVEN)>
+			<UIButton name="B7_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_EIGHT_MASK" x=256 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_8_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_EIGHT)>
+			<UIButton name="B8_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_NINE_MASK" x=289 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_9_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_NINE)>
+			<UIButton name="B9_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_TEN_MASK" x=322 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="BOOST_10_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,BOOST_TEN)>
+			<UIButton name="B10_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_ONE_MASK" x=25 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_1_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_ONE)>
+			<UIButton name="C1_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_TWO_MASK" x=58 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_2_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_TWO)>
+			<UIButton name="C2_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_THREE_MASK" x=91 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_3_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_THREE)>
+			<UIButton name="C3_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_FOUR_MASK" x=124 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_4_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_FOUR)>
+			<UIButton name="C4_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_FIVE_MASK" x=157 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_5_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_FIVE)>
+			<UIButton name="C5_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_SIX_MASK" x=190 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_6_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_SIX)>
+			<UIButton name="C6_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_SEVEN_MASK" x=223 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_7_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_SEVEN)>
+			<UIButton name="C7_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_EIGHT_MASK" x=256 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_8_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_EIGHT)>
+			<UIButton name="C8_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_NINE_MASK" x=289 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_9_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_NINE)>
+			<UIButton name="C9_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_TEN_MASK" x=322 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true hidden=true>
+
+		<UIPane name="COUNTER_10_MASK" x=0 y=0 width=32 height=32 tupple=true
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_recovery,___,COUNTER_TEN)>
+			<UIButton name="C10_MASK" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<!-- QuickStrike Listboxes -->
+
+	<UIListbox name="STANCE_ONE" x=25 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_1" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA1___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA1___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,1____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA1" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_TWO" x=58 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_2" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA2___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA2___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,2____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA2" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_THREE" x=91 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_3" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA3___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA3___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,3____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA3" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_FOUR" x=124 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_4" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA4___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA4___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,4____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA4" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_FIVE" x=157 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_5" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA5___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA5___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,5____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA5" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_SIX" x=190 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_6" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA6___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA6___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,6____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA6" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_SEVEN" x=223 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_7" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA7___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA7___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,7____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA7" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_EIGHT" x=256 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_8" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA8___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA8___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,8____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA8" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_NINE" x=289 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_9" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA9___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA9___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,9____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA9" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STANCE_TEN" x=322 y=111 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STANCE_10" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STA10___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STA10___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,10___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_stance",target:object,target:x,target:y,target:z)>
+			<UIButton name="STA10" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_ONE" x=25 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_1" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR1___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR1___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,1____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR1" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TWO" x=58 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_2" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR2___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR2___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,2____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR2" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_THREE" x=91 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_3" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR3___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR3___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,3____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR3" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FOUR" x=124 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_4" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR4___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR4___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,4____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR4" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FIVE" x=157 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_5" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR5___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR5___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,5____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR5" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SIX" x=190 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_6" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR6___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR6___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,6____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR6" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SEVEN" x=223 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_7" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR7___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR7___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,7____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR7" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_EIGHT" x=256 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_8" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR8___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR8___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,8____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR8" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_NINE" x=289 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_9" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR9___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR9___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,9____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR9" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TEN" x=322 y=210 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_10" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR10___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR10___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,10___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR10" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_ELEVEN" x=25 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_11" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR11___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR11___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,11___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR11" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TWELVE" x=58 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_12" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR12___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR12___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,12___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR12" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_THRITEEN" x=91 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_13" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR13___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR13___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,13___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR13" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FOURTEEN" x=124 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_14" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR14___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR14___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,14___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR14" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_FIFTEEN" x=157 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_15" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR15___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR15___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,15___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR15" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SIXTEEN" x=190 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_16" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR16___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR16___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,16___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR16" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_SEVENTEEN" x=223 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_17" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR17___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR17___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,17___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR17" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_EIGHTEEN" x=256 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_18" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR18___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR18___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,18___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR18" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_NINETEEN" x=289 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_19" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR19___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR19___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,19___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR19" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="STRIKE_TWENTY" x=322 y=243 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="STRIKE_20" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,STR20___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,STR20___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,20___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_strike",target:object,target:x,target:y,target:z)>
+			<UIButton name="STR20" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_ONE" x=25 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_1" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B1___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B1___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,1____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B1" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_TWO" x=58 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_2" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B2___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B2___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,2____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B2" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_THREE" x=91 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_3" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B3___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B3___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,3____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B3" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_FOUR" x=124 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_4" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B4___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B4___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,4____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B4" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_FIVE" x=157 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_5" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B5___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B5___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,5____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B5" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_SIX" x=190 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_6" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B6___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B6___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,6____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B6" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_SEVEN" x=223 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_7" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B7___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B7___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,7____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B7" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_EIGHT" x=256 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_8" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B8___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B8___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,8____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B8" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_NINE" x=289 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_9" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B9___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B9___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,9____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B9" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="BOOST_TEN" x=322 y=144 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="BOOST_10" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,B10___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,B10___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,10___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_boost",target:object,target:x,target:y,target:z)>
+			<UIButton name="B10" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_ONE" x=25 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_1" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C1___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C1___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,1____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C1" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_TWO" x=58 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_2" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C2___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C2___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,2____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C2" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_THREE" x=91 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_3" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C3___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C3___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,3____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C3" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_FOUR" x=124 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_4" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C4___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C4___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,4____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C4" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_FIVE" x=157 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_5" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C5___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C5___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,5____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C5" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_SIX" x=190 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_6" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C6___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C6___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,6____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C6" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_SEVEN" x=223 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_7" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C7___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C7___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,7____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C7" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_EIGHT" x=256 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_8" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C8___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C8___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,8____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C8" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_NINE" x=289 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_9" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C9___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C9___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,9____)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C9" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="COUNTER_TEN" x=322 y=177 width=32 height=32 selectonleftclick=false showpartialchild=true>
+
+		<UIPane name="COUNTER_10" x=0 y=0 width=32 height=32 tupple=true
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,QS,C10___)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,QS,C10___)
+			OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_black_box,10___)
+			OnLeftClick0=UIObject_Input_ActionTargetScript("creature,ground",29,31,0,"TRUE","gui_execute_counter",target:object,target:x,target:y,target:z)>
+			<UIButton name="C10" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+				<UIFrame state=base		fill="b_emptyframe.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_overlay_active.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<!-- Headers -->
+
+	<UIListbox name="QS_MANEUVER_LISTBOX" x=0 y=90 yPadding=0 xPadding=0 showpartialchild=true width=329 height=22
+		unequalcontrols=true scrollsegmentsize=24 hidescrollbarwhennotneeded=true scrollbaronright=false capturemouseclicks=false>
+			
+		<UICollapsable name="CLASSY_COL" x=0 y=0 width=290 height=22 yPadding=0 xPadding=0 indent=0 isexpanded=true collapselock=true>
+			<UIButton name="HEADER_BUTTON" x=0 y=0 width=290 height=22 text="Martial Training" header=true >
+				<UIText x=30 y=0 align=left valign=middle fontfamily="Title_Font" style="1" indent=20 multiline=false />
+				<UIFrame state=up			fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=down			fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=hilited		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=focused		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=hifocus		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=disabled		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=header		fill="b_feat_normal.tga" />
+				<UIFrame state=hiheader		fill="b_feat_normal.tga" />
+				<UIFrame state=downheader	fill="b_feat_normal.tga" />
+			</UIButton>
+		</UICollapsable>
+	</UIListbox>
+
+	<UIListbox name="QS_TYPE" x=0 y=111 height=132 width=24 hidescrollbarwhennotneeded=true capturemouseclicks=false>
+
+		<UICollapsable name="MARTIAL_TYPE_COL" x=0 y=1 height=132 width=24 yPadding=0 xPadding=0
+			isexpanded=true collapselock=true expandhorizontal=true capturemouseclicks=false >
+			<UIPane name="MANEUVER_TYPE" x=0 y=0 height=132 width=24 capturemouseclicks=false>
+				<UIButton name="HEADER_TYPE_1" x=0 y=0 height=32 width=24 text="*" header=true
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280032,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+					<UIText align=center valign=middle fontfamily="Default" style="2" color="gold" />
+					<UIFrame state=base		fill="qs_snumber.tga" />
+					<UIFrame state=up		fill="qs_snumber.tga" />
+					<UIFrame state=down		fill="qs_snumber.tga" />
+					<UIFrame state=focused	fill="qs_snumber.tga" />
+					<UIFrame state=hilited	fill="qs_snumber.tga" />
+					<UIFrame state=hifocus	fill="qs_snumber.tga" />
+					<UIFrame state=disabled fill="qs_snumber.tga" />
+				</UIButton>
+				<UIButton name="HEADER_TYPE_2" x=0 y=33 height=32 width=24 text="B" header=true
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280035,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+					<UIText align=center valign=middle fontfamily="Default" style="2" color="gold" />
+					<UIFrame state=base		fill="qs_snumber.tga" />
+					<UIFrame state=up		fill="qs_snumber.tga" />
+					<UIFrame state=down		fill="qs_snumber.tga" />
+					<UIFrame state=focused	fill="qs_snumber.tga" />
+					<UIFrame state=hilited	fill="qs_snumber.tga" />
+					<UIFrame state=hifocus	fill="qs_snumber.tga" />
+					<UIFrame state=disabled fill="qs_snumber.tga" />
+				</UIButton>
+				<UIButton name="HEADER_TYPE_3" x=0 y=66 height=32 width=24 text="C" header=true
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280037,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+					<UIText align=center valign=middle fontfamily="Default" style="2" color="gold" />
+					<UIFrame state=base		fill="qs_snumber.tga" />
+					<UIFrame state=up		fill="qs_snumber.tga" />
+					<UIFrame state=down		fill="qs_snumber.tga" />
+					<UIFrame state=focused	fill="qs_snumber.tga" />
+					<UIFrame state=hilited	fill="qs_snumber.tga" />
+					<UIFrame state=hifocus	fill="qs_snumber.tga" />
+					<UIFrame state=disabled fill="qs_snumber.tga" />
+				</UIButton>
+				<UIButton name="HEADER_TYPE_4" x=0 y=99 height=32 width=24 text="S" header=true
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(280034,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+					<UIText align=center valign=middle fontfamily="Default" style="2" color="gold" />
+					<UIFrame state=base		fill="qs_snumber.tga" />
+					<UIFrame state=up		fill="qs_snumber.tga" />
+					<UIFrame state=down		fill="qs_snumber.tga" />
+					<UIFrame state=focused	fill="qs_snumber.tga" />
+					<UIFrame state=hilited	fill="qs_snumber.tga" />
+					<UIFrame state=hifocus	fill="qs_snumber.tga" />
+					<UIFrame state=disabled fill="qs_snumber.tga" />
+				</UIButton>
+			</UIPane>
+		</UICollapsable>
+	</UIListbox>

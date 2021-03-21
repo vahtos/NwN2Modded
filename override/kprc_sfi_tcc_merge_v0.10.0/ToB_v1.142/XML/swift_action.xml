@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2 -->
+<!-- Copyright © Obsidian Entertainment, Inc. -->
+
+<UIScene name="SCREEN_SWIFT_ACTION" x="567" y="17" width="75" height="55" capturemouseclicks="true" draggable="true" scriptloadable="true"
+priority="SCENE_INGAME_TARGET" />
+
+	<UIPane name="CLEAR_ACTION" x=17 y=7 width=75 height=55 tupple=true
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_clear_actions)>
+		<UIButton name="SWIFT_ACTION" x=0 y=0 width=40 height=40 >
+			<UIFrame state=base		fill="b_empty.tga" />
+			<UIFrame state=up		fill="b_empty.tga" />
+			<UIFrame state=down		fill="b_empty.tga" />
+			<UIFrame state=focused	fill="b_empty.tga" />
+			<UIFrame state=hilited	fill="b_empty.tga" />
+			<UIFrame state=hifocus	fill="b_empty.tga" />
+			<UIFrame state=disabled fill="b_empty.tga" />
+		</UIButton>
+	</UIPane>
+
+	<UIIcon name="SWA_BG" img="swift_action.tga" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT />

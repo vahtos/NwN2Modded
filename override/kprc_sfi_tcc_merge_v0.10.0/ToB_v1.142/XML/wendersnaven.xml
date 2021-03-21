@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2 -->
+<!-- Copyright © Obsidian Entertainment, Inc. -->
+
+<UIScene name="SCREEN_WENDERSNAVEN" x="5" y="5" width="75" height="55" scriptloadable="true"
+priority="SCENE_SCRIPT" />
+
+	<UIPane name="WENDERSNAVEN_ACTION" x=17 y=7 width=40 height=40 tupple=true
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_test)>
+		<UIButton name="W" x=0 y=0 height=32 width=32 draggable=false hotbartype="HOTBAR_NONE">
+			<UIFrame state=base		fill="b_empty.tga" />
+			<UIFrame state=up		fill="b_empty.tga" />
+			<UIFrame state=down		fill="b_empty.tga" />
+			<UIFrame state=focused	fill="b_empty.tga" />
+			<UIFrame state=hilited	fill="b_empty.tga" />
+			<UIFrame state=hifocus	fill="b_empty.tga" />
+			<UIFrame state=disabled fill="b_empty.tga" />
+		</UIButton>
+	</UIPane>
+
+	<UIIcon name="WENDERSNAVEN_BG" img="swift_action.tga" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT />

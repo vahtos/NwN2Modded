@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<!-- 
+	The names of the controls are specific and the engine will expect them to have 
+	those names in order to interact, init, and query them. 
+-->
+
+													<!-- height=444 -->
+<UIScene name="SCREEN_SPELLS_QUICK" x=5 y=200 width=329 height=844 fadeout="0.2" fadein="0.2" backoutkey=true capturemouseclicks=false capturemouseevents=true
+	OnAdd=UIScene_OnAdd_Quickspell() priority="SCENE_INGAME"
+	draggable=true dragregion_x=0 dragregion_y=0 dragregion_width=264 dragregion_height=24 />
+
+	<UIPane name="TitlePane" x=0 y=0 width=264 height=24 capturemouseclicks=false >	
+		<UIText x=10 y=2 strref=183637 width=230 height=20 align=left valign=middle fontfamily="Title_Font" style="1" multiline=false />
+		<UIFrame x=0 y=0 width=264 height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+		bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+		left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+		border=5 />
+	</UIPane>
+	<UIButton name="QuickSpellSpontaneousConversionToggle" x=264 y=0 width=24 height=24 buttontype=check MouseUpSFX="gui_check" 
+		OnLeftClick=UIButton_Input_SpontaneousConversionToggle()
+		OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(181441,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")>
+		<UIFrame state=base		fill="ife_MT_spellcast.tga" />
+		<UIFrame state=up		fill="b_empty.tga" />
+		<UIFrame state=down		fill="b_overlay.tga" />
+		<UIFrame state=focused	fill="b_empty.tga" />
+		<UIFrame state=hilited	fill="b_empty.tga" />
+		<UIFrame state=hifocus	fill="b_overlay.tga" />
+		<UIFrame state=disabled	fill="b_empty.tga" />
+	</UIButton>	
+
+	<UIPane name="METAMAGIC_PANE" x=0 y=24 width=288 height=48 >
+		<!--
+		<UIIcon name="QuickSpell_LeftDetail" img="qs_l_bracket.tga" x=0 y=0 width=15 height=32 />
+		<UIIcon name="QuickSpell_RightDetail" img="qs_r_bracket.tga" x=271 y=0 width=15 height=32 />
+		-->
+		<UIGrid name="META_GRID" rows=2 columns=11 x=0 y=0 xPadding=0 yPadding=0 update=true OnUpdate=UIGrid_OnUpdate_GetMetaFeats() >
+			<UIButton name="PrototypeButton" height=24 width=24 buttontype=radio groupid=1 prototype=true
+				update=true OnUpdate=UIButton_OnUpdate_SetMetaFeat()
+				OnToolTip=UIObject_Tooltip_DisplayMetamagic(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT)
+				OnSelected=UIButton_Input_SetGlobalMetaFeat("Local:1") >
+				<UIFrame state=base		fill="b_hotbar_secondary.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_emptyframe.tga" />
+			</UIButton>
+		</UIGrid>
+	</UIPane>
+
+	<!-- QuickSpell Listbox -->
+																								<!-- height=348 -->
+	<UIListBox name="QuickSpellListbox" x=0 y=80 yPadding=0 xPadding=0 showpartialchild=true width=329 height=748
+		unequalcontrols=true scrollsegmentsize=24 hidescrollbarwhennotneeded=true scrollbaronright=false capturemouseclicks="false"
+		update=true OnUpdate=UIListBox_OnUpdate_QSClassList() >
+			
+													<!-- height=348 -->
+		<UICollapsable name="CLASS_COL" x=0 y=0 width=290 height=748 yPadding=0 xPadding=0 indent=0
+			isexpanded=true prototype=true update=true OnUpdate=UICollapsable_OnUpdate_QSSpellLevelList("Local:1") capturemouseclicks="false" >
+			<UIButton name="HEADER_BUTTON" x=0 y=0 width=290 height=22  header=true >
+				<UIText x=30 y=0 align=left valign=middle fontfamily="Title_Font" style="1" indent=20 multiline=false />
+				<UIFrame state=up			fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=down			fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=hilited		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=focused		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=hifocus		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=disabled		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=header		fill="b_feat_normal.tga" />
+				<UIFrame state=hiheader		fill="b_feat_normal.tga" />
+				<UIFrame state=downheader	fill="b_feat_normal.tga" />
+			</UIButton>
+			<UICollapsable name="SPELL_LEVEL_COL" x=0 y=0 height=32 width=32 yPadding=0 xPadding=0
+				isexpanded=true collapselock=true expandhorizontal=true prototype=true capturemouseclicks="false" >
+				<UIButton name="HEADER_BUTTON" x=0 y=4 height=32 width=24 header=true >
+					<UIText align=center valign=middle fontfamily="Default" style="2" color="gold" />
+					<UIFrame state=base		fill="qs_snumber.tga" />
+					<UIFrame state=up		fill="qs_snumber.tga" />
+					<UIFrame state=down		fill="qs_snumber.tga" />
+					<UIFrame state=focused	fill="qs_snumber.tga" />
+					<UIFrame state=hilited	fill="qs_snumber.tga" />
+					<UIFrame state=hifocus	fill="qs_snumber.tga" />
+					<UIFrame state=disabled fill="qs_snumber.tga" />
+				</UIButton>
+				<UIButton name="SPELL_BUTTON" x=0 y=1 height=32 width=32 prototype=true
+					draggable=true hotbartype="HOTBAR_SPELL" 
+					OnToolTip=UIObject_Tooltip_DisplaySpell(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+					<UIText align=right valign=bottom fontfamily="Special_Font" style="1" />
+					<UIFrame state=base		fill="b_emptyframe.tga" />
+					<UIFrame state=up		fill="b_empty.tga" />
+					<UIFrame state=down		fill="b_overlay_active.tga" />
+					<UIFrame state=focused	fill="b_overlay_active.tga" />
+					<UIFrame state=hilited	fill="b_overlay.tga" />
+					<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+					<UIFrame state=disabled fill="b_emptyframe.tga" />
+				</UIButton>
+			</UICollapsable>						
+		</UICollapsable>						
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>

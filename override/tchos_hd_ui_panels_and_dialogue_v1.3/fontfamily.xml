@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//		Start 3.0 FontFamily Definitions
+//		07/14/2006 Anthony W. Davis
+//		Obsidian Entertainment
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+
+	<!-- Default Font: the name of this font family CANNOT change.  This is also the font used by the chat window. US/EN -->
+	<UIFontFamily name="Default" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=16 dropshadows=false outline=false />
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=16 dropshadows=false outline=false />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainI.ttf"	pointsize=16 dropshadows=false outline=false />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainBI.ttf"	pointsize=16 dropshadows=false outline=false />
+	</UIFontFamily>
+
+	<!-- This is the font used by the NWN1 Dialog system and various other screens as well-->
+	<UIFontFamily name="NWN1_Dialog" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=18 dropshadows=false outline=false />
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=18 dropshadows=false outline=false />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainI.ttf"	pointsize=18 dropshadows=false outline=false />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainBI.ttf"	pointsize=18 dropshadows=false outline=false />
+	</UIFontFamily>
+	
+	<!-- This is the font used by the NWN2 Dialog screen -->
+	<UIFontFamily name="NWN2_Dialog" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=19 dropshadows=false outline=false />
+ 		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=19 dropshadows=false outline=false />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainI.ttf"	pointsize=19 dropshadows=false outline=false />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainBI.ttf"	pointsize=19 dropshadows=false outline=false />
+	</UIFontFamily>
+
+	<!-- These next two font families are used by the floating text system. They can be accessed through the ftext_styles.2da -->
+	<UIFontFamily name="Floating_Text_Default" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=15 dropshadows=true outline=true />
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=15 dropshadows=true outline=true />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainI.ttf"	pointsize=15 dropshadows=true outline=true />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainBI.ttf"	pointsize=15 dropshadows=true outline=true />
+	</UIFontFamily>
+
+	<UIFontFamily name="Floating_Text_Special" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=16 dropshadows=true outline=true />
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=16 dropshadows=true outline=true />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainI.ttf"	pointsize=16 dropshadows=true outline=true />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainBI.ttf"	pointsize=16 dropshadows=true outline=true />
+	</UIFontFamily>
+	
+	<UIFontFamily name="Floating_Text_Small" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=14 dropshadows=true outline=true />
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=14 dropshadows=true outline=true />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainI.ttf"	pointsize=14 dropshadows=true outline=true />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainBI.ttf"	pointsize=14 dropshadows=true outline=true />
+	</UIFontFamily>
+
+
+	<!-- International Font: the name of this font family CANNOT change.  This is the font used by the chat window. C/J/K and F/I/G -->
+	<UIFontFamily name="International" >
+		<UIFontNormal		font="ui\\default\\fonts\\ARIALUNI.TTF"	pointsize=12 dropshadows=false outline=false />
+		<UIFontBold			font="ui\\default\\fonts\\ARIALUNI.TTF"	pointsize=12 dropshadows=false outline=false />
+		<UIFontItalic		font="ui\\default\\fonts\\ARIALUNI.TTF"	pointsize=12 dropshadows=false outline=false />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\ARIALUNI.TTF"	pointsize=12 dropshadows=false outline=false />
+	</UIFontFamily>
+
+	<!-- This font family is used for Buttons and Titles throughout the UI
+		1.Title Bold 12pt, drop+outline
+		2.Title Bold 14pt, drop+outline
+		3.Title Bold 12pt, drop
+		4.Title Bold 14pt, drop -->
+	<UIFontFamily name="Title_Font" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_TitleB.ttf" pointsize=15 dropshadows=true outline=true />  
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_TitleB.ttf" pointsize=17 dropshadows=true outline=true />	
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_TitleB.ttf" pointsize=15 dropshadows=true outline=false />	
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_TitleB.ttf" pointsize=17 dropshadows=true outline=false />
+	</UIFontFamily>
+
+	<!-- This font family is used for numeric data for the UI
+		1.Title Bold 12pt, drop+outline
+		2.Title Bold 14pt, drop+outline
+		3.Title Bold 12pt, drop
+		4.Title Bold 14pt, drop
+	-->
+	<UIFontFamily name="Body_Font" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_MainB.ttf" pointsize=15 dropshadows=false outline=true />
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf" pointsize=17 dropshadows=false outline=true />
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_MainB.ttf" pointsize=15 dropshadows=true  outline=false />
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_MainB.ttf" pointsize=17 dropshadows=true  outline=false />
+	</UIFontFamily>
+
+	<UIFontFamily name="Special_Font" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=15 dropshadows=false outline=true />	<!-- quick spell font (hotbar buttons 10 outline) -->
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_MainB.ttf"	pointsize=20 dropshadows=false outline=true />	<!-- used for raid notice text -->
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=15 dropshadows=false outline=false />	<!-- mini map and others -->
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_TitleB.ttf"	pointsize=24 dropshadows=false outline=true />	<!-- large page headers (24 bold)-->
+	</UIFontFamily>
+
+	<UIFontFamily name="Special_Font_2" >
+		<UIFontNormal		font="ui\\default\\fonts\\NWN2_TitleB.ttf"	pointsize=15 dropshadows=true outline=false />	<!-- used for concentration -->
+		<UIFontBold			font="ui\\default\\fonts\\NWN2_Main.ttf"	pointsize=16 dropshadows=false outline=true />	<!-- target frames -->
+		<UIFontItalic		font="ui\\default\\fonts\\NWN2_TitleB.ttf"	pointsize=16 dropshadows=false outline=false />	<!-- PartyChat -->
+		<UIFontBoldItalic	font="ui\\default\\fonts\\NWN2_TitleB.ttf"	pointsize=12 dropshadows=false outline=false />	<!-- Smaller Version of 3-->
+	</UIFontFamily>
+
+<!--
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//		End 3.0 FontFamily Definitions
+//		Obsidian Entertainment
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+-->

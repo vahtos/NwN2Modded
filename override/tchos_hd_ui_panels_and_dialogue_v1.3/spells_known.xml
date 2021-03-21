@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	This xml file is used to display all of the KNOWN spells that
+	the selected character currently has available. 
+-->
+										<!-- width=378 height=760 -->
+<UIScene name="SCREEN_SPELLS_KNOWN" x=50 y=20 width=478 height=860 draggable=true fadeout="0.3" fadein="0.3" priority="SCENE_INGAME" backoutkey=true
+OnRemove=UIButton_Input_ScreenClose("SCREEN_SPELLS_MEMORIZED") scriptloadable="true" />
+
+	<!-- Scene Title -->
+								<!-- width=260 -->
+	<UIText strref="181416" x=90 y=8 width=460 height=28 align=left valign=middle fontfamily="Title_Font" style="2" />
+	<UIIcon name="SPELL_KNOWN_DETAIL" img="spellbook_icon.tga" x=0 y=0 width=78 height=71 ignoreevents=true />
+
+	<!-- Close Button -->
+							<!-- x=340 -->
+	<UIButton name="CloseButton" x=440 y=8 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIButton_Input_CloseSpellbook()>
+	</UIButton>
+
+	<UIGrid name="CLASS_GRID" rows=1 columns=4 x=163 y=50  xPadding=10 update=true OnUpdate=UIGrid_OnUpdate_GetSpellClasses() >
+		<UIButton name="PrototypeButton" height=40 width=40 buttontype=radio groupid=1 prototype=true
+			OnSelected=UIButton_Input_SetGlobalSpellClass("Global:1") 
+			OnToolTip=UIObject_Tooltip_SpellBookClass("OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") >
+			<UIFrame state=base		fill="b_empty.tga" />
+			<UIFrame state=up		fill="b_empty.tga" />
+			<UIFrame state=down		fill="b_overlay.tga" />
+			<UIFrame state=focused	fill="b_empty.tga" />
+			<UIFrame state=hilited	fill="b_overlay.tga" />
+			<UIFrame state=hifocus	fill="b_overlay.tga" />
+			<UIFrame state=disabled fill="b_empty.tga" />
+		</UIButton>
+	</UIGrid>
+	<UIText name="CLASS_GRID_TEXT" x=28 y=68 width=140 height=24 align=left valign=middle fontfamily="Title_Font" style="1" 
+		update=true OnUpdate=UIObject_OnUpdate_GetGlobalSpellClass("Global:1") />
+
+	<UIGrid name="SPELL_LEVEL_GRID" rows=1 columns=10 x=26 y=102 xPadding=8 yPadding=1 update=true OnUpdate=UIGrid_OnUpdate_GetSpellLevels("PARTY") >
+		<UIButton name="PrototypeButton" height=24 width=24 buttontype=radio prototype=true>
+		</UIButton>
+		<UIButton name="SPELL_0" height=24 width=24 buttontype=radio groupid=2 groupmemberid=1 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_0")>
+			<UIFrame state=up		fill="b_s0_normal.tga" />
+			<UIFrame state=down		fill="b_s0_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s0_hover.tga" />
+			<UIFrame state=hilited	fill="b_s0_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s0_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s0_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_1" height=24 width=24 buttontype=radio groupid=2 groupmemberid=2 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_1")>
+			<UIFrame state=up		fill="b_s1_normal.tga" />
+			<UIFrame state=down		fill="b_s1_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s1_hover.tga" />
+			<UIFrame state=hilited	fill="b_s1_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s1_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s1_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_2" height=24 width=24 buttontype=radio groupid=2 groupmemberid=3 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_2")>
+			<UIFrame state=up		fill="b_s2_normal.tga" />
+			<UIFrame state=down		fill="b_s2_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s2_hover.tga" />
+			<UIFrame state=hilited	fill="b_s2_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s2_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s2_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_3" height=24 width=24 buttontype=radio groupid=2 groupmemberid=4 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_3")>
+			<UIFrame state=up		fill="b_s3_normal.tga" />
+			<UIFrame state=down		fill="b_s3_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s3_hover.tga" />
+			<UIFrame state=hilited	fill="b_s3_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s3_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s3_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_4" height=24 width=24 buttontype=radio groupid=2 groupmemberid=5 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_4")>
+			<UIFrame state=up		fill="b_s4_normal.tga" />
+			<UIFrame state=down		fill="b_s4_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s4_hover.tga" />
+			<UIFrame state=hilited	fill="b_s4_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s4_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s4_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_5" height=24 width=24 buttontype=radio groupid=2 groupmemberid=6 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_5")>
+			<UIFrame state=up		fill="b_s5_normal.tga" />
+			<UIFrame state=down		fill="b_s5_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s5_hover.tga" />
+			<UIFrame state=hilited	fill="b_s5_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s5_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s5_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_6" height=24 width=24 buttontype=radio groupid=2 groupmemberid=7 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_6")>
+			<UIFrame state=up		fill="b_s6_normal.tga" />
+			<UIFrame state=down		fill="b_s6_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s6_hover.tga" />
+			<UIFrame state=hilited	fill="b_s6_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s6_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s6_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_7" height=24 width=24 buttontype=radio groupid=2 groupmemberid=8 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_7")>
+			<UIFrame state=up		fill="b_s7_normal.tga" />
+			<UIFrame state=down		fill="b_s7_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s7_hover.tga" />
+			<UIFrame state=hilited	fill="b_s7_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s7_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s7_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_8" height=24 width=24 buttontype=radio groupid=2 groupmemberid=9 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_8")>
+			<UIFrame state=up		fill="b_s8_normal.tga" />
+			<UIFrame state=down		fill="b_s8_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s8_hover.tga" />
+			<UIFrame state=hilited	fill="b_s8_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s8_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s8_disabled.tga" />
+		</UIButton>
+		<UIButton name="SPELL_9" height=24 width=24 buttontype=radio groupid=2 groupmemberid=10 
+		OnSelected=UIButton_Input_SetGlobalSpellLevel("PARTY","Global:2","SPELL_LEVEL_9")>
+			<UIFrame state=up		fill="b_s9_normal.tga" />
+			<UIFrame state=down		fill="b_s9_hover_pressed.tga" />
+			<UIFrame state=focused	fill="b_s9_hover.tga" />
+			<UIFrame state=hilited	fill="b_s9_hover.tga" />
+			<UIFrame state=hifocus	fill="b_s9_hover_pressed.tga" />
+			<UIFrame state=disabled	fill="b_s9_disabled.tga" />
+		</UIButton>
+	</UIGrid>
+
+	<!-- Available Spells Collapsable Listbox -->
+												<!-- width=340 height=592 -->
+	<UIListbox name="AVAILABLE_SPELL_LIST" x=27 y=160 width=440 height=692 yPadding=1
+	showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=64 
+	update=true OnUpdate=UIListBox_OnUpdate_SpellList("PARTY","SPELL_TEXT","SPELL_IMAGE") >
+
+											<!-- width=325 -->
+		<UICollapsable name="PROTO_COL" x=0 y=0 width=425 height=PARENT_HEIGHT yPadding=1 xPadding=5 indent=10 isexpanded=true prototype=true >
+											<!-- width=325 -->
+			<UIButton name="PROTO_HEADER" x=0 y=0 width=425 height=22 header=true >
+				<UIText strref="5632" indent=20 align=left valign=middle fontfamily="Title_Font" style=3 />
+				<UIFrame state=up			fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=down			fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=hilited		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=focused		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=hifocus		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=disabled		fill="b_feat_hover_pressed.tga" />
+				<UIFrame state=header		fill="b_feat_normal.tga" />
+				<UIFrame state=hiheader		fill="b_feat_normal.tga" />
+				<UIFrame state=downheader	fill="b_feat_normal.tga" />
+			</UIButton>
+												<!-- width=300 -->
+			<UIPane name="SPELLPANE_PROTO" x=0 y=0 width=400 height=40 prototype=true >
+				<UIButton name="SPELL_IMAGE" x=0 y=0 draggable=true width=40 height=40 prototype=true MouseDownSFX="gui_quick_add" MouseUpSFX="gui_quick_add"
+					OnToolTip=UIObject_Tooltip_DisplaySpell(OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT)
+					OnLeftClick=UIButton_Input_MemorizeSpell() 
+					hotbartype="HOTBAR_KNOWNSPELL" >
+					<UIFrame state=base		fill="button_hotbar_normal.tga" />
+					<UIFrame state=up		fill="b_empty.tga" />
+					<UIFrame state=down		fill="b_overlay.tga" />
+					<UIFrame state=focused	fill="b_empty.tga" />
+					<UIFrame state=hilited	fill="b_overlay.tga" />
+					<UIFrame state=hifocus	fill="b_overlay.tga" />
+					<UIFrame state=disabled fill="b_empty.tga" />
+				</UIButton>
+												<!-- width=256 -->
+				<UIButton name="SPELL_TEXT" x=42 y=1 width=356 height=40 prototype=true MouseUpSFX="gui_quick_add"
+					OnLeftClick=UIButton_Input_MemorizeSpell() 
+					hotbartype="HOTBAR_KNOWNSPELL" >
+					<UIText name="SPELL_TEXTFIELD" indent=5 align=left valign=middle strref="25105" fontfamily="Body_Font" style=3 prototype=true />
+					<UIFrame state=up		fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=down		fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=focused	fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=hilited	fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=hifocus	fill="spellbook_spell_slot_bg.tga" />
+					<UIFrame state=disabled	fill="spellbook_spell_slot_bg.tga" />
+				</UIButton>
+			</UIPane>
+		</UICollapsable>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListbox>	
+	
+	<!-- Background Image -->
+																<!-- width=359 -->
+	<UIIcon name="SPELL_KNOWN_TOP" img="spellbook_top.tga" x=10 y=8 width=459 height=155 />
+																	<!-- width=360 height=588 -->
+	<UIIcon name="SPELL_KNOWN_BOTTOM" img="spellbook_paper.tga" x=9 y=163 width=460 height=688 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />	
+

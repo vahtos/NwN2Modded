@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<!--
+	These control names are referenced by code, do not change the names.  If you
+	change the names, you will get unintended consequences, or worse.
+-->
+<!-- width=388 height=400 -->
+<UIScene name="SCREEN_PORTRAIT_SELECT" x=ALIGN_CENTER y=ALIGN_CENTER modal=false width=600 height=900 fadeout="0.3" fadein="0.3" 
+	draggable=true backoutkey=true scriptloadable=true priority="SCENE_INGAME" 
+	OnAdd=UIScene_OnAdd_LoadPortraits() />
+
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=561 y=6 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIButton_Input_ScreenClose()>
+	</UIButton>
+	<!-- Top Detail -->
+	<UIText name="TITLE" strref="7442" x=20 y=4 width=300 height=31 align=left valign=middle fontfamily="Title_Font" style="2"/>
+	<UIIcon name="DETAIL_TOP" img="title_medium03.tga" x=10 y=8 width=581 height=31 ignoreevents="true" />
+
+	<UIText name="SUB_TITLE" strref="161" x=ALIGN_CENTER y=40 width=550 height=31 align=center valign=middle fontfamily="Title_Font" style="1" multiline=false maxlines=1 />
+<!-- width=360 height=280 -->
+	<UIListBox name="PORTRAIT_LISTBOX" x=ALIGN_CENTER y=70 width=572 height=780 yPadding=4 xPadding=0 showpartialchild=true
+		unequalcontrols=true scrollsegmentsize=125 hidescrollbarwhennotneeded=false >
+<!-- width=300 height=122 -->
+		<UIPane name="PROTO_ROW" width=540 height=215 prototype="true" >
+			<UIButton name="CUSTOM_PORTRAIT_1" x=0 y=0 width=138 height=215 
+				OnLeftClick=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick0=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick1=UIButton_Input_SetPortrait(local:0)
+				OnLeftDoubleClick2=UIButton_Input_ScreenClose()>
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=down		fill="p_m_frame_selection.tga" />
+				<UIFrame state=focused	fill="p_m_frame_selection.tga" />
+				<UIFrame state=hilited	fill="p_m_frame_noselect.tga" />
+				<UIFrame state=hifocus	fill="p_m_frame_selection.tga" />
+				<UIFrame state=disabled fill="p_m_frame_noselect.tga" />
+			</UIButton>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON_1" img="ico_rabbit.tga" x=2 y=16 width=118 height=184 />
+
+			<UIButton name="CUSTOM_PORTRAIT_2" x=140 y=0 width=138 height=215 
+				OnLeftClick=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick0=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick1=UIButton_Input_SetPortrait(local:0)
+				OnLeftDoubleClick2=UIButton_Input_ScreenClose()>
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=down		fill="p_m_frame_selection.tga" />
+				<UIFrame state=focused	fill="p_m_frame_selection.tga" />
+				<UIFrame state=hilited	fill="p_m_frame_noselect.tga" />
+				<UIFrame state=hifocus	fill="p_m_frame_selection.tga" />
+				<UIFrame state=disabled fill="p_m_frame_noselect.tga" />
+			</UIButton>
+<!-- 			<UIIcon name="CUSTOM_PORTRAIT_ICON_2" img="ico_rabbit.tga" x=92 y=13 width=64 height=100 /> -->
+			<UIIcon name="CUSTOM_PORTRAIT_ICON_2" img="ico_rabbit.tga" x=142 y=16 width=118 height=184 />
+
+			<UIButton name="CUSTOM_PORTRAIT_3" x=280 y=0 width=138 height=215 
+				OnLeftClick=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick0=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick1=UIButton_Input_SetPortrait(local:0)
+				OnLeftDoubleClick2=UIButton_Input_ScreenClose()>
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=down		fill="p_m_frame_selection.tga" />
+				<UIFrame state=focused	fill="p_m_frame_selection.tga" />
+				<UIFrame state=hilited	fill="p_m_frame_noselect.tga" />
+				<UIFrame state=hifocus	fill="p_m_frame_selection.tga" />
+				<UIFrame state=disabled fill="p_m_frame_noselect.tga" />
+			</UIButton>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON_3" img="ico_rabbit.tga" x=282 y=16 width=118 height=184 />
+
+			<UIButton name="CUSTOM_PORTRAIT_4" x=420 y=0 width=138 height=215 
+				OnLeftClick=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick0=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick1=UIButton_Input_SetPortrait(local:0)
+				OnLeftDoubleClick2=UIButton_Input_ScreenClose()>
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=down		fill="p_m_frame_selection.tga" />
+				<UIFrame state=focused	fill="p_m_frame_selection.tga" />
+				<UIFrame state=hilited	fill="p_m_frame_noselect.tga" />
+				<UIFrame state=hifocus	fill="p_m_frame_selection.tga" />
+				<UIFrame state=disabled fill="p_m_frame_noselect.tga" />
+			</UIButton>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON_4" img="ico_rabbit.tga" x=422 y=16 width=118 height=184 />
+
+<!-- 			<UIButton name="CUSTOM_PORTRAIT_5" x=360 y=0 width=78 height=122 
+				OnLeftClick=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick0=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick1=UIButton_Input_SetPortrait(local:0)
+				OnLeftDoubleClick2=UIButton_Input_ScreenClose()>
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=down		fill="p_m_frame_selection.tga" />
+				<UIFrame state=focused	fill="p_m_frame_selection.tga" />
+				<UIFrame state=hilited	fill="p_m_frame_noselect.tga" />
+				<UIFrame state=hifocus	fill="p_m_frame_selection.tga" />
+				<UIFrame state=disabled fill="p_m_frame_noselect.tga" />
+			</UIButton>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON_5" img="ico_rabbit.tga" x=362 y=13 width=64 height=100 />
+
+			<UIButton name="CUSTOM_PORTRAIT_6" x=450 y=0 width=78 height=122 
+				OnLeftClick=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick0=UIObject_Misc_ExtractData("self:","string",0,local:0)
+				OnLeftDoubleClick1=UIButton_Input_SetPortrait(local:0)
+				OnLeftDoubleClick2=UIButton_Input_ScreenClose()>
+				<UIFrame state=base		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=up		fill="p_m_frame_noselect.tga" />
+				<UIFrame state=down		fill="p_m_frame_selection.tga" />
+				<UIFrame state=focused	fill="p_m_frame_selection.tga" />
+				<UIFrame state=hilited	fill="p_m_frame_noselect.tga" />
+				<UIFrame state=hifocus	fill="p_m_frame_selection.tga" />
+				<UIFrame state=disabled fill="p_m_frame_noselect.tga" />
+			</UIButton>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON_6" img="ico_rabbit.tga" x=452 y=13 width=64 height=100 />
+ -->		
+		</UIPane>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>
+
+
+	<UIPane name="BUTTON_CONTAINER" x=ALIGN_CENTER y=ALIGN_BOTTOM width=350 height=45 >
+
+			<UIButton name="CLEAR_PORTRAIT" strref="7363" width=110 x=ALIGN_LEFT y=ALIGN_TOP style="STYLE_SMALL_BUTTON" 
+				OnLeftClick0=UIButton_Input_SetPortrait("")
+				OnLeftClick1=UIButton_Input_ScreenClose() />
+			<UIButton name="SET_PORTRAIT" strref="210914" width=110 x=ALIGN_CENTER y=ALIGN_TOP style="STYLE_SMALL_BUTTON" 
+				OnLeftClick0=UIButton_Input_SetPortrait(local:0)
+				OnLeftClick1=UIButton_Input_ScreenClose() />
+			<UIButton name="CANCEL_PORTRAIT" strref="71" width=110 x=ALIGN_RIGHT y=ALIGN_TOP style="STYLE_SMALL_BUTTON" 
+				OnLeftClick=UIButton_Input_ScreenClose() />
+
+	</UIPane>
+
+	<!-- Main Window -->
+	<UIFrame width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />	
+	<!-- width=374 height=384 -->
+	<UIFrame x=7 y=8 width=586 height=884 fillstyle="tile" fill="cloth_bg.tga"/>		

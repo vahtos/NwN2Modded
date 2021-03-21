@@ -1,0 +1,55 @@
+Tchos' HD Widescreen Menu & Loading Screen
+Version 1.0
+Category: UI mods
+
+A 1920x1080 set of menus and loading screens for NWN2 based on the pre-expansion versions.
+
+Index:
+  1. Summary
+  2. Requirements
+  3. Installation
+  4. Using the mod
+  5. Known Issues
+  6. Use in other mods
+  7. Revision history
+  8. Credits
+  9. Contact info
+
+1. Summary
+The menus and loading screens for NWN2 were designed for a 4:3 monitor aspect ratio, and on a modern widescreen display will appear either stretched out vertically or have black bars on the sides.
+
+Additionally, when you patch your game to the latest version, the vanilla menus are changed to a Storm of Zehir theme, which, while well-designed, is a little too specific for my taste -- and was especially inappropriate when I hadn't yet played the OC or Mask of the Betrayer!
+
+This interface mod provides a menu and loading screen background based upon the original vanilla version, but edited to full HD widescreen format.  I made them in such a way as to have as little distortion as possible, and none in the focal area.  They should scale down to lower widescreen resolutions as well.
+
+Also available here is a background to add a little more life to the character creation and level-up screen and other screens that use the same background.  Install this by placing it in the same location as the others.  You can replace this with any wallpaper of your choice if you save your chosen wallpaper as a TGA with the same name as this one.  It will need to be in a 16:9 aspect ratio or it'll be distorted.
+
+2. Requirements
+Neverwinter Nights with both expansions.
+
+This mod overrides certain graphics from Expansion 2: Storm of Zehir, and I've only tested it with Neverwinter Nights Platinum, which includes both expansions.  It may also work on the vanilla game with the latest patch.
+
+3. Installation
+The mod is provided in a compressed folder.  You can move this folder into your override folder, or if you prefer to keep your override folder empty, it should also work if you move the folder into your UI\custom\ folder.
+
+Both override and UI folders are usually found in Documents\Neverwinter Nights 2\override and Documents\Neverwinter Nights 2\ui respectively.  See this wiki page for more information on installation directories.
+
+4. Using the mod
+You should know if it's working or not as soon as the main menu screen appears.
+
+5. Known Issues
+None currently known.
+
+6. Use in other mods
+You are welcome to improve upon my work.
+
+7. Revision history
+    2012-03-09: Initial release
+
+8. Credits
+This was a solo effort, but I'm always indebted to the modders/builders who have contributed to the accumulated body of knowledge on the web, to allow me to know where to start in the first place.
+
+Image for optional background from official Neverwinter wallpaper.
+
+9. Contact & further info
+I can be contacted on the Nexus Network as Tchos, or the Bioware Social Network also as Tchos, or through my gaming blog.

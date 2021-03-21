@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8">
+
+<UIScene name="SCREEN_MESSAGEBOX_REPORT" x=ALIGN_RIGHT y=ALIGN_CENTER width="487" height="690" 
+	draggable=true idleexpiretime="60.0" scriptloadable=true autolayout=false
+	OnCreate=UIScene_OnCreate_SetupMessageBox(335,540,10,10,10,10) priority="SCENE_SCRIPT" />
+
+	<!-- Message Listbox -->
+	<UIListBox name=messageboxlb x=46 y=100 width=405 height=522 showpartialchild=true xPadding=0 yPadding=0
+	hidescrollbarwhennotneeded=true scrollsegmentsize=37 unequalcontrols=true>
+
+		<UIText name=messagetext fontfamily="NWN1_Dialog" width=PARENT_WIDTH height=DYNAMIC color=EEEEEE sizetofit=true align=left />
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>
+
+	<!-- BUTTON CONTAINER -->
+	<UIPane name="BUTTON_CONTAINER" x=ALIGN_CENTER y=611 width=250 height=80 >	
+		<!-- ok button -->
+		<UIButton name="okbutton" strref="66" x=ALIGN_CENTER y=0 style="STYLE_SMALL_BUTTON" OnLeftClick=UIButton_Input_HandleMessageBoxOK()>
+		</UIButton>
+	
+		<!-- Cancel Button NOT USED -->
+		<UIButton name="cancelbutton" strref="67" x=0 y=0 style="STYLE_SMALL_BUTTON" hidden=true 
+			OnLeftClick=UIButton_Input_HandleMessageBoxCancel()>
+		</UIButton>		
+	</UIPane>
+
+	<!-- Background Image -->
+	<UIIcon name="PANE_BACKGROUND" img="TutBoxBG.tga" x="0" y="0" width="487" height="690" />
+    

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                     -->
+<!-- Copyright Obsidian Entertainment, Inc.   -->
+<!--                                          -->
+
+<UIScene name="SCREEN_DMC_CHOOSER" OnCreate=UIScene_OnCreate_InitDMCChooserTree() x=400 y=100 width=499 height=646
+	draggable=true priority="SCENE_INGAME" scalescene="true" hidden="true" fadeout="0.2" fadein="0.2" backoutkey=true
+	OnAdd=UIScene_OnAdd_InitDMCChooser() />
+
+    <!-- Close Button -->
+	<UIButton name="CloseButton" x=459 y=7 style="STYLE_CLOSE_BUTTON" OnLeftClick=UIButton_Input_ScreenClose() />
+
+
+	<UIPane name="DMC_CHOOSER_GOTO_CONTAINER" x=130 y=35 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_GOTO" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6571,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")  OnLeftClick=UIButton_Input_DMCGoto() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_GOTO" draggable=true >
+                <UIFrame state=up		fill="ia_moveto.tga" />
+                <UIFrame state=down		fill="ia_moveto.tga" />
+                <UIFrame state=focused	fill="ia_moveto.tga" />
+                <UIFrame state=hilited	fill="ia_moveto.tga" />
+                <UIFrame state=hifocus	fill="ia_moveto.tga" />
+                <UIFrame state=disabled	fill="ia_moveto.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_CONTAINER" x=170 y=35 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_KILL" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6572,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCKill() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_KILL" draggable=true >
+                <UIFrame state=up		fill="ia_kill.tga" />
+                <UIFrame state=down		fill="ia_kill.tga" />
+                <UIFrame state=focused	fill="ia_kill.tga" />
+                <UIFrame state=hilited	fill="ia_kill.tga" />
+                <UIFrame state=hifocus	fill="ia_kill.tga" />
+                <UIFrame state=disabled	fill="ia_kill.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_JUMP_CONTAINER" x=210 y=35 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_JUMP" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6681,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCJump() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_JUMP" draggable=true >
+                <UIFrame state=up		fill="ia_jump.tga" />
+                <UIFrame state=down		fill="ia_jump.tga" />
+                <UIFrame state=focused	fill="ia_jump.tga" />
+                <UIFrame state=hilited	fill="ia_jump.tga" />
+                <UIFrame state=hifocus	fill="ia_jump.tga" />
+                <UIFrame state=disabled	fill="ia_jump.tga" />
+        </UIButton>
+	</UIPane>
+
+<!--        
+        <UIButton name="DMC_CHOOSER_JUMPPARTY" x=160 y=35 width=40 height=40 OnLeftClick=UIButton_Input_DMCJumpParty() >
+                <UIFrame state=up		fill="ia_jumpallplayers.tga" />
+                <UIFrame state=down		fill="ia_jumpallplayers.tga" />
+                <UIFrame state=focused	fill="ia_jumpallplayers.tga" />
+                <UIFrame state=hilited	fill="ia_jumpallplayers.tga" />
+                <UIFrame state=hifocus	fill="ia_jumpallplayers.tga" />
+                <UIFrame state=disabled	fill="ia_jumpallplayers.tga" />
+        </UIButton>
+
+        <UIButton name="DMC_CHOOSER_JUMPMODULE" x=200 y=35 width=40 height=40 OnLeftClick=UIButton_Input_DMCJumpModule() >
+                <UIFrame state=up		fill="ia_removefromparty.tga" />
+                <UIFrame state=down		fill="ia_removefromparty.tga" />
+                <UIFrame state=focused	fill="ia_removefromparty.tga" />
+                <UIFrame state=hilited	fill="ia_removefromparty.tga" />
+                <UIFrame state=hifocus	fill="ia_removefromparty.tga" />
+                <UIFrame state=disabled	fill="ia_removefromparty.tga" />
+        </UIButton>
+!-->        
+
+	<UIPane name="DMC_CHOOSER_TOGGLEAI_CONTAINER" x=250 y=35 width=40 height=40 >
+		<UIButton name="DMC_CHOOSER_TOGGLEAI" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6581,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCToggleAI() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_TOGGLEAI" draggable=true >
+                <UIFrame state=up		fill="ia_tauntmode.tga" />
+                <UIFrame state=down		fill="ia_tauntmode.tga" />
+                <UIFrame state=focused	fill="ia_tauntmode.tga" />
+                <UIFrame state=hilited	fill="ia_tauntmode.tga" />
+                <UIFrame state=hifocus	fill="ia_tauntmode.tga" />
+                <UIFrame state=disabled	fill="ia_tauntmode.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_TOGGLEAI_CONTAINER" x=290 y=35 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_HEAL" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6573,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCHeal() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_HEAL" draggable=true >
+                <UIFrame state=up		fill="ia_healme.tga" />
+                <UIFrame state=down		fill="ia_healme.tga" />
+                <UIFrame state=focused	fill="ia_healme.tga" />
+                <UIFrame state=hilited	fill="ia_healme.tga" />
+                <UIFrame state=hifocus	fill="ia_healme.tga" />
+                <UIFrame state=disabled	fill="ia_healme.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_CONTROL_CONTAINER" x=330 y=35 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_CONTROL" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6576,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCControl() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_POSSESS" draggable=true >
+                <UIFrame state=up		fill="ia_possess.tga" />
+                <UIFrame state=down		fill="ia_possess.tga" />
+                <UIFrame state=focused	fill="ia_possess.tga" />
+                <UIFrame state=hilited	fill="ia_possess.tga" />
+                <UIFrame state=hifocus	fill="ia_possess.tga" />
+                <UIFrame state=disabled	fill="ia_possess.tga" />
+        </UIButton>  
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_REST_CONTAINER" x=130 y=75 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_REST" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6582,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCRest() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_FORCEREST" draggable=true >
+                <UIFrame state=up		fill="ia_forcerest.tga" />
+                <UIFrame state=down		fill="ia_forcerest.tga" />
+                <UIFrame state=focused	fill="ia_forcerest.tga" />
+                <UIFrame state=hilited	fill="ia_forcerest.tga" />
+                <UIFrame state=hifocus	fill="ia_forcerest.tga" />
+                <UIFrame state=disabled	fill="ia_forcerest.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_LIMBO_CONTAINER" x=170 y=75 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_LIMBO" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6574,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCLimbo() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_LIMBO" draggable=true >
+                <UIFrame state=up		fill="ia_limbo.tga" />
+                <UIFrame state=down		fill="ia_limbo.tga" />
+                <UIFrame state=focused	fill="ia_limbo.tga" />
+                <UIFrame state=hilited	fill="ia_limbo.tga" />
+                <UIFrame state=hifocus	fill="ia_limbo.tga" />
+                <UIFrame state=disabled	fill="ia_limbo.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_EXAMINE_CONTAINER" x=210 y=75 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_EXAMINE" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6575,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCExamine() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_EXAMINE" draggable=true >
+                <UIFrame state=up		fill="ia_examine.tga" />
+                <UIFrame state=down		fill="ia_examine.tga" />
+                <UIFrame state=focused	fill="ia_examine.tga" />
+                <UIFrame state=hilited	fill="ia_examine.tga" />
+                <UIFrame state=hifocus	fill="ia_examine.tga" />
+                <UIFrame state=disabled	fill="ia_examine.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_FULLCONTROL_CONTAINER" x=250 y=75 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_FULLCONTROL" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6577,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCFullControl() 
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_IMPERSONATE" draggable=true >
+                <UIFrame state=up		fill="ia_formonme.tga" />
+                <UIFrame state=down		fill="ia_formonme.tga" />
+                <UIFrame state=focused	fill="ia_formonme.tga" />
+                <UIFrame state=hilited	fill="ia_formonme.tga" />
+                <UIFrame state=hifocus	fill="ia_formonme.tga" />
+                <UIFrame state=disabled	fill="ia_formonme.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_IMMORTAL_CONTAINER" x=290 y=75 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_IMMORTAL" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(83554,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCImmortal()
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_TOGGLEIMMORTAL" draggable=true >
+                <UIFrame state=up		fill="ia_guardme.tga" />
+                <UIFrame state=down		fill="ia_guardme.tga" />
+                <UIFrame state=focused	fill="ia_guardme.tga" />
+                <UIFrame state=hilited	fill="ia_guardme.tga" />
+                <UIFrame state=hifocus	fill="ia_guardme.tga" />
+                <UIFrame state=disabled	fill="ia_guardme.tga" />
+        </UIButton>
+	</UIPane>
+        
+	<UIPane name="DMC_CHOOSER_INVULNERABLE_CONTAINER" x=330 y=75 width=40 height=40 >
+        <UIButton name="DMC_CHOOSER_INVULNERABLE" x=0 y=0 width=40 height=40 OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(6583,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2") OnLeftClick=UIButton_Input_DMCInvulnerable()
+		hotbartype="HOTBAR_DM_COMMAND" SetDataString="DM_COMMAND_TOGGLEINVULNERABLE" draggable=true >
+                <UIFrame state=up		fill="ia_makeinvuln.tga" />
+                <UIFrame state=down		fill="ia_makeinvuln.tga" />
+                <UIFrame state=focused	fill="ia_makeinvuln.tga" />
+                <UIFrame state=hilited	fill="ia_makeinvuln.tga" />
+                <UIFrame state=hifocus	fill="ia_makeinvuln.tga" />
+                <UIFrame state=disabled	fill="ia_makeinvuln.tga" />
+        </UIButton>
+	</UIPane>
+
+<!--        
+        <UIButton name="DMC_CHOOSER_FIND" x=280 y=75 width=40 height=40 OnLeftClick=UIButton_Input_DMCFind() >
+                <UIFrame state=up		fill="ia_search.tga" />
+                <UIFrame state=down		fill="ia_search.tga" />
+                <UIFrame state=focused	fill="ia_search.tga" />
+                <UIFrame state=hilited	fill="ia_search.tga" />
+                <UIFrame state=hifocus	fill="ia_search.tga" />
+                <UIFrame state=disabled	fill="ia_search.tga" />
+        </UIButton> 
+        
+        <UIButton name="DMC_CHOOSER_FINDNEXT" x=320 y=75 width=40 height=40 OnLeftClick=UIButton_Input_DMCFindNext() >
+                <UIFrame state=up		fill="ia_search.tga" />
+                <UIFrame state=down		fill="ia_search.tga" />
+                <UIFrame state=focused	fill="ia_search.tga" />
+                <UIFrame state=hilited	fill="ia_search.tga" />
+                <UIFrame state=hifocus	fill="ia_search.tga" />
+                <UIFrame state=disabled	fill="ia_search.tga" />
+        </UIButton> 
+!--> 
+
+    <UIListBox name="LISTBOX_DMC_CHOOSER" x="18" y="120" width="469" height="512" xPadding="0" yPadding="5" showpartialchild="true"
+		    unequalcontrols="true" scrollsegmentsize="30">
+        <UITextTree name="TT_DMC_CHOOSER" x=0 y=0 width=400 height=400 yPadding=2 indent=10 update=true OnUpdate=UITextTree_OnUpdate_UpdateChooserTree()>
+            <UIButton name=up x=0 y=0 height=15 width=15 prototype=true header=true>
+                    <UIFrame state=up		fill="b_plus_normal.tga" />
+                    <UIFrame state=down		fill="b_plus_normal.tga" />
+                    <UIFrame state=hilited		fill="b_plus_normal.tga" />
+                    <UIFrame state=focused		fill="b_plus_normal.tga" />
+                    <UIFrame state=hifocus		fill="b_plus_normal.tga" />
+                    <UIFrame state=disabled		fill="b_plus_normal.tga" />
+                    <UIFrame state=header		fill="b_minus_normal.tga" />
+                    <UIFrame state=hiheader		fill="b_minus_normal.tga" />
+                    <UIFrame state=downheader	fill="b_minus_normal.tga" />
+            </UIButton>
+            <UIButton x=18 y=0 width=400 height=20 style="STYLE_EMPTY_BUTTON" prototype=true 
+				OnMouseEnter=UIButton_Input_ChooserMouseOver()
+				OnMouseLeave=UIButton_Input_ChooserMouseOver()
+				OnLeftClick=UIButton_Input_ChooserSelectItem() 
+                OnLeftDoubleClick=UIButton_Input_ChooserUseItem() 
+				OnRightClick=UIButton_Input_ChooserLaunchContext() >
+                <UIText align=left valign=middle multiline=false fontfamily="Default" style="2"/>
+                <UIFrame state=hiheader		fill="selection_fill2.tga" />
+            </UIButton>
+        </UITextTree>
+        <UIScrollBar name="SB" style="STYLE_SB_THIN" />
+    </UIListBox>    
+
+    <UIText name="TITLE" strref=184682 x="12" y="10" width="450" height="23" align=left valign=middle fontfamily="Title_Font" style="2" />
+	<UIFrame x="0" y="0" width="499" height="646" topleft="frame1_TL.tga" topright="frame1_TR.tga" 
+    bottomleft="frame1_BL.tga" bottomright="frame1_br.tga" top="frame1_T.tga" bottom="frame1_b.tga"
+    left="frame1_l.tga" right="frame1_r.tga" fillstyle="stretch" border="32" />
+	<UIIcon name="DETAIL_TOP" img="title_large04.tga" x=8 y=8 width=485 height=35 ignoreevents="true" />
+	<UIIcon img="frame_main_bg.tga" x=8 y=8 width=485 height=632 alpha="0.80"/>
+	

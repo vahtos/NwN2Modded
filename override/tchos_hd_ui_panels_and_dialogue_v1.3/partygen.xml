@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2 -->
+
+<UIScene name="SCREEN_PARTY_GEN" x=ALIGN_CENTER y=ALIGN_CENTER width=800 height=749 draggable=true fadeout="0.3" fadein="0.3" idleexpiretime="0.1" priority="SCENE_INGAME" scriptloadable="true" backoutkey=true modal="true"
+	OnAdd0=UIScene_Misc_SetupPartyGen()
+	OnAdd1=UIScene_Misc_RequestCharSelectList("VAULT_LIST","false")
+	OnAdd2=UIScene_Misc_RequestRosterUpdates("true") 
+	OnRemove=UIScene_Misc_RequestRosterUpdates("false") />
+
+	<!-- Party Pane -->
+	<UIPane name="PARTY_PANE" x=20 y=40 width=760 height="260" >
+
+		<!-- Current Party Config -->
+		<UIPane name="PARTY_HEADER_PANE" x="10" y="17" width="380" height="20">
+			<UIText name="PARTY_HEADER_TEXT" strref="233534" x=ALIGN_LEFT y=0 width="PARENT_WIDTH" height="PARENT_HEIGHT" align=center valign=middle fontfamily="Body_Font" style="1" color="ffedc2"/>
+			<UIText name="PARTY_SIZE_TEXT" text="###/NNN" x=ALIGN_RIGHT y=0 width=60 height=PARENT_HEIGHT align=right valign=middle fontfamily="Body_Font" style="1" color="ffedc2"
+				update="true" OnUpdate=UIText_Misc_SetPartyGenNumber()/>
+		</UIPane>
+
+		<!-- Current Party List -->
+		<UIPane name="PARTY_LIST_PANE" x="10" y="30" width="380" height="228" >
+			<UIListBox name="PARTY_LIST" x=2 y=8 width=376 height=186 showpartialchild=false xPadding=0 yPadding=2
+				hidescrollbarwhennotneeded=true scrollsegmentsize=1 unequalcontrols=false selectonleftclick=true
+				update="true" OnUpdate=UIListBox_OnUpdate_CurrentPartyMembers("SLOT_NUMBER","SLOT_TEXT","ADD_TO_PARTY","REMOVE_FROM_PARTY","EXPORT_CHAR") >
+
+				<UIPane name="SLOT_PROTO" x=0 y=0 width=368 height=28 prototype=true tupple=true 
+					OnLeftDoubleClick=UIButton_Input_RemovePartyMember("PARTY_LIST">
+					<UIButton name="SLOT_NUMBER" x=0 y=0 width=28 height=28 style="STYLE_PG_BUTTON_MED" prototype="true" 
+						MouseDownSFX="gui_m_down" MouseUpSFX="gui_button" />
+					<UIButton name="SLOT_TEXT" x=28 y=0 width=333 height=28 style="STYLE_PG_BUTTON_MED" prototype="true" 
+						MouseDownSFX="gui_m_down" MouseUpSFX="gui_button" />
+				</UIPane>
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>				</UIListBox>
+
+			<UIFrame x=0 y=7 width=PARENT_WIDTH height=188 topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga" border=5 />
+
+			<UIButton name="EXPORT_CHAR" strref="178837" x=ALIGN_LEFT y="ALIGN_BOTTOM" style="STYLE_PG_MED_BUTTON"
+				OnLeftClick=UIButton_Input_ExportPartyMember("PARTY_LIST") />
+
+			<UIButton name="REMOVE_FROM_PARTY" strref="7654" x=ALIGN_RIGHT y="ALIGN_BOTTOM" style="STYLE_PG_SMALL_BUTTON"
+				OnLeftClick=UIButton_Input_RemovePartyMember("PARTY_LIST")/>
+
+		</UIPane>
+
+		<!-- Current Party Name -->
+		<UIText name="PARTY_NAME_HEADER" strref="233535" x=400 y="17" width="350" height=20 align=center valign=middle fontfamily="Body_Font" style="1" color="ffedc2" />
+		<UIPane name="PARTY_NAME_PANE" x=400 y="37" width="350" height="24" >
+			<UIText name="PARTY_NAME_FIELD" x=2 y=2 align="center" valign="middle" width="346" height="20" editable="true" selectable="true" multiline="false"
+				fontfamily="Default" style="1"  prevcontrol="PARTY_BIO_FIELD" nextcontrol="PARTY_MOTTO_FIELD" maxlength="32" allowpunc="true" allowspace="true" sanitized="true" 
+				OnLostFocus=UIText_Misc_SetCharGenData("PARTY_GEN","PARTY_NAME")
+				update="true" OnUpdate=UIText_Misc_SetCharGenData("PARTY_GEN","PARTY_NAME")/>
+
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+				left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga"
+				border=5 />
+		</UIPane>		
+
+		<!-- Current Party Motto -->
+		<UIText name="PARTY_MOTTO_HEADER" strref="233536" x=400 y="65" width="350" height=20 align=center valign=middle fontfamily="Body_Font" style="1" color="ffedc2" />
+		<UIPane name="PARTY_MOTTO_PANE" x="400" y="85" width="350" height="44" >
+			<UIListBox name="PARTY_MOTTO_LISTBOX" x="2" y="2" width="346" height="40" showpartialchild="true"
+				unequalcontrols="true" scrollsegmentsize="30" hidescrollbarwhennotneeded="false" >
+				<UIText name="PARTY_MOTTO_FIELD" prevcontrol="PARTY_NAME_FIELD" nextcontrol="PARTY_BIO_FIELD" allowspace="true"
+					width=PARENT_WIDTH height=DYNAMIC align="center" valign="top" fontfamily="NWN1_Dialog" style="3" multiline="true" maxlength="128" editable="true" selectable="true" sanitized="true"
+					OnLostFocus=UIText_Misc_SetCharGenData("PARTY_GEN","PARTY_MOTTO")
+					update="true" OnUpdate=UIText_Misc_SetCharGenData("PARTY_GEN","PARTY_MOTTO")/>
+
+				<UIScrollBar name="SB" style="STYLE_SB_ULTRA_THIN"></UIScrollBar>	
+			</UIListBox>	
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+				left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga"
+				border=5 />
+		</UIPane>		
+
+		<!-- Current Party Bio -->
+		<UIText name="PARTY_BIO_HEADER" strref="233537" x=400 y="135" width="350" height=20 align=center valign=middle fontfamily="Body_Font" style="1" color="ffedc2"/>
+		<UIPane name="PARTY_BIO_PANE" x="400" y="155" width="350" height="102" >
+											<!-- was 2 -->
+			<UIListBox name="PARTY_BIO_LISTBOX" x="7" y="2" width="339" height="98" yPadding=10 showpartialchild="true"
+				unequalcontrols="true" scrollsegmentsize="30" hidescrollbarwhennotneeded="false" >
+				<UIText name="PARTY_BIO_FIELD" prevcontrol="PARTY_MOTTO_FIELD" nextcontrol="PARTY_NAME_FIELD" allowspace="true"
+					width=PARENT_WIDTH height=DYNAMIC align="left" valign="top" fontfamily="NWN1_Dialog" style="1" multiline="true" maxlength="1024" editable="true" selectable="true" sanitized="true"
+					OnLostFocus=UIText_Misc_SetCharGenData("PARTY_GEN","PARTY_BIO")
+					update="true" OnUpdate=UIText_Misc_SetCharGenData("PARTY_GEN","PARTY_BIO")/>
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+			</UIListBox>	
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+				left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga"
+				border=5 />
+		</UIPane>		
+	
+	</UIPane>
+
+
+	<!-- Vault Pane											was 260-->
+	<UIPane name="VAULT_PANE" x=20 y=297 width=760 height="409" >
+
+		<!-- Vault List -->
+		<UIText name="VAULT_HEADER_TEXT" strref="233538" x="10" y="9" width="380" height="20" align="center" valign="middle" fontfamily="Body_Font" style="1" color="ffedc2" />
+															<!--		was 233 -->
+		<UIPane name="VAULT_LIST_PANE" x="10" y="28" width="380" height="382" >
+																<!--	was 196 -->			
+			<UIListbox name="VAULT_LIST" x="2" y="2" width="376" height="345" yPadding="0" xPadding="0"
+				showpartialchild="false" scrollbaronright="true" selectonleftclick="true" hidescrollbarwhennotneeded="true"
+				update="true" OnUpdate=UIListBox_OnUpdate_CharSelectCharacters() >
+					<UIButton name="PrototypeButton" x="0" y="0" height="28" width="333" style="STYLE_PG_BUTTON_MED" prototype="true" 
+						update="true" OnUpdate=UIObject_OnUpdate_UpdateCharSelectionCharacter()
+						OnLeftClick=UIButton_Input_CharSelectSetSelectedCharacter("CHAR_DESC_LISTBOX","BIO_LISTBOX") 
+						OnLeftDoubleClick=UIButton_Input_AddPartyMember("VAULT_LIST")
+						MouseDownSFX="gui_m_down" MouseUpSFX="gui_button">
+					</UIButton>
+				<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+			</UIListbox>
+												<!-- was 200 -->
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height="349" topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga" border=5 />
+
+			<UIPane name="BUTTON_PANE" x=ALIGN_CENTER y=ALIGN_BOTTOM width=PARENT_WIDTH height="30" >	
+				<UIButton name="CREATE_CHAR" strref="163" x=ALIGN_LEFT y=ALIGN_BOTTOM style="STYLE_PG_MED_BUTTON"
+					OnLeftClick=UIButton_Input_StartInGameCharacterGeneration("SCREEN_IG_CG_RACE") >
+				</UIButton>
+				<UIButton name="ADD_TO_PARTY" strref="62476" x=ALIGN_RIGHT y=ALIGN_BOTTOM style="STYLE_PG_SMALL_BUTTON"
+					OnLeftClick=UIButton_Input_AddPartyMember("VAULT_LIST") />
+			</UIPane>
+		</UIPane>
+
+		<UIButton name="SHOW_STATS" x="541" y="8" height="20" strref="113779" style="STYLE_PG_SMALL_TAB" groupid="1" groupmemberid="1" 
+			OnSelected=UIButton_Input_ShowObject("STATS_PAGE") OnUnselected=UIButton_Input_HideObject("STATS_PAGE") >
+		</UIButton>
+		<UIButton name="SHOW_BIO" x="628" y="8" height="20" strref="336" style="STYLE_PG_BIG_TAB" groupid="1" groupmemberid="2"
+			OnSelected=UIButton_Input_ShowObject("BIO_PAGE") OnUnselected=UIButton_Input_HideObject("BIO_PAGE") >
+		</UIButton>
+															<!-- was 227 -->
+		<UIPane name="STATS_PAGE" x="400" y="28" width="350" height="376" hidden="false" >
+																		<!-- was 215 -->
+			<UIListBox name="CHAR_DESC_LISTBOX" x="2" y="2" width="346" height="364" yPadding="0" xPadding="0" showpartialchild="true"
+				unequalcontrols="true" scrollsegmentsize="30" hidescrollbarwhennotneeded="false" >
+					<UIPane name="NAME_CONTAINER" width=350 height=40 >
+						<UIText name="NAME_TEXT" x=0 y=0 width="342" height=40 fontfamily="Title_Font" style=1 align=center valign=middle
+							updaterate="0.5" update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","FULLNAME") />
+						<UIIcon name="NAME_TEXT_BG" x=0 y=0 width=340 height=40 img="char_container_02.tga" />
+					</UIPane>
+					<UIPane name="SUBRACE_CONTAINER" width=350 height=40 >
+						<UIButton name="SUBRACE_ICON" x=0 y=0 width=40 height=40 style="STYLE_EMPTY_BUTTON"
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterIcon("CHAR_SELECT","SUBRACE")/>
+						<UIText name="SUBRACE_TEXT" x=44 y=0 width=186 height=40 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","SUBRACE") />
+						<UIText name="GENDER_TEXT" x=230 y=0 width=110 height=40 fontfamily="Title_Font" style=1 align=center valign=middle indent=5 hangingindent=5
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","GENDER") />
+						<UIIcon name="BG" x=44 y=0 width=296 height=40 img="char_container_01.tga" />
+					</UIPane>
+					<UIPane name="ALIGNMENT_CONTAINER" width=350 height=40 >
+						<UIButton name="ALIGNMENT_ICON" x=0 y=0 width=40 height=40 style="STYLE_EMPTY_BUTTON"
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterIcon("CHAR_SELECT","ALIGNMENT_ICON")/>
+						<UIText name="ALIGNMENT_TEXT" x=44 y=0 width=296 height=40 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","ALIGNMENT_TITLE") />
+						<UIIcon name="ALIGNMENT_TEXT_BG" x=44 y=0 width=296 height=40 img="char_container_01.tga" />
+					</UIPane>
+
+					<UICollapsable name="CLASS_COL" x=0 y=0 height=182 width=PARENT_WIDTH yPadding=5 xPadding=0 indent=20 isexpanded=true collapselock=true 
+						update=true OnUpdate=UICollapsable_OnUpdate_UpdateClassList("CHAR_SELECT") >
+						<UIButton name="HEADER_BUTTON" strref="144" x=0 y=0 width=350 height=40  header=true >
+							<UIText x=30 y=0 align=left valign=middle fontfamily="Title_Font" style="1" indent=20 multiline=false />
+							<UIFrame state=up			fill="char_container_01.tga" />
+							<UIFrame state=down			fill="char_container_01.tga" />
+							<UIFrame state=hilited		fill="char_container_01.tga" />
+							<UIFrame state=focused		fill="char_container_01.tga" />
+							<UIFrame state=hifocus		fill="char_container_01.tga" />
+							<UIFrame state=disabled		fill="char_container_01.tga" />
+							<UIFrame state=header		fill="char_container_01.tga" />
+							<UIFrame state=hiheader		fill="char_container_01.tga" />
+							<UIFrame state=downheader	fill="char_container_01.tga" />
+						</UIButton>			
+						<UIPane name="CLASS_PROTO" x=0 y=0 width=PARENT_WIDTH height=40 prototype=true >					
+							<UIIcon name="CLASS_ICON" img="b_empty.tga" x=0 y=0 width=40 height=40 />
+							<UIText name="CLASS_TEXT" x=44 y=0 width=276 height=40 align=left valign=middle fontfamily="Title_Font" style="1" indent=5 hangingindent=5 multiline=true maxlines=2 />
+							<UIIcon img="char_r_container_02.tga" x=44 y=0 width=276 height=40 />
+						</UIPane>
+					</UICollapsable>
+
+					<UIPane name="BACKGROUND_CONTAINER" width=350 height=40 >
+						<UIButton name="BACKGROUND_ICON" x=0 y=0 width=40 height=40 style="STYLE_EMPTY_BUTTON"
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterIcon("CHAR_SELECT","BACKGROUND")/>
+						<UIText name="BACKGROUND_TEXT" x=44 y=0 width=296 height=40 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BACKGROUND") />
+						<UIIcon name="BACKGROUND_TEXT_BG" x=44 y=0 width=296 height=40 img="char_container_01.tga" />
+					</UIPane>
+					<UIPane name="DEITY_CONTAINER" width=350 height=40 >
+						<UIButton name="DEITY_ICON" x=0 y=0 width=40 height=40 style="STYLE_EMPTY_BUTTON"
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterIcon("CHAR_SELECT","DEITY")/>
+						<UIText name="DEITY_TEXT" x=44 y=0 width=296 height=40 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5
+							update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","DEITY") />
+						<UIIcon name="DEITY_TEXT_BG" x=44 y=0 width=296 height=40 img="char_container_01.tga" />
+					</UIPane>
+
+					<UIPane name="ABILITIES_ALIGNMENT_CONTAINER" width=350 height=160 >
+						<UIPane name="ABILITIES_CONTAINER" x=ALIGN_LEFT y=0 width=340 height=160 >				
+							<UIText name="STR_TEXT"	x=0 y=10 width=260 height=20 strref=135 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5 />
+							<UIText name="STR_RANK" x=260 y=10 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BASE_STR") />
+							<UIText name="STR_MOD" x=300 y=10 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","STR_MOD") />
+							<UIIcon name="STR_TEXT_BG" x=0 y=10 width=260 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIIcon name="STR_RANK_BG" x=260 y=10 width=40 height=20 img="fx_white.tga" color="353535" />
+							<UIIcon name="STR_MOD_BG" x=300 y=10 width=40 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIText name="DEX_TEXT"	x=0 y=32 width=260 height=20 strref=133 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5 />
+							<UIText name="DEX_RANK" x=260 y=32 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BASE_DEX") />
+							<UIText name="DEX_MOD" x=300 y=32 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","DEX_MOD") />
+							<UIIcon name="DEX_TEXT_BG" x=0 y=32 width=260 height=20 img="fx_white.tga" color="040404" />
+							<UIIcon name="DEX_RANK_BG" x=260 y=32 width=40 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIIcon name="DEX_MOD_BG" x=300 y=32 width=40 height=20 img="fx_white.tga" color="040404" />
+							<UIText name="CON_TEXT"	x=0 y=54 width=260 height=20 strref=132 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5 />
+							<UIText name="CON_RANK" x=260 y=54 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BASE_CON") />
+							<UIText name="CON_MOD" x=300 y=54 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","CON_MOD") />
+							<UIIcon name="CON_TEXT_BG" x=0 y=54 width=260 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIIcon name="CON_RANK_BG" x=260 y=54 width=40 height=20 img="fx_white.tga" color="353535" />
+							<UIIcon name="CON_MOD_BG" x=300 y=54 width=40 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIText name="INT_TEXT"	x=0 y=76 width=260 height=20 strref=134 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5 />
+							<UIText name="INT_RANK" x=260 y=76 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BASE_INT") />
+							<UIText name="INT_MOD" x=300 y=76 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","INT_MOD") />
+							<UIIcon name="INT_TEXT_BG" x=0 y=76 width=260 height=20 img="fx_white.tga" color="040404" />
+							<UIIcon name="INT_RANK_BG" x=260 y=76 width=40 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIIcon name="INT_MOD_BG" x=300 y=76 width=40 height=20 img="fx_white.tga" color="040404" />
+							<UIText name="WIS_TEXT"	x=0 y=98 width=260 height=20 strref=136 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5 />
+							<UIText name="WIS_RANK" x=260 y=98 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BASE_WIS") />
+							<UIText name="WIS_MOD" x=300 y=98 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","WIS_MOD")/>
+							<UIIcon name="WIS_TEXT_BG" x=0 y=98 width=260 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIIcon name="WIS_RANK_BG" x=260 y=98 width=40 height=20 img="fx_white.tga" color="353535" />
+							<UIIcon name="WIS_MOD_BG" x=300 y=98 width=40 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIText name="CHA_TEXT"	x=0 y=120 width=260 height=20 strref=131 fontfamily="Title_Font" style=1 align=left valign=middle indent=5 hangingindent=5 />
+							<UIText name="CHA_RANK" x=260 y=120 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","BASE_CHA") />
+							<UIText name="CHA_MOD" x=300 y=120 width=40 height=20 fontfamily="Title_Font" style=1 align=center valign=middle
+								update="true" OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","CHA_MOD") />
+							<UIIcon name="CHA_TEXT_BG" x=0 y=120 width=260 height=20 img="fx_white.tga" color="040404" />
+							<UIIcon name="CHA_RANK_BG" x=260 y=120 width=40 height=20 img="fx_white.tga" color="1e1e1e" />
+							<UIIcon name="CHA_MOD_BG" x=300 y=120 width=40 height=20 img="fx_white.tga" color="040404" />
+						</UIPane>
+					</UIPane>
+				<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+			</UIListBox>
+												<!-- was 218 -->
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height="367" topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga" border=5 />
+
+		</UIPane>
+															<!-- was 227 -->
+		<UIPane name="BIO_PAGE" x="400" y="28" width="350" height="376" hidden="true" >
+
+										<!--was 2.		was 344			was 215	  -->
+			<UIListBox name="BIO_LISTBOX" x="7" y="2" width="339" height="364" xPadding=0 yPadding=10 showpartialchild=true
+				unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded=true >`
+				<UIText name="BIO_FIELD" width=PARENT_WIDTH height=DYNAMIC align=left valign=top fontfamily="NWN1_Dialog" style="bold" multiline=true 
+					updaterate="0.5" update=true OnUpdate=UIObject_OnUpdate_GetCharacterData("CHAR_SELECT","DESCRIPTION") />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+			</UIListBox>	
+												<!-- was 218 -->
+			<UIFrame x=0 y=0 width=PARENT_WIDTH height="367" topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+				bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga" left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="pg_tp_frame_bg.tga" border=5 />
+		</UIPane>
+	</UIPane>
+
+	<!-- TITLE -->
+	<UIText strref="233539" x="ALIGN_CENTER" y="12" width="300" height="30" align=center valign=middle fontfamily="Title_Font" style="2" color="ffedc2"/>
+
+	<!-- Footer										was 555	-->
+	<UIPane name="BUTTON_CONTAINER" x=ALIGN_CENTER y=704 width=714 height=28 >
+		<UIButton name="ACCEPT_PARTY" strref="6405" x=449 y=0 style="STYLE_PG_SMALL_BUTTON" OnLeftClick=UIButton_Input_AcceptPartyGen()/>
+		<UIButton name="CANCEL_PARTY" strref="67" x=ALIGN_RIGHT y=0 style="STYLE_PG_SMALL_BUTTON" OnLeftClick=UIButton_Input_ScreenClose()/>
+	</UIPane>
+
+	<UIIcon name="BG" img="pg_background.tga" x=0 y=0 width="PARENT_WIDTH" height="PARENT_HEIGHT" />

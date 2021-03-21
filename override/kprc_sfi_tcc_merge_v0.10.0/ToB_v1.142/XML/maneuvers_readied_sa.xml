@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	This xml file is used to display all of the READIED maneuvers that
+	the selected character currently has available. 
+-->
+
+<UIScene name="SCREEN_MANUEVERS_READIED_SA" x=425 y=20 width=354 height=460 draggable=true fadeout="0.3" fadein="0.3" priority="SCENE_INGAME" scriptloadable="true"/>
+
+	<!-- Scene Title -->
+	<UIText text="Maneuvers Readied" x=90 y=8 width=260 height=28 align=left valign=middle fontfamily="Title_Font" style="2" />
+	<UIIcon name="MANEUVERS_READIED_DETAIL" img="char_icon.tga" x=0 y=0 width=78 height=71 ignoreevents=true />
+	
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=315 y=8 style="STYLE_CLOSE_BUTTON" 
+		OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_launch_bot9s,_SA)>
+	</UIButton>
+
+	<!-- *** READIED MANEUVER LIST *** -->
+
+	<UIListbox name="READIED_1" x=27 y=77 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_1" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,1,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,1,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,1)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,1)>
+			<UIButton name="RED_1" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+	
+	<UIListbox name="READIED_2" x=69 y=77 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_2" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,2,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,2,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,2)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,2)>
+			<UIButton name="RED_2" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_3" x=112 y=77 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_3" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,3,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,3,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,3)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,3)>
+			<UIButton name="RED_3" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_4" x=27 y=120 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_4" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,4,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,4,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,4)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,4)>
+			<UIButton name="RED_4" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_5" x=69 y=120 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_5" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,5,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,5,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,5)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,5)>
+			<UIButton name="RED_5" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_6" x=112 y=120 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_6" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,6,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,6,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,6)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,6)>
+			<UIButton name="RED_6" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_7" x=27 y=162 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_7" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,7,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,7,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,7)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,7)>
+			<UIButton name="RED_7" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_8" x=69 y=162 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_8" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,8,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,8,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,8)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,8)>
+			<UIButton name="RED_8" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_9" x=112 y=162 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_9" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,9,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,9,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,9)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,9)>
+			<UIButton name="RED_9" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_10" x=27 y=204 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_10" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,10,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,10,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,10)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,10)>
+			<UIButton name="RED_10" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_11" x=69 y=204 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_11" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,11,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,11,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,11
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,11)>
+			<UIButton name="RED_11" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_12" x=112 y=204 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_12" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,12,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,12,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,12)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,12)>
+			<UIButton name="RED_12" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_13" x=27 y=246 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_13" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,13,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,13,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,13)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,13)>
+			<UIButton name="RED_13" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_14" x=69 y=246 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_14" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,14,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,14,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,14)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,14)>
+			<UIButton name="RED_14" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_15" x=112 y=246 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_15" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,15,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,15,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,15)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,15)>
+			<UIButton name="RED_15" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<UIListbox name="READIED_16" x=27 y=288 width=42 height=42 selectonleftclick=false hidden=false disabled=true prototype=true >
+
+		<UIPane name="RED_PANE_16" x=0 y=0 width=40 height=40 tupple=true prototype=true MouseDownSFX="gui_pop"
+			OnMouseEnter=UIObject_Misc_ExecuteServerScript(gui_tob_tooltip,MR,16,_SA)
+			OnToolTip=UIObject_Tooltip_DisplayTooltipString(local:9,OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2)
+			OnRightClick=UIObject_Misc_ExecuteServerScript(gui_ex_maneuver,MR,16,_SA)
+			OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_enable_box",_SA,16)
+			OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_tob_remove,_SA,16)>
+			<UIButton name="RED_16" height=40 width=40 draggable=false hotbartype="HOTBAR_NONE" prototype=true>
+				<UIFrame state=base		fill="b_empty.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+		</UIPane>
+	</UIListbox>
+
+	<!-- Background Image -->
+	<UIIcon name="MANEUVER_KNOWN_BG" img="saint_bg.tga" x=9 y=8 width=336 height=443 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />	

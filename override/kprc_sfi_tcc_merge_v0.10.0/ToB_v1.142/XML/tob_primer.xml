@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8">
+
+<UIScene name="SCREEN_TOB_PRIMER" width=1024 height=768 priority="SCENE_INGAME_FULLSCREEN" scriptloadable="true" fullscreen=true cullrenderables=true />
+
+	<!-- Title Pane -->
+    <UIPane name="TitlePane" x=ALIGN_CENTER y=ALIGN_TOP width=984 height="74" capturemouseclicks="false" ignoreevents="true" >
+        <UIText name="TITLE_TEXT" text="Primer" x=ALIGN_CENTER y=12 width=356 height=30 align="center" valign="middle" 
+	        fontfamily="Special_Font" style="4" />
+        <UIIcon img="main_sub_titles.tga" x="0" y="0" width="PARENT_WIDTH" height="PARENT_HEIGHT"/>
+    </UIPane>
+
+	<UIPane name="CONTENTS_PANE" x=ALIGN_LEFT y=ALIGN_CENTER width=1024 height=675 >
+
+    <!-- Info and Stats Container Pane -->
+    <UIPane name="InfoStatsPane" x=510 y=21 width="532" height="654" >
+        <UIButton name="SHOW_INFO" x="24" y="0" strref="181231" style="STYLE_CHARGEN_TAB" groupid="3" groupmemberid="1"
+          OnSelected=UIButton_Input_ShowObject("PANE_INFO") OnUnselected=UIButton_Input_HideObject("PANE_INFO") >
+        </UIButton>
+
+        <!-- Info Pane-->
+        <UIPane name="PANE_INFO" x="6" y="11" width="517" height="630" hidden="false" >
+            <UIListBox name="INFOPANE_LISTBOX" x="24" y="33" width="452" height="580" yPadding="0" xPadding="0" showpartialchild="true"
+              unequalcontrols="true" scrollsegmentsize="30" hidescrollbarwhennotneeded="false" >
+
+				<UIPane name="INFO_CONTAINER" x=0 y=0 width=PARENT_WIDTH height=40 >
+					<UIIcon name="INFOPANE_IMAGE" img="b_empty.tga" x=5 y=0 width=40 height=40 ignoreevents=true />
+					<UIText name="INFOPANE_TITLE" x=50 y=0 width=150 height=40 align=left valign=middle fontfamily="NWN1_Dialog" style="bold" />			
+				</UIPane>		
+
+                <UIText name="INFOPANE_TEXT" width="PARENT_WIDTH" height="DYNAMIC" align="left" valign="top" fontfamily="NWN1_Dialog" multiline="true" />
+                <UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+            </UIListBox>
+        </UIPane>
+
+        <UIFrame x="0" y="6" width="520" height="647" topleft="frame_main_t_TL.tga" topright="frame_main_t_TR.tga" 
+        bottomleft="frame_main_BL.tga" bottomright="frame_main_d_BR.tga" top="frame_main_T.tga" bottom="frame_main_b.tga"
+        left="frame_main_l.tga" right="frame_main_r.tga" fillstyle="stretch" fill="frame_main_bg.tga"  border="64" />
+    </UIPane>
+
+	<!-- Maneuvers Pane -->
+	<UIPane name="ChoicesPane" x=255 y=18 width=284 height=656 >
+		
+		<UIListbox name="SHOWN_MANEUVER_LIST" x=22 y=62 width=239 height=570 xPadding=0 yPadding=5 
+		showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=150 >
+
+			<UIPane name="MANEUVERPANE_PROTO" x=0 y=0 width=225 height=40 prototype=true tupple=true MouseDownSFX="gui_click"
+				OnLeftClick0=UIObject_Misc_ExtractData("self:","string",7,local:7)
+				OnLeftClick1=UIObject_Misc_ExecuteServerScript(gui_display_infopane3,local:7) >
+				<UIButton name="MANEUVER_TEXT" x=5 y=0 width=169 height=40 prototype=true >
+					<UIText name="MANEUVER_TEXTFIELD" indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" prototype=true />
+					<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+					<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+					<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+					<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+					<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+					<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+				</UIButton>
+				<UIButton name="MANEUVER_IMAGE" x=175 y=0 width=40 height=40 prototype=true >
+					<UIFrame state=base		fill="b_empty.tga" />
+					<UIFrame state=up		fill="b_empty.tga" />
+					<UIFrame state=down		fill="b_overlay.tga" />
+					<UIFrame state=focused	fill="b_empty.tga" />
+					<UIFrame state=hilited	fill="b_empty.tga" />
+					<UIFrame state=hifocus	fill="b_overlay.tga" />
+					<UIFrame state=disabled	fill="b_empty.tga" />
+				</UIButton>
+			</UIPane>
+
+			<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+		</UIListbox>
+
+        <UIFrame x="0" y="9" width="PARENT_WIDTH" height="647" topleft="frame_main_TL.tga" topright="frame_main_TR.tga" 
+             bottomleft="frame_main_d_BL.tga" bottomright="frame_main_BR.tga" top="frame_main_T.tga" bottom="frame_main_b.tga"
+             left="frame_main_l.tga" right="frame_main_r.tga" fillstyle="stretch" fill="frame_main_bg.tga"  border="64" />
+		
+	</UIPane>
+
+	<!-- Discipline Pane -->
+	<UIPane name="DisciplinePane"  x=0 y=18 width=284 height=656 >
+		<UIText text="Stances and Maneuvers" x=21 y=41 width=230 height=30 align=right valign=middle fontfamily="Title_Font" style=2 />
+		<UIIcon name="DETAIL_TOP" img="3rd_window_title.tga" x=21 y=41 width=240 height=30 ignoreevents="true" />
+		
+		<UIGrid name="MANEUVER_LEVEL_GRID" rows=2 columns=5 x=40 y=75 xPadding=15 yPadding=3 >
+			<UIButton name="MANEUVER_0" height=24 width=24 buttontype=radio groupid=1 groupmemberid=1 
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,0)>
+				<UIFrame state=up		fill="b_s0_normal.tga" />
+				<UIFrame state=down		fill="b_s0_pressed.tga" />
+				<UIFrame state=focused	fill="b_s0_hover.tga" />
+				<UIFrame state=hilited	fill="b_s0_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s0_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s0_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_1" height=24 width=24 buttontype=radio groupid=1 groupmemberid=2 
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,1)>
+				<UIFrame state=up		fill="b_s1_normal.tga" />
+				<UIFrame state=down		fill="b_s1_pressed.tga" />
+				<UIFrame state=focused	fill="b_s1_hover.tga" />
+				<UIFrame state=hilited	fill="b_s1_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s1_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s1_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_2" height=24 width=24 buttontype=radio groupid=1 groupmemberid=3
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,2)>
+				<UIFrame state=up		fill="b_s2_normal.tga" />
+				<UIFrame state=down		fill="b_s2_pressed.tga" />
+				<UIFrame state=focused	fill="b_s2_hover.tga" />
+				<UIFrame state=hilited	fill="b_s2_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s2_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s2_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_3" height=24 width=24 buttontype=radio groupid=1 groupmemberid=4
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,3)>
+				<UIFrame state=up		fill="b_s3_normal.tga" />
+				<UIFrame state=down		fill="b_s3_pressed.tga" />
+				<UIFrame state=focused	fill="b_s3_hover.tga" />
+				<UIFrame state=hilited	fill="b_s3_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s3_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s3_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_4" height=24 width=24 buttontype=radio groupid=1 groupmemberid=5
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,4)>
+				<UIFrame state=up		fill="b_s4_normal.tga" />
+				<UIFrame state=down		fill="b_s4_pressed.tga" />
+				<UIFrame state=focused	fill="b_s4_hover.tga" />
+				<UIFrame state=hilited	fill="b_s4_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s4_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s4_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_5" height=24 width=24 buttontype=radio groupid=1 groupmemberid=6
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,5)>
+				<UIFrame state=up		fill="b_s5_normal.tga" />
+				<UIFrame state=down		fill="b_s5_pressed.tga" />
+				<UIFrame state=focused	fill="b_s5_hover.tga" />
+				<UIFrame state=hilited	fill="b_s5_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s5_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s5_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_6" height=24 width=24 buttontype=radio groupid=1 groupmemberid=7
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,6)>
+				<UIFrame state=up		fill="b_s6_normal.tga" />
+				<UIFrame state=down		fill="b_s6_pressed.tga" />
+				<UIFrame state=focused	fill="b_s6_hover.tga" />
+				<UIFrame state=hilited	fill="b_s6_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s6_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s6_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_7" height=24 width=24 buttontype=radio groupid=1 groupmemberid=8
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,7)>
+				<UIFrame state=up		fill="b_s7_normal.tga" />
+				<UIFrame state=down		fill="b_s7_pressed.tga" />
+				<UIFrame state=focused	fill="b_s7_hover.tga" />
+				<UIFrame state=hilited	fill="b_s7_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s7_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s7_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_8" height=24 width=24 buttontype=radio groupid=1 groupmemberid=9
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,8)>
+				<UIFrame state=up		fill="b_s8_normal.tga" />
+				<UIFrame state=down		fill="b_s8_pressed.tga" />
+				<UIFrame state=focused	fill="b_s8_hover.tga" />
+				<UIFrame state=hilited	fill="b_s8_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s8_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s8_normal.tga" />
+			</UIButton>
+			<UIButton name="MANEUVER_9" height=24 width=24 buttontype=radio groupid=1 groupmemberid=10 
+			OnSelected=UIObject_Misc_ExecuteServerScript(gui_tob_xref,9)>
+				<UIFrame state=up		fill="b_s9_normal.tga" />
+				<UIFrame state=down		fill="b_s9_pressed.tga" />
+				<UIFrame state=focused	fill="b_s9_hover.tga" />
+				<UIFrame state=hilited	fill="b_s9_hover.tga" />
+				<UIFrame state=hifocus	fill="b_s9_hover_pressed.tga" />
+				<UIFrame state=disabled	fill="b_s9_normal.tga" />
+			</UIButton>
+		</UIGrid>
+
+		<UIListbox name="DISCIPLINE_LIST" x=22 y=130 width=239 height=500 xPadding=0 yPadding=5
+		showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=150 >
+
+				<UIPane name="DESERT_WIND" x=0 y=0 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"DW")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="desertwind.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Desert Wind" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="DEVOTED_SPIRIT" x=0 y=41 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"DS")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="aribeth.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Devoted Spirit" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="DIAMOND_MIND" x=0 y=82 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"DM")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="diamondmind.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Diamond Mind" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="IRON_HEART" x=0 y=123 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"IH")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="ironheart.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Iron Heart" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="SETTING_SUN" x=0 y=164 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"SS")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="settingsun.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Setting Sun" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="SHADOW_HAND" x=0 y=205 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"SH")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="greenhand.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Shadow Hand" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="STONE_DRAGON" x=0 y=246 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"SD")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="stonedragon.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Stone Dragon" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="TIGER_CLAW" x=0 y=287 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"TC")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="tigerclaw.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="Tiger Claw" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+				<UIPane name="WHITE_RAVEN" x=0 y=329 width=225 height=40 tupple=true MouseDownSFX="gui_click"
+				OnLeftClick=UIObject_Misc_ExecuteServerScript(gui_tob_xref,"WR")>
+					<UIButton name="MANEUVER_IMAGE" x=0 y=0 width=40 height=40>
+						<UIFrame state=base		fill="whiteraven.tga" />
+						<UIFrame state=up		fill="b_empty.tga" />
+						<UIFrame state=down		fill="b_overlay.tga" />
+						<UIFrame state=focused	fill="b_empty.tga" />
+						<UIFrame state=hilited	fill="b_empty.tga" />
+						<UIFrame state=hifocus	fill="b_overlay.tga" />
+						<UIFrame state=disabled	fill="b_empty.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_TEXT" text="White Raven" x=40 y=0 width=165 height=40 >
+						<UIText name="MANEUVER_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Title_Font" />
+						<UIFrame state=up		fill="b_g_lg01_normal.tga" />
+						<UIFrame state=down		fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=focused	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=hilited	fill="b_g_lg01_normal.tga" />
+						<UIFrame state=hifocus	fill="b_g_lg01_pressed.tga" />
+						<UIFrame state=disabled	fill="b_g_lg01_normal.tga" />
+					</UIButton>
+					<UIButton name="MANEUVER_ACTION" x=205 y=0 width=15 height=40>
+						<UIFrame state=up		fill="b_addr_normal.tga" />
+						<UIFrame state=down		fill="b_addr_pressed.tga" />
+						<UIFrame state=focused	fill="b_addr_pressed.tga" />
+						<UIFrame state=hilited	fill="b_addr_normal.tga" />
+						<UIFrame state=hifocus	fill="b_addr_pressed.tga" />
+						<UIFrame state=disabled	fill="b_addr_normal.tga" />
+					</UIButton>
+				</UIPane>
+
+			<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+		</UIListbox>
+
+		<UIFrame x="0" y="9" width="PARENT_WIDTH" height="647" topleft="frame_main_t_TL.tga" topright="frame_main_TR.tga" 
+		bottomleft="frame_main_d_BL.tga" bottomright="frame_main_BR.tga" top="frame_main_T.tga" bottom="frame_main_b.tga"
+		left="frame_main_l.tga" right="frame_main_r.tga" fillstyle="stretch" fill="frame_main_bg.tga"  border="64" />
+		
+	</UIPane>
+
+	</UIPane>
+
+	<UIPane name="CLOSE_CONTAINER" x=0 y=723 width=176 height=45 >
+		<UIButton name="CLOSE_CANCEL" text="Close" x=ALIGN_RIGHT y=0 style="STYLE_MENU_BUTTON_SML"
+		OnLeftClick=UIButton_Input_ScreenClose("SCREEN_TOB_PRIMER")>
+		</UIButton>
+	</UIPane>
+
+	<!-- Background Image -->
+	<UIIcon name="TOB_PRIMER_BG" img="tob_books.tga" x=0 y=0 width="1024" height="768" />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT />

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                     -->
+<!-- Copyright Obsidian Entertainment, Inc.   -->
+<!--                                          -->
+
+<UIScene name="SCREEN_DMC_CREATOR" OnCreate=UIScene_OnCreate_InitDMCCreatorTree() x=676 y=190 width=405 height=646 draggable=true priority="SCENE_INGAME" scalescene="true" hidden="true" fadeout="0.2" fadein="0.2" backoutkey=true />
+
+    <!-- Close Button -->
+	<UIButton name="CloseButton" x=365 y=9 style="STYLE_CLOSE_BUTTON" OnLeftClick=UIButton_Input_ScreenClose() />
+
+    <UIListBox name="LISTBOX_DMC_CREATOR" x="5" y="38" width="388" height="598" xPadding="0" yPadding="5" showpartialchild="true"
+		    unequalcontrols="true" scrollsegmentsize="30" hidescrollbarwhennotneeded=false >
+        <UITextTree name="TT_DMC_CREATOR" x=0 y=0 width=370 height=600 yPadding=2 indent=10 alpha="0.80">
+            <UIButton name=up x=0 y=0 height=15 width=15 prototype=true header=true fontfamily="NWN1_Dialog" >                    
+                    <UIFrame state=up			fill="b_plus_normal.tga" />
+                    <UIFrame state=down			fill="b_plus_normal.tga" />
+                    <UIFrame state=hilited		fill="b_plus_normal.tga" />
+                    <UIFrame state=focused		fill="b_plus_normal.tga" />
+                    <UIFrame state=hifocus		fill="b_plus_normal.tga" />
+                    <UIFrame state=disabled		fill="b_plus_normal.tga" />
+                    <UIFrame state=header		fill="b_minus_normal.tga" />
+                    <UIFrame state=hiheader		fill="b_minus_normal.tga" />
+                    <UIFrame state=downheader	fill="b_minus_normal.tga" />
+            </UIButton>
+            <UIButton x=18 y=0 width=325 height=20 style="STYLE_TEXTTREE_BUTTON" prototype=true 
+				hotbartype="HOTBAR_DM_CREATOR" draggable=true
+				OnLeftClick=UIButton_Input_CreatorSelectItem() 
+				OnLeftDoubleClick=UIButton_Input_CreatorUseItem() >
+				<UIText align=left valign=middle multiline=false fontfamily="Default" style="2" />
+				<UIFrame state=hiheader		fill="selection_fill2.tga" />
+            </UIButton>
+        </UITextTree>
+        <UIScrollBar name="SB" style="STYLE_SB_THIN" />
+    </UIListBox>    
+
+    <UIText name="TITLE" strref="184681" x="12" y="10" width="350" height="23" align=left valign=middle fontfamily="Title_Font" style="2" />
+	<UIFrame x="0" y="0" width="405" height="646" topleft="frame1_TL.tga" topright="frame1_TR.tga" 
+		bottomleft="frame1_BL.tga" bottomright="frame1_br.tga" top="frame1_T.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" fillstyle="stretch" border="32" />
+	<UIIcon name="DETAIL_TOP" img="title_nwn_dialog.tga" x=8 y=8 width=391 height=30 ignoreevents="true" />
+	<UIIcon img="frame_main_bg.tga" x="8" y="8" width="391" height="632" alpha="80" />
+	

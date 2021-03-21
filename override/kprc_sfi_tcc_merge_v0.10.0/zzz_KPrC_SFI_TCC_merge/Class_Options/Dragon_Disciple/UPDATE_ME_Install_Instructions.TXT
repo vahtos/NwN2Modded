@@ -1,0 +1,15 @@
+Installation:
+
+-Choose only 1 version.
+
+-Unzip contents of archive to the ../..merge/2DA/ folder, overwright existing files.
+
+Update the classes.2da file as follows:
+
+Merge Version
+
+
+KPrC Version
+
+
+SFI Version

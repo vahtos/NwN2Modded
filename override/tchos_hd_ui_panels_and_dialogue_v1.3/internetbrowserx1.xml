@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                     -->
+<!-- Copyright © Obsidian Entertainment, Inc. -->
+
+<!-- Local Variable Breakdown:
+	Local:0 - Sort type for the Internet Browser
+	Local:1 - Sort type for the favorites browser
+	Local:2 - Sort type for the history browser
+	Local:3 - Sort type for the buddy browser
+	Local:4 - Name of the currently selected player.
+	
+	Groups for the SORT TAB RADIO BUTTONS are:
+	1 = Main Tab Toggles
+	2 = GameSpy tabs
+	3 = Favorites tabs
+	4 = History tabs
+	5 = Buddy tabs
+	
+	Group for the Availability Buttons on the Buddies screen is:
+    6 - This is hard coded, the engine expects it to be 6.
+-->
+
+<UIScene name="SCREEN_INTERNETBROWSER" fadeout="0.3" fadein="0.3" x="ALIGN_CENTER" y="ALIGN_CENTER" height="SCREEN_HEIGHT" width="SCREEN_WIDTH"
+	OnAdd=UIScene_OnAdd_StartInternetBrowser("gsgameslb","historylb","favoriteslb","buddieslb","GamespyTab") 
+	OnRemove=UIScene_OnRemove_ClosingInternetBrowser() priority="SCENE_FE_FULLSCREEN" fullscreen="true" />
+
+	<UIPane name="CONTENTS_PANE" x="0" y="0" width="PARENT_WIDTH" height="PARENT_HEIGHT" usescalar="true" >
+		
+		<UIPane name="TabContainer" x="ALIGN_CENTER" y="30" width="1010" height="36" >				
+			
+			<UIIcon name="GamespyLogo" img="gs_logo.tga" x="14" y="2" width="138" height="32" />
+			
+			<UIButton name="GamespyTab" x="202" y="9" width="202" buttontype="radio" groupid="1" groupmemberid="1"  strref="5205"
+				OnSelected=UIButton_Input_ShowObject("gamespypane") OnUnselected=UIButton_Input_HideObject("gamespypane") 
+				OnLeftClick=UIButton_Input_BrowserInit("gamespy")
+				update=true OnUpdate=UIButton_OnUpdate_CheckGameSpy("gamespypane",1,2)
+				style="MP_BROWSER_TAB_TITLE" />
+				
+			<UIButton name="HistoryTab" x="606" y="9" width="202" buttontype="radio" groupid="1" groupmemberid="2" strref="5207"
+				OnSelected=UIButton_Input_ShowObject("historypane") OnUnselected=UIButton_Input_HideObject("historypane") 
+				style="MP_BROWSER_TAB_TITLE" />
+
+			<UIButton name="FavoritesTab" x="808" y="9" width="202" buttontype="radio" groupid="1" groupmemberid="3" strref="5208"
+				OnSelected=UIButton_Input_ShowObject("favoritespane") OnUnselected=UIButton_Input_HideObject("favoritespane") 
+				style="MP_BROWSER_TAB_TITLE" />
+<!--
+			<UIButton name="BuddiesTab" x="606" y="0" buttontype="radio" groupid="1" groupmemberid="4"  strref="2393"
+				OnSelected=UIButton_Input_ShowObject("buddiespane") OnUnselected=UIButton_Input_HideObject("buddiespane") 
+				style="MP_BROWSER_TAB_202" />
+-->
+			<UIButton name="ChatTab" x="404" y="9" width="202" buttontype="radio" groupid="1" groupmemberid="5" strref="2392"
+				OnSelected=UIButton_Input_ShowObject("chatpane") OnUnselected=UIButton_Input_HideObject("chatpane") 
+				OnLeftClick=UIButton_Input_BrowserInit("chat")
+				style="MP_BROWSER_TAB_TITLE" />
+		</UIPane>
+
+		<UIPane name="gamespypane" hidden="true" x="0" y="66" width="1024" height="702">
+
+			<!-- Browser Sort Types are:
+				2  = PING 
+				4  = SERVER NAME
+				6  = MODULE NAME
+				8  = PLAYERS
+				10  = LEVELS
+				12 = PVP
+				The 'odd numbered' entries are for the 'reverse' of the even that preceeds it and are used
+				in the code so shouldn't be set in here.
+			-->
+
+			<UIText name="GameType" x=2 y=1 width=196 height=32  strref="5591" fontfamily="Title_Font" style=1 indent=10 align=left valign=middle />
+
+			<!-- Filter Button -->
+			<UIButton name="GSFilters" strref="5579" x=15 y=348 style="STYLE_MENU_BUTTON_SML"  
+				OnLeftClick=UIButton_Input_ScreenOpen("SCREEN_INTERNETFILTERS","false") />
+			
+			<!-- The List Box to display active filters. -->
+			<UIListBox name="FILTER_LISTBOX" x=2 y=388 width=192 height=268 yPadding=5 xPadding=2 showpartialchild=true
+				unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded=false >
+				<UIText name="gamespyfilterstext" width=PARENT_WIDTH height=DYNAMIC align=left valign=top color="textneutral" highlightcolor="textpositive" sizetofit=true 
+					fontfamily="Title_Font" update=true OnUpdate=UIText_OnUpdate_ShowInternetFilters() />
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>	
+					
+			<!-- The sort tabs for Gamespy Browser page -->
+			<!-- This next button is never rendered. It is an invisible placeholder that represents
+			-- the 'no-sorting' state of the browser. Once the user starts clicking on sort tabs,
+			-- they can't go back to 'no-sorting' until they refresh. This is because with radio
+			-- buttons, one always has to be selected, but we don't want a visible 'no-sort' tab
+			-->
+			<UIPane name="SORT_BUTTON_CONTAINTER" x=ALIGN_RIGHT y=6 width=829 height=27 >
+				<UIButton name="SortNoSorting" strref="305" x=0 y=0 width=0
+					buttontype=radio groupid=2 groupmemberid=1 hidden=true
+					style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortServerName" strref="305" x=0 y=0 
+					buttontype=radio groupid=2 groupmemberid=3 
+					OnLeftClick=UIButton_Input_SetBrowserSort(4) style="MP_BROWSER_TAB_202" />
+				<UIButton name="SortModuleName" strref="3049" x=202 y=0 
+					buttontype=radio groupid=2 groupmemberid=4
+					OnLeftClick=UIButton_Input_SetBrowserSort(6) style="MP_BROWSER_TAB_202" />
+				<UIButton name="SortPlayers" strref="5219" x=404 y=0 
+					buttontype=radio groupid=2 groupmemberid=5
+					OnLeftClick=UIButton_Input_SetBrowserSort(8) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortLevels" strref="5220" x=506 y=0 
+					buttontype=radio groupid=2 groupmemberid=6
+					OnLeftClick=UIButton_Input_SetBrowserSort(10) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPVP" strref="68487" x=608 y=0 
+					buttontype=radio groupid=2 groupmemberid=7
+					OnLeftClick=UIButton_Input_SetBrowserSort(12) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPing" strref="5221" x=710 y=0 
+					buttontype=radio groupid=2 groupmemberid=2
+					OnLeftClick=UIButton_Input_SetBrowserSort(2) style="MP_BROWSER_TAB_102" />
+			</UIPane>
+
+			<!-- I set the Update rate to 0.01 No need to run this stuff every frame -->
+			<UIListBox name="gsgameslb" x=195 y=37 xPadding=0 yPadding=0 showpartialchild=false width=827 height=610
+				scrollbaronright=true unequalcontrols=false scrollsegmentsize=17 snaptobottom=true
+				scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+				update=true OnUpdate=UIListBox_OnUpdate_DisplayInternetGames() updaterate="0.01" >
+
+				<UIPane name="langameprototype" width=812 height=27 prototype=true
+					update=true OnUpdate=UIPane_OnUpdate_DisplayGameSpyInfo() tupple=true
+					OnLeftClick=UIButton_Input_SelectSession() >
+
+					<UIButton name="servername" x=0 y=0 width=202 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="modulename" x=202 y=0 width=202 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="players" x=404 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="levels" x=506 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="pvpstatus" x=608 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="ping" x=710 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+
+				</UIPane>
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />	
+			</UIListBox>
+			
+			<!-- The List Box for the Game Spy rooms. Click on different rooms to join that room. -->
+			<UIListBox name="gamespyrooms" x=2 y=37 width=192 height=305 xPadding=1 yPadding=1 
+				showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=10 snaptobottom=true
+				scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+				update=true OnUpdate=UIListBox_OnUpdate_DisplayGameRooms() updaterate="0.05" >
+
+				<UIButton name="gameroom" style="OPTIONS_BUTTON" prototype=true 			
+					OnLeftClick=UIButton_Input_SelectGameRoom() />
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />	
+			</UIListBox>
+
+			<!-- The 'GS' in the button names is to indicate that these buttons are on the GameSpy tab -->
+			<UIPane name="GS_BUTTON_CONTATINER" x=8 y=ALIGN_BOTTOM width=840 height=47 >
+				
+				<UIButton name="GSConnect" strref="5201" x=0 y=ALIGN_CENTER 
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("gsgameslb")
+					OnLeftClick=UIButton_Input_ConnectToGameSpyGame("gsgameslb","")
+					style="STYLE_MENU_BUTTON_SML" />
+				<UIButton name="GSAddToFavorites" strref="181384" x=198 y=ALIGN_CENTER 
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("gsgameslb")
+					OnLeftClick=UIButton_Input_AddToFavorites("gsgameslb","gamespy") 
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				<UIButton name="GSServerDetails" strref="5204" x=396 y=ALIGN_CENTER 
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("gsgameslb")
+					OnLeftClick=UIButton_Input_GetSessionDetails("gsgameslb","gamespy")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				<UIButton name="GSRefreshList" strref="181385" x=594 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_RefreshGSBrowser("gsgameslb")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+			</UIPane>
+			
+			<UIPane name="CANCEL_CONTAINER" x=ALIGN_RIGHT y=ALIGN_BOTTOM width=168 height=47 >
+				<UIButton name="GSCancel" strref="67" x=0 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_CancelServerBrowser("SCREEN_MULTIPLAYERMENU") 
+					style="STYLE_MENU_BUTTON_SML" />
+			</UIPane>
+
+			<!-- border lines -->
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x="0" y="0" width="PARENT_WIDTH" height="1" />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x="0" y="33" width="PARENT_WIDTH" height="1" />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x="0" y="656" width="PARENT_WIDTH" height="1" />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x="0" y="344" width="194" height="1" />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x="0" y="387" width="194" height="1" />
+			<UIIcon name="V_DIVIDER" img="fx_white.tga" color="F5F3DA" x="194" y="0" width="1" height="656" />
+		</UIPane>
+
+		<UIPane name="historypane" hidden="true" x="0" y="66" width="1024" height="702" >
+			<!-- Browser Sort Types are:
+				2  = PING 
+				4  = SERVER NAME
+				6  = MODULE NAME
+				8  = PLAYERS
+				10 = LEVELS
+				12 = PVP
+				The 'odd numbered' entries are for the 'reverse' of the even that preceeds it and are used
+				in the code so shouldn't be set in here.
+			-->
+			<UIPane name="SORT_BUTTON_CONTAINTER" x="2" y="6" width="979" height="27" >
+				<UIButton name="SortNoSorting" strref="305" x="0" y="0" width="0"
+					buttontype=radio groupid="4" groupmemberid="1" hidden="true"
+					style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortServerName" strref="305" x="0" y="0"
+					buttontype=radio groupid="4" groupmemberid="3" 
+					OnLeftClick=UIButton_Input_SetBrowserSort(4,2) style="MP_BROWSER_TAB_302" />
+				<UIButton name="SortModuleName" strref="3049" x="302" y="0"
+					buttontype="radio" groupid="4" groupmemberid="4"
+					OnLeftClick=UIButton_Input_SetBrowserSort(6,2) style="MP_BROWSER_TAB_269" />
+				<UIButton name="SortPlayers" strref="5219" x="571" y="0"
+					buttontype=radio groupid="4" groupmemberid="5"
+					OnLeftClick=UIButton_Input_SetBrowserSort(8,2) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortLevels" strref="5220" x="673" y="0"
+					buttontype=radio groupid="4" groupmemberid="6"
+					OnLeftClick=UIButton_Input_SetBrowserSort(10,2) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPVP" strref="68487" x="775" y="0"
+					buttontype="radio" groupid="4" groupmemberid="7"
+					OnLeftClick=UIButton_Input_SetBrowserSort(12,2) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPing" strref="5221" x="877" y="0"
+					buttontype="radio" groupid="4" groupmemberid="2"
+					OnLeftClick=UIButton_Input_SetBrowserSort(2,2) style="MP_BROWSER_TAB_102" />
+			</UIPane>
+
+			<!-- I set the Update rate to .05 No need to run this stuff every frame -->
+			<UIListBox name="historygames" x="2" y="37" xPadding="0" yPadding="0" showpartialchild="true" width="1020" height="618"
+				scrollbaronright="true" unequalcontrols="true" scrollsegmentsize="17" snaptobottom="true"
+				scaleheighttoparent="true" scalewidthtoparent="true" selectonleftclick="true"
+				update="true" OnUpdate=UIListBox_OnUpdate_DisplaySessionList("history") updaterate="0.05" >
+			
+				<UIPane name="langameprototype" width="979" height="27" prototype="true"
+					update=true OnUpdate=UIPane_OnUpdate_DisplaySessionInfo() tupple="true"
+					OnLeftClick=UIButton_Input_SelectSession() >
+
+					<UIButton name="servername" x="0" y="0" width="302" height="27" style="MP_GAME_BUTTON" />
+					<UIButton name="modulename" x=302 y=0 width=269 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="players" x=571 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="levels" x=673 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="pvpstatus" x=775 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="ping" x=877 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+
+				</UIPane>
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+
+			<!-- The 'HS' in the button names is to indicate that these buttons are on the History tab -->
+			<UIPane name="HS_BUTTON_CONTATINER" x=8 y=ALIGN_BOTTOM width=840 height=47 >
+				<UIButton name="HSConnect" strref="5201" x=0 y=ALIGN_CENTER			
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("historygames")
+					OnLeftClick=UIButton_Input_ConnectToSession("historygames","history") 
+					style="STYLE_MENU_BUTTON_SML" />
+			
+				<UIButton name="HSAddToFavorites" strref="181384" x=198 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("historygames")
+					OnLeftClick=UIButton_Input_AddToFavorites("historygames","history")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				
+				<UIButton name="HSServerDetails" strref="5204" x=396 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("historygames")
+					OnLeftClick=UIButton_Input_GetSessionDetails("historygames","history")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+
+				<UIButton name="HSRefreshList" strref="181385" x=594 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_RefreshServerBrowser("historygames","history")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+			</UIPane>
+			
+			<UIPane name="CANCEL_CONTAINER" x=ALIGN_RIGHT y=ALIGN_BOTTOM width=168 height=47 >
+				<UIButton name="HSCancel" strref="67" x=0 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_CancelServerBrowser("SCREEN_MULTIPLAYERMENU") 
+					style="STYLE_MENU_BUTTON_SML" />
+			</UIPane>
+			
+			
+			<!-- border lines -->
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=0 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=33 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=656 width=PARENT_WIDTH height=1 />
+		</UIPane>
+
+		<UIPane name="favoritespane" hidden=true x=0 y=66 width=1024 height=702 >
+			<!-- Browser Sort Types are:
+				2  = PING 
+				4  = SERVER NAME
+				6  = MODULE NAME
+				8  = PLAYERS
+				10  = LEVELS
+				12 = PVP
+				The 'odd numbered' entries are for the 'reverse' of the even that preceeds it and are used
+				in the code so shouldn't be set in here.
+			-->
+			<UIPane name="SORT_BUTTON_CONTAINTER" x=2 y=6 width=979 height=27 >
+				<UIButton name="SortNoSorting" strref="305" x=0 y=0
+					buttontype=radio groupid=3 groupmemberid=1 hidden=true style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortServerName" strref="305" x=0 y=0
+					buttontype=radio groupid=3 groupmemberid=3 
+					OnLeftClick=UIButton_Input_SetBrowserSort(4,1) style="MP_BROWSER_TAB_302" />
+				<UIButton name="SortModuleName" strref="3049" x=302 y=0
+					buttontype=radio groupid=3 groupmemberid=4
+					OnLeftClick=UIButton_Input_SetBrowserSort(6,1) style="MP_BROWSER_TAB_269" />
+				<UIButton name="SortPlayers" strref="5219" x=571 y=0
+					buttontype=radio groupid=3 groupmemberid=5
+					OnLeftClick=UIButton_Input_SetBrowserSort(8,1) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortLevels" strref="5220" x=673 y=0
+					buttontype=radio groupid=3 groupmemberid=6
+					OnLeftClick=UIButton_Input_SetBrowserSort(10,1) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPVP" strref="68487" x=775 y=0
+					buttontype=radio groupid=3 groupmemberid=7
+					OnLeftClick=UIButton_Input_SetBrowserSort(12,1) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPing" strref="5221" x=877 y=0
+					buttontype=radio groupid=3 groupmemberid=2
+					OnLeftClick=UIButton_Input_SetBrowserSort(2,1) style="MP_BROWSER_TAB_102" />
+			</UIPane>
+
+			<!-- I set the Update rate to .05 No need to run this stuff every frame -->
+			<UIListBox name="favoritesgames" x=2 y=37 xPadding=0 yPadding=0 showpartialchild=true width=1020 height=618
+				scrollbaronright=true unequalcontrols=true scrollsegmentsize=17 snaptobottom=true
+				scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+				update=true OnUpdate=UIListBox_OnUpdate_DisplaySessionList("favorites") updaterate=0.05 >
+			
+				<UIPane name="langameprototype" width=979 height=27 prototype=true
+					update=true OnUpdate=UIPane_OnUpdate_DisplaySessionInfo() tupple=true
+					OnLeftClick=UIButton_Input_SelectSession() >
+					<UIButton name="servername" x=0 y=0 width=302 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="modulename" x=302 y=0 width=269 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="players" x=571 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="levels" x=673 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="pvpstatus" x=775 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+					<UIButton name="ping" x=877 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+				</UIPane>
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />	
+			</UIListBox>
+
+			<!-- The 'FV' in the button names is to indicate that these buttons are on the Favorites tab -->
+			<UIPane name="FV_BUTTON_CONTATINER" x=8 y=ALIGN_BOTTOM width=840 height=47 >
+				<UIButton name="FVConnect" strref="5201" x=0 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("favoritesgames")
+					OnLeftClick=UIButton_Input_ConnectToSession("favoritesgames","favorites") 
+					style="STYLE_MENU_BUTTON_SML" />
+
+				<UIButton name="FVRemoveFavorite" strref="181387" x=198 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("favoritesgames")
+					OnLeftClick=UIButton_Input_RemoveFromFavorites("favoritesgames")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				
+				<UIButton name="FVServerDetails" strref="5204" x=396 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("favoritesgames")
+					OnLeftClick=UIButton_Input_GetSessionDetails("favoritesgames","favorites")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				
+				<UIButton name="FVRefreshList" strref="181385" x=594 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_RefreshServerBrowser("favoritesgames","favorites")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+			</UIPane>
+
+			<UIPane name="CANCEL_CONTAINER" x=ALIGN_RIGHT y=ALIGN_BOTTOM width=168 height=47 >
+				<UIButton name="FVCancel" strref="67" x=0 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_CancelServerBrowser("SCREEN_MULTIPLAYERMENU") 
+					style="STYLE_MENU_BUTTON_SML" />
+			</UIPane>
+			
+			<!-- border lines -->
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=0 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=33 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=656 width=PARENT_WIDTH height=1 />
+		</UIPane>
+
+		<UIPane name="buddiespane" hidden=true x=0 y=66 width=1024 height=702 >
+
+			<!-- Browser Sort Types are:
+				0  = PING ( the default )
+				2  = SERVER NAME
+				4  = MODULE NAME
+				6  = PLAYERS
+				8  = LEVELS
+				10 = PVP
+				12 = Buddy
+				The 'odd numbered' entries are for the 'reverse' of the even that preceeds it and are used
+				in the code so shouldn't be set in here.
+			-->
+			<UIPane name="SORT_BUTTON_CONTAINTER" x=2 y=6 width=914 height=27 >
+				<UIButton name="SortNoSorting" strref="305" x=0 y=0
+					buttontype=radio groupid=5 groupmemberid=1 hidden=true
+					style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortBuddyName" strref="181386" x=0 y=0
+					buttontype=radio groupid=5 groupmemberid=3
+					OnLeftClick=UIButton_Input_SetBrowserSort(14,3) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortServerName" strref="305" x=102 y=0
+					buttontype=radio groupid=5 groupmemberid=4 
+					OnLeftClick=UIButton_Input_SetBrowserSort(4,3) style="MP_BROWSER_TAB_202" />
+				<UIButton name="SortModuleName" strref="3049" x=304 y=0
+					buttontype=radio groupid=5 groupmemberid=5
+					OnLeftClick=UIButton_Input_SetBrowserSort(6,3) style="MP_BROWSER_TAB_202" />
+				<UIButton name="SortPlayers" strref="5219" x=506 y=0
+					buttontype=radio groupid=5 groupmemberid=6
+					OnLeftClick=UIButton_Input_SetBrowserSort(8,3) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortLevels" strref="5220" x=608 y=0
+					buttontype=radio groupid=5 groupmemberid=7
+					OnLeftClick=UIButton_Input_SetBrowserSort(10,3) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPVP" strref="68487" x=710 y=0
+					buttontype=radio groupid=5 groupmemberid=8
+					OnLeftClick=UIButton_Input_SetBrowserSort(12,3) style="MP_BROWSER_TAB_102" />
+				<UIButton name="SortPing" strref="5221" x=812 y=0
+					buttontype=radio groupid=5 groupmemberid=2
+					OnLeftClick=UIButton_Input_SetBrowserSort(2,3) style="MP_BROWSER_TAB_102" />
+			</UIPane>
+
+			<!-- I set the Update rate to 0.05 No need to run this stuff every frame -->
+			<UIListBox name="buddiesgames" x=2 y=37 xPadding=0 yPadding=0 showpartialchild=true width=1020 height=562
+				scrollbaronright=true unequalcontrols=true scrollsegmentsize=17 snaptobottom=true
+				scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+				update=true OnUpdate=UIListBox_OnUpdate_DisplaySessionList("buddy") updaterate="0.05" >
+
+				<UIPane name="langameprototype" width=914 height=27 prototype=true
+					update=true OnUpdate=UIPane_OnUpdate_DisplaySessionInfo() tupple=true
+					OnLeftClick=UIButton_Input_SelectSession() >
+
+					<UIButton name="buddyname" x=0 y=0 style="MP_BROWSER_TAB_102" />
+					<UIButton name="servername" x=102 y=0 style="MP_BROWSER_TAB_202" />
+					<UIButton name="modulename" x=304 y=0 style="MP_BROWSER_TAB_202" />
+					<UIButton name="players" x=506 y=0 style="MP_BROWSER_TAB_102" />
+					<UIButton name="levels" x=608 y=0 style="MP_BROWSER_TAB_102" />
+					<UIButton name="pvpstatus" x=710 y=0 style="MP_BROWSER_TAB_102" />
+					<UIButton name="ping" x=812 y=0 style="MP_BROWSER_TAB_102" />
+
+				</UIPane>
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+
+			<!-- The 'BD' in the button names is to indicate that these buttons are on the Buddies tab -->
+			<UIPane name="BD1_BUTTON_CONTATINER" x=0 y=601 width=1024 height=55 >
+				<!-- Status Message -->
+				<UIText name="BDStatusTX" strref="3008" x=5 y=1 height=25 width=250 fontfamily="Title_Font" style=2 valign="middle" align="left" />
+
+				<!-- The 3 availability buttons, only the first one gets the Update callback, since that callback will take care of updating all 3 buttons. -->
+				<UIButton name="BDAvailableNever" x=5 y=26 style="SQUARE_RADIO_BUTTON" groupid=6 groupmemberid=1 
+					OnSelected="UIButton_Input_SetBuddyAvailability(0)"
+					update="true" OnUpdate="UIButton_OnUpdate_UpdateBuddyAvailability()" />
+				<UIText name="BDAvailableNeverTX" strref="3005" x=30 y=24 width=100 height=29 fontfamily="Title_Font" style=2 valign=middle align="left" />
+
+				<UIButton name="BDAvailableAlways" x=200 y=26 style="SQUARE_RADIO_BUTTON" buttontype=radio groupid=6 groupmemberid=2 
+					OnSelected="UIButton_Input_SetBuddyAvailability(1)"	/>
+				<UIText name="BDAvailableAlwaysTX" strref="3006" x=225 y=24 width=150 height=29 fontfamily="Title_Font" style=2 valign=middle align="left" />
+
+				<UIButton name="BDAvailableBuddies" x=400 y=26 style="SQUARE_RADIO_BUTTON" buttontype=radio groupid=6 groupmemberid=3 
+					OnSelected="UIButton_Input_SetBuddyAvailability(2)"	/>
+				<UIText name="BDAvailableBuddiesTX" strref="3007" x=425 y=24 width=150 height=29 fontfamily="Title_Font" style=2 valign=middle align="left" />
+
+				<UIPane name="BD_SUB_BUTTON_CONTAINER" x=ALIGN_RIGHT y=0 width=380 height=55 >
+					<UIButton name="BDAddBuddy" strref="2844" x=0 y=ALIGN_CENTER 
+						OnLeftClick=UIButton_Input_ScreenOpen("SCREEN_ADDBUDDY",false)
+						style="STYLE_MENU_BUTTON_SML" />
+					<UIButton name="BDRemoveBuddy" strref="2845" x=168 y=ALIGN_CENTER
+						update="true" OnUpdate=UIButton_OnUpdate_ControlSelected("buddiesgames")
+						OnLeftClick=UIButton_Input_RemoveBuddy("buddiesgames") 
+						style="STYLE_MENU_BUTTON_SML" />
+				</UIPane>
+			
+			</UIPane>
+
+			<!-- The 'BD' in the button names is to indicate that these buttons are on the Buddies tab -->
+			<UIPane name="BD2_BUTTON_CONTATINER" x=ALIGN_CENTER y=ALIGN_BOTTOM width=672 height=55 >
+				<UIButton name="BDAddFavorite" strref="181384" x=0 y=ALIGN_CENTER
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				<UIButton name="BDServerDetails" strref="5204" x=198 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("buddiesgames")
+					OnLeftClick=UIButton_Input_GetSessionDetails("buddiesgames","buddies")
+					style="STYLE_MENU_BUTTON_SML_LONG" />
+				<UIButton name="BDConnect" strref="5201" x=396 y=ALIGN_CENTER
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("buddiesgames")
+					OnLeftClick=UIButton_Input_ConnectToSession("buddiesgames","buddies") 
+					style="STYLE_MENU_BUTTON_SML" />
+				<UIButton name="BDCancel" strref="67" x=504 y=ALIGN_CENTER
+					OnLeftClick=UIButton_Input_CancelServerBrowser("SCREEN_MULTIPLAYERMENU") 	
+					style="STYLE_MENU_BUTTON_SML" />
+			</UIPane>
+
+			<!-- border lines -->
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=0 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=33 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=601 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=656 width=PARENT_WIDTH height=1 />
+		</UIPane>
+
+
+		<UIPane name="chatpane" hidden=true x=0 y=66 width=1024 height=702 >
+
+			<UIText name="GameType" x=2 y=1 width=192 height=32  strref="5591" fontfamily="Title_Font" style=1 indent=10 align=left valign=middle />
+
+			<!-- The List Box for the Game Spy rooms. Click on different rooms to join that room. -->
+			<UIListBox name="CHATgamespyrooms" x=2 y=37 width=192 height=305 xPadding=1 yPadding=1 
+				showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=10 snaptobottom=true
+				scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+				update=true OnUpdate=UIListBox_OnUpdate_DisplayGameRooms() updaterate="0.05" >
+
+				<UIButton name="gameroom" style="OPTIONS_BUTTON" prototype=true OnLeftClick=UIButton_Input_SelectGameRoom() />
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+
+			<UIText name="ChatPlayerListTX" x=2 y=350 width="192" height="32" strref="96" fontfamily="Title_Font" style=1 indent=10 align=left valign=middle />
+
+			<!-- The list box for player names in the room. -->
+			<UIListBox name="CHATPlayerList" x=2 y=388 width=192 height=262 xPadding=1 yPadding=1 
+				showpartialchild=true scrollbaronright=true unequalcontrols=false scrollsegmentsize=17 snaptobottom=true
+				scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+				update=true OnUpdate=UIListBox_OnUpdate_DisplayGSPlayerList() updaterate="0.5" >
+
+				<UIButton name="gameroom" style="OPTIONS_BUTTON" prototype=true 
+					update=true OnUpdate=UIButton_OnUpdate_DisplayGSPlayer() />
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>	
+
+
+			<!-- This is an invisible icon that is just in place to be doing updates 
+			-- The update is just a Buddy List message pump that must be called to properly
+			-- display any popup message boxes that need to come up when trying to add
+			-- a buddy from the player list. -->
+			<UIIcon name="BDUpdateBuddy" x=1 y=1 width=1 height=1 img="fx_white.tga" hidden=true
+				update=true OnUpdate=UIObject_OnUpdate_UpdateBuddyList() />
+
+			<!-- This is the list box that displays the chat buffer -->
+			<UIListBox name="chatbuffer" x=195 y=37 width=827 height=580 xPadding=5 yPadding=2 scrollsegmentsize=17 
+				showpartialchild=true unequalcontrols=true scrollbaronright=true hidescrollbarwhennotneeded=false 
+				update=true OnUpdate=UIListBox_OnUpdate_UpdateGameSpyChat() >
+
+				<UIText name="repliestext" width="PARENT_WIDTH" height="DYNAMIC" color="ffc8c0" highlightcolor="FFFFFF" sizetofit="true" align="left"
+					prototype="true" fontfamily="International" />
+
+				<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+			</UIListBox>
+
+			<!-- This is the input box for GameSpy chat -->	
+            <UIText name="prompt" text=">>" x=202 y=612 width=20 height=32 align=left valign=middle color="textneutral" fontfamily="Title_Font" style=2 />
+			
+			<UIListBox name="INPUTBOX_LISTBOX" x=223 y=622 width=800 height=34 showpartialchild=true
+             unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded=false >
+				<UIText name="inputbox" x=0 y=0 width=780 height=DYNAMIC maxlength=192 align=left valign=top editable=true allowspace=true multiline=true selectable=true 
+				 returnrestricted="true" color="textneutral" OnReturn="UIText_OnReturn_ParseGSChatInput()" scaleytoparent="true" scalewidthtoparent="true" fontfamily="International" />
+				     
+            </UIListBox>     
+			<!-- The update disables or enables the button, it also switches between ignore and unignore
+			-- depending on if the selected player is already on your ignore list or not.
+			-- The 2 numeric parameters to the update function are the STRREF for the Ignore and Unignore
+			-- strings. -->
+			
+			<UIPane name="CHAT_BUTTON_CONTATINER" x="8" y="ALIGN_BOTTOM" width="846" height="47" >
+			<!-- <UIButton name="BDAddBuddy" strref="2844" x=10 y=ALIGN_CENTER 
+					update=true OnUpdate=UIButton_OnUpdate_ControlSelected("CHATPlayerList")
+					OnLeftClick=UIButton_Input_AddBuddy("","CHATPlayerList")
+					style="STYLE_MENU_BUTTON_SML" /> -->
+
+				<UIButton name="BDIgnorePlayer" strref="1468" x="0" y="ALIGN_CENTER"
+					update=true OnUpdate=UIButton_OnUpdate_UpdateIgnore("CHATPlayerList",1468,1469)
+					OnLeftClick=UIButton_Input_IgnorePlayer("CHATPlayerList")
+					style="STYLE_MENU_BUTTON_SML" />
+			</UIPane>
+
+			<UIPane name="CANCEL_CONTAINER" x="ALIGN_RIGHT" y="ALIGN_BOTTOM" width="168" height="47" >
+				<UIButton name="BDCancel" strref="67" x="0" y="ALIGN_CENTER"
+					OnLeftClick=UIButton_Input_CancelServerBrowser("SCREEN_MULTIPLAYERMENU") 
+					style="STYLE_MENU_BUTTON_SML" />
+			</UIPane>
+			
+			<!-- border lines -->
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=0 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=33 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=656 width=PARENT_WIDTH height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=344 width=194 height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=387 width=194 height=1 />
+			<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=194 y=621 width=826 height=1 />
+			<UIIcon name="V_DIVIDER" img="fx_white.tga" color="F5F3DA" x=194 y=0 width=1 height=656 />
+		</UIPane>
+	
+		<!-- Top Detail -->
+		<UIText name="TITLE" strref="182895" x="20" y="0" width="996" height="27" align="left" valign="middle" fontfamily="Title_Font" style="2" />
+		<UIIcon name="DETAIL_TOP" x=1 y=1 width=1022 height=35 img="multi_main_title.tga" ignoreevents="true" />
+
+		<!-- BG Frame -->
+		<UIFrame name="Background" width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+			bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+			left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="frame_main_bg.tga"
+			border=5 />
+	</UIPane>
+
+	<UIIcon img="main_sub_bg_nx1.tga" x=0 width=1024 y=0 height=768 scalewithscene=true />

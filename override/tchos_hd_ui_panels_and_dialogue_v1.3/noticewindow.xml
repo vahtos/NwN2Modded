@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                     -->
+<!-- Copyright © Obsidian Entertainment, Inc. -->
+
+<UIScene name="SCREEN_NOTICEWINDOW" x=0 y=0 width="SCREEN_WIDTH" height="SCREEN_HEIGHT" 
+         capturemouseevents=false capturemouseclicks=false ignoreevents="true"
+         scriptloadable="true" priority="SCENE_SCRIPT" fullscreen="true"  fadein=1.0 fadeout=1.0 />
+<!-- Fade in and out added -->
+
+	<UIText name="NOTICE_TEXT" x=ALIGN_CENTER y=168 width=1024 height=200 fontfamily="Special_Font" style="2" multiline=true maxlines=3
+	        align=center valign=top uppercase=false hidden=true update=true ignoreevents="true" 
+	        capturemouseevents=false capturemouseclicks=false color="yellow" scalewithscene=true
+	        OnUpdate=UIText_OnUpdate_DisplayNoticeText(6.0,5.0) />
+<!-- was 15.0,5.0 -->
+
+<!-- Get rid of "GAME PAUSED" in the middle of the screen -->
+
+<!-- 	<UIText name="PAUSE_NOTIFICATION" x=0 y=ALIGN_CENTER width=1024 height=100 fontfamily="Special_Font" style="4" scalewithscene=true 
+		align=center valign=middle uppercase=true strref=174270 hidden=true ignoreevents="true"
+        capturemouseevents=false capturemouseclicks=false
+		update=true OnUpdate=UIText_OnUpdate_ShowPauseNotification() />
+ -->

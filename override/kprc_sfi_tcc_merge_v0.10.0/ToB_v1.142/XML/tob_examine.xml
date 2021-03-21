@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<UIScene name="SCREEN_TOB_EXAMINE"
+				 x=ALIGN_CENTER
+				 y=ALIGN_CENTER
+				 modal=false
+				 width=320
+				 height=450
+				 fadeout="0.3"
+				 fadein="0.3"
+				 draggable=true
+				 backoutkey=true
+				 scriptloadable=true
+				 priority="SCENE_INGAME" />
+
+	<UIText strref="549" uppercase=true x=65 y=12 width=208 height=20 align=left valign=middle fontfamily="Title_Font" style="1" />
+	<UIIcon name="EXAMINE_DETAIL" img="recovery.tga" x=20 y=12 width=40 height=40 />
+
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=274 y=8 style="STYLE_CLOSE_BUTTON" OnLeftClick=UIButton_Input_ScreenClose()></UIButton>
+
+	<!-- Item Name -->	
+	<UIText name="txtSpellName" x=ALIGN_CENTER y=87 width=274 height=55 align=center valign=middle fontfamily="Body_Font" style="bold" multiline=true maxlines=3 />
+
+	<UIIcon name="HZ_BAR" img="grid_pixel.tga" x=18 y=138 width=285 height=1 />
+	<UIListBox x=26 y=139 width=272 height=251 yPadding=0 xPadding=0 showpartialchild=true
+	unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded=false >
+
+		<UIText name="txtSpellDescription" width=PARENT_WIDTH height=DYNAMIC align=left valign=top color="0" fontfamily="NWN1_Dialog" style="bold" />
+		
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>	
+
+	<!-- Background Image -->
+	<UIIcon img="tob_top_bg.tga" x=15 y=8 width=290 height=80 />
+	<UIIcon img="idesc_tob_bg.tga" x=10 y=88 width=300 height=353 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="b_empty.tga" topright="b_empty.tga" bottomleft="b_empty.tga"
+		bottomright="b_empty.tga" top="b_empty.tga" bottom="b_empty.tga"
+		left="b_empty.tga" right="b_empty.tga" border=32 />	

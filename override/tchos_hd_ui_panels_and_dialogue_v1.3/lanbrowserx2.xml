@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                     -->
+<!-- Copyright © Obsidian Entertainment, Inc. -->
+
+<!-- local:0 on this scene will contain the current SORT parameter. This is the paremeter by which
+     the listed sessions will be sorted 
+     -->
+
+<UIScene name="SCREEN_LANBROWSER" fadeout="0.3" fadein="0.3" x=0 y=0 height=SCREEN_HEIGHT width=SCREEN_WIDTH fullscreen=true 
+	OnAdd=UIScene_OnAdd_StartLANBrowser("langames") priority="SCENE_FE_FULLSCREEN"/>
+
+	<!-- Browser Sort Types are:
+		2  = PING
+		4  = SERVER NAME
+		6  = MODULE NAME
+		8  = PLAYERS
+		10 = LEVELS
+		12 = PVP
+		The 'odd numbered' entries are for the 'reverse' of the even that preceeds it and are used
+		in the code so shouldn't be set in here.
+	-->
+
+	<UIPane name="CONTENTS_PANE" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT usescalar=true >
+
+		<UIPane name="SORT_BUTTON_CONTAINTER" x=2 y=32 width=979 height=27 >
+			<UIButton name="SortNoSorting" strref="305" x=0 y=0 width=0
+				buttontype=radio groupid=4 groupmemberid=1 hidden=true
+				style="MP_BROWSER_TAB_102" />
+			<UIButton name="SortServerName" strref="305" x=0 y=0
+				buttontype=radio groupid=4 groupmemberid=3 
+				OnLeftClick=UIButton_Input_SetBrowserSort(4) style="MP_BROWSER_TAB_302" />
+			<UIButton name="SortModuleName" strref="3049" x=302 y=0
+				buttontype=radio groupid=4 groupmemberid=4
+				OnLeftClick=UIButton_Input_SetBrowserSort(6) style="MP_BROWSER_TAB_269" />
+			<UIButton name="SortPlayers" strref="5219" x=571 y=0
+				buttontype=radio groupid=4 groupmemberid=5
+				OnLeftClick=UIButton_Input_SetBrowserSort(8) style="MP_BROWSER_TAB_102" />
+			<UIButton name="SortLevels" strref="5220" x=673 y=0
+				buttontype=radio groupid=4 groupmemberid=6
+				OnLeftClick=UIButton_Input_SetBrowserSort(10) style="MP_BROWSER_TAB_102" />
+			<UIButton name="SortPVP" strref="68487" x=775 y=0
+				buttontype=radio groupid=4 groupmemberid=7
+				OnLeftClick=UIButton_Input_SetBrowserSort(12) style="MP_BROWSER_TAB_102" />
+			<UIButton name="SortPing" strref="5221" x=877 y=0
+				buttontype=radio groupid=4 groupmemberid=2
+				OnLeftClick=UIButton_Input_SetBrowserSort(2) style="MP_BROWSER_TAB_102" />
+		</UIPane>
+
+		<!-- I set the Update rate to .05 No need to run this stuff every frame -->
+		<UIListBox name="langames" x=2 y=62 xPadding=0 yPadding=0 showpartialchild=true width=1020 height=648
+			scrollbaronright=true unequalcontrols=true scrollsegmentsize=17 snaptobottom=true
+			scaleheighttoparent=true scalewidthtoparent=true selectonleftclick=true
+			update=true OnUpdate=UIListBox_OnUpdate_DisplaySessionList("lan") updaterate="0.05" >
+		
+			<UIPane name="langameprototype" width=979 height=27 prototype=true
+				update=true OnUpdate=UIPane_OnUpdate_DisplaySessionInfo() tupple=true
+				OnLeftClick=UIButton_Input_SelectSession() >
+
+				<UIButton name="servername" x=0 y=0 width=302 height=27 style="MP_GAME_BUTTON" />
+				<UIButton name="modulename" x=302 y=0 width=269 height=27 style="MP_GAME_BUTTON" />
+				<UIButton name="players" x=571 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+				<UIButton name="levels" x=673 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+				<UIButton name="pvpstatus" x=775 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+				<UIButton name="ping" x=877 y=0 width=102 height=27 style="MP_GAME_BUTTON" />
+			</UIPane>
+
+			<UIScrollBar name="SB" style="STYLE_SB_THIN" />
+		</UIListBox>
+
+		<UIPane name="LAN_BUTTON_CONTATINER" x=ALIGN_LEFT y=ALIGN_BOTTOM width=668 height=55 >
+			<UIButton name="Connnect" strref="5201" x=0 y=ALIGN_CENTER
+				update=true OnUpdate=UIButton_OnUpdate_ControlSelected("langames")
+				OnLeftClick=UIButton_Input_ConnectToSession("langames","lan") 
+				style="STYLE_MENU_BUTTON_SML" />
+
+			<UIButton name="GetServerDetails" strref="5204" x=168 y=ALIGN_CENTER 			  
+				update=true OnUpdate=UIButton_OnUpdate_ControlSelected("langames")
+				OnLeftClick=UIButton_Input_GetSessionDetails("langames","lan")
+				style="STYLE_MENU_BUTTON_SML_LONG" />
+
+			<!-- The OnUpdate callback enables/disables this button depending on if we have a server selected in the list box. -->
+			<UIButton name="RefreshList" strref="181385" x=366 y=ALIGN_CENTER
+				OnLeftClick=UIButton_Input_RefreshServerBrowser("langames","lan")
+				style="STYLE_MENU_BUTTON_SML_LONG" />
+		</UIPane>
+			
+		<UIPane name="CANCEL_CONTAINER" x=ALIGN_RIGHT y=ALIGN_BOTTOM width=168 height=55 >
+			<UIButton name="Cancel" strref="67" x=0 y=ALIGN_CENTER 
+				OnLeftClick=UIButton_Input_CancelServerBrowser("SCREEN_MULTIPLAYERMENU") 
+				style="STYLE_MENU_BUTTON_SML" />
+		</UIPane>
+
+		<!-- border lines -->
+		<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=0 width=PARENT_WIDTH height=1 />
+		<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=59 width=PARENT_WIDTH height=1 />
+		<UIIcon name="H_DIVIDER" img="fx_white.tga" color="F5F3DA" x=0 y=711 width=PARENT_WIDTH height=1 />
+
+		<!-- Top Detail -->
+		<UIText name="TITLE" strref=182896 x=10 y=0 width=1010 height=26 align=left valign=middle fontfamily="Title_Font" style="2"/>
+		<UIIcon name="DETAIL_TOP" x=1 y=1 width=1022 height=35 img="multi_main_title.tga" ignoreevents="true" />
+
+		<!-- BG Frame -->
+		<UIFrame name="Background" width=PARENT_WIDTH height=PARENT_HEIGHT topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+			bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+			left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="frame_main_bg.tga"
+			border=5 />
+
+	</UIPane>
+
+	<UIIcon img="main_sub_bg_nx2.tga" x=0 width=1024 y=0 height=768 scalewithscene=true />

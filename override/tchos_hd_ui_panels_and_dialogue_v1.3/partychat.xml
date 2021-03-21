@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neverwinter Nights 2                          -->
+<!-- Copyright © 2006 Obsidian Entertainment, Inc. -->
+
+<!-- Neverwinter Nights 2 Party Dialog, modified by Tchos 2012-04-05            -->
+
+	<UIScene name="SCREEN_PARTYCHAT" width="550" height="800" priority="SCENE_NWN2_DIALOG" draggable="true"
+		OnAdd=UIObject_Misc_InitPartyChat() />
+
+	<UIText name="speakername" text="Speaker Name" x="0" y="20" width="550" height="42" align="center" valign="middle" fontfamily="Special_Font" style="2" />
+
+
+    <!-- Top Listbox -->
+    <UIListBox name="npclistbox" x="120" y="80" width="390" height="255" yPadding=13 xPadding=5 showpartialchild=true
+		unequalcontrols=true scrollsegmentsize=30 hidescrollbarwhennotneeded=true scrollbaronright=true >
+		<UIText name="npctext" width=PARENT_WIDTH height=DYNAMIC align=left valign=top fontfamily="NWN2_Dialog" />			
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>	
+    
+    <!-- Character Portrait -->
+    <!-- Frame around Portrait									   17     39  -->
+	<UIIcon name="CHAR_PORT_FRAME" img="p_m_frame_noselect.tga" x="40" y="80" width="78" height="122" /> 
+
+	<!-- Denounement Image                               20     50   -->
+	<UIIcon name="FULLSCREEN_IMAGE" img="b_empty.tga" x="43" y="91" width="64" height="100" />
+	
+	<!-- Character Custom Portrait icon    20   50 -->
+	<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=43 y=91 width=64 height=100 hidden=true />
+
+    <!-- Rendered Portrait                                            20     50  -->
+	<UIPortrait name="portrait"	texture="p_m_gradient_bg_blue.tga" x="43" y="91" width="64" height="100"
+        OnRender=UIPortrait_OnRender_RenderConversationPortrait()
+        diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+        light_intens=1.3 >
+        <UIPointLight active="true" pos_x=".2" pos_y=".2" pos_z=".2" radius="4" intensity=".6" 
+			color_r=".3" color_g=".2" color_b=".7" 
+			speccolor_r=".3" speccolor_g=".2" speccolor_b=".3" />
+        <UIPointLight active="true" pos_x="-.2" pos_y="2" pos_z="0" radius="5" intensity="1" 
+			color_r=".8" color_g=".8" color_b=".8"
+			speccolor_r="0.5" speccolor_g="0.5" speccolor_b="0.0" />
+        <UIPointLight active="true" pos_x=".5" pos_y="-2" pos_z="0" radius="10" intensity="2"
+			color_r=".6" color_g=".6" color_b=".5"
+			speccolor_r=".4" speccolor_g=".4" speccolor_b=".4" />
+    </UIPortrait>
+
+
+
+
+
+
+	<!-- ***PARTY TABS: These controls have a very specific naming convention, 
+		do not change them unless you really know what you are doing -->
+	<!--							100     312                      58  -->
+	<UIPane name="TAB_CONTAINER" x="100" y="345" width="550" height="87"
+	update=true 
+	OnUpdate0=UIPane_OnUpdate_UpdatePortraits()
+	OnUpdate1=UIPane_OnUpdate_UpdatePortraitButton() >
+
+	<!--							                                       58  -->
+		<UIButton name="PARTY_SCROLL_LEFT" x="17" y="3" width="41" height="70" MouseDownSFX="gui_m_down" MouseUpSFX="gui_button"
+		OnLeftClick=UIButton_Input_ShiftPartyIndex("left")
+		OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT)>
+			<UIFrame state=up		fill="pchat_b_scroll_l_standard.tga" />
+			<UIFrame state=down		fill="pchat_b_scroll_l_pressed.tga" />
+			<UIFrame state=focused	fill="pchat_b_scroll_l_standard.tga" />
+			<UIFrame state=hilited	fill="pchat_b_scroll_l_hover.tga" />
+			<UIFrame state=hifocus	fill="pchat_b_scroll_l_hover.tga" />
+			<UIFrame state=disabled	fill="pchat_b_scroll_l_disabled.tga" />
+		</UIButton>
+
+	<!--							            5                  43  -->
+		<UIPane name="PARTY_MEMBER_1" x="58" y="8" width=39 height=61 >
+			<UIButton name="PM" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT buttontype="radio" groupid=1 groupmemberid=1 MouseDownSFX="gui_m_down" 
+			OnSelected=UIButton_Input_SetPartyChatSpeaker() 
+			OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				<UIFrame state=base		fill="dialog_portrait_frame.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIPortrait name="PORTRAIT" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true texture="p_m_bg_dark.tga"		
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait("-1")
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+						<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+						color_r="1" color_g=".6" color_b="0" 
+						speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+	 
+						<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+						color_r=".31" color_g=".42" color_b=".58" 
+						speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+	 
+						<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+						color_r=".6" color_g=".55" color_b=".5" 
+						speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true />
+		</UIPane>
+
+	<!--							            5                  43  -->
+		<UIPane name="PARTY_MEMBER_2" x="97" y="8" width=39 height=61 >
+			<UIButton name="PM" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT buttontype="radio" groupid=1 groupmemberid=2 MouseDownSFX="gui_m_down" 
+			OnSelected=UIButton_Input_SetPartyChatSpeaker() 
+			OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				<UIFrame state=base		fill="dialog_portrait_frame.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIPortrait name="PORTRAIT" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true texture="p_m_bg_dark.tga"
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait("-1")
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+						<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+						color_r="1" color_g=".6" color_b="0" 
+						speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+	 
+						<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+						color_r=".31" color_g=".42" color_b=".58" 
+						speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+	 
+						<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+						color_r=".6" color_g=".55" color_b=".5" 
+						speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true />
+		</UIPane>
+
+	<!--							             5                 43  -->
+		<UIPane name="PARTY_MEMBER_3" x="136" y="8" width=39 height=61 >
+			<UIButton name="PM" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT buttontype="radio" groupid=1 groupmemberid=3 MouseDownSFX="gui_m_down" 
+			OnSelected=UIButton_Input_SetPartyChatSpeaker() 
+			OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				<UIFrame state=base		fill="dialog_portrait_frame.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIPortrait name="PORTRAIT" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true texture="p_m_bg_dark.tga"
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait("-1")
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+						<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+						color_r="1" color_g=".6" color_b="0" 
+						speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+	 
+						<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+						color_r=".31" color_g=".42" color_b=".58" 
+						speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+	 
+						<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+						color_r=".6" color_g=".55" color_b=".5" 
+						speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true />
+		</UIPane>
+
+	<!--							             5                 43  -->
+		<UIPane name="PARTY_MEMBER_4" x="175" y="8" width=39 height=61 >
+			<UIButton name="PM" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT buttontype="radio" groupid=1 groupmemberid=4 MouseDownSFX="gui_m_down" 
+			OnSelected=UIButton_Input_SetPartyChatSpeaker() 
+			OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				<UIFrame state=base		fill="dialog_portrait_frame.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIPortrait name="PORTRAIT" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true texture="p_m_bg_dark.tga"
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait("-1")
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+						<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+						color_r="1" color_g=".6" color_b="0" 
+						speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+	 
+						<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+						color_r=".31" color_g=".42" color_b=".58" 
+						speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+	 
+						<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+						color_r=".6" color_g=".55" color_b=".5" 
+						speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true />
+		</UIPane>
+
+	<!--							             5                 43  -->
+		<UIPane name="PARTY_MEMBER_5" x="214" y="8" width=39 height=61 >
+			<UIButton name="PM" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT buttontype="radio" groupid=1 groupmemberid=5 MouseDownSFX="gui_m_down" 
+			OnSelected=UIButton_Input_SetPartyChatSpeaker() 
+			OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				<UIFrame state=base		fill="dialog_portrait_frame.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIPortrait name="PORTRAIT" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true texture="p_m_bg_dark.tga"
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait("-1")
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+						<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+						color_r="1" color_g=".6" color_b="0" 
+						speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+	 
+						<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+						color_r=".31" color_g=".42" color_b=".58" 
+						speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+	 
+						<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+						color_r=".6" color_g=".55" color_b=".5" 
+						speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true />
+		</UIPane>
+
+	<!--							             5                  43  -->
+		<UIPane name="PARTY_MEMBER_6" x="253" y="8" width=39 height=61 >
+			<UIButton name="PM" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT buttontype="radio" groupid=1 groupmemberid=6 MouseDownSFX="gui_m_down" 
+			OnSelected=UIButton_Input_SetPartyChatSpeaker() 
+			OnToolTip=UIObject_Tooltip_DisplayPartyBarData("FULLNAME",OBJECT_X,OBJECT_Y,SCREEN_TOOLTIP_2,ALIGN_NONE,ALIGN_NONE,0,0,ALIGN_LEFT) >
+				<UIFrame state=base		fill="dialog_portrait_frame.tga" />
+				<UIFrame state=up		fill="b_empty.tga" />
+				<UIFrame state=down		fill="b_overlay_active.tga" />
+				<UIFrame state=focused	fill="b_empty.tga" />
+				<UIFrame state=hilited	fill="b_overlay.tga" />
+				<UIFrame state=hifocus	fill="b_overlay_active.tga" />
+				<UIFrame state=disabled fill="b_empty.tga" />
+			</UIButton>
+			<UIPortrait name="PORTRAIT" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true texture="p_m_bg_dark.tga"
+				update=true OnUpdate=UIPortrait_OnUpdate_UpdatePartyPortrait("-1")
+				OnRender=UIPortrait_OnRender_RenderPartyPortrait() draggable=false
+				ambground_intens=".4" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+						<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+						color_r="1" color_g=".6" color_b="0" 
+						speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+	 
+						<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+						color_r=".31" color_g=".42" color_b=".58" 
+						speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+	 
+						<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+						color_r=".6" color_g=".55" color_b=".5" 
+						speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+			<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT hidden=true />
+		</UIPane>
+
+	<!--							                                         58  -->
+		<UIButton name="PARTY_SCROLL_RIGHT" x="292" y="3" width="41" height="70" MouseDownSFX="gui_m_down" MouseUpSFX="gui_button" 
+		OnLeftClick=UIButton_Input_ShiftPartyIndex("right") >
+			<UIFrame state=up		fill="pchat_b_scroll_r_standard.tga" />
+			<UIFrame state=down		fill="pchat_b_scroll_r_pressed.tga" />
+			<UIFrame state=focused	fill="pchat_b_scroll_r_standard.tga" />
+			<UIFrame state=hilited	fill="pchat_b_scroll_r_hover.tga" />
+			<UIFrame state=hifocus	fill="pchat_b_scroll_r_hover.tga" />
+			<UIFrame state=disabled	fill="pchat_b_scroll_r_disabled.tga" />
+		</UIButton>
+	</UIPane>
+
+
+	<!-- Replies Listbox               35   375                  265     -->
+	<UIListBox name="replieslistbox" x=30 y=440 width=500 height=313 yPadding=8 xPadding=20 showpartialchild=true 
+	scrollbaronright=true unequalcontrols=true scrollsegmentsize=17 hidescrollbarwhennotneeded=true
+	update=true OnUpdate=UIListBox_OnUpdate_RepliesList() >
+		
+		<UIButton color=000000 name=replieslistboxprototype width=PARENT_WIDTH height=DYNAMIC prototype=true OnLeftClick=UIButton_Input_HandleReplySelection()
+			disabledcolor=FFFFFF disabledtextcolor=FF7F7F7F  >
+			<UIText name="repliestext" indent=0 fontfamily="NWN2_Dialog" width=PARENT_WIDTH strref="181309" height=DYNAMIC 
+				color=64C0FF highlightcolor=FFFFFF sizetofit=true highlightonmouseover=true align=left />
+			<UIFrame state=up		fill="dbackground.tga" alpha="0.0" />
+			<UIFrame state=down		fill="dbackground.tga" alpha="0.0" />
+			<UIFrame state=focused	fill="dbackground.tga" alpha="0.0" />
+			<UIFrame state=hilited	fill="dbackground.tga" alpha="0.0" />
+			<UIFrame state=hifocus	fill="dbackground.tga" alpha="0.0" />	
+			<UIFrame state=disabled fill="dbackground.tga" alpha="0.0" />
+		</UIButton>
+
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>	
+	</UIListBox>
+
+    <UIButton name="skipdialogbutton" x=0 y=0 height=PARENT_HEIGHT width=PARENT_WIDTH
+        OnLeftClick=UIButton_Input_SkipDialog()>
+    </UIButton>
+<!-- 																							 670 -->
+	<UIIcon name="PANE_BACKGROUND" img="partychat_bg.tga" x="0" y="0" width="550" height="800" />

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<UIScene name="SCREEN_TARGETED_ENEMY" x=300 y=5 width=231 height=122 capturemouseclicks=false priority="SCENE_INGAME_TARGET" draggable="true" 
+	OnAdd=UIScene_OnAdd_SetTargetPortrait("portrait") />	
+	
+	<!-- The frame around the portrait -->                                   <!-- 86 -->
+	<UIIcon name="portrait frame" img="p_enemy_frame.tga" x=0 y=0 width=78 height=122 />
+
+	<!-- Character Custom Portrait icon -->                   <!-- 64 -->
+	<UIIcon name="CUSTOM_PORTRAIT_ICON"  x=10 y=13 width=64 height=97 hidden=true />
+
+    <!-- Character 3D Portrait -->										   	   <!-- 64 -->
+	<UIPortrait name="portrait" texture="p_m_gradient_bg_gray.tga" x=10 y=13 height=97 width=64 
+	update=true OnRender=UIPortrait_OnRender_RenderTargetPortrait() OnUpdate=UIPortrait_OnUpdate_UpdateTargetPortrait()
+	ambground_intens=".2" ambgroundcolor_r=".7" ambgroundcolor_g=".55" ambgroundcolor_b=".4"
+				ambsky_intens=".8" ambskycolor_r=".3" ambskycolor_g=".4" ambskycolor_b=".78"        
+				diffusecolor_r=.9 diffusecolor_g=.8 diffusecolor_b=.6
+				light_intens=0 >
+		
+        				<UIPointLight active="true" pos_x="0" pos_y="1" pos_z="1" radius="4" intensity=".2" 
+        				color_r="1" color_g=".6" color_b="0" 
+        				speccolor_r=".5" speccolor_g=".2" speccolor_b="0" />
+
+     
+        				<UIPointLight active="true" pos_x="1" pos_y="1" pos_z="1" radius="3" intensity="2.0" 
+        				color_r=".31" color_g=".42" color_b=".58" 
+        				speccolor_r=".31" speccolor_g=".42" speccolor_b=".58" />
+
+     
+        				<UIPointLight active="true" pos_x="-2" pos_y="1" pos_z="1" radius="3" intensity="2.5" 
+        				color_r=".6" color_g=".55" color_b=".5" 
+        				speccolor_r=".6" speccolor_g=".55" speccolor_b=".5" />
+
+			</UIPortrait>
+
+	<!-- The health progress bar itself -->
+	<UIIcon name="hpbarframe" x=78 y=0 width=19 height=86 img="p_enemy_health_frame.tga" />
+
+	<UIProgressBar name="hpbar" x=79 y=12 width=15 height=65 vertical=true lerpincrease=false 
+		update=true OnUpdate=UIProgressBar_OnUpdate_DisplayTargetObjectHPPercentage()
+		img="p_enemy_health_fill.tga" >
+	</UIProgressBar>
+
+	<UIIcon name="hpbarbg" x=79 y=12 width=15 height=65 img="p_enemy_health_fillbg.tga" />
+
+	<!-- target name -->
+	<UIText name="targetname" x=99 y=5 width=127 height=71 align=left valign=middle 
+	fontfamily="Floating_Text_Default" style=2 prototype=true 
+	update=true OnUpdate=UIText_OnUpdate_DisplayTargetObjectName()/>

@@ -6,9 +6,9 @@ There is also bug which make character loose HP when unequipping items with cons
 
 Every new character created with this version of the pack has something called Coin of Jeannie in its inventory which is an item with special ablity to open shop on use wherever you are. If you don't want this coin to be spawned on every character on every module delete: cmi_coin_jeannie from blueprints and i_cmi_coin_jeannie_ac from scripts.
 
+The above changes should also fix an issue where the AI won't attack by deleting "cmi_player_equip.NCS"
 ------------------------------------------------------------------------------------------------------------------
 
-This should also fix an issue where the AI won't attack by deleting "cmi_player_equip.NCS"
+- Deleted the .NCS files for bigby spells, Flame Arrow (was copy/pasted Endure Elements script...), and all Hold spells based on people saying they were all bugged. These will not be overridden and will be vanilla spells.
 
-
-Deleted the .NCS files for bigby spells, Flame Arrow (was copy/pasted Endure Elements script...), and all Hold spells based on people saying they were all bugged. These will not be overridden and will be vanilla spells.
+- Renamed kprc spells to ".BAK" that are updated in MetaPrep (per MetaPrep instructions).

@@ -1,0 +1,23 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Advanced patch]
+@="Advanced patch"
+
+[HKEY_CLASSES_ROOT\Advanced patch\DefaultIcon]
+@="%1"
+
+[HKEY_CLASSES_ROOT\Advanced patch\shell]
+
+[HKEY_CLASSES_ROOT\Advanced patch\shell\Apply]
+
+[HKEY_CLASSES_ROOT\Advanced patch\shell\Apply\command]
+@="rundll32.exe \"%1\",Apply"
+
+[HKEY_CLASSES_ROOT\Advanced patch\shell\Remove]
+
+[HKEY_CLASSES_ROOT\Advanced patch\shell\Remove\command]
+@="rundll32.exe \"%1\",Remove"
+
+[HKEY_CLASSES_ROOT\.hdl]
+@="Advanced patch"
+

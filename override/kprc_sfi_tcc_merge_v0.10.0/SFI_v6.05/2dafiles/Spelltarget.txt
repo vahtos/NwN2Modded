@@ -1,0 +1,14 @@
+
+ These are the changes made to the spelltarget.2da file.
+
+
+
+Row 20 was added. This is a custom setting. 10' by 10' square.
+
+Row 21 was added. This is a custom setting. 60 foot cone.
+
+Row 22 was added. This is a custom setting. 10' Spellcone.
+
+Row 23 was added. This is a custom setting. 60 foot line.
+
+Row 24 was added. This is a custom setting. 20 foot bolt.

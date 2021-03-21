@@ -1,0 +1,72 @@
+
+
+Introduction:
+
+
+Spells that were just fixed (no balancing done to the scripts or not brought into line with PnP) are in the "Spellsfixed" folder. 
+
+
+How to install:
+
+Just put files from archive to your Override folder.
+
+
+Spellsfixed:
+
+
+Fixed giving sneak attacks with eldritch cone and chain since it shouldn't.
+
+-Avasculate- Ray effect gets shown every time now. Now tells you if the target is immune to death magic.
+-Barbarian Rage- Recompiled so Heal, Mass Heal, Lesser Restoration, Restoration, and Greater Restoration can now remove fatigue effects.
+-Blade Barrier self- Linked effects so dispel magic, cast on caster, removes all effects.
+-Bull's Strength- Now stacks properly with Righteous Might. Can't stack this spell with Mass Bull's Strength. Now checks for Blackguard levels. Now stacks with Enlarge Person or Duergar Enlarge Racial ability.
+-Burst of Glacial Wrath- Fixed problem with allowing immortality flag to be on creature(s) for too long. Creatures encased in ice now get proper Damage Reduction effect (DR 10/-). Won't accidentally affect caster anymore. Nobody gets skipped in the cone's area of effect anymore. Creatures with Cold Vulnerability won't be killed by this spell anymore. Feedback is displayed if creature is frozen solid.
+-Cacophonic Burst- Each target rolls for damage individually now. Used to roll once and apply same damage to every target.
+-Devour Magic- Will no longer stack temporary hitpoints.
+-Displacement- Can now be persisted (24 hour duration).
+-Eldritch Blast- Now respects immunity to criticals. Fixed visual so that ray effect gets shown even for missed or resisted targets.
+-Eldritch Chain- Can be modified by PointBlankShot feat.
+-Eldritch Essences- If target is affected by an essence and then saves versus same essence again, first affect is not removed anymore. Only removed if 2nd save is failed since a new effect is going to be added and they can't stack anymore.
+-Energy Drain- Added sneak attack damage. Now uses ranged touch attack. Doesn't have a saving throw anymore since it uses a ranged touch attack. Correctly calculates extra damage on critical hit. Respects immunity to critical hits. This brings it inline with Enervation.
+-Entropic Husk- Duergar won't increase in size again if already affected by their racial Enlarge Person ability. Having Mind Spell Immunity doesn't protect from the insanity effect.
+-Ghast Stench Aura- Added immunity to poison check to prevent effects being applied if immune.
+-Greater Spell Mantle- Now works correctly with AOEs that have a duration (Wall of Fire for example). All AOEs with a duration will have to be redone to accomodate the changes.
+-Hezrou Stench Aura- Added immunity to poison check to prevent effects being applied if immune.
+-Infestation of Maggots- Immunity to Disease now works correctly.
+-Inflict Wounds line of spells- Now takes into account Melee Spell Specialization. Now takes into account Weapon Finesse.
+-Inflict Wounds line of Spells- Added sneak attack damage. Now do critical hits for extra damage. Respects immunity to criticals. No attack roll versus undead, since it's assumed you are trying to heal them and they are immune to criticals.
+-Invocation: Flee the Scene- Expeditious Retreat should have a 50% movement speed increase which would equal a total movement speed of 150%. Should not be a 150% increase in speed. Haste effect should apply to caster and his allies, not just his allies. Delayed the Expeditious Retreat effect being applied. Won't take affect during the first 5 rounds as this would super-stack it with Haste.
+-Invocation: Flee the Scene- Won't stack with itself anymore. Removed +2 AC bonus as it should not be part of the spell (It's not in Expeditious Retreat).
+-Invocation: Hideous Blow- Can be cast in advance without the need to target an enemy.
+-Iron Body- Fixed a bug so that Stormlords (9th level or higher) no longer lose their immunity to electricity. Fixed a bug so that Red Dragon Disciples (10th level) no longer lose their immunity to fire.
+-Isaac's Lesser Missile Storm- Won't strip off Spell Mantles anymore.
+-Isaac's Greater Missile Storm- Won't strip off Spell Mantles anymore.
+-Jagged Tooth- Now actually works.
+-Least Spell Mantle- Now works correctly with AOEs that have a duration (Wall of Fire for example). All AOEs with a duration will have to be redone to accomodate the changes.
+-Lesser Spell Mantle- Now works correctly with AOEs that have a duration (Wall of Fire for example). All AOEs with a duration will have to be redone to accomodate the changes.
+-Magic Circle Against Good/Evil- Now works on allies.
+-Mass Aid- Fixed issue with temporary hitpoints inadvertently being removed from the caster. Can now be persisted. Removed Spell Resistance check. De-linked HP from other effects so entire spell isn't cancelled when losing bonus hitpoints. Can't stack this spell with itself or regular version of Aid anymore. Used removeTempHitpoints() call so it REALLY doesn't stack with anything.
+-Mass Bear's Endurance- Won't stack with Bear's Endurance or Mass Bear's Endurance anymore.
+-Mass Bull's Strength- Can't stack this spell with Bull's Strength anymore.
+-Mass Charm Monster- Can now be scribed on scrolls.
+-Mass Cure Line of Spells (not including Mass Cure Light Wounds)- Now takes into account Augmented Healing Feat. Uses will save now instead of incorrect fortitude save. Was using wrong variable during metmagic mods. Won't automatically hurt friendly undead anymore, only if they are in the area of effect.
+-Mass Cure Serious Wounds- Corrected heal amount to 3d8 (not 4d8) +1 per caster level.
+-Polar Ray- Now takes into account Ranged Spell Specialization. Now takes into account Point Blank Shot. Added sneak attack damage. Correctly calculates extra damage on critical hit. Respects immunity to critical hits.
+-Reach to the Blaze- Removed damage from on-enter script, as this could be abused for hundreds of hitpoints of damage per round. Damage is calculated for each target seperately now. Previously, the script was calculating damage once, then applying it to all targets.
+-Searing Light- Now takes into account Ranged Spell Specialization. Now takes into account Point Blank Shot. Added sneak attack damage. Correctly calculates extra damage on critical hit. Respects immunity to critical hits.
+-Shadow Dancer's Shadow Evade- Now the Damage Reduction will actually do something. Also, it's a Dodge Bonus to AC not a regular Armor Bonus to AC. Some cases were left blank. That would mean no effect would occur at that level. Now fixed.
+-Shocking Grasp- Now takes into account Melee Spell Specialization. Now takes into account Weapon Finesse. Added sneak attack damage. Correctly calculates extra damage on critical hit. Respects immunity to critical hits.
+-Slay Living- Now takes into account Melee Spell Specialization. Now takes into account Weapon Finesse. Added sneak attack damage. Correctly calculates extra damage on critical hit. Respects immunity to critical hits.
+-Song of Heroism- No longer removes inspirations when used. Depleting temporary hitpoints doesn't end other effects of this song anymore.
+-Spell Mantle- Now works correctly with AOEs that have a duration (Wall of Fire for example). All AOEs with a duration will have to be redone to accomodate the changes.
+-Stone Body- Fixed a bug so that Stormlords (9th level or higher) no longer lose their immunity to electricity. Fixed a bug so that Red Dragon Disciples (10th level) no longer lose their immunity to fire.
+-Storm Avatar- Now does 3d6 electrical damage. Applies electrical bonus to weapon even if it has other elemental enchantments already. Fixed movement speed increase. According to the description, you travel at 200% normal speed (twice as fast). +200% normal speed would be three times as fast. So lowered to doubled speed instead of tripled speed. Fixed metamagic duration for extended spell.
+-Storm of Vengeance- Can't stack spell anymore. Caster Level stored on AOE for proper Dispel Magic callback.
+-Storm of Vengeance- Was using wrong duration for stun effect. Should be 1 round, not 2 rounds, as per the in-game description. Lowered electrical damage to 3d6, on a failed save, not the incorrect 6d6 that it was using.
+-Storm of Vengeance- Will now cancel the area of effect if the creator of the effect is dead. Applies random damage rolls to each target, not one roll per round applied to every target.
+-Swamp Lung- Can't stack this spell on an already affected target. If you try, you will be given a message stating that.
+-Tenacious Plague- Stopped this spell from stacking as per the in-script description. Now auto-hits on a 20 and auto-misses on a 1. Will correctly be dispelled now by Gust of Wind or Dispel Magic. Fixed the fact that the duration was being calculated incorrectly for metamagic Extend.
+-Tortoise Shell- Now properly capped at +9 AC max.
+-Touch of Fatigue- Recompiled so Heal, Mass Heal, Lesser Restoration, Restoration, and Greater Restoration can now remove fatigue effects.
+-Vampiric Touch- Now takes into account Weapon Finesse. Now takes into account Melee Spell Specialization. Added sneak attack damage. Uses correct calculation for maximized damage. Added critical hit check. Correctly calculates extra damage on critical hit. Heals extra damage on critical. Respects immunity to criticals.
+-Warlock Invocations- PointBlankShot feat check added. If present, ranged touch attack is modified by +1 (if you are 30 feet or closer to your target). Added sneak attack damage. Eldritch Blasts can now do critical hit for extra damage. Can't stack most blasts anymore.

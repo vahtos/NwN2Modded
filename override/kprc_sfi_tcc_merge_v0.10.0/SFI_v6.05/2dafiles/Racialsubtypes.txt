@@ -1,0 +1,59 @@
+
+                                                 Thanks to Noran the Axe for this info!
+
+
+
+These are the changes (Reeron and Kaedrin) made to the Racialsubtypes.2da file.
+
+
+
+Row 22 (Aberration)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 23 (Animal)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 25 (Construct)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 30 (Dragon)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 38 (Elemental)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 32 (Giant)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 39 (Magical Beast)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 33 (Outsider)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 35 (Undead)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 36 (Vermin)- Changed HasFavoredClass (column 22) from 1 to 0.
+
+Row 42 (Githzerai)- Now have ECL +2, Dex +6, Int -2, WIS +2, and Favored Class of Monk as per 3.5 rules.
+
+
+
+
+
+
+
+
+
+Changes that affect Poymorph Self: 
+
+Giant Spider -> Vermin
+Troll -> Giant
+Umber Hulk -> Aberration
+Gargoyle -> Magical Beast
+Mindflayer -> Aberration
+
+
+Changes that affect Shape-Change:
+
+Frost Giant -> Giant
+Fire Giant -> Giant
+Horned Devil -> Outsider
+Nightwalker -> Undead
+Iron Golem -> Construct
+
+
+
+

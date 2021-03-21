@@ -1,0 +1,25 @@
+2DA V2.0
+
+   FeatLabel                              FeatIndex 
+0  FEAT_RACIAL_NATURAL_ARMOR_1            2112      
+1  FEAT_HAGSPAWN_NATURAL_ARMOR            2090      
+2  WeapProfSim                            46        
+3  Shield                                 32        
+4  SkillFocusSpot                         190       
+5  FEAT_RACIAL_RESIST_ACID_10             2114      
+6  FEAT_RACIAL_RESIST_COLD_10             2115      
+7  FEAT_CHARM_PERSON                      2174      
+8  FEAT_RACIAL_DR_MAGIC_5                 2117      
+9  FEAT_DROW_RESISTANCE                   1075      
+10 FEAT_WINGS                             2120      
+11 FEAT_IMMUNITY_POISON                   1751      
+12 WeapProfMar                            45        
+13 ArmProfLgt                             3         
+14 ArmProfMed                             4         
+15 FEAT_SUMMON_BAATEZU                    2167      
+16 SkillFocusList                         179       
+17 FEAT_FIENDISH_HERITAGE                 2185      
+18 ResistEnergyFire                       429       
+19 FEAT_EPIC_ENERGY_RESISTANCE_FIRE_1     553       
+20 FEAT_STORMLORD_IMMUNITY_TO_ELECTRICITY 2044      
+21 Darkvision                             228       

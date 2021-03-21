@@ -1,0 +1,62 @@
+
+ These are the changes made to the Feat.2da file.
+
+
+
+Row 896 (FEAT_DEATHLESS_MASTERY)- Changed column (DESCRIPTION) from 8760 to 245212.
+
+Row 897 (FEAT_DEATHLESS_MASTER_TOUCH)- Changed column (DESCRIPTION) from 8762 to 245098.
+
+Row 1512 (FEAT_ARCTRICKSTER_SPELLCASTING_BARD)- Changed column (MinLevel) from 7 to 1.
+
+Row 1513 (FEAT_ARCTRICKSTER_SPELLCASTING_SORCERER)- Changed column (MinLevel) from 6 to 1.
+
+Row 1514 (FEAT_ARCTRICKSTER_SPELLCASTING_WIZARD)- Changed column (MinLevel) from 5 to 1.
+
+Row 1582 (FEAT_HARPER_SPELLCASTING_PALADIN)- Changed column (MinLevel) from 4 to 1.
+
+Row 1583 (FEAT_HARPER_SPELLCASTING_RANGER)- Changed column (MinLevel) from 4 to 1.
+
+Row 1593 (FEAT_EPIC_WEAPON_FOCUS_FALCHION)- Changed column (PreReqFeat1) from 1590 to 1597.
+
+Row 1594 (FEAT_EPIC_WEAPON_SPECIALIZATION_FALCHION)- Changed column (PreReqFeat1) from 1591 to 1598.
+
+Row 1801 (FEAT_PALE_MASTER_SPELLCASTING_BARD)- Changed column (MinLevel) from 7 to 1.
+
+Row 1802 (FEAT_PALE_MASTER_SPELLCASTING_SORCERER)- Changed column (MinLevel) from 6 to 1.
+
+Row 1804 (FEAT_PALE_MASTER_SPELLCASTING_WIZARD)- Changed column (MinLevel) from 5 to 1.
+
+Row 1820 (FEAT_ELDRITCH_KNIGHT_SPELLCASTING_BARD)- Changed column (MinLevel) from 7 to 1.
+
+Row 1821 (FEAT_ELDRITCH_KNIGHT_SPELLCASTING_SORCERER)- Changed column (MinLevel) from 6 to 1.
+
+Row 1822 (FEAT_ELDRITCH_KNIGHT_SPELLCASTING_WIZARD)- Changed column (MinLevel) from 5 to 1.
+
+Row 1544 (FEAT_MYSTICTHEURGE_SPELLCASTING_WIZARD)- Changed column (MinLevel) from 1 to 2.
+
+Row 1886 (FEAT_RED_WIZARD_SPELLCASTING_WIZARD)- Changed column (MinLevel) from 5 to 1.
+
+Row 1887 (FEAT_ARCANE_SCHOLAR_SPELLCASTING_BARD)- Changed column (MinLevel) from 7 to 1.
+
+Row 1888 (FEAT_ARCANE_SCHOLAR_SPELLCASTING_SORCERER)- Changed column (MinLevel) from 6 to 1.
+
+Row 1889 (FEAT_ARCANE_SCHOLAR_SPELLCASTING_WIZARD)- Changed column (MinLevel) from 5 to 1.
+
+Row 2014 (FEAT_WARPRIEST_SPELLCASTING_SPIRIT_SHAMAN)- Changed column (MinLevel) from 8 to 1.
+
+Row 3401 (FEAT_MYSTICTHEURGE_SPELLCASTING_SPIRIT_SHAMAN)- New entry.
+
+Row 3402 (FEAT_MYSTICTHEURGE_SPELLCASTING_FAVORED_SOUL)- New entry.
+
+Row 3403 (FEAT_CONTROL_UNDEAD)- New entry for my PnP Palemaster.
+
+Row 3404 (FEAT_TOUGH_AS_BONE)- New entry for my PnP Palemaster.
+
+Rows 2982-2988 (SorcererRDDspelllevel)- Custom feats needed so RDD bonus spell slots work properly with the Sorcerer class.
+
+Row 2989 (LayOnHandsHostile)- Custom feat so Lay on Hands can be used to damage undead.
+
+Row 2991 (FEAT_RANGED_SPELL_SPECIALIZATION)- New entry used by both Kaedrin and I.
+
+Row 2992 (FEAT_TOUCH_SPELL_SPECIALIZATION)- New entry used by both Kaedrin and I.

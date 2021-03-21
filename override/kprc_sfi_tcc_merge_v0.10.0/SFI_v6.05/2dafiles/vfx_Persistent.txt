@@ -1,0 +1,41 @@
+
+ These are the changes made to the vfx_persistent.2da file. They change the actual size of the AOE so that 
+the game displays the correct PnP sized version of the AOE.
+
+
+
+Row 0 (Acid Fog)- Changed Radius (column 4) from 5 to 6.7
+
+Row 3 (Cloudkill)- Changed Radius (column 4) from 5 to 6.7
+
+Row 39 (Cloud of Bewilderment)- Changed FillSEF (2nd Column from the end) from **** to sp_bewilderment.sef. This uses a modified "sp_bewilderment.sef" to get the correct size visual effect. Changed VisualFX (6th Column from the end) from 733 to ****. Changed Radius (column 4) from 5 to 1.65.
+
+Row 33 (Creeping Doom)- Changed Radius (column 4) from 6.7 to 5. Changed FillSEF (2nd Column from the end) from **** to sp_creeping_doom.sef. This uses a modified "sp_creeping_doom.sef" to get the correct size visual effect.
+
+Row 34 (Evard's Black Tentacles)- Changed Radius (column 4) from 5 to 6.7
+
+Row 32 (Grease)- Changed Shape (Column 3) from C to R (Circle to square). Changed Radius (Column 4) from 6 to **** (20' radius to no radius as it's a square).
+
+Row 32 (Grease)- Changed Width (Column 5) and Length (Column 6) from **** to 3.3 (10 feet). Changed VisualFX (6th Column from the end) from 828 to ****. 
+
+Row 1 (Incendiary Cloud)- Changed Radius (column 4) from 5 to 6.7
+
+Row 4 (Mind Fog)- Changed Radius (column 4) from 5 to 6.7
+
+Row 41 (VFX_MOB_BATTLETIDE)- Changed Radius (column 4) from 3.3 to 5.
+
+Row 81 (VFX_PER_WIDEN_AURA_OF_DESPAIR)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 82 (VFX_PER_PRC_DARKNESS)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 83 (VFX_MOB_PRC_CIRCEVIL)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 84 (VFX_PER_NI_TEAMWORK)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 85 (VFX_PER_NE_TEAMWORK)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 86 (VFX_PER_DC_TEAMINIT)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 87 (VFX_PER_STORMSINGER_STORM)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.
+
+Row 88 (VFX_PER_RADIANT_AURA)- This is a custom entry provided by Kaedrin. This is used by his PRC pack.

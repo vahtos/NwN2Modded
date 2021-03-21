@@ -1,0 +1,231 @@
+2DA V2.0
+
+    Name                                         ICON             StrRef Description Script             Level Mastery IsStance Discipline Type Movement Location SupressAoO Range 
+0   null                                         b_empty          0      0           ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+1   "Blistering Flourish"                        blstrflourish    280038 280246      st_blflourish      1     ****    ****     1          2    ****     ****     ****       30.0  
+2   "Burning Blade"                              fllametounge     280039 280247      bo_burningblade    1     ****    ****     1          3    ****     ****     ****       ****  
+3   "Burning Brand"                              brnbrand         280040 280248      bo_burningbrand    2     ****    ****     1          3    ****     ****     ****       ****  
+4   "Death Mark"                                 skullnflower     280041 280249      st_death_mark      3     ****    ****     1          2    1        ****     ****       ****  
+5   "Desert Tempest"                             dtempest         280042 280250      st_desert_temp     6     2       ****     1          2    1        ****     ****       ****  
+6   "Distracting Ember"                          balloffire       280043 280251      bo_dstrember       1     ****    ****     1          3    ****     ****     ****       ****  
+7   "Dragon's Flame"                             dragon           280044 280252      st_dragon          5     2       ****     1          2    1        ****     ****       30.0  
+8   "Fan the Flames"                             kistrike         280045 280253      st_fan_flames      3     1       ****     1          2    ****     ****     ****       30.0  
+9   "Fiery Assault"                              fireyassault     280046 280254      sa_fiery_assault   6     2       1        1          1    ****     ****     ****       ****  
+10  "Fire Riposte"                               fireriposte      280047 280255      ct_fire_riposte    2     1       ****     1          4    ****     ****     ****       ****  
+11  Firesnake                                    firesnake        280048 280256      st_firesnake       4     2       ****     1          2    ****     ****     ****       60.0  
+12  "Flame's Blessing"                           flmsblss         280049 280257      sa_flmsblss        1     ****    1        1          1    ****     ****     ****       ****  
+13  "Flashing Sun"                               brightsun        280050 280258      st_flashn_sun      2     1       ****     1          2    1        ****     ****       ****  
+14  "Hatchling's Flame"                          htchflame        280051 280259      st_hatchling       2     1       ****     1          2    1        ****     ****       30.0  
+15  "Holocaust Cloak"                            firecloak        280052 280260      sa_holo_cloak      3     1       1        1          1    ****     ****     ****       ****  
+16  "Inferno Blade"                              infernoblade     280053 280261      bo_infernoblade    7     ****    ****     1          3    ****     ****     ****       ****  
+17  "Inferno Blast"                              volcano          280054 280262      st_inferno         9     5       ****     1          2    ****     ****     ****       60.0  
+18  "Leaping Flame"                              lpnflame         280055 280263      ct_lpn_flame       5     2       ****     1          4    ****     ****     ****       ****  
+19  "Lingering Inferno"                          lingering        280056 280264      st_lingering       5     2       ****     1          2    1        ****     ****       ****  
+20  "Ring of Fire"                               firestance       280057 280265      st_ring_of_fire    6     2       ****     1          2    ****     ****     ****       ****  
+21  "Rising Pheonix"                             pheonix          280058 280266      sa_phoenix         8     3       1        1          4    ****     ****     ****       ****  
+22  "Salamander Charge"                          salamander       280059 280267      st_salamander      7     3       ****     1          2    1        ****     ****       ****  
+23  "Searing Blade"                              searingblade     280060 280268      bo_searingblade    4     2       ****     1          3    ****     ****     ****       ****  
+24  "Searing Charge"                             srncharge        280061 280269      st_searing_charge  4     1       ****     1          2    ****     ****     ****       30.0  
+25  "Wind Stride"                                dash             280062 280270      bo_wind_stride     1     ****    ****     1          3    ****     ****     ****       ****  
+26  "Wyrm's Flame"                               dragonbreath     280063 280271      st_wyrm            8     3       ****     1          2    1        ****     ****       30.0  
+27  "Zephyr Dance"                               dunecape         280064 280272      ct_zephyr_dance    3     1       ****     1          4    ****     ****     ****       ****  
+28  "Aura of Choas"                              guyonfire        280065 280273      sa_aura_of_chaos   6     2       1        2          1    ****     ****     ****       ****  
+29  "Aura of Perfect Order"                      bronzeshield     280066 280274      sa_aura_of_order   6     2       1        2          1    ****     ****     ****       ****  
+30  "Aura of Triumph"                            dragonholysymbol 280067 280275      sa_aura_of_good    6     2       1        2          1    ****     ****     ****       ****  
+31  "Aura of Tyranny"                            greenhead        280068 280276      sa_aura_of_evil    6     2       1        2          1    ****     ****     ****       ****  
+32  "Castigating Strike"                         castigating      280069 280277      st_castigating     7     2       ****     2          2    1        ****     ****       ****  
+33  "Crusader's Strike"                          bigmouth         280070 280278      st_crusader        1     ****    ****     2          2    1        ****     ****       ****  
+34  "Daunting Strike"                            rrwraith         280071 280279      st_daunting        5     1       ****     2          2    1        ****     ****       ****  
+35  "Defensive Rebuke"                           elvenblade       280072 280280      bo_def_rebuke      3     1       ****     2          3    ****     ****     ****       ****  
+36  "Divine Surge"                               blueeyes         280073 280281      st_divine_surge    4     1       ****     2          2    1        ****     ****       ****  
+37  "Divine Surge, Greater"                      gdivinesurge     280074 280282      st_gdivine_surge   8     2       ****     2          2    1        ****     ****       ****  
+38  "Doom Charge"                                deadhorse        280075 280283      st_doom_charge     5     1       ****     2          2    2        ****     ****       ****  
+39  "Entangling Blade"                           entangling       280076 280284      st_entangling      4     1       ****     2          2    1        ****     ****       ****  
+40  Foehammer                                    redhammer        280077 280285      st_foehammer       2     ****    ****     2          2    1        ****     ****       ****  
+41  "Immortal Fortitude"                         odin             280078 280286      sa_immortal        8     3       1        2          1    ****     ****     ****       ****  
+42  "Iron Guard's Glare"                         scaryredeye      280079 280287      sa_ironguard       1     ****    1        2          1    ****     ****     ****       ****  
+43  "Law Bearer"                                 redhood          280080 280288      st_law_bearer      5     1       ****     2          2    2        ****     ****       ****  
+44  "Martial Spirit"                             seraphim         280081 280289      sa_mspirit         1     ****    1        2          1    ****     ****     ****       ****  
+45  "Radiant Charge"                             dwarfshield      280082 280290      st_radiant_charge  5     1       ****     2          2    2        ****     ****       ****  
+46  "Rallying Strike"                            sunsetbanner     280083 280291      st_rallying        6     2       ****     2          2    1        ****     ****       ****  
+47  "Revitializing Strike"                       greenblade3      280084 280292      st_revitalizing    3     1       ****     2          2    1        ****     ****       ****  
+48  "Shield Block"                               shielded         280085 280293      ct_shield_block    2     ****    ****     2          4    ****     ****     ****       ****  
+49  "Shield Counter"                             defending        280086 280294      ct_shield_counter  7     2       ****     2          4    ****     ****     ****       ****  
+50  "Strike of Righteous Vitality"               wing             280087 280295      st_righteous       9     3       ****     2          2    1        ****     ****       ****  
+51  "Thicket of Blades"                          thicketofblades  280088 280296      sa_thicketoblds    3     1       1        2          1    ****     ****     ****       ****  
+52  "Tide of Chaos"                              brokensword      280089 280297      st_tideochaos      5     1       ****     2          2    2        ****     ****       ****  
+53  "Vanguard Strike"                            vanguard         280090 280298      st_vanguard        1     ****    ****     2          1    1        ****     ****       ****  
+54  "Action Before Thought"                      frenzied         280091 280299      ct_action_before   2     ****    ****     3          4    ****     ****     ****       ****  
+55  "Avalanche of Blades"                        avablades        280092 280300      st_avalanche       7     3       ****     3          2    1        ****     ****       ****  
+56  "Bounding Assault"                           bassault         280093 280301      st_bounding        4     2       ****     3          2    1        ****     ****       ****  
+57  "Diamond Defense"                            goldwire         280094 280302      ct_diamond_def     8     ****    ****     3          4    ****     ****     ****       ****  
+58  "Diamond Nightmare Blade"                    redsky           280095 280303      st_dn_blade        8     3       ****     3          2    1        ****     ****       ****  
+59  "Disrupting Blow"                            breakinggith     280096 280304      st_disrupting      5     2       ****     3          2    1        ****     ****       ****  
+60  "Emerald Razor"                              emeraldrazor     280097 280305      st_erazor          2     1       ****     3          2    1        ****     ****       ****  
+61  "Hearing the Air"                            purplehaze       280098 280306      sa_hearing_air     5     2       1        3          1    ****     ****     ****       ****  
+62  "Insightful Strike"                          violetblade      280099 280307      st_insightful      3     ****    ****     3          2    1        ****     ****       ****  
+63  "Insightful Strike, Greater"                 violetblade2     280100 280308      st_g_insightful    6     2       ****     3          2    1        ****     ****       ****  
+64  "Mind Over Body"                             turquoiseeye     280101 280309      ct_mind_over       3     ****    ****     3          4    ****     ****     ****       ****  
+65  "Mind Strike"                                furnacewithin    280102 280310      st_mind_strike     4     2       ****     3          2    1        ****     ****       ****  
+66  "Moment of Alacrity"                         moalacrity       280103 280311      bo_alacrity        6     2       ****     3          3    ****     ****     ****       ****  
+67  "Moment of Perfect Mind"                     greentatoo       280104 280312      ct_mopm            1     ****    ****     3          4    ****     ****     ****       ****  
+68  "Pearl of Black Doubt"                       shuteyes         280105 280313      sa_pearl_obd       3     1       1        3          1    ****     ****     ****       ****  
+69  "Quicksilver Motion"                         blur             280106 280314      bo_quicksilver     7     3       ****     3          3    ****     ****     ****       ****  
+70  "Rapid Counter"                              rcounter         280107 280315      ct_rapid_counter   5     ****    ****     3          4    ****     ****     ****       ****  
+71  "Ruby Nightmare Blade"                       ruby             280108 280316      st_rn_blade        4     2       ****     3          2    1        ****     ****       ****  
+72  "Sapphire Nightmare Blade"                   sphnmblade       280109 280317      st_sn_blade        1     ****    ****     3          2    1        ****     ****       ****  
+73  "Stance of Alacrity"                         stanceala        280110 280318      sa_alacrity        8     3       1        3          1    ****     ****     ****       ****  
+74  "Stance of Clarity"                          yang             280111 280319      sa_stncoclr        1     ****    1        3          1    ****     ****     ****       ****  
+75  "Time Stands Still"                          hourglass1       280112 280320      st_time_stands     9     4       ****     3          2    1        ****     ****       ****  
+76  "Absolute Steel"                             fencer           280113 280321      sa_abs_steel       3     1       1        4          1    ****     ****     ****       ****  
+77  "Adamantine Hurricane"                       admhurricane     280114 280322      st_admnt_hurricane 8     3       ****     4          2    1        ****     ****       ****  
+78  "Dancing Blade Form"                         dancingblade     280115 280323      sa_dancing_blade   5     2       1        4          1    ****     ****     ****       ****  
+79  "Dazing Strike"                              redhand          280116 280324      st_dazing          5     2       ****     4          2    1        ****     ****       ****  
+80  "Disarming Strike"                           disarm           280117 280325      st_disarming       2     ****    ****     4          2    1        ****     ****       ****  
+81  "Exorcism of Steel"                          greenhammer      280118 280326      st_exorcism        3     1       ****     4          2    1        ****     ****       ****  
+82  "Finishing Move"                             stab             280119 280327      st_finishing       7     3       ****     4          2    1        ****     ****       ****  
+83  "Iron Heart Endurance"                       ihendurance      280120 280328      bo_ih_endurance    6     2       ****     4          3    ****     ****     ****       ****  
+84  "Iron Heart Focus"                           ihfocus          280121 280329      ct_ih_focus        5     2       ****     4          4    ****     ****     ****       ****  
+85  "Iron Heart Surge"                           ihsurge          280122 280330      st_ih_surge        3     1       ****     4          2    ****     ****     ****       ****  
+86  "Lightning Recovery"                         lightening       280123 280331      ct_lightning_rec   4     2       ****     4          4    ****     ****     ****       ****  
+87  "Lightning Throw"                            zap              280124 280332      st_lit_throw       8     2       ****     4          2    1        ****     ****       30.0  
+88  "Manticore Parry"                            manticore        280125 280333      ct_manticore       6     2       ****     4          4    ****     ****     ****       ****  
+89  "Mithral Tornado"                            mithtornado      280126 280334      st_mith_tornado    4     2       ****     4          2    1        ****     ****       ****  
+90  "Punishing Stance"                           bandits          280127 280335      sa_punishing       1     ****    1        4          1    ****     ****     ****       ****  
+91  "Scything Blade"                             chop             280128 280336      bo_scything        7     3       ****     4          3    ****     ****     ****       ****  
+92  "Steel Wind"                                 steelwind        280129 280337      st_steel_wind      1     ****    ****     4          2    1        ****     ****       ****  
+93  "Steely Strike"                              steely           280130 280338      st_steely_strike   1     ****    ****     4          2    1        ****     ****       ****  
+94  "Strike of Perfect Clarity"                  shinyhand        280131 280339      st_perfect         9     4       ****     4          2    1        ****     ****       ****  
+95  "Supreme Blade Parry"                        maralith         280132 280340      sa_supreme         8     3       1        4          1    ****     ****     ****       ****  
+96  "Wall of Blades"                             shieldwall       280133 280341      ct_wallofblades    2     ****    ****     4          4    ****     ****     ****       ****  
+97  "Baffling Defense"                           bdefense         280134 280342      ct_baffling_def    2     1       ****     5          4    ****     ****     ****       ****  
+98  "Balista Throw"                              ballista         280135 280343      st_ballista_throw  6     2       ****     5          2    1        ****     ****       5.0   
+99  "Clever Positioning"                         sunsetfight      280136 280344      st_clever_pos      2     ****    ****     5          2    1        ****     ****       ****  
+100 "Comet Throw"                                comet            280137 280345      st_comet_throw     4     1       ****     5          2    1        ****     ****       5.0   
+101 "Devastating Throw"                          devstatingthr    280139 280347      st_devastating     3     1       ****     5          2    1        ****     ****       5.0   
+102 "Feigned Opening"                            feigned          280140 280348      ct_feigned         3     1       ****     5          4    ****     ****     ****       ****  
+103 "Fool's Strike"                              anvil            280141 280349      ct_fools_strike    8     3       ****     5          4    ****     ****     ****       ****  
+104 "Ghostly Defense"                            wraith           280142 280350      sa_ghostly_def     8     3       1        5          1    ****     ****     ****       ****  
+105 "Giant Killing Style"                        giantslaying     280143 280351      sa_giant_killing   3     1       1        5          1    ****     ****     ****       ****  
+106 "Hyrda Slaying Strike"                       hydra            280144 280352      st_hydra           7     3       ****     5          2    1        ****     ****       ****  
+107 "Mighty Throw"                               mthrow           280145 280353      st_mighty_throw    1     ****    ****     5          2    1        ****     ****       5.0   
+108 "Mirrored Pursuit"                           mirrored         280146 280354      ct_mirrored        5     2       ****     5          4    ****     ****     ****       ****  
+109 "Scorpion Parry"                             scorpion         280147 280355      ct_scorpion        6     2       ****     5          4    ****     ****     ****       ****  
+110 "Shifting Defense"                           stepback         280148 280356      sa_shifting_def    5     2       1        5          1    ****     ****     ****       ****  
+111 "Soaring Throw"                              yellowclaw       280149 280357      st_soaring_throw   5     2       ****     5          2    1        ****     ****       5.0   
+112 "Stalking Shadow"                            rain             280150 280358      ct_stalking        5     2       ****     5          4    1        ****     ****       ****  
+113 "Step of the Wind"                           leafstep         280151 280359      sa_step_wind       1     ****    1        5          1    ****     ****     ****       ****  
+114 "Strike of the Broken Shield"                brokenshield     280152 280360      st_broken_shield   4     2       ****     5          2    1        ****     ****       ****  
+115 "Tornado Throw"                              tornadothrow     280153 280361      st_tornado         9     5       ****     5          2    1        ****     ****       ****  
+116 "Assassin's Stance"                          whitehood        280154 280362      sa_assassin        3     1       1        6          1    ****     ****     ****       ****  
+117 "Balance on the Sky"                         upsidedown       280155 280363      sa_botsky          8     3       1        6          1    ****     ****     ****       ****  
+118 "Bloodletting Strike"                        bloodletting     280156 280364      st_bloodletting    5     2       ****     6          2    1        ****     ****       ****  
+119 "Child of Shadow"                            evilissexy       280157 280365      sa_chld_shadow     1     ****    1        6          1    ****     ****     ****       ****  
+120 "Clinging Shadow Strike"                     redblade         280158 280366      st_clingnshadow    1     ****    ****     6          2    1        ****     ****       ****  
+121 "Cloak of Deception"                         deception        280159 280367      bo_codeception     2     ****    ****     6          3    ****     ****     ****       ****  
+122 "Dance of the Spider"                        dancingspider    280160 280368      sa_dot_spider      3     1       1        6          1    ****     ****     ****       ****  
+123 "Death in the Dark"                          lichtastic       280161 280369      st_deathinthedark  7     ****    ****     6          2    1        ****     ****       ****  
+124 "Drain Vitality"                             greendagger      280162 280370      st_drain_vit       2     1       ****     6          2    1        ****     ****       ****  
+125 "Enervating Shadow Strike"                   daggerspell      280163 280371      st_enervating      8     3       ****     6          2    1        ****     ****       ****  
+126 "Five-Shadow Creeping Ice Enervation Strike" fiveice          280164 280372      st_5_shadow        9     5       ****     6          2    1        ****     ****       ****  
+127 "Ghost Blade"                                ghostly          280165 280373      st_ghost_blade     6     3       ****     6          2    1        ****     ****       ****  
+128 "Hand of Death"                              handodeath       280166 280374      st_handodeath      4     ****    ****     6          2    1        ****     ****       ****  
+129 "Island of Blades"                           twinswords       280167 280375      sa_isldoblds       1     ****    1        6          1    ****     ****     ****       ****  
+130 "Obscuring Shadow Veil"                      moonveil         280168 280376      st_obscuring       4     2       ****     6          2    1        ****     ****       ****  
+131 "One With Shadow"                            turquoiseeclipse 280169 280377      ct_1w_shadow       8     3       ****     6          4    ****     ****     ****       ****  
+132 "Shadow Blade Technique"                     shadowbt         280170 280378      st_shadowbt        1     ****    ****     6          2    1        ****     ****       ****  
+133 "Shadow Blink"                               spooky           280171 280379      bo_sblink          7     ****    ****     6          3    ****     1        ****       ****  
+134 "Shadow Garrote"                             sgarrote         280172 280380      st_sgarrote        3     ****    ****     6          2    ****     ****     ****       60.0  
+135 "Shadow Jaunt"                               sjaunt           280173 280381      st_sjaunt          2     ****    ****     6          2    ****     1        ****       ****  
+136 "Shadow Noose"                               snoose           280174 280382      st_snoose          6     ****    ****     6          2    ****     ****     ****       60.0  
+137 "Shadow Stride"                              sstride          280175 280383      bo_sstride         5     ****    ****     6          3    ****     1        ****       ****  
+138 "Stalker in the Night"                       darkhood         280176 280384      st_stalker         6     ****    ****     6          2    1        ****     ****       ****  
+139 "Step of the Dancing Moth"                   avengers         280177 280385      sa_step_moth       5     2       1        6          1    ****     ****     ****       ****  
+140 "Strength Draining Strike"                   blackblade       280178 280386      st_str_drain       3     1       ****     6          2    1        ****     ****       ****  
+141 "Adamantine Bones"                           immortal         280179 280387      st_admnt_bones     8     3       ****     7          2    1        ****     ****       ****  
+142 "Ancient Mountain Hammer"                    ancntmnthmr      280180 280388      st_ancnt_hammer    7     3       ****     7          2    1        ****     ****       ****  
+143 "Bonesplitting Strike"                       bonesplitting    280181 280389      st_bonesplitting   4     2       ****     7          2    1        ****     ****       ****  
+144 Bonecrusher                                  bonecrusher      280182 280390      st_bonecrusher     3     ****    ****     7          2    1        ****     ****       ****  
+145 "Boulder Roll"                               boulderroll      280183 280391      bo_boulder_roll    4     ****    ****     7          3    ****     1        ****       ****  
+146 "Charging Minotaur"                          minotaur         280184 280392      st_chrgn_minotaur  1     ****    ****     7          2    2        ****     1          ****  
+147 "Colossus Strike"                            stonething       280185 280393      st_colossus        7     2       ****     7          2    1        ****     ****       ****  
+148 "Crushing Vise"                              choke            280186 280394      st_crushing_vise   6     ****    ****     7          2    1        ****     ****       ****  
+149 "Crushing Weight of the Mountain"            crushingweight   280187 280395      sa_crushing_wotm   3     1       1        7          1    1        ****     ****       ****  
+150 "Earthstrike Quake"                          earthstrike      280188 280396      st_earthstrike     8     2       ****     7          2    ****     ****     ****       20.0  
+151 "Elder Mountain Hammer"                      warhammer        280189 280397      st_eld_hammer      5     2       ****     7          2    1        ****     ****       ****  
+152 "Giant's Stance"                             gstance          280190 280398      sa_giant_stance    5     2       1        7          1    ****     ****     ****       ****  
+153 "Iron Bones"                                 metalface        280191 280399      st_iron_bones      6     2       ****     7          2    1        ****     ****       ****  
+154 "Irresistible Mountain Strike"               cudgel           280192 280400      st_irresistible    6     ****    ****     7          2    1        ****     ****       ****  
+155 "Mountain Avalanche"                         avalanche        280193 280401      bo_mnt_avalanche   5     2       ****     7          3    ****     1        ****       ****  
+156 "Mountain Hammer"                            mnthammer        280194 280402      st_mnt_hammer      2     ****    ****     7          2    1        ****     ****       ****  
+157 "Mountain Tombstone Strike"                  mtntmbstnstr     280195 280403      st_tombstone       9     ****    ****     7          2    1        ****     ****       ****  
+158 "Overwhelming Mountain Strike"               tiny             280196 280404      st_overwhelming    4     ****    ****     7          2    1        ****     ****       ****  
+159 "Roots of the Mountain"                      rootsotm         280197 280405      sa_roots_otm       3     ****    1        7          1    ****     ****     ****       ****  
+160 "Stone Bones"                                stoneprisoner    280198 280406      st_stnbones        1     ****    ****     7          2    1        ****     ****       ****  
+161 "Stone Dragon's Fury"                        ragedrake        280199 280407      st_sd_fury         3     1       ****     7          2    1        ****     ****       ****  
+162 "Stone Vise"                                 stonevise        280200 280408      st_stone_vise      2     ****    ****     7          2    1        ****     ****       ****  
+163 "Stonefoot Stance"                           sandstormtrek    280201 280409      sa_stonefoot       1     ****    1        7          1    ****     ****     ****       ****  
+164 "Strength of Stone"                          cityguard        280202 280410      sa_str_of_stone    8     3       1        7          1    ****     ****     ****       ****  
+165 "Blood in the Water"                         bitw             280203 280411      sa_bitw            1     ****    1        8          1    ****     ****     ****       ****  
+166 "Claw at the Moon"                           guantletnmoon    280204 280412      st_clawatm         2     ****    ****     8          2    1        ****     ****       ****  
+167 "Dancing Mongoose"                           dmongoose        280205 280413      bo_mongoose        5     2       ****     8          3    ****     ****     ****       ****  
+168 "Death From Above"                           blurskull        280206 280414      st_death_above     4     1       ****     8          2    1        ****     ****       ****  
+169 "Feral Death Blow"                           gladiator        280207 280415      st_feral_death     9     4       ****     8          2    1        ****     ****       ****  
+170 "Flesh Ripper"                               fleshripper      280208 280416      st_flesh_ripper    3     2       ****     8          2    1        ****     ****       ****  
+171 "Fountain of Blood"                          fountain         280209 280417      bo_fountain        4     2       ****     8          3    ****     ****     ****       ****  
+172 "Girallon Windmill Flesh Rip"                girallon         280210 280418      bo_girallon        8     3       ****     8          3    ****     ****     ****       ****  
+173 "Hamstring Attack"                           hamstring        280211 280419      st_hamstring       7     3       ****     8          2    1        ****     ****       ****  
+174 "Hunter's Sense"                             huntersense      280212 280420      sa_huntersns       1     ****    1        8          1    ****     ****     ****       ****  
+175 "Leaping Dragon Stance"                      leapingdragon    280213 280421      sa_leapn_dragon    3     1       1        8          1    ****     ****     ****       ****  
+176 "Pouncing Charge"                            pcharge          280214 280422      st_pouncing        5     2       ****     8          2    2        ****     ****       ****  
+177 "Prey on the Weak"                           trophyhead       280215 280423      sa_prey_otw        7     2       1        8          1    ****     ****     ****       ****  
+178 "Rabid Bear Strike"                          bearclaw         280216 280424      st_rabidbear       6     2       ****     8          2    1        ****     ****       ****  
+179 "Rabid Wolf Strike"                          worg             280217 280425      st_rabidwolf       2     ****    ****     8          2    1        ****     ****       ****  
+180 "Raging Mongoose"                            mongoose         280218 280426      bo_rage_mongoose   8     3       ****     8          3    ****     ****     ****       ****  
+181 "Soaring Raptor Strike"                      raptor           280219 280427      st_soaring_raptor  3     1       ****     8          2    1        ****     ****       ****  
+182 "Sudden Leap"                                leap             280220 280428      bo_sudden_leap     1     1       ****     8          3    ****     1        ****       ****  
+183 "Swooping Dragon Strike"                     dragonflight     280221 280429      st_swooping_drg    7     3       ****     8          2    1        ****     ****       ****  
+184 "Wolf Climbs the Mountain"                   wolfclimbs       280222 280430      st_wolf_climbs     6     2       ****     8          2    1        ****     ****       ****  
+185 "Wolf Fang Strike"                           snarlwolf        280223 280431      st_wolffang        1     ****    ****     8          2    1        ****     ****       ****  
+186 "Wolf Pack Tactics"                          wolfpack         280224 280432      sa_wolfpack        8     2       1        8          1    ****     ****     ****       ****  
+187 "Wolverine Stance"                           wolverinestance  280225 280433      sa_wolverine       3     1       1        8          1    ****     ****     ****       ****  
+188 "Battle Leader's Charge"                     assault          280226 280434      st_bl_charge       2     1       ****     9          2    2        ****     1          ****  
+189 "Bolstering Voice"                           dragonhelm       280227 280435      sa_bolsternvoice   1     ****    1        9          1    ****     ****     ****       ****  
+190 "Clarion Call"                               yell             280228 280436      bo_clarion_call    7     3       ****     9          3    ****     ****     ****       ****  
+191 "Covering Strike"                            covering         280229 280437      bo_covering        4     1       ****     9          2    1        ****     ****       ****  
+192 "Douse the Flames"                           bluefire         280230 280438      st_douse_flms      1     ****    ****     9          2    1        ****     ****       ****  
+193 "Flanking Maneuver"                          ambush           280231 280439      st_flanking        5     2       ****     9          2    1        ****     ****       ****  
+194 "Leading the Attack"                         knight           280232 280440      st_lead_attack     1     ****    ****     9          2    1        ****     ****       ****  
+195 "Leading the Charge"                         palerider        280233 280441      sa_lead_charge     1     ****    1        9          1    ****     ****     ****       ****  
+196 "Lion's Roar"                                lionroar         280234 280442      bo_lionsroar       3     1       ****     9          3    ****     ****     ****       ****  
+197 "Order Forged From Chaos"                    aces             280235 280443      bo_order_forged    6     2       ****     9          3    ****     ****     ****       ****  
+198 "Press the Advantage"                        warlord2         280236 280444      sa_press           5     2       1        9          1    ****     ****     ****       ****  
+199 "Swarm Tactics"                              swarmtactics     280237 280445      sa_swarm           8     1       1        9          1    ****     ****     ****       ****  
+200 "Swarming Assault"                           swarm            280238 280446      st_swarming        7     3       ****     9          2    1        ****     ****       ****  
+201 "Tacitical Strike"                           warlord          280239 280447      st_tactical        2     1       ****     9          2    1        ****     ****       ****  
+202 "Tactics of the Wolf"                        wolfmind         280240 280448      sa_tactics_otw     3     1       1        9          1    ****     ****     ****       ****  
+203 "War Leader's Charge"                        warlord3         280241 280449      st_wl_charge       6     2       ****     9          2    2        ****     1          ****  
+204 "War Master's Charge"                        tancharge        280242 280450      st_wm_charge       9     4       ****     9          2    2        ****     1          ****  
+205 "White Raven Hammer"                         wrhammer         280243 280451      st_wr_hammer       8     3       ****     9          2    1        ****     ****       ****  
+206 "White Raven Strike"                         wrstrike         280244 280452      st_wr_strike       4     1       ****     9          2    1        ****     ****       ****  
+207 "White Raven Tactics"                        general          280245 280453      bo_wr_tactics      3     1       ****     9          3    ****     ****     ****       ****  
+208 Encouragement                                encouragement    280754 280755      bo_encouragement   1     ****    ****     9          3    ****     ****     ****       ****  
+209 "Counter Charge"                             tiedfeet         280138 280346      ct_ctrcharge       1     ****    ****     5          4    ****     ****     ****       ****  
+210 ****                                         ****             ****   ****        ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+211 Charge                                       charge           280666 280667      gui_charge         ****  ****    ****     ****       **** ****     ****     ****       ****  
+212 ****                                         ****             ****   ****        ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+213 "Avenging Strike"                            aribethstrike    280510 280511      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+214 "Divine Spirit"                              blueman          280520 280521      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+215 "Song of the White Raven"                    sotwhiteraven    280540 280541      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+216 "Snap Kick"                                  foot             280542 280543      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+217 "Stone Power"                                stoneswords      280544 280545      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+218 "Falling Sun"                                fallingsun       280526 280527      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+219 "Sudden Recovery"                            stormcloud       280546 280547      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+220 "Dual Boost"                                 dboost           280478 280678      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+221 "Swordsage Recovery"                         recovery         ****   ****        gui_mask           ****  ****    ****     ****       **** ****     ****     ****       ****  
+222 "Warblade Recovery"                          recovery         ****   ****        ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+223 "Furious Counterstrike"                      furiouscts       280454 280462      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+224 "Zealous Surge"                              zsurge           280457 280464      ****               ****  ****    ****     ****       **** ****     ****     ****       ****  
+225 "SBT Support"                                shadowbt         280691 280692      gui_shadowbt       ****  ****    ****     ****       **** ****     ****     ****       ****  
+226 "Salamander Support"                         salamander       280743 280744      gui_salamander     ****  ****    ****     ****       **** ****     ****     ****       ****  
+227 "Greater Divine Surge Support"               gdivinesurge     280747 280748      gui_gdivine_surge  ****  ****    ****     ****       **** ****     ****     ****       ****  

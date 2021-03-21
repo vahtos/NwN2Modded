@@ -1,0 +1,32 @@
+Strref: 200935
+.................................................
+<color=Gold><b>Half-Celestial</b></color>
+
+A celestial's magical nature allows it to breed with virtually any creature. The offspring of the resulting unions, half-celestials, are glorious and wonderful beings. To carry out their resposibilities, celestials sometimes spend great amounts of time in the mortal realms. being devoted and kind, they occasionally fall in love with mortals: humans, elves, unicorns, and similar creatures. The objects of celestials are never evil and are always intelligent. they always return the love of their immortal paramour and willingly conceive the child, usually caring for it since the celestial has other duties.
+
+No matter the form, half-celestials are always comely and delightful to the senses, having golden skin, sparkling eyes, angelic wings, or some other sign of their higher nature. though noble and compassionate, half-celestials are often dismayed at the evil amoung their kin and take a stern, sometimes harsh, view of base instincts or malevolent actions. Never truly fitting into any mortal society, half-celestials are usually loners and wanderers attempting to right wrongs wherever they can.
+
+
+<color=Gold><b>Racial Traits:</b></color>
+
+- <b>Ability Adjustments:</b> +4 Strength, +2 Dexterity, +4 Constitution, +2 Intelligence, +4 Wisdom, +4 Charisma 
+
+- <b>Darkvision:</b> Half-Celestials can see in the dark up to 60 feet. 
+
+- <b>Celestial Resistance:</b> Celestial resistance to acid, cold and electricity 10/-, as well as Damage reduction 5/magic.
+
+- <b>Smite Evil:</b> Once per day, a half-celestial may attempt to smite evil with one normal melee attack. 
+
+- <b>Spell-like abilities:</b>
+     1/day - <i>Summon Planetar</i> as sorcerer of equal level.
+     1/day - <i>Resurrection</i> as sorcerer of equal level.
+     1/day - <i>Word of Faith</i> as sorcerer of equal level.
+     1/day - <i>Mass Charm Monster</i> as sorcerer of equal level.
+
+- <b>Immunity to Diseases:</b> Immune to diseases.
+
+- <b>Resistant to Poisons:</b> +4 bonus on Fortitude saving throws against poison. 
+
+- <b>Favored Class:</b> Favored Soul. A multiclass half-celestial's favored soul class does not count when determining whether she takes an experience point penalty for multiclassing.
+
+- <b>Level Adjustment +4:</b> Half-Celestials are much more powerful and gain levels much more slower than other races. It will take much more experience for an half-celestial to reach level 2 than it would for normal races, for example.

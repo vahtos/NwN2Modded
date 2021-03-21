@@ -1,0 +1,15 @@
+
+ These are the changes made to the Ranges.2da file.
+
+
+
+Row 2 (SpellRngShrt)- Changed PrimaryRange from 8 to 15.24 (50 feet). Averaged distance for a 10th level caster (average level since half of 20 is 10- no epic levels yet). 
+                                                                      Base PnP distance of 25 feet is just too damn close. Creatures break your 
+                                                                      concentration before you get the spell off since you are too close and they close 
+                                                                      the distance to you and attack before you finish casting the spell. 
+
+Row 3 (SpellRngMed)- Changed PrimaryRange from 20 to 30.49 (100 feet). Just used base PnP distance as it's approaching some creature's max perception range.
+
+Row 4 (SpellRngLng)- Changed PrimaryRange from 40 to 50 (164 feet). This is the max for Perception Range, so this HAS to be the max for Spell Range too. If 
+                                                                    set to longer than 50 meters, can cause AI problems as some creatures won't respond to an 
+                                                                    attack from further away. Would like to set to 400 feet, but it causes AI problems.

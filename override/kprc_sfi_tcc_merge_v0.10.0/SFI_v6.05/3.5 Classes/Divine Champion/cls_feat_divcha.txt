@@ -1,0 +1,14 @@
+
+
+
+Added custom feat entry 418. 
+
+418: This feat allows a Divine Champion to use the Lay on Hands ability to damage Undead (2989). This feat is tied into the 
+regular Lay on Hands feat (299), so using either feat automatically decreases the number of uses left of the 
+other feat.
+
+419 Added so Weapon Focus Falchion can be properly taken when leveling as a Divine Champion.
+
+420 Added so Improved Critical Warmace can be properly taken when leveling as a Divine Champion.
+
+421 Added so Weapon Focus Warmace can be properly taken when leveling as a Divine Champion.

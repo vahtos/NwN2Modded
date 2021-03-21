@@ -1,0 +1,67 @@
+
+        Thank you Piotyr! 
+        Also known as Chaos-Piotyr on the NWN2 forum boards. Without his help you wouldn't be reading this. 
+        He did all the research for me on this class, and trust me, there was alot of info to dig up.
+
+
+
+        PnP Pale Master:
+
+        Requires Wizard/Sorcerer (no Bards), Lore 8 (no knowledge religion available), and Skill Focus Lore.
+
+        Gets only d4 hit dice per level.
+
+        Can now take Weapon Proficiency feats (such as Weapon Proficiency Martial) during level-up. Thanks to NecromanX2 for finding this bug!
+
+	Gets spell progression every level starting at level 2 (same as Eldritch Knight).
+
+	Starting at 6th level touch will kill/paralyze/con drain/level drain/strength drain (one effect 
+        in that order based on target immunities & your level), touch attack up to 3 uses per day at 
+        level 10, death touches (10th level) will cause humanoid targets to animate as zombies under your control. 
+        Save DC = 10 + PM Class level + Charisma modifier.
+
+
+
+
+	Loses the following:
+
+	Loses Bone Skin and Summon Undead feats (not PnP).
+
+        Gains the following* :
+
+	1st level: Light and Medium Armor feats.
+	2nd level: Animate Dead once per day (as per the spell).
+	3rd level: Darkvision.
+	4th level: 10% spell failure reduction in armor (must be at least light armor- won't apply with robes). This simulates 
+                   Bone Armor feat since there currently isn't any way to craft bone armor.
+	5th level: Control Undead feat 1/day, 1rnd/level, no save (requires melee touch attack), no concentration check,
+		   affects hd less than or equal to total character levels. This is a custom feat (3403).
+		   Deathless Vigor ( +4 to Fortitude Saves).
+	6th level: Undead Graft gives +4 inherent strength bonus. This is accomplished by giving the feats 
+                   Epic Great Strength 1, 2, 3, and 4. This actually raises your ability score, so 
+                   it stacks with Bull's Strength and Belts of Giant Strength which both give an 
+                   enhancement bonus to strength. If you de-level to below 6th level, you will 
+                   lose the +4 inherent strength bonus. You can get it back when you again gain 6th level.
+	7th level: Tough as Bone gives Immunity to Disease and Stun only. This is now a custom feat (3404). 
+                   You must use my Feat.2da file or this class will not work properly.
+	8th level: 20% spell failure reduction in armor (must be at least light armor). This simulates 
+                   Bone Armor feat since there currently isn't any way to craft bone armor. This doesn't 
+                   stack with 4th level 10% reduction. It's 10% reduction at 4th level and 20% reduction 
+                   at 8th level.
+	9th level: Summon Greater Undead once per day (as per the spell).
+	10th level: Deathless Mastery also gives Immunity to Paralysis, Sleep, Poison, Ability Decreases, Negative Levels, and Death Magic.
+
+
+        *De-leveling will remove any bonuses granted as if you never had the class level.
+
+
+
+        NOTE: You must use my equip and un-equip scripts. All of the bonuses (armor spell failure reduction, +4 strength, immunities) are controlled 
+              through the use of these scripts. Without them this class will not work properly. Also, to properly use this hak, you must remove 
+              all of your PM levels (then you can add them back in once my hak is in your override folder) so that all my custom feats will be 
+              added at level-up.
+
+
+        NOTE: If you die and respawn after combat, you will notice that all of my custom immunities are gone. They are removed on death. To re-apply 
+              them, just equip (or un-equip) ANY item in your inventory. It doesn't matter what item- ANY item will do. These immunities are applied 
+              as Supernatural effects so they can not be dispelled nor are they removed on resting.

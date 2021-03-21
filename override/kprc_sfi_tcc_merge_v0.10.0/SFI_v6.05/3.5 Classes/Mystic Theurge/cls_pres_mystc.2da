@@ -1,0 +1,8 @@
+2DA V2.0
+
+  LABEL           ReqType  ReqParam1      ReqParam2 
+0 Lore            SKILL    7              6         
+1 Spellcraft      SKILL    16             6         
+2 Divine          DIVSPELL 2              ****      
+3 ScriptVar       VAR      nw_AllowMystic 0         
+4 Arcane          ARCSPELL 1              ****      

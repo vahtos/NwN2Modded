@@ -1,0 +1,32 @@
+
+
+Introduction:
+
+
+Spells that were just fixed (no balancing done to the scripts but are already in-line with PnP) are in the "SpellsfixedPnP" folder. 
+
+
+How to install:
+
+Just put files from archive to your Override folder.
+
+
+Spellsfixed:
+
+
+
+-Aid- Reworked script so RemoveTempHitPoints call works correctly. Won't stack with Mass Aid anymore. Uses RemoveTempHitpoints() call so it REALLY doesn't stack with anything anymore. Won't stack with itself anymore.
+-Assay Resistance- Gives correct 1 round/level duration. Correctly applies +10 Spell Penetration Bonus to Caster instead of Target. EventSpellCastAt is now using correct Spell_Target_StandardHostile.
+-Augmented Healing Feat- Will no longer add bonus to any scrolls, potions, or healing items.
+-Bear's Endurance- Won't stack with Mass Bear's Endurance anymore. Can't be stacked at all anymore. If you try, it will give a message that you can't stack Bear's Endurance and then it will abort the rest of the spell.
+-Body of the Sun- Can now be selected by Wizards and Sorcerers.
+-Confusion- Fixed so metamagic extend actually works now.
+-Cure Spells- Changed maximized healing to work correctly. Was using wrong calculation.
+-Enlarge Person- Now stacks properly with Bull's Strength. Can now be cast on Githyanki and Githzerai. Won't stack with Duergar spell-ability Enlarge or other size increasing spells.
+-Enlarge Person (Duergar Racial Ability)- Now stacks properly with Bull's Strength. Won't stack with Enlarge Person or other size increasing spells.
+-FlameStrike- Now only does one save, instead of incorrectly doing two saves. Save type is versus spells, not divine or fire. Immunity to either shouldn't matter for the save. When the damage is applied, immunity will correctly block the appropriate damage.
+-Magic Weapon: Enhancement bonuses are allowed on Ranged Weapons, so this spell should work on them too. Monks can take advantage of this spell (if wearing Gauntlets), as well as anyone wearing Gauntlets.
+-Polymorph Self- Updated for Succubus Polymorph ability. Removed feedback from spell. Now heals the recipient of physical damage, when initially polymorphing, as per PnP. Now you don't lose your bonus spell-slots if they are a result of an ability-increasing item.
+-Scorching Ray (both versions)- Now respects immunity to criticals. Single target version now shows ray effect every single time (even if resisted or it misses). Multiple target version now correctly calculates number of hostiles in area on Hardcore difficulty or higher. Both versions can now do sneak attack damage. Both versions can be used with the Ranged Spell Specialization feat.
+-Sleep- Now properly removes caster's invisibility when cast.
+-Vitriolic Sphere- Ignores Spell Resistance. Metamagic variable properly stored for future callbacks so casting another metamagically enhanced spell will not apply new metamagic to this spell. Correctly applies full damage in 1st round no matter what. Made save means no further damage. Failed save in round 1 means further damage in round 2. Made save in round 2 results in 1/2 damage (or less- takes into account Evasion and Improved Evasion) and no further damage. Failed save in round 2 results in damage (Takes into account Improved Evasion) and a 3rd round of possible damage. Round 3 takes into account Evasion and Improved Evasion.

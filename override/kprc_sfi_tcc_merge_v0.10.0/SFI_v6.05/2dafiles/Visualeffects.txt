@@ -1,0 +1,6 @@
+
+ These are the changes made to the visualeffects.2da file.
+
+
+
+Row 1200 Added by Kaedrin.

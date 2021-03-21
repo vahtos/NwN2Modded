@@ -1,0 +1,16 @@
+2DA V2.0
+
+     FeatLabel                          FeatIndex 
+0    Darkvision                         228       
+1    WeapProfSim                        46        
+2    WeapProfMar                        45        
+3    ArmProfLgt                         3         
+4    ArmProfMed                         4         
+5    Shield                             32        
+6    FEAT_HAGSPAWN_NATURAL_ARMOR        2090      
+7    FEAT_EPIC_ENERGY_RESISTANCE_COLD_1 533       
+8    FEAT_EPIC_ENERGY_RESISTANCE_COLD_2 534       
+9    FEAT_EPIC_ENERGY_RESISTANCE_COLD_3 535       
+10   FEAT_EPIC_ENERGY_RESISTANCE_COLD_4 536       
+11   FEAT_EPIC_ENERGY_RESISTANCE_COLD_5 537       
+12   ResistEnergyCold                   427       

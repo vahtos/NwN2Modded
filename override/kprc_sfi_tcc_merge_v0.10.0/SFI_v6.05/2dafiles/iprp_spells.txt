@@ -1,0 +1,26 @@
+
+
+
+
+
+ These are the changes made to the iprp_spells.2da file.
+
+
+
+Row 314 (Negative_Energy_Burst)- Changed SpellIndex (column 7) from 370 to 2201. This is so the item property actually works since it will use my version of the spell.
+
+Row 315 (Negative_Energy_Burst)- Changed SpellIndex (column 7) from 370 to 2201. This is so the item property actually works since it will use my version of the spell.
+
+Row 739 (Maddening_Scream)- New spell added by Reeron.
+
+Row 740 (Freezing_Sphere)- New spell added by Reeron.
+
+Row 741 (Blast_of_Flame)- New spell added by Reeron.
+
+Row 742 (IceLance)- New spell added by Reeron.
+
+Row 743 (Divine Favor)- Can now be used on a spell-cast item at 20th level (helps to prevent being dispelled).
+
+Row 744 (Fireball)- Can now be used on a spell-cast item at 20th level (helps to overcome spell resistance and now matches Scintillating Sphere).
+
+Row 745 (Negative_Energy_Burst)- Can now be used on a spell-cast item at 20th level (helps to overcome spell resistance as well as draining more of the target's strength).

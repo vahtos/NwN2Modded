@@ -1,0 +1,27 @@
+2DA V2.0
+
+   FeatLabel                           FeatIndex 
+0  darkvision                          228       
+1  stonecunning                        227       
+2  hardinesspoisons                    229       
+3  hardinessspells                     230       
+4  orctrain                            231       
+5  gobtrain                            232       
+6  gianttrain                          233       
+7  skillaffinitylore                   234       
+8  FEAT_SKILL_FOCUS_CRAFT_ARMOR        911       
+9  FEAT_SKILL_FOCUS_CRAFT_WEAPON       912       
+10 SkillFocAppraise                    404       
+11 FEAT_WEAPON_PROFICIENCY_DWARF       1770      
+12 Small                               375       
+13 FEAT_EPIC_ENERGY_RESISTANCE_COLD_1  533       
+14 FEAT_EPIC_ENERGY_RESISTANCE_COLD_2  534       
+15 FEAT_EPIC_ENERGY_RESISTANCE_COLD_3  535       
+16 FEAT_EPIC_ENERGY_RESISTANCE_COLD_4  536       
+17 FEAT_EPIC_ENERGY_RESISTANCE_COLD_5  537       
+18 FEAT_EPIC_ENERGY_RESISTANCE_COLD_6  538       
+19 FEAT_EPIC_ENERGY_RESISTANCE_COLD_7  539       
+20 FEAT_EPIC_ENERGY_RESISTANCE_COLD_8  540       
+21 FEAT_EPIC_ENERGY_RESISTANCE_COLD_9  541       
+22 FEAT_EPIC_ENERGY_RESISTANCE_COLD_10 542       
+23 ResistEnergyCold                    427       

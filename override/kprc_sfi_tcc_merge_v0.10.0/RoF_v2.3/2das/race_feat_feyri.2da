@@ -1,0 +1,22 @@
+2DA V2.0
+
+   FeatLabel                          FeatIndex 
+0  immunitysleep                      235       
+1  hardinessenchantment               236       
+2  hardinesspoisons                   229       
+3  skillaffinitylisten                237       
+4  skillaffinitysearch                238       
+5  skillaffinityspot                  239       
+6  keensense                          240       
+7  LowLightVision                     354       
+8  darkvision                         228       
+9  FEAT_EPIC_ENERGY_RESISTANCE_FIRE_1 553       
+10 FEAT_TIEFLING_HIDE                 1087      
+11 FEAT_SKILL_AFFINITY_BLUFF          1097      
+12 FEAT_TIEFLING_DARKNESS             1089      
+13 CharmPerson                        2174      
+14 FEAT_WINGS                         2120      
+15 FEAT_FIENDISH_HERITAGE             2185      
+16 ResistEnergyFire                   429       
+17 WeapProfSim                        46        
+18 WeapProfMar                        45        

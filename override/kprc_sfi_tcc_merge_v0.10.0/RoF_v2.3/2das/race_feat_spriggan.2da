@@ -1,0 +1,16 @@
+2DA V2.0
+
+   FeatLabel                        FeatIndex 
+0  LowLightVision                   354       
+1  Small                            375       
+2  FEAT_ENLARGE                     1073      
+3  CauseFear                        2173      
+4  SkillFocusHide                   178       
+5  SkillFocusList                   179       
+6  SkillFocusMove                   181       
+7  SkillFocusOpen                   182       
+8  SkillFocusDisa                   174       
+9  SkillFocusPick                   186       
+10 FEAT_BLACKGUARD_SNEAK_ATTACK_1D6 460       
+11 FEAT_BLACKGUARD_SNEAK_ATTACK_2D6 461       
+12 FEAT_BLACKGUARD_SNEAK_ATTACK_3D6 462       

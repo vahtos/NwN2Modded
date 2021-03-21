@@ -1,0 +1,11 @@
+2DA V2.0
+
+     FeatLabel                    FeatIndex 
+1    FEAT_HAGSPAWN_NATURAL_ARMOR  2090      
+4    darkvision                   228       
+2    LowLightVision               354       
+3    immunitysleep                235       
+4    skillaffinitylisten          237       
+5    skillaffinitysearch          238       
+6    skillaffinityspot            239       
+7    FEAT_IMMUNITY_PARALYSIS      1753      

@@ -1,0 +1,167 @@
+* Ashbound now affects Summons 5-8
+* Barbarians and Swashbucklers gain Demoralize Opponent
+* Bard class description updated with a note - "Bards gain additional uses per day at epic levels (up to 30/day at 30 bard) for actual bard levels (bardic prcs do not count, even when they stack bard songs per day)."
+* Barkskin VFX removed
+* Bestow Curse changed to -4 AB/Saves/Skills
+* Bladesinger gains Medium Armor Proficiency at 8th level.
+* Caster's Lament can now target the ground
+* Change SetScale for elementals to .3 (up from .2)
+* Child of Night and Shadowdancer class descriptions updated to mention they can not be taken if the other class is present.
+* Chilling Tentacles, Wall of Perilous, Storm of Vengeance, and Evards have an added note about only one cast a time being possible.
+* CotSF, Templar, and Marksman gain a note on how Paladin/Ranger caster level works when the Full Caster options are not turned on (ie, CL 27 with 24 levels, CL 30 with practiced caster).
+* Curse Song reduces all physical damage, not just slashing.
+* Daring Outlaw now only grants bonus sneak dice.
+* Dark One's Own Luck (Warlock), Arcane Resistance (Hexblade), and Dark Blessing (Blackguard) no longer stack with each other.
+* Death Ward description updated to indicate the 1 minute/level duration.
+* Death Ward, Mass Death Ward, Undeath's Eternal Foe, and Deathless Frenzy descriptions updated to indicate ability damage is not blocked.
+* Death Ward, Mass Death Ward, Undeath's Eternal Foe, Deathless Frenzy, Negative Energy Protection no longer block ability damage.
+* Description for the Heavy Armor Optimization line updated to indicate all of the skills that are boosted.
+* Dirge now triggers Clap of Thunder
+* Dispels streamlined to two subradials, ability to scribe restored (new scroll entries)
+* Divine Vigor effects split up so that they don't all end when the temp hps are gone.
+* Dragon Warrior now correctly gets Blind Fight at 8th level.
+* Dragonsong now correctly increases Perform, not Diplomacy.
+* Dread Pirate now buffs Intimidate instead of Diplomacy.
+* Eld Blast and Eld Spear descriptions updated to indicate they can use sneak dice if turned on.
+* Eldritch Disciple's description finally correct regarding the divine gift progression.
+* Eldritch Glaive description now mentions it does half damage if you have the HiPS feat and can not be used if you have the Automatic Quicken Spell feat. It also mentions that Daggerspell Mage and Daggerspell Shaper abilities do not affect it.
+* Eldritch Glaive is now a melee touch attack again.
+* Eldritch Glaive is now marked as Somatic and is now subject to ASF.
+* Eldritch Glaive no longer benefits from Daggerspell Mage or Daggerspell Shaper abilities.
+* Eldritch Glaive now has the updated touch attack code that normal blasts have (reducing AB when holding a weapon).
+* Eldritch Glaive will fail if the character has the auto-quicken feats.
+* Elemental Archer storm ability can now target an area, not just the caster
+* Elemental Essence duration increased (2 minutes, up from 1 minute)
+* Entropic Warding now lasts 24 hours if the character does not have Shadowdancer.
+* Entropic Warding now uses the premonition VFX (as in none).
+* Epic Spell DC adjusted so that any character with FS levels and a Charisma higher than Wisdom will use Wis for the DC.
+* Equip/Unequip now clears all actions, replaces spell failure fix for now
+* Ethereal spells no longer grant Invisibility
+* Expert Tactician changed to grant a +1 AB bonus.
+* Exploit with cloudkill removed.
+* Expose Weakness now has a 30 second cooldown.
+* Faerie Fire and Heartfire get a -Hide penalty equal to the number of ranks in hide the target has
+* Faerie Fire now applies a penalty equal to your hide skill instead of -30
+* Fiery Fist duration now 1/2 Monk level + Wisdom modifier (minimum 1).
+* Fiery Ki Defense duration now 1/2 Monk level + Wisdom modifier (minimum 1).
+* Freedom of Movement removes Stone Body and Iron Body
+* GFK's Ghost Step becomes ethereal at 6th
+* Greater Fireburst now deals d10 per caster level (as per the spell compendium).
+* Heartfire gains anti-stealth code from FF and applies a -10 Move Silently penalty
+* Hellspawned Grace duration increased to 1 minute per caster level (up from 6s per CL).
+* Hold series, Awaken Sin, Bane, Confusion, Crushing Despair, etc accounts for protection from X.
+* Horrid Wilting tweaked to use delaycommands, this should reduce the rate that targets are unaffected.
+* Hyper's Con fix
+* Imp Invis for assassins and warlocks no longer provides sneak immunity and/or ab increases and/or hide increases.
+* Invisibility Sphere now applies invisibility to each ally in range at the time of casting (it is no longer an aura).
+* Light mace now works with deadly defense (invalid OEI constant)
+* Manifest Life no longer mentions it is also a cleric spell.
+* Mass Heal now has a 30' radius (up from 15')
+* Minor Shapeshift changed to temporary hit points
+* Minor Shapeshift durations changed to 3x
+* Minor Shapeshift lasts 3x as long.
+* Minor Shapeshift speed corrected (scan for all speed increases and check)
+* New 0-level Druid spell: Breath of the Dragon (only works while dragonshaped, provides access to the breath weapon up to 6x/day)
+* New Base Class: Hexblade
+* New Deity: Bahumut
+* New Deity: Tiamat
+* New Feat: Epic Call Lightning Storm
+* New Feat: Epic Heavy Armor Optimization.
+* New Feat: Epic Mass Heal
+* New Feat: Epic Skill Focus (Intimidate)
+* New Feat: Raging Vigor (level 5 barb, use rage to heal 2x HD+Con)
+* New Feat: Rune of Flame (reserve)
+* New Feat: Rune of Ice (reserve)
+* New Feat: Rune of Storms (reserve)
+* New Feat: Rune of Thunder (reserve)
+* New Feat: Rune of Vitriol (reserve)
+* New Feats: Epic Skill Focus (Appraise, Concentration, Craft Trap, Disable Trap, Lore, Open Lock, Diplomacy, Set Trap, Craft Armor, Craft Weapon, Bluff, Survival)
+* New PrC: Marksman (100%)
+* New Race: Feytouched
+* New Race: Spellscale
+* New Spell: Arc of Frost
+* New Spell: Call Frost
+* New Spell: Glitterdust (B2, D2, SW2)
+* New Spell: Lightning Blast
+* New Spell: Wounding Whispers
+* Ninja AC no longer works with a shield
+* Ninja AC recalculated when equipping/unequipping armor
+* Paragan Visionary should have darkvision
+* Potions now fail when the Stone Body or Iron Body spells are active.
+* Power word spells are now all Enchantment spells
+* Protection from Alignment type spells, Mind Blank, and Lesser Mind Blank only block charm, confusion, fear, and domination effects (not all mental effects).
+* Protective Ward description now mentions it requires level 1 Ranger spellcasting.
+* Reduce/Enlarge Person now counter each other.
+* Resonating Bolt adjusted to be a 60' spell line, not a 20' spell line (addressing issues with targeting and spell effect).
+* Sirine's Grace now calculates the deflection AC *after* the +Cha is handled (delaycommand function)
+* Song of Discord now triggers Clap of Thunder
+* Spiked/Bladed gauntlets now count as melee weapons for buff spells/abilities.
+* Spirit Shaman returned to Wis/Cha and not Wis/Wis. The change was meant to be optional and not released as part of the pack.
+* Stone Body and Iron Body remove Freedom of Movement
+* Storm Bolt adjusted to be a 60' spell line, not a 20' spell line (addressing issues with targeting and spell effect).
+* Storm Bolt now gains a bonus to DC equal to half of your Stormsinger levels.
+* Stormlord descriptions updated to remove the 4d8 massive crits for x3 weapons and 6d8 massive crits for x4 weapons text.
+* Summon 8 for druids/spirit shamans will now summon two elementals (the second when the first dies).
+* Telthor Companion no longer gains any levels from Clerics who have the Animal domain.
+* Tenacious Plague now breaks invis.
+* Toxic Gift duration increased (2 rounds per level instead of 1)
+* Two-handed combat style added for Rangers (Power Attack -> Improved Power Attack -> Enhanced Power Attack -> Supreme Power Attack)
+* Unarmed Melee Mast description updated to indicate you may not have anything in your hands.
+* Unlimited Ammo 1d6 Acid has been added to the toolset.
+* Unlimited Ammo Adamantine has been added to the toolset.
+* Unlimited Ammo Alchemical Silver has been added to the toolset.
+* Unlimited Ammo Cold Iron has been added to the toolset.
+* Unlimited Ammo Dark Iron has been added to the toolset.
+* Unlimited Ammo Mithril has been added to the toolset.
+* Update description for AK, DivCha, Hosp, WarDark, ChampWild to include Epic Heavy Armor Optimization.
+* Use the new LoA Guarding the Lord fix
+* Utterdark Blast no longer deals an extra 12 points of damage.
+* Vanilla blast now accounts for Armored/Battle Caster
+* Voracious Dispelling and Devour Magic gain subradials (area and single target)
+* War Cry now triggers Clap of Thunder
+* Warlock's Darkness and Entropic Warding invocations now use my caster level function instead of the stock one.
+* Warlocks Charm, Curse of Despair, and Wall of Perilous Flame now use my spell resist code.
+* Wildshape now suffers a 100% spell failure without natural spell. Exploit loop closed.
+* Wounding Whispers now triggers Clap of Thunder
+
+Scouts now correctly get Dash and Trackless Step at 3rd level (not 2nd).
+Tenacious Plague now uses my warlock caster level function instead of the stock one.
+Chilling Tentacles now uses my warlock caster level function instead of the stock one.
+No form of Energized Shield (Lesser or Normal) will stack with any other form of Energized Shield.
+Dark Lantern now has Disable Device as a class skill.
+Telthor companion description no longer mentions it can be resummoned or the Feywild Warden.
+Assassin description now mentions they gain Use Poison at 1st level.
+Avenger description now mentions they gain Use Poison at 1st level.
+Blackguard description now mentions they gain Use Poison at 1st level.
+Reserve feats added to the item property set
+Empower Blast and Maximize Blast now mention they only affect the first target of the blast (regardless of the shape).
+Ghost-Faced Killer's Frightful Attack now hits those within 30' (instead of 15') and no longer attempts to do spectacular kills.
+Spirit of X spells no longer work if you are shifted, Wildshape (all forms) now removes these spells, no longer stack
+AnimComp localvar deleted on levelup, not just set to ""
+GUI source code included since levelup doesn't fire the levelup script without it.
+
+1.42f
+    New Spell: Moonfire
+    Dragonslayer damage bonus now works for the Scalykind domain.
+    New domains: http://nwn2customcontent.wikidot.com/new-domains
+    Strength domain no long has Bigby spells
+    Illusion domain loses Mirror Image and Displacement, gains Blur and Invisibility Sphere
+    Time domain has Haste moved to 4th level
+    Stone to Flesh restored to original code
+    Hexblade's Minor Shapeshift now requires Hexblade 14+
+    Hexblade's Epic Curse now requires Hexblade 26+
+    Energy Drain description no longer mentions a saving throw
+    All forms of eldritch blast do half damage if the caster has any Epic Automatic Quicken feats.
+    New cmi_option (defaults to off for SP, on for MP) that turns off the equip/con code.
+    New cmi_option (defaults to off) that turns on/off the Death Ward changes
+    Storm Bolt DC corrected (no longer over counts the Stormsinger level contribution).
+    Death Ward change is now optional
+    Equip/Unequip changes for Con items are now optional
+    Stone/Iron Body change has been removed
+    Freedom of Movement change has been removed
+    CoN/SD may now take levels in each other
+    Battle Dancer feat is now available to Swashbucklers and Bards at level 5.
+    Swashbucklers gain Ref as a high save. It doesn't make much sense that it's a low save.
+    Rogues now have access to HiPS at 13+ (optional download)
+    Rune feats activate the cooldown of all other rune feats.
+    Rune feats are now available as bonus feats for Wizards/Red Wizards

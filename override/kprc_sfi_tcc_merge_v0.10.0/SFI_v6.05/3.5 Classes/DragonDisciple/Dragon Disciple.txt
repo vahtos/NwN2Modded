@@ -1,0 +1,39 @@
+
+        Thank you Piotyr! 
+        Also known as Chaos-Piotyr on the NWN2 forum boards. Without his help you wouldn't be reading this. 
+        He's the one who motivated me to attempt this.
+
+
+
+        PnP Dragon Disciple (actually the same as Obsidian defaults):
+
+        Requires Bard/Sorcerer, Lore 8 ranks (no knowledge Arcana available).
+
+
+
+	Gains the following* :
+
+	1st level: 1st Bonus Spell-slot.
+	2nd level: 2nd Bonus Spell-slot. Also, gains Bite/Claws attacks based on size. Medium-sized 
+                   gains 1d6Bite/1d4Claws. Small-sized gains 1d4Bite/1d3Claws.
+
+	3rd level: Nothing extra.
+	4th level: 3rd Bonus Spell-slot.
+	5th level: 4th Bonus Spell-slot.
+	6th level: 5th Bonus Spell-slot.
+	7th level: Nothing extra.
+	8th level: 6th Bonus Spell-slot.
+	9th level: 7th Bonus Spell-slot.
+	10th level: Nothing extra.
+
+
+        *De-leveling will remove any bonuses granted as if you never had the class level.
+
+
+
+        NOTE: You must use my equip and un-equip scripts. All of the Bonus Spell-slots are controlled 
+              through the use of these scripts. Without them this class will not work properly. Also, 
+              to properly use this hak, you must remove all of your RDD levels (then you can add them 
+              back in once my hak is in your override folder) so that all my custom feats (grants Bonus Spell-slots) 
+              will be added at level-up.
+

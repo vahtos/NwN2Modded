@@ -1,0 +1,10 @@
+
+ These are the changes made to the Disease.2da file. This affects the spell Contagion.
+
+
+
+Row 4 (Filth Fever)- Changed Type_1 from 3 to 1. This changes the affected ability from Intelligence to Dexterity.
+
+Row 8 (Shakes)- Changed Dice_1 from 6 to 8. Changed Type_1 from 0 to 1. This changes the affected ability from Strength to Dexterity, and the amount of ability damage from d6 to d8.
+
+Row 9 (Slimy Doom)- Changed Type_1 from 1 to 2. This changes the affected ability from Dexterity to Constitution.

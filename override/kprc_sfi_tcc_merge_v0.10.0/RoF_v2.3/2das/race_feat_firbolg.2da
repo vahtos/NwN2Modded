@@ -1,0 +1,12 @@
+2DA V2.0
+
+     FeatLabel                   FeatIndex 
+0    LowLightVision              354       
+2    WeapProfSim                 46        
+3    WeapProfMar                 45        
+5    ArmProfLgt                  3         
+6    ArmProfMed                  4         
+7    Shield                      32        
+8    LongGait                    2248      
+9    FEAT_HAGSPAWN_NATURAL_ARMOR 2090      
+10   FEAT_RACIAL_NATURAL_ARMOR_1 2112      

@@ -1,0 +1,18 @@
+2DA V2.0
+
+     FeatLabel                          FeatIndex 
+0    darkvision                         228       
+1    FEAT_EPIC_ENERGY_RESISTANCE_FIRE_1 553       
+2    hardinesspoisons                   229       
+3    hardinessspells                    230       
+4    orctrain                           231       
+5    gobtrain                           232       
+6    gianttrain                         233       
+7    skillaffinitylore                  234       
+8    FEAT_WEAPON_PROFICIENCY_DWARF      1770      
+9    FEAT_SKILL_FOCUS_CRAFT_ARMOR       911       
+10   FEAT_SKILL_FOCUS_CRAFT_WEAPON      912       
+11   SkillFocAppraise                   404       
+12   ResistEnergyFire                   429       
+13   WeapProfSim                        46        
+14   WeapProfMar                        45        

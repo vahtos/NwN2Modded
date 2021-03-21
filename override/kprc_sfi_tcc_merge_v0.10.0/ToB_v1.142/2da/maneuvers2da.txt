@@ -1,0 +1,120 @@
+The following is a description of how the columns of maneuvers.2da function.  Row zero is always considered the default null line,
+or the line that the Tome of Battle's scripts default to when an error occurs.  Fyi, the entry '****' is read by script as a
+blank string when returning a strnig, 0 when returning an int, and 0.0 when returning a float.
+
+Name:
+
+The name of the maneuver.  Purely for organizational purposes and never interacts with the Tome of Battle's scripts.
+
+
+ICON:
+
+The name of the icon that represents the maneuver.  All maneuver icons are 40x40 tga files found in the TGA folder.  There is no
+real naming convention for these, although as a rule of thumb I try to keep the names under 32 characters (16 if I can help it).
+Two different tga files of the same name in the override folder will conflict.
+
+
+StrRef:
+
+The dialog.tlk index number of the maneuver's name.  This entry is the name of the maneuver used in the Tome of Battle's scripts.
+
+
+Description:
+
+The dialog.tlk index number of the maneuver's description.  These include a description of how the maneuver functions, lists of
+requirements by class, initiator level, known maneuvers (if any), action type, and maneuver type.  The action types are swift and
+standard actions and the four maneuver types are Stances, Strikes, Counters, and Boosts.
+
+
+Script:
+
+The actual script that runs when a maneuver is initiated.  Unlike spellscripts (scripts run from spells.2da), scripts run from this 
+2da must include many basic functions within the actual script such as animations, sound effects, and visual effects.  Most of
+these basic functions can be found in the bot9s_inc_maneuvers include file.  I do not have a template of the four basic types of
+maneuver scripts yet, but the format is common between the four in existing scripts.  For naming conventions with these scripts 
+I've gone with the prefixes: 
+
+'bo_' for boosts, 
+'ct_' for counters, 
+'sa_' for stances, and 
+'st_' for strikes
+
+These conventions are only my way of recognizing them and in no way influence how the scripting framework recognizes their types.
+Arguably, you could even already insert an existing spellscript into one of these slots and it would run (although it definitely 
+would not function correctly).  Also, as a point of interest, the levelup system uses this column to tag the maneuver objects in 
+the player’s Tome of Battle.  This should only matter in saved games when there is a transition from one version of the Tome of 
+Battle to another (or very rarely, if at all).  However, it is important to note that the maneuver object contains additional 
+data that is needed to run scripts.  If you make a script, make an object of the same tag as the script's name.
+
+
+Level:
+
+The initiator level requirement that the player must meet in order to learn a maneuver.  Like spell levels there are nine, and 
+currently the scripting framework will only recognize nine.  Additionally, blank entries in this column will exclude non-maneuver 
+support scripts from the levelup process.  The scripts I’m referring to are found at the top of the quickstrike menu are directly 
+coded into the menu’s script, gui_quickstrike.  You would have to edit this script in order to make a utility script, such as the 
+button that toggles if Shadow Blade Technique uses the highest of its two attack rolls or the lowest (gui_shadowbt).
+
+
+Mastery:
+
+How many maneuvers of the same discipline as the maneuver a player must know in order to have access to the maneuver.  If the 
+column is for a White Raven maneuver and this entry reads two, then the player must already know two White Raven maneuvers in order
+to learn it.  As per the rules, stances count as maneuvers for the purposes of leveling.  Leaving this entry blank simply means 
+that no maneuvers are required in order to learn the row’s entry.
+
+
+IsStance:
+
+Setting this row to one indicates that the row entry for the maneuver is a stance.  The actual script of the stance must be in a 
+format that makes it run as a stance.  Setting this is only a flag for the levelup system.  Stances are different from other 
+maneuvers in that they can never be retrained, are never expended, and have their own entry in the selection menus under the ‘*’ 
+button.  Again, they count as maneuvers for the purposes of determining requirements for other maneuvers.
+
+
+Discipline:
+
+The scripting framework of the Tome of Battle currently recognizes only the original nine disciplines.  These are indicated by 
+numbers in alphabetical order or:
+
+1 = Desert Wind
+2 = Devoted Spirit
+3 = Diamond Mind
+4 = Iron Heart
+5 = Setting Sun
+6 = Shadow Hand
+7 = Stone Dragon
+8 = Tiger Claw
+9 = White Raven
+
+Maneuver requirements for a certain number of maneuvers in a discipline are always within that discipline.  You will never need to 
+know 2 Shadow Hand maneuvers in order to learn an Iron Heart maneuver.
+
+
+Type:
+
+Determines how the menu scripts sort and activate maneuvers.  1 = Stance, 2 = Strike, 3 = Boost, 4 = Counter.
+
+
+Movement:
+
+Determines what type of movement the player makes when they are out of range of the target of the maneuver.  0 or blank for no
+movement, 1 for normal movement, 2 for a charge.
+
+
+Location:
+
+When set to one, the maneuver will target a location rather than a creature.  Targeting a creature with a maneuver that targets 
+location will only return the value of the location the creature is standing on.
+
+
+SupressAoO:
+
+Applies only to charge attacks.  When set to one, the initiator of the maneuver will not provoke attacks of opportunity while 
+moving.
+
+
+Range:
+
+Overrides the initiator of the maneuver’s weapon range with the value (in feet) of this column.  Typically used for non-melee 
+attacks such as Shadow Garrote or Inferno Blast.

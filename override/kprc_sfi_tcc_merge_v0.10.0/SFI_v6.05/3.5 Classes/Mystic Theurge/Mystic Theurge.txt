@@ -1,0 +1,5 @@
+
+
+Follows PnP as much as possible except:
+
+Arcane caster requirement lowered from level 2 spells to level 1 spells. This helps Bards and Sorcerers get a few more chances to use their base class level-up to select their missing spells. However, the minimum class-level for Wizard was raised from 1 to 2. This was done to prevent a HUGE exploit with the Wizard class (they would get extra spells on every level-up, if using the Favored Soul or Spirit Shaman as the Divine portion of the class, as the Wizard was always being given the extra spells that a 1st level Wizard receives).

@@ -1,0 +1,69 @@
+
+
+These were fixed/created by Reeron. 
+
+Don't be a dick. If you use these, make sure you don't take credit for yourself. 
+If anyone tries to give you the credit, do the right thing and make sure to point out WHO ACTUALLY DID THE WORK. 
+People taking credit for my hard work is why I left the community, and why (before I left) I started hiding my work by not releasing 
+the source code. 
+
+
+
+
+mwa_shhv_mth_4.UTI Correct version of a Mithral Heavy Shield. Well, sort of. Not recommended to use without my version of The Complete Craftsman.
+
+mwa_shlt_mth_4.UTI Correct version of a Mithral Light Shield. Well, sort of. Not recommended to use without my version of The Complete Craftsman.
+
+mwa_shtw_mth_4.UTI Correct version of a Mithral Tower Shield. Well, sort of. Not recommended to use without my version of The Complete Craftsman.
+
+mst_swsc_ada_69_mast.UTI Masterwork Adamantine Scimitar +1 with 1d6 acid, cold, and sonic damage. Also, 2d6 vs evil.
+
+n2_armhe0069.UTI       Headband of Intellect +12. Engine capped at +12.
+
+n2_it_mmidmisc069.UTI  Scabbard of Keen.
+
+Nw_cloth069.UTI Sorcerer's Robe but don't remember what was changed, if anything..
+
+nw_it_mbelt006.UTI Fixed belt of Inertial Barrier. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mbelt009.UTI Fixed Swordsman's belt. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mbelt010.UTI Fixed Brawler's belt. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mbelt011.UTI Fixed Archer's belt. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mbelt012.UTI Fixed Greater Swordsman's belt. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mbelt013.UTI Fixed Greater Brawler's belt. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mbelt014.UTI Fixed Greater Archer's belt. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_it_mboots023.UTI Boots of Hardiness +4.
+
+nw_it_mboots069.UTI Permahaste boots of speed.
+
+nw_it_mring069.UTI Ring of poison resistance without light. Basically a Purple Dragon Ring without the light.
+
+NW_ITEM_000.UTI Fixed belt of Inertial Barrier. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+nw_wmgwm112.UTI Wand of Expeditious Retreat.
+
+nw_wmgwn6969.UTI Custom wand of Divine Favor. Casts at 20th level so it helps keep it from being dispelled.
+
+nx1_ring06.UTI Fixed BoneDancer ring. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+x0_it_mbracer069.UTI Permahaste Bracers of the Blinding Strike.
+
+x0_it_mring069.UTI Commander's ring without light or knock, basically a +2 Ring of Fortification.
+
+x1_it_mring222.UTI Ring of the Wanderer without light.
+
+x2_it_mring017.UTI Fixed Iron Skin Ring. Damage Reduction actually works now as I replaced Damage Resistance with Damage Reduction.
+
+
+
+
+
+In SpellsPnP folder:
+
+nw_wswls0069.UTI Mordenkainen's equipped Longsword.

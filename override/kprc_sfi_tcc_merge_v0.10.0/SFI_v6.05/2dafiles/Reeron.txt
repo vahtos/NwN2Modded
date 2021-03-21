@@ -1,0 +1,34 @@
+
+As of 6-11-10:
+
+The Reeron.2da file is used to:
+
+1) Control the rate at which summons scale with you in the Animate Dead, ELemental Summoning pool, Create Undead, Create Greater Undead, and Summon Creature scripts. 
+
+2) Control the rate at which summons' AC scales with you in all the summoning scripts that I have modified (and actually use AC-scaling).
+
+
+
+
+If you are not using my Improved folder you can still keep this 2da file as it doesn't affect anything else.
+
+
+
+
+
+
+
+
+If you want the summons' level to scale with you at 1/2 your level, then leave the two variables (Undead_level_variable_a and Undead_level_variable_b) at their default values of 1 and 2. If you want them to scale with you at 4/5 your level, then set variable a to 4 and variable b to 5. You can set the variables however you want, but don't use a zero for the 2nd variable as that will cause a divide by zero error. If you don't want the level to scale at all then set variable a to zero and variable b to any number except zero (can leave it at it's default vale of 2).
+
+
+
+If you want the summons' AC to scale with you at 1/2 your level, then leave the two variables (Shield_AC_variable_a and Shield_AC_variable_b) at their default values of 1 and 2. If you want them to scale with you at 4/5 your level, then set variable a to 4 and variable b to 5. You can set the variables however you want, but don't use a zero for the 2nd variable as that will cause a divide by zero error. If you don't want the AC to scale at all then set variable a to zero and variable b to any number except zero (can leave it at it's default vale of 2).
+
+
+In the future, all of the variables in my summoning scripts will be able to be altered through the use of this 2da file.
+
+
+
+PS- Thanks to Xing (over on the NWN2 forum boards) and Flagcarrier for "motivating" me to do this, as well as giving me the idea.
+

@@ -1,0 +1,186 @@
+
+ These are the changes made to the Spells.2da file. If you are using a hak-pak that has a modified Spells.2da file in it, 
+you will have to modify it with the following changes to make sure all my scripts work correctly. Please type them EXACTLY as I 
+have written them. Single letters like "V" or "T" are ALWAYS capitalized.
+
+
+Row 0 (Acid Fog)- Changed Range (column 6) from L to M. Changed TargetingUI (3rd column from end) from 8 to 2.
+
+Row 424 (Acid Splash)- Changed Range (column 6) from M to S.
+
+Row 2 (Animate Dead)- Changed TargetType (column 9) from 0x3E to 0x2C.
+
+Row 429 (Aura of Glory)- Changed TargetingUI (3rd column from end) from 10 to 7.
+
+Row 372 (Aura of Vitality)- Changed TargetingUI (3rd column from end) from 10 to 8. Changed Range (column 6) from T to S.
+
+Row 436 (Balagarn's Iron Horn)- Changed School (column 5) from E to T.
+
+Row 449 (Bane)- Changed Range (column 6) from L to P. Changed TargetingUI (3rd column from end) from 10 to 17. Changed TargetType (column 9) from 0x2F to 0x2D.
+
+Row 430 (Banishment)- Changed TargetingUI (3rd column from end) from 10 to 8.
+
+Row 517 (Battletide)- Changed Range (column 6) from P to S. Changed TargetingUI (3rd column from end) from 7 to 8.
+
+Row 4 (Bestow Curse)- Changed School (column 5) from T to N.
+
+Row 462 (Bigby's Clenched Fist)- Changed Range (column 6) from L to M.
+
+Row 463 (Bigby's Crushing Hand)- Changed Range (column 6) from L to M.
+
+Row 460 (Bigby's Forceful Hand)- Changed Range (column 6) from L to M.
+
+Row 461 (Bigby's Grasping Hand)- Changed Range (column 6) from L to M.
+
+Row 459 (Bigby's Interposing Hand)- Changed Range (column 6) from L to M.
+
+Row 2206 (Blast of Flame)- New spell added.
+
+Row 6 (Bless)- Changed TargetType (column 9) from 0x2F to 0x29. Changed Range (column 6) from L to P. Changed TargetingUI (3rd column from end) from 10 to 17.
+
+Row 8 (Blindness and Deafness)- Changed School (column 5) from I to N.
+
+Row 1001 (Body of the Sun)- Changed Wiz_Sorc (column 16) from **** to 2. Changed TargetingUI (3rd column from end) from 0 to 6.
+
+Row 423 (Bombardment)- Changed TargetingUI (3rd column from end) from 10 to 8.
+
+Row 10 (Burning Hands)- Changed School (column 5) from T to V.
+
+Row 18 (Circle of Death)- Changed TargetingUI (3rd column from end) from 10 to 18.
+
+Row 23 (Cloudkill)- Changed School (column 5) from N to C. Changed Range (column 6) from L to M. Changed TargetingUI (3rd column from end) from 8 to 2.
+
+Row 569 (Cloud of Bewilderment)- Changed Range (column 6) from S to P. Changed TargetingUI (3rd column from end) from 8 to 22.
+
+Row 24 (Color Spray)- Changed Metamagic (Column 8) from 0x3D to 0x38. Changed TargetingUI (3rd column from end) from 3 to 16.
+
+Row 25 (Cone of Cold)- Changed Range (column 6) from S to P. Changed TargetingUI (3rd column from end) from 8 to 21 (Custom value- 60 foot cone).
+
+Row 28 (Control Undead)- Changed TargetingUI (3rd column from end) from 0 to 8. Changed TargetType (column 9) from 0x2A to 0x2E.
+
+Row 29 (Create Greater Undead)- Changed TargetType (column 9) from 0x3E to 0x2C.
+
+Row 30 (Create Undead)- Changed TargetType (column 9) from 0x3E to 0x2C.
+
+Row 364 (Creeping Doom)- Changed TargetingUI (3rd column from end) from 2 to 8. Changed Range (column 6) from M to S.
+
+Row 863 (Crushing Despair)- Changed Range (column 6) from M to P.
+
+Row 36 (Darkness)- Changed Range (column 6) from L to T. As per PnP.
+
+Row 37 (Daze)- Changed Range (column 6) from L to S.
+
+Row 855 (Deep Slumber)- Changed TargetingUI (3rd column from end) from 2 to 7. Changed Range (column 6) from L to S.
+
+Row 39 (Delayed Blast Fireball)- Changed TargetingUI (3rd column from end) from 8 to 2. Changed Range (column 6) from M to L.
+
+Row 875 (Disintegrate)- Changed Range (column 6) from L to M.
+
+Row 41 (Dispel Magic)- Changed TargetingUI (3rd column from end) from 8 to 2.
+
+Row 458 (Displacement)- Changed MetaMagic (column 8) from 0x1a to 0x7a.
+
+Row 437 (Drown)- Changed School (column 5) from T to C. Spell Compendium Page 74 and also the in-game description both state this.
+
+Row 839 (Eldritch Doom)- Changed Range (column 6) from M to P. Changed TargetType (Column 9) from 0x3E to 0x3F. Changed TargetingUI (3rd column from end) from 8 to 2.
+
+Row 375 (Evard's Black Tentacles)- Changed TargetingUI (3rd column from end) from 7 to 2.
+
+Row 54 (Fear)- Changed TargetingUI (3rd column from end) from 8 to 3. Changed Range (column 6) from M to T.
+
+Row 55 (Feeblemind)- Changed School (column 5) from D to E. Changed Metamagic (Column 8) from 0x3F to 0x38.
+
+Row 57 (Firestorm)- Changed Range (column 6) from L to M.
+
+Row 59 (Flame Arrow)- Changed Range (column 6) from L to M.
+
+Row 2205 (Freezing Sphere)- New spell added.
+
+Row 66 (Grease)- Changed TargetingUI (3rd column from end) from 2 to 20 (Custom value- 10' by 10' square). Changed Range (Column 6) from L to S.
+
+Row 67 (Greater Dispel)- Changed TargetingUI (3rd column from end) from 9 to 2.
+
+Row 453 (Greater Magic Fang)- Changed Range (column 6) from T to S.
+
+Row 75 (Gust of Wind)- Changed TargetingUI (3rd column from end) from 2 to 21. Changed Range (column 6) from M to P.
+
+Row 816 (Hideous Blow)- Changed TargetType (Column 9) from 0x32 to 0x01. Changed Hostile Setting (9th Column from end) from 1 to 0.
+
+Row 367 (Horrid Wilting)- Changed Range (column 6) from M to L.
+
+Row 2207 (Icelance)- New spell added.
+
+Row 89 (Incendiary Cloud)- Changed School (column 5) from E to C. Changed TargetingUI (3rd column from end) from 8 to 2. Changed Changed Range (column 6) from L to M.
+
+Row 91 (Invisibilty Purge)- Changed TargetType (Column 9) from 0x39 to 0x09.
+
+Row 94 (Lesser Dispel)- Changed TargetingUI (3rd column from end) from 8 to 2.
+
+Row 2204 (Maddening Scream)- New spell added.
+
+Row 107 (Magic Missle)- Changed Range (Column 6) from L to M. Changed ProjType (column39) from burst to accelerating. Lowered ConjTime (column 19) from 1500 to 500. Lowered CastTime (column 29) from 1000 to 500.
+
+Row 19 (Mass Inflict Light Wounds)- Changed Range (column 6) from M to S.
+
+Row 974 (Meteor Swarm Location)- Lowered ConjTime (column 19) from 1500 to 500. Lowered CastTime (column 29) from 1000 to 500.
+
+Row 975 (Meteor Swarm Creature)- Lowered ConjTime (column 19) from 1500 to 500. Lowered CastTime (column 29) from 1000 to 500.
+
+Row 118 (Mind Fog)- Changed TargetingUI (3rd column from end) from 10 to 2. Changed Range (Column 6) from L to M.
+
+Row 122 (Mordenkainen's Disjunction)- Changed Hostile Setting (9th Column from end) from 1 to 0.
+
+Row 123 (Mordenkainen's Sword)- Changed School (column 5) from T to V.
+
+Row 2200 (Negative Energy Ray)- Added this spell entry. Won't be done until version 4.5.
+
+Row 2201 (Negative Energy Burst)- Added this spell entry.
+
+Row 2202 (Negative Energy Ray (sub-radial))- Added this spell entry. Won't be done until version 4.5.
+
+Row 2203 (Negative Energy Ray (sub-radial))- Added this spell entry. Won't be done until version 4.5.
+
+Row 129 (Poison)- Changed Metamagic (Column 8) from 0x38 to 0x3D.
+
+Row 131 (Power Word Kill)- Changed School (column 5) from D to E.
+
+Row 132 (Power Word Stun)- Changed School (column 5) from D to E.
+
+**Row 133 (Prayer)- Changed TargetType (column 9) from 0x29 to 0x09.
+
+Row 135 (Prismatic Spray)- Changed TargetingUI (3rd column from end) from 5 to 21 (Custom value- 60 foot cone).
+
+Row 144 (Ray of Frost)- Changed School (column 5) from C to V.
+
+Row 854 (Scare)- Changed TargetType (column 9) from 0x2A to 0x2E. Changed Range (column 6) from S to M.
+
+Row 871 (Shroud of Flame)- Changed Range (column6) from S to M.
+
+Row 163 (Silence)- Changed HostileSetting (9th Column from end) from 1 to 0. Added in 2 sub-radial options (2208 (hostile) and 2209 (friendly)).
+
+Row 171 (Stinking Cloud)- Changed TargetingUI (3rd column from end) from 9 to 2.
+
+Row 835 (Tenacious Plague)- Changed Range (column6) from M to L.
+
+Row 185 (Timestop)- Changed Wiz_Sorc (column 16) from **** to 9. Changed Innate (column 18) from **** to 9.
+
+Row 190 (Wail of the Banshee)- Changed TargetingUI (3rd column from end) from 10 to 18.
+
+Row 963 (Warpriest Battletide)- Changed Range (column 6) from P to S. Changed TargetingUI (3rd column from end) from 7 to 8.
+
+Row 193 (Weird)- Changed TargetingUI (3rd column from end) from 10 to 8.
+
+Row 1801 (Control Undead)- Added this line in for Palemaster's 5th level ability Control Undead (requires melee touch attack). Changed Range (Column 6) from S to T. Changed FeatID ( 8th column from end) from **** to 3403. This is the new feat I created in Feat.2da.
+
+Row 1802 (Lay on Hands: Damage Undead)- Added this line in for the Paladin and Divine Champion. They can now hurt Undead with the Lay on Hands ability.
+
+Row 2808 (Silence hostile version)- Added this line so the original Silence spell can use a sub-radial option.
+
+Row 2809 (Silence friendly version)- Added this line so the original Silence spell can use a sub-radial option.
+
+
+
+
+
+** The following changes are new.
+

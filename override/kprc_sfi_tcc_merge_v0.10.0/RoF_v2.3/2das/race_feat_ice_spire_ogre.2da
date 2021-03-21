@@ -1,0 +1,14 @@
+2DA V2.0
+
+     FeatLabel                   FeatIndex 
+0    FEAT_GSA_MOVE_SILENTLY      1748      
+1    WeapProfSim                 46        
+2    WeapProfMar                 45        
+3    ArmProfLgt                  3         
+4    ArmProfMed                  4         
+5    Shield                      32        
+6    LongGait                    2248      
+7    FEAT_HAGSPAWN_NATURAL_ARMOR 2090      
+8    FEAT_RACIAL_NATURAL_ARMOR_1 2112      
+9    hardinesspoisons            229       
+10   FEAT_TIEFLING_HIDE          1087      

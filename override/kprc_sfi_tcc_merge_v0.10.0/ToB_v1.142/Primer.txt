@@ -1,0 +1,189 @@
+Tome of Battle: The Book of the Nine Swords
+
+version 1.142
+
+
+Installation:
+
+1.Unzip the Tome of Battle folder into your override folder.  You can find this inside MyDocuments\Neverwinter Nights 2.  
+Currently, this class pack will conflict with others (hopefully not for too much longer) so be advised that using the Tome 
+of Battle with other class packs could cause issues.
+
+2.Unzip dialog.tlk and place it in My Documents\Neverwinter Nights 2.  This doesn’t go into override or any of the other 
+folders.  All you need to do is place it inside the Neverwinter Nights 2 folder in MyDocuments.
+
+A Primer to the Martial Adept Classes:
+
+Martial Adepts are similar to spellcasters in that they ready and expend abilities.  They also have a berth of options as to 
+what abilities they can prepare.  Right about there is where they become different.
+
+To begin with, each Martial adept class has the option to regain their expended abilities during combat.  No matter what, 
+these abilities are regained after the end of an encounter.  These are called maneuvers.  How you renew your maneuvers 
+depends on what class you’re playing as.  Martial Adepts also can choose to have a constant ability functioning called 
+stances.  Stances last until you opt to end the stance or until you switch to another stance.  All stances require a swift 
+action to activate, or as it is referred to, ‘initiate’.
+
+Swift actions and immediate actions are new to Neverwinter Nights 2.  A swift or immediate action represents an action that 
+requires so little time that you would not use a standard action for it (such as making a short hop, or flourishing your 
+weapon after an attack).  Swift and immediate actions, however are more time intensive than free actions and thus, you are 
+limit to one per round (or six seconds).  The swift action queue is the small box to the right of the standard action queue.
+
+Almost all boost and counter maneuvers are swift or immediate actions.  A boost is generally a maneuver that grants the 
+initiator a small advantage, such as increasing weapon damage or weakening an opponent.  A counter is generally a reaction 
+to a hostile action (although this isn’t always true), such as an enemy attacking you with a spell or merely walking within 
+your reach.  Almost all boosts are swift actions and almost all counters are immediate actions.
+
+Due to the nature of NWN2’s interface counters are initiated in expectation of the condition that triggers the counter.  
+For instance, Action Before Thought grants a bonus to your reflex saves until the triggering action, which is an ability 
+that causes the player to make a reflex save.  Once the player makes the reflex save with the bonus, the immediate action 
+is spent, but not before then.  Before it is only expended and cannot be used again until recovered.  Only one counter can 
+ever be prepared for a triggering condition at a time.  Initiating a new counter before the previous one has been expended 
+by the triggering action will cause the old counter to be wasted.
+
+Strikes are maneuvers which require a standard action to initiate.  Most strikes (but not all) involve an attack against an 
+opponent in order to inflict the condition of the maneuver onto the opponent.  For example, most strikes are similar in 
+nature to the Paladin’s Smite Evil.  They grant a specific bonus, but that bonus is only useful if the Paladin actually 
+hits his target.
+
+Like spells, maneuvers are influenced by a character’s relative capability in using them.  With spell casting classes this 
+number is called the caster level and represents how many levels the player has in casting the type of spells for their 
+class (Arcane, Divine, and so on).  Martial Adepts have something similar called an Initiator Level.  The main difference 
+between initiator level and caster level is that a Martial adept can add half of his non-martial adept class levels to his 
+initiator level.  A level seven crusader, level five fighter has an initiator level of 11 for example.  When dealing with 
+multiclass Martial Adepts (Crusader 5/ Warblade 3) one or the other is added as half depending on what class the maneuver 
+is being executed as (Executing a maneuver from the Warblade menu means that the initiator level of a Crusader 5/ Warblade 3 
+would be 5).  Having an Initiator level of 1-2 allows you to learn first level maneuvers.  3-4 for second level, 5-6 for 
+third, 7-8 for fourth, 9-10 for fifth, 11-12 for sixth, 13-14 for seventh, 15-16 for eighth, and 17+ for ninth level 
+maneuvers.
+
+Initiator level also determines the highest level of maneuver a Martial Adept can learn when he gains a level.  For this 
+the highest initiator level possible is used to determine which abilities he can learn.  Additionally, certain maneuvers 
+require you to know an amount of maneuvers from the same discipline in order to learn.  There is no hard and fast rule to 
+how there are adjudicated.  Inferno Blast requires you to know five Desert Wind maneuvers in order to learn and Mountain 
+Tombstone Strike requires no maneuvers.  Both are level nine maneuvers.  Stances count as maneuvers for the sake of 
+determining what maneuvers are available 
+
+Each martial adept has a training feat.  This training feat is also granted to those that take the Martial Study and 
+Martial Stance feats.  This feat has three functions.  The first is to create your own personal copy of the Tome of Battle. 
+ It holds all of your known maneuvers which you can examine at your leisure.  
+
+Once you have this item you will be able to access the maneuver levelup screen.  Each time you level when you are not in 
+combat you can select new maneuvers or retrain old maneuvers for new ones by activating the training feat.  If you autolevel 
+you will not choose maneuvers for the level that you are at then, but for the last time that you selected new maneuvers.  
+The list of available maneuvers to learn will be in the window on your left.  Maneuvers you choose to learn will be in the 
+window second from the left.  Maneuvers that you know and can retrain are displayed third from the left.  The description 
+window is on the far right.  You can never retrain a stance.
+
+If you have a copy of the Tome of Battle and do not need to level, selecting the training feat will toggle the martial adept 
+menu (it looks like a sword) on and off.  You cannot use the martial adept menu to ready maneuvers while you are in combat 
+(unless you take the feat, Adaptive Style).  The Quickstrike menu is the middle icon on the martial adept menu and allows 
+you to initiate your readied maneuvers.  Some maneuvers have conditional options that you can toggle with the icons of these 
+maneuvers in the space above where it displays the name of the class.  Swordsages and Warblades have an icon on the martial 
+adept menu, under the quickstrike menu’s icon which activates the recovery method for their classes.
+
+
+
+Changelog
+
+Version 1.142
+
+-Improvements to scaling of most range checks.
+-Corrected a bad 2da entry with the compatibility files for Kaedrin’s PrC pack which caused important background information 
+not to function.
+
+Version 1.141
+
+-Bug fix to Wolverine Stance to prevent shields and other non-weapons in the offhand slot from adding to the regeneration bonus.
+-Fixed Death Mark so that range and DC values are calculated correctly.
+-Corrected an issue with Shadow Blade that caused its bonus to sometimes be omitted when the player had a piercing weapon equipped.
+-Implemented a series of checks to ensure that the Tome of Battle and maneuver objects are flagged as cursed, since without 
+this flag all kind of bugs can crop up.
+
+Version 1.14
+
+-The Swordsage’s AC bonus is now applied as a permanent effect which is only updated when a condition that 
+influences this bonus changes.  This should eliminate the infamous repeating “You have a bonus that does 
+not stack” message.
+- Warblade maneuver recovery has been adjusted so that maneuvers are recovered at the end of the swift action’s
+round rather than at the beginning.
+- Overhaul of the leveling and feat retraining systems.  The new systems should be much less prone to errors.
+-Maneuvers.2da has been expanded to allow customization of the current maneuvers and to allow anyone to add 
+entirely new maneuvers (because we all love custom content).  See maneuvers.txt in the 2da file for information.
+-To showcase the new ability to add maneuvers, I added a new first level White Raven Boost called Encouragement.
+- Overhaul of the 2da indexing system.  The new system has been designed for efficiency and to allow Persistent 
+World scripters to hook their own lookup systems directly into the Tome of Battle (check the library file, 
+bot9s_inc_2da for this).
+-Small bugfix for White Raven Tactics, Fan the Flames, and Distracting Ember.  The range detection check was too 
+short because it did not take into account the target’s size.
+-The first time the player levels their maneuvers a starting weapon is also created.
+-Fixed an issue that was causing the Swordsage’s 12th level Insightful Strike to be ignored.
+-Initiating more than one strike from outside of melee range will no longer enqueue many separate move actions.  
+Each strike that was called from out of range will enqueue properly, once the player is within range of their 
+target.
+-Corrected a few bad tags for the Tome of Battle object that were missed in 1.13. 
+
+
+Version 1.13
+
+- Implemented safeguards against the loss of 2da and tlk data.
+- Removed the BAB requirement on Stone Power.  How it got there in the first place, I’ll never know…
+- Adjusted the Swordsage’s AC bonus so that it will not be applied to the player while they are already under a 
+shield AC bonus effect (such as Mage Armor).
+- Optimized how the Tome of Battle object is identified in NWScript.
+- Several small code optimizations throughout.  Nothing that should be noticeable, but it should make things run 
+a little more smoothly.
+- Took another shot at maneuvers hanging on larger creatures.  It should (cross your fingers) be fixed now.
+- Added a check on an opponent’s health that prevents a maneuver from expending if the opponent is already at less 
+than one hit point.
+
+Version 1.12
+
+- The Tome of Battle is now compatible with Mysteries of Westgate.
+- Fixed an issue which caused a maneuver to be unable to be used if the player interrupted it while moving.  In 
+relation to this bug (to be on the safe side) I’ve made it so that clicking on the swift action box will clear 
+out the action queue and how maneuvers are recorded on it.  It functions like a panic button.
+- Expanded the dialog.tlk and cleaned up a few typos.
+- Resolved the issue that would freeze the maneuver selection screen.  My special thanks to BrainMeyer for 
+pointing out the cause of this bug.
+- Greatly improved how feats with recursive loops are handled.  This was to prevent an issue where module 
+transition would shut down the loops and prevent them from running again.
+- Added a new icon to the Maneuvers Known menu.  When pressed, it opens a menu where the player can preview all 
+maneuver and stance descriptions by level and discipline.
+
+
+Version 1.11
+
+- Files for compatibility with Kaedrin’s PrC Pack 1.40 are now available.
+- Fixed an issue with Aura of Perfect Order which caused will saves to be calculated incorrectly.
+- Crusaders now have access to tower shields automatically, as per the class description.  Oops...
+- Battle Skill has been adjusted.  The penalties to an opponent's knockdown and disarm attempts have been removed.
+Instead the Warblade gains immunity to knockdown starting in the first round of combat for a duration in rounds 
+equal to his intelligence modifier (if any).
+
+Version 1.102
+
+- Corrected an issue where the movement part of a maneuver’s execution would hang a strike with larger creatures.
+
+Version 1.101
+
+-Hotfix to correct an issue where Storm of Zehir’s OnAquire script destroys all of a companion’s maneuver items.
+
+Version 1.1
+
+- Warblade maneuver progression has been corrected.
+- Burning Brand and Dancing Blade Form have both been rescripted to prevent a rare bug from occurring.  Item 
+swapping has been removed from both scripts and overall their functionality is much smoother than the previous 
+versions.
+- The base items for the Tome of Battle and the maneuvers have been altered to correct compatibility issues for 
+players without Mask of the Betrayer or Storm of Zehir.
+- The Maneuvers Known screen will no longer automatically open on the player’s Stance listing.  This is due to an 
+overall improvement in how xml data is now handled.
+- Switched from the system of linked effects to one of totaled structs, which are then used to calculate damage in 
+a single linked effect with each damage type.  While it won't entirely eliminate the issue of Damage Reduction 
+being applied to each source of damage, it does eliminate a large amount of damage lost that was reduced. 
+
+Version 1.01
+
+- Swordsages now correctly have medium BAB progression.
+- Crusader alignment restriction has been corrected and the descriptive text made a little clearer regarding alignment.
+- The combat override state now correctly includes routing for Circle Kick and Flurry of Blows.

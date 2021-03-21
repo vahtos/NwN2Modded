@@ -1,0 +1,14 @@
+Kaedrin-prc-pack
+------------------------------------------------------------------------------------------------------------------
+This version of the pack include few bugs. Most noticable one - when character is equipping and unequiping items on loading or area transition. To get rid of this you need to remove three files from scripts folder named: k_mod_pc_loaded.NCS, cmi_pc_loaded.NCS, and ccs_pc_loaded.NCS.
+
+There is also bug which make character loose HP when unequipping items with constitution bonus. Remove those files for fix: ccs_player_equip, ccs_player_unequip, cmi_player_equip, cmi_player_unequip, k_mod_player_equip, k_mod_player_unequip.
+
+Every new character created with this version of the pack has something called Coin of Jeannie in its inventory which is an item with special ablity to open shop on use wherever you are. If you don't want this coin to be spawned on every character on every module delete: cmi_coin_jeannie from blueprints and i_cmi_coin_jeannie_ac from scripts.
+
+------------------------------------------------------------------------------------------------------------------
+
+This should also fix an issue where the AI won't attack by deleting "cmi_player_equip.NCS"
+
+
+Deleted the .NCS files for bigby spells, Flame Arrow (was copy/pasted Endure Elements script...), and all Hold spells based on people saying they were all bugged. These will not be overridden and will be vanilla spells.

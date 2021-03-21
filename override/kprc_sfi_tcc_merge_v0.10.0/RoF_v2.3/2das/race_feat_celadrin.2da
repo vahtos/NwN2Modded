@@ -1,0 +1,17 @@
+2DA V2.0
+
+     FeatLabel                           FeatIndex 
+0    darkvision                          228       
+1    skillaffinitylisten                 237       
+2    skillaffinityspot                   239       
+3    WeapProfSim                         46        
+4    WeapProfMar                         45        
+5    WeapProfElf                         256       
+6    keensense                           240       
+7    skillaffinitysearch                 238       
+8    immunitysleep                       235       
+9    FEAT_FIRE_GENASI_REACH_TO_THE_BLAZE 1874      
+10   ResistEnergyFire                    429       
+11   FEAT_EPIC_ENERGY_RESISTANCE_FIRE_1  553       
+12   SkillFocusPers                      185       
+13   SkillFocusPerf                      184       

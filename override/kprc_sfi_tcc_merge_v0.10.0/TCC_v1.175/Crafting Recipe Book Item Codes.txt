@@ -1,0 +1,12 @@
+The books are adde to the vendors. If you can't visit the vendors for whatever reason, you can add the books using the console commands:
+
+Open up the console.
+
+DebugMode 1
+giveitem n2_crft_book_recipe_tcccreate
+giveitem n2_crft_book_recipe_tccenchant
+giveitem n2_crft_book_recipe_tccenchant_a
+giveitem n2_crft_book_recipe_tccenchant_w
+DebugMode 0
+
+Close the console.

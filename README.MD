@@ -2,4 +2,4 @@
 2. Copy the contents of the "override" folder to Documents\Neverwinter Nights 2\override
 3. Copy "dialog.TLK" to Documents\Neverwinter Nights 2
 
-**** Start the game using Documents\override\clientextension_latest\NWLauncher.exe ****
+**** Start the game using override\clientextension_latest\NWLauncher.exe ****

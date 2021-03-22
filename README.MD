@@ -12,7 +12,7 @@ Run the Pull_Latest.bat to update to the latest files in this repo.
 
 ### To Join Multiplayer Games
 
-1. Go to gog.com and log in
+1. Go to [gog.com](https://www.gog.com/) and log in
 
 2. Put mouse over your profile and click games
 

@@ -18,7 +18,7 @@ Run the Pull_Latest.bat to update to the latest files in this repo.
 
 3. In the game list click NWN2, More and Serial Keys.
 
-4. Finally, go to where you have installed NWN2 and open the app that says "SerialTool.exe" and put there the serials and save.
+4. Finally, go to where you have installed NWN2 and open the app that says "SerialTool.exe", enter the serials and save.
 
 ### To Use MetaPrep
 In the game, open the console by typing ~

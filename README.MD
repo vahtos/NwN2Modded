@@ -1,4 +1,4 @@
-### Install
+## Install
 * (Optional - Recommended) install [git](https://git-scm.com/download/win), then open command prompt or powershell in your NwN 2 "override" folder, and type `git clone https://github.com/vahtos/NwN2Modded.git`
 * If not using git, download the .zip file https://github.com/vahtos/NwN2Modded.git, extract it to your NwN 2 "override" folder.
 * Copy d2d9.dll and dxvk.conf to your game folder (C:\Program Files (x86)\GOG Galaxy\Games\NWN2 Complete)
@@ -10,7 +10,7 @@
 Run the Pull_Latest.bat to update to the latest files in this repo.
 
 
-### To Join Multiplayer Games
+## To Join Multiplayer Games
 
 1. Go to [gog.com](https://www.gog.com/) and log in
 
@@ -20,7 +20,7 @@ Run the Pull_Latest.bat to update to the latest files in this repo.
 
 4. Finally, go to where you have installed NWN2 and open the app that says "SerialTool.exe", enter the serials and save.
 
-### To Use MetaPrep
+## To Use MetaPrep
 In the game, open the console by typing ~
 
 ```

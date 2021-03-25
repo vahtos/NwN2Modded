@@ -7,7 +7,7 @@
 
 **** Start the game using override\clientextension_latest\NWLauncher.exe ****
 
-Run the Pull_Latest.bat to update to the latest files in this repo.
+If you installed using git, you can run the Pull_Latest.bat to update to the latest files in this repo.
 
 
 ## To Join Multiplayer Games

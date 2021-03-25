@@ -47,3 +47,6 @@ whether you want re-buffing to happen Fast or As Actions. Fast means
 all spell buffs are cast quickly, and As Actions means each preparation takes
 a normal round to cast. If you want to change your previous setup, repeat the
 console commands above.
+
+## Kaedrin's PrC Classes Mod
+http://nwn2customcontent.wikidot.com/prc

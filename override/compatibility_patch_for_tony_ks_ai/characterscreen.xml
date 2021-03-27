@@ -1511,7 +1511,26 @@
 						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","4","0") />
 				</UIPane>
 			</UICollapsable>
-			
+
+						<!-- Monster heal and rest -->
+			<UICollapsable name="BEHAVIOR_DISARM_COL" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT yPadding=1 xPadding=5 indent=20 isexpanded=true >
+				<UIButton name="BEHAVIOR_MONSTER_HEAL_REST_COL_HEADER" strref="233034" header=true x=0 y=0 style="BEHAVIOR_COLLAPSABLE_HEADER" />
+				<!-- Monster wander On Button -->
+				<UIPane name="BEHAVIOR_DISARM_PANE_ON" x=0 y=0 height=32 width=PARENT_WIDTH >
+					<UIButton name="BEHAVIOR_MONSTER_HEAL_REST_STATE_BUTTON_ON" x=0 y=4 style="BEHAVIOR_STATE_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","1048576","1") />
+					<UIButton name="BEHAVIOR_MONSTER_HEAL_REST_TEXT_BUTTON_ON" strref="181250" x=25 y=0 style="BEHAVIOR_TEXT_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","1048576","1") />
+				</UIPane>
+				<!-- Monster wander Off Button -->
+				<UIPane name="BEHAVIOR_DISARM_PANE_ON" x=0 y=0 height=32 width=PARENT_WIDTH >
+					<UIButton name="BEHAVIOR_MONSTER_HEAL_REST_STATE_BUTTON_OFF" x=0 y=4 style="BEHAVIOR_STATE_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","1048576","0") />
+					<UIButton name="BEHAVIOR_MONSTER_HEAL_REST_TEXT_BUTTON_OFF" strref="181251" x=25 y=0 style="BEHAVIOR_TEXT_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","1048576","0") />
+				</UIPane>
+			</UICollapsable>	
+
 			<!-- Knockdown -->
 			<UICollapsable name="BEHAVIOR_DISARM_COL" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT yPadding=1 xPadding=5 indent=20 isexpanded=true >
 				<UIButton name="BEHAVIOR_KNOCKDOWN_COL_HEADER" strref="233043" header=true x=0 y=0 style="BEHAVIOR_COLLAPSABLE_HEADER" />
@@ -1720,6 +1739,25 @@
 						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","131072","0") />
 					<UIButton name="BEHAVIOR_PAUSE_FOR_TRAPS_TEXT_BUTTON_OFF" strref="181251" x=25 y=0 style="BEHAVIOR_TEXT_BUTTON"
 						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","131072","0") />
+				</UIPane>
+			</UICollapsable>
+			
+			<!-- Associate inventory -->
+			<UICollapsable name="BEHAVIOR_DISARM_COL" x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT yPadding=1 xPadding=5 indent=20 isexpanded=true >
+				<UIButton name="BEHAVIOR_ASSOC_INVENTORY_COL_HEADER" strref="1000" header=true x=0 y=0 style="BEHAVIOR_COLLAPSABLE_HEADER" />
+				<!-- Associate inventory On Button -->
+				<UIPane name="BEHAVIOR_DISARM_PANE_ON" x=0 y=0 height=32 width=PARENT_WIDTH >
+					<UIButton name="BEHAVIOR_ASSOC_INVENTORY_STATE_BUTTON_ON" x=0 y=4 style="BEHAVIOR_STATE_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","524288","1") />
+					<UIButton name="BEHAVIOR_ASSOC_INVENTORY_TEXT_BUTTON_ON" strref="181250" x=25 y=0 style="BEHAVIOR_TEXT_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","524288","1") />
+				</UIPane>
+				<!-- Associate inventory Off Button -->
+				<UIPane name="BEHAVIOR_DISARM_PANE_ON" x=0 y=0 height=32 width=PARENT_WIDTH >
+					<UIButton name="BEHAVIOR_ASSOC_INVENTORY_STATE_BUTTON_OFF" x=0 y=4 style="BEHAVIOR_STATE_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","524288","0") />
+					<UIButton name="BEHAVIOR_ASSOC_INVENTORY_TEXT_BUTTON_OFF" strref="181251" x=25 y=0 style="BEHAVIOR_TEXT_BUTTON"
+						OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_option_hench_change","524288","0") />
 				</UIPane>
 			</UICollapsable>
 

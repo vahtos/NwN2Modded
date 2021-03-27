@@ -12,3 +12,5 @@ The above changes should also fix an issue where the AI won't attack by deleting
 - Deleted the .NCS files for bigby spells, Flame Arrow (was copy/pasted Endure Elements script...), and all Hold spells based on people saying they were all bugged. These will not be overridden and will be vanilla spells.
 
 - Renamed kprc spells to ".BAK" that are updated in MetaPrep (per MetaPrep instructions).
+
+- Updated TonyK AI to 2.5

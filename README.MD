@@ -1,11 +1,26 @@
-1. Copy d2d9.dll and dxvk.conf to your game folder (C:\Program Files (x86)\GOG Galaxy\Games\NWN2 Complete)
-2. Copy the contents of the "override" folder to Documents\Neverwinter Nights 2\override
-3. Copy "dialog.TLK" to Documents\Neverwinter Nights 2
+## Install
+* (Optional - Recommended) install [git](https://git-scm.com/download/win), then open command prompt or powershell in your NwN 2 "override" folder, and type `git clone https://github.com/vahtos/NwN2Modded.git`
+* If not using git, download the .zip file https://github.com/vahtos/NwN2Modded.git, extract it to your NwN 2 "override" folder.
+* Copy d2d9.dll and dxvk.conf to your game folder (C:\Program Files (x86)\GOG Galaxy\Games\NWN2 Complete)
+* Copy the contents of the "override" folder to Documents\Neverwinter Nights 2\override
+* Copy "dialog.TLK" to Documents\Neverwinter Nights 2
 
 **** Start the game using override\clientextension_latest\NWLauncher.exe ****
 
+If you installed using git, you can run the Pull_Latest.bat to update to the latest files in this repo.
 
-### To Use MetaPrep
+
+## To Join Multiplayer Games
+
+1. Go to [gog.com](https://www.gog.com/) and log in
+
+2. Put mouse over your profile and click games
+
+3. In the game list click NWN2, More and Serial Keys.
+
+4. Finally, go to where you have installed NWN2 and open the app that says "SerialTool.exe", enter the serials and save.
+
+## To Use MetaPrep
 In the game, open the console by typing ~
 
 ```
@@ -32,3 +47,6 @@ whether you want re-buffing to happen Fast or As Actions. Fast means
 all spell buffs are cast quickly, and As Actions means each preparation takes
 a normal round to cast. If you want to change your previous setup, repeat the
 console commands above.
+
+## Kaedrin's PrC Classes Mod
+http://nwn2customcontent.wikidot.com/prc
